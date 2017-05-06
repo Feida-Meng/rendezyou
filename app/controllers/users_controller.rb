@@ -21,9 +21,15 @@ class UsersController < ApplicationController
       end
   end
 
+  def destroy
+    @user = current_user
+    @user.destroy
+    redirect_to tours_url
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :username, :email, :phone, :password, :password_confirmation, :picture)
   end
-  
+
 end
