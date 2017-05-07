@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170505190355) do
+ActiveRecord::Schema.define(version: 20170507120903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,13 +21,18 @@ ActiveRecord::Schema.define(version: 20170505190355) do
     t.boolean "confirm"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "tour_id"
+    t.integer "booking_size"
   end
 
   create_table "schedules", force: :cascade do |t|
-    t.datetime "tourtime"
+    t.datetime "tour_start_time"
     t.integer "tour_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "tour_end_time"
+    t.integer "max_capacity"
+    t.integer "current_capacity"
   end
 
   create_table "tours", force: :cascade do |t|
