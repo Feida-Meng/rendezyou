@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 20170507120903) do
     t.boolean "confirm"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "tour_id"
     t.integer "booking_size"
   end
 

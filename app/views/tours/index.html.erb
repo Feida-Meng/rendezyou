@@ -1,0 +1,17 @@
+<h2>Tours</h2>
+
+<% @tours.each do |tour| %>
+
+<h3>
+  <%= link_to tour.name, tour_path(tour.id)%>
+</h3>
+<p><%= tour.description %></p>
+<p><%= tour.city %>, <%= tour.country %></p>
+<p>Starting Address: <%= tour.address %></p>
+<p>Category: <%= tour.category %></p>
+<p>Capacity: <%= tour.capacity %></p>
+
+
+  <% end %>
+
+<%= link_to 'Create a New Tour', new_tour_path %>
