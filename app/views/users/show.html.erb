@@ -1,0 +1,11 @@
+<!-- <h1>Users#show</h1>
+<p>Find me in app/views/users/show.html.erb</p> -->
+
+<h2>MY TOURS</h2>
+
+<% @tours.each do |tous| %>
+<% if current.user.id == tour.user_id %>
+  <%= tour.name %>
+  <%= tour.description%>
+  <%= link_to "Edit Tours", edit_tour_url(tour.id) %>
+<% end %>
