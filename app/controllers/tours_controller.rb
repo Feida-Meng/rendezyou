@@ -5,6 +5,7 @@ class ToursController < ApplicationController
 
   def new
     @tour = Tour.new
+    @tour.schedules.build
   end
 
   def show
@@ -44,7 +45,8 @@ class ToursController < ApplicationController
   private
 
   def tour_params
-    params.require(:tour).permit(:name, :description, :city, :country, :address, :category, :capacity)
+    # params[:schedules][:current_capacity] = 0
+    params.require(:tour).permit(:name, :description, :city, :country, :address, :category, :capacity, schedules_attributes: [:tour_start_time, :tour_end_time, :max_capacity, :current_capacity])
   end
 
 end

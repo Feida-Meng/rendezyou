@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :load_tour,except: %i(load_user booking_params)
-  before_action :load_tour,except: %i(load_tour booking_params)
+  before_action :load_user,except: %i(load_tour booking_params)
 
   def new
     @booking = Booking.new
@@ -8,8 +8,9 @@ class BookingsController < ApplicationController
   end
 
   def create
-    # byebug testing
+    byebug
     @booking = @tour.bookings.build(booking_params)
+
 
     if @booking.booking(@tour)
       redirect_to user_path(@user)
@@ -48,7 +49,7 @@ private
  end
 
  def load_user
-   @user = User.find(params[:user_id]);
+   @user = current_user;
  end
 
   def booking_params

@@ -4,9 +4,9 @@ class Booking < ApplicationRecord
   belongs_to :tour
 
   def booking(current_tour)
-    tourtime = current_tour.schedules.find(schedule_id)
+    tourtime = current_tour.schedules.find(self.schedule_id)
     if capacity_check(tourtime,booking_size) && self.save #call capacity_check method below
-      tourtime.update(current_capacity: tourtime.current_capacity + booking_size)
+      tourtime.updates(current_capacity: tourtime.current_capacity + booking_size)
     else
       false
     end
@@ -15,7 +15,7 @@ class Booking < ApplicationRecord
 
   def edit_booking(new_booking,current_tour)
     tourtime = current_tour.schedules.find(schedule_id)
-    if new_booking.schedule_id != shedule_id #check if new booking has the same tour session as the old one
+    if new_booking.schedule_id != schedule_ids #check if new booking has the same tour session as the old one
       if new_booking.booking(current_tour) #call booking() method to create new tour session
         cancel_booking(current_tour) #call cancel_booking method
         return true #double check if necessary, just in case.
