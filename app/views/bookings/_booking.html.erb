@@ -16,7 +16,7 @@ please fill the information below to submit booking request
 
   <div class="schedule_id">
     <%= f.label :schedule_id %>
-    <%=collection_select :booking, :schedule_id, @tour.schedules, :id, :tour_session%>
+    <%=collection_select :tour, :schedule_id, @tour.schedules, :id, :tour_session%>
   </div>
 
   <div class="submit">

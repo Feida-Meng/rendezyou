@@ -8,8 +8,9 @@ class BookingsController < ApplicationController
   end
 
   def create
-    # byebug testing
+    byebug
     @booking = @tour.bookings.build(booking_params)
+
 
     if @booking.booking(@tour)
       redirect_to user_path(@user)
