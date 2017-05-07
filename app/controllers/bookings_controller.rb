@@ -1,10 +1,10 @@
 class BookingsController < ApplicationController
   before_action :load_tour,except: %i(load_user booking_params)
-  # before_action :load_tour,except: %i(load_tour booking_params)
+  before_action :load_tour,except: %i(load_tour booking_params)
 
   def new
     @booking = Booking.new
-    #try render "booking" form directly other than default view later 
+    #try render "booking" form directly other than default view later
   end
 
   def create
@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
     @booking = @tour.bookings.build(booking_params)
 
     if @booking.booking(@tour)
-      redirect_to tour_path(@tour)
+      redirect_to user_path(@user)
     else
       render :new #try render "booking" directly later
     end
