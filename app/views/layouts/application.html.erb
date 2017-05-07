@@ -19,7 +19,6 @@
     <%end%>
 
 
-    <%= yield %>
 
       <p class="userinfo">
         <%if current_user %>
@@ -28,5 +27,6 @@
           <%= link_to "Log in", new_session_path %> or <%=link_to "Sign Up", new_user_path %>
         <%end%>
       </p>
+      <%= yield %>
   </body>
 </html>
