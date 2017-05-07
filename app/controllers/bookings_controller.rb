@@ -32,8 +32,12 @@ class BookingsController < ApplicationController
       render :edit
     end
 
-  # @booking.update
+  end
 
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.cancel_booking(@tour)
+    redirect_to user_path(@user)
   end
 
 
