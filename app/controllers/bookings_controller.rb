@@ -19,6 +19,25 @@ class BookingsController < ApplicationController
 
   end
 
+  def edit
+    @booking = Booking.find(params[:id])
+  end
+
+  def update
+    @oldbooking = Booking.find(params[:id])
+    @booking=Booking.new(booking_params)
+    if @oldbooking.edit_booking(@booking,@tour)
+      redirect_to user_path(@user)
+    else
+      render :edit
+    end
+
+  # @booking.update
+
+  end
+
+
+
 private
  def load_tour
    @tour = Tour.find(params[:tour_id]);
@@ -31,7 +50,7 @@ private
   def booking_params
   # params[:booking][:tour_id] = 1 testing
   # params[:booking][:user_id] = 1 testing
-  params.require(:booking).permit( :user_id, :schedule_id, :booking_size)
+  params.require(:booking).permit( :tour_id,:user_id, :schedule_id, :booking_size)
   end
 
 
