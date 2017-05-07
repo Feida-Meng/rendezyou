@@ -1,3 +1,7 @@
 <h2><%= @tour.name %></h2>
 
 <%= render 'tourdetails', tour: @tour %>
+
+<%= link_to 'Edit this Tour', edit_tour_path(@tour.id) %>
+<%= link_to 'Delete this Tour', tour_path(@tour.id), method: :delete %>
+<%= link_to 'Back to Tours', tours_path %>
