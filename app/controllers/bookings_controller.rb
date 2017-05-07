@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-
+    # byebug testing
     @booking = @tour.bookings.build(booking_params)
 
     if @booking.booking(@tour)
@@ -28,7 +28,8 @@ private
  end
 
   def booking_params
-  # params[:booking][:user_id] = 1
+  # params[:booking][:tour_id] = 1 testing
+  # params[:booking][:user_id] = 1 testing
   params.require(:booking).permit( :user_id, :schedule_id, :booking_size)
   end
 
