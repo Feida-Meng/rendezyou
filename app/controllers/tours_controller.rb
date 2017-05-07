@@ -29,7 +29,7 @@ class ToursController < ApplicationController
     @tour = Tour.find(params[:id])
     @tour.update_attributes(tour_params)
     if @tour.save
-      redirect_to tours_path
+      redirect_to tour_path
     else
       render :edit
     end
