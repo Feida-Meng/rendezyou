@@ -12,6 +12,15 @@ class UsersController < ApplicationController
     @tours = Tour.all
   end
 
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      redirect_to user_url(@user)
+    else
+      render :new
+    end
+  end
+
   def update
     @user = current_user
       if @user.update_attributes(user_params)
@@ -29,7 +38,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :username, :email, :phone, :picture) #:password, :password_confirmation,
+    params.require(:user).permit(:name, :username, :email, :phone, :password, :password_confirmation, :picture)
   end
 
 end

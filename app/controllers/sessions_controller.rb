@@ -3,12 +3,10 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user =
-    User.find_by_username(params[:username])
+    user = User.find_by(email: params[:email])
       if user && user.authenticate(params[:password])
           session[:user_id] = user.id
-          redirect_to tours_url, :notice =>
-          "You are now logged in."
+          redirect_to user_url(user), :notice =>"You are now logged in."
       else
         flash.now[:alert] = "Invalid username or password"
         render "new"
