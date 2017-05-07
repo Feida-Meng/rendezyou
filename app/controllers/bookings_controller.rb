@@ -4,6 +4,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    #try render "booking" form directly other than default view later 
   end
 
   def create
@@ -13,7 +14,7 @@ class BookingsController < ApplicationController
     if @booking.booking(@tour)
       redirect_to tour_path(@tour)
     else
-      render :new
+      render :new #try render "booking" directly later
     end
 
   end
