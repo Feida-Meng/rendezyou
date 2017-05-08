@@ -1,6 +1,6 @@
 class ToursController < ApplicationController
   before_action :ensure_logged_in, only: [:new, :create, :edit, :destroy]
-  # before_action :ensure_tour_user, only: [:edit, :update, :destroy]
+
 
   def index
     @tours = Tour.all
