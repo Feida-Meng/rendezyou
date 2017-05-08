@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   root 'tours#index'
 
   resources :tours do
-    resources :bookings, except: %i(index )
+    resources :schedules, shallow: true do
+      resources :bookings, shallow: true
+    end
   end
 
 
