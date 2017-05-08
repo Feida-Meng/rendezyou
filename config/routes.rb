@@ -18,8 +18,8 @@ Rails.application.routes.draw do
   root 'tours#index'
 
   resources :tours do
-    resources :schedules, shallow: true do
-      resources :bookings, shallow: true
+    resources :schedules do
+      resources :bookings
     end
   end
 
