@@ -1,7 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :schedule
   belongs_to :user
-  belongs_to :tour
+
 
   def tourtime
     Schedule.find(schedule_id)
