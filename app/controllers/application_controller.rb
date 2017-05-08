@@ -22,4 +22,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def ensure_booking_user(booking)
+    unless current_user.id == booking.user_id
+      flash[:alert] = "You are not authorized to do this"
+      redirect_to root_path
+    end
+  end
+
 end

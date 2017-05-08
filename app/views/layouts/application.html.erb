@@ -9,7 +9,9 @@
   </head>
 
   <body>
-
+    <header>
+      <%= link_to "Home", root_path %>
+    </header>
 
     <% if flash[:notice]%>
       <p id="notice"><%=flash[:notice] %></p>
