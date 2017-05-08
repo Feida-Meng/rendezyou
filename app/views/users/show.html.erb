@@ -23,7 +23,7 @@
       <p> Tour date and time: <%= Schedule.find(booking.schedule_id).tour_session %> </p>
       <p> Date I booked: <%= booking.created_at.strftime("%Y %b %d") %></p>
       <p> Number of people I booked for (including myself): <%= booking.booking_size %></p>
-      <%= link_to "Edit Booking", edit_tour_booking_path(Tour.find(booking.tour_id),booking) %>
+      <%= link_to "Edit Booking", edit_tour_booking_path(Tour.find(booking.tour_id),booking) %> | <%= link_to "Delete Booking", tour_booking_path(Tour.find(booking.tour_id),booking), method: :delete, data: {confirm: "Are you sure you want to delete the?"}%>
       <p>-----------------------------------------------------</p>
     </div>
   <% end %>

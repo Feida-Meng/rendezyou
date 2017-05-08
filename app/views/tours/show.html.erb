@@ -5,3 +5,8 @@
 <%= link_to 'Edit this Tour', edit_tour_path(@tour.id) %>
 <%= link_to 'Delete this Tour', tour_path(@tour.id), method: :delete %>
 <%= link_to 'Back to Tours', tours_path %>
+
+<br>
+<br>
+<br>
+<%= link_to 'Book now!', new_tour_booking_path(@tour) %>
