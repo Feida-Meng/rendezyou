@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-    byebug
+    # byebug
     @booking = @tour.bookings.build(booking_params)
 
     if @booking.booking
@@ -25,7 +25,7 @@ class BookingsController < ApplicationController
 
   def update
     @oldbooking = Booking.find(params[:id])
-    byebug
+    # byebug
     @booking = Booking.new(booking_params)
     if @oldbooking.edit_booking(@booking)
       redirect_to user_path(@user)

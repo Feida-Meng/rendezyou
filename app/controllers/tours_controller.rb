@@ -46,7 +46,7 @@ class ToursController < ApplicationController
 
   def tour_params
     params[:tour][:schedules_attributes]["0"][:current_capacity] = 0
-    byebug
+    # byebug
     params.require(:tour).permit(:name, :description, :city, :country, :address, :category, :capacity, schedules_attributes: [:tour_start_time, :tour_end_time, :max_capacity, :current_capacity])
   end
 
