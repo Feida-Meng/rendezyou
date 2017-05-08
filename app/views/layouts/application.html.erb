@@ -19,14 +19,19 @@
     <%end%>
 
 
+  <% if current_user %>
+      <div class="profile_page">
+        <%=link_to "My Profile", profile_path %>
+      </div>
+      <div class="log_out">
+        <%= link_to "Log Out", session_path("current"), :method => :delete %>
+      </div>
+      <% else %>
+      <%= link_to "Log in", new_session_path %> or <%=link_to "Sign Up", new_user_path %>
+      <% end %>
 
-      <p class="userinfo">
-        <%if current_user %>
-          Signed in as <%= current_user.email %>. <%= link_to "Log out", session_path("current"), method: :delete %>
-        <%else%>
-          <%= link_to "Log in", new_session_path %> or <%=link_to "Sign Up", new_user_path %>
-        <%end%>
-      </p>
+
       <%= yield %>
+
   </body>
 </html>

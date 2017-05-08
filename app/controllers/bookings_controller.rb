@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   before_action :load_tour,except: %i(load_user)
   before_action :load_user,except: %i(load_tour)
+  before_action :ensure_logged_in, only: [:create, :edit, :destroy]
 
   def new
     @booking = Booking.new
