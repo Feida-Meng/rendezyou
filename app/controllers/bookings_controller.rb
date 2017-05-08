@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
-  before_action :load_tour,except: %i(load_user booking_params)
-  before_action :load_user,except: %i(load_tour booking_params)
+  before_action :load_tour,except: %i(load_user)
+  before_action :load_user,except: %i(load_tour)
 
   def new
     @booking = Booking.new
@@ -11,8 +11,7 @@ class BookingsController < ApplicationController
     byebug
     @booking = @tour.bookings.build(booking_params)
 
-
-    if @booking.booking(@tour)
+    if @booking.booking
       redirect_to user_path(@user)
     else
       render :new #try render "booking" directly later
@@ -26,8 +25,9 @@ class BookingsController < ApplicationController
 
   def update
     @oldbooking = Booking.find(params[:id])
-    @booking=Booking.new(booking_params)
-    if @oldbooking.edit_booking(@booking,@tour)
+    byebug
+    @booking = Booking.new(booking_params)
+    if @oldbooking.edit_booking(@booking)
       redirect_to user_path(@user)
     else
       render :edit
@@ -53,9 +53,9 @@ private
  end
 
   def booking_params
-  # params[:booking][:tour_id] = 1 testing
-  # params[:booking][:user_id] = 1 testing
-  params.require(:booking).permit( :tour_id,:user_id, :schedule_id, :booking_size)
+  params[:booking][:tour_id] = @tour.id
+  params[:booking][:user_id] = @user.id
+  params.require(:booking).permit( :tour_id, :user_id, :schedule_id, :booking_size)
   end
 
 

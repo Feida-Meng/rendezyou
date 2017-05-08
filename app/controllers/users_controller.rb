@@ -9,7 +9,8 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    @tours = Tour.all
+    @bookings = @user.bookings
+    @tours_created = @user.tours
   end
 
   def create
