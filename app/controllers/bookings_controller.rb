@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   before_action :load_tour,except: %i(load_user)
   before_action :load_user,except: %i(load_tour)
+  before_action :ensure_logged_in, only: [:create, :edit, :destroy, :new]
 
   def new
     @booking = Booking.new
@@ -21,14 +22,16 @@ class BookingsController < ApplicationController
 
   def edit
     @booking = Booking.find(params[:id])
+    ensure_booking_user(@booking)
   end
 
   def update
     @oldbooking = Booking.find(params[:id])
     # byebug
     @booking = Booking.new(booking_params)
+    ensure_booking_user(@oldbooking)
     if @oldbooking.edit_booking(@booking)
-      redirect_to user_path(@user)
+      redirect_to profile_path
     else
       render :edit
     end

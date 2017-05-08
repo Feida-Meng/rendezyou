@@ -29,7 +29,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :county %>
+    <%= f.label :country %>
     <%= f.text_field :country %>
   </div>
 
@@ -47,8 +47,8 @@
 
   <%= f.fields_for :schedules do |s| %>
     <%= render 'schedule_fields', :f => s %><br>
-      <%= render 'schedule_fields', :f => s %><br>
-        <%= render 'schedule_fields', :f => s %>
+      <!-- <%= render 'schedule_fields', :f => s %><br>
+        <%= render 'schedule_fields', :f => s %> -->
     <% end %>
 
 
