@@ -1,30 +1,39 @@
 <!-- <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p> -->
 
-<h2>MY TOURS</h2>
+<h2>Hello <%= @user.name %>!</h2>
 
-<% @tours_created.each do |tour| %>
-  <% if current_user.id == tour.user_id %>
-    <div class="">
-      <%= tour.name %>
-      <%= tour.description%>
-      <%= link_to "Edit Tours", edit_tour_url(tour.id) %>
-    </div>
+<h3>My Guided Tours</h3>
+<% if @tours_created.empty? %>
+  <p>You don't have any guided tours yet! Click <%= link_to "here", new_tour_url %> to create one</p>
+<% else %>
+  <% @tours_created.each do |tour| %>
+    <% if current_user.id == tour.user_id %>
+      <div class="">
+        <%= tour.name %>
+        <%= tour.description%>
+        <%= link_to "Edit Tours", edit_tour_url(tour.id) %>
+      </div>
+    <% end %>
   <% end %>
 <% end %>
 
 <div class="tour">
-  <h2>Tour I booked</h2>
-  <% @bookings.each do |booking| %>
-    <div class="Booking-info">
-      <p> Tour name: <%= link_to "#{Tour.find(booking.tour_id).name}", tour_url(Tour.find(booking.tour_id)) %> </p>
-      <p> Tour description: <%= Tour.find(booking.tour_id).description %> </p>
-      <p> Current tour size: <%= Schedule.find(booking.schedule_id).current_capacity %></p>
-      <p> Tour date and time: <%= Schedule.find(booking.schedule_id).tour_session %> </p>
-      <p> Date I booked: <%= booking.created_at.strftime("%Y %b %d") %></p>
-      <p> Number of people I booked for (including myself): <%= booking.booking_size %></p>
-      <%= link_to "Edit Booking", edit_tour_booking_path(Tour.find(booking.tour_id),booking) %> | <%= link_to "Delete Booking", tour_booking_path(Tour.find(booking.tour_id),booking), method: :delete, data: {confirm: "Are you sure you want to delete the?"}%>
-      <p>-----------------------------------------------------</p>
-    </div>
+<h3>My Booked Tours</h3>
+  <% if @bookings.empty? %>
+    <p>You don't have any tours booked yet! Click <%= link_to "here", tours_url %> to find a tour to book!</p>
+  <% else %>
+    <% @bookings.each do |booking| %>
+      <div class="Booking-info">
+        <p> Tour name: <%= link_to "#{Tour.find(booking.tour_id).name}", tour_url(Tour.find(booking.tour_id)) %> </p>
+        <p> Tour description: <%= Tour.find(booking.tour_id).description %> </p>
+        <p> Current tour size: <%= Schedule.find(booking.schedule_id).current_capacity %></p>
+        <p> Tour date and time: <%= Schedule.find(booking.schedule_id).tour_session %> </p>
+        <p> Date I booked: <%= booking.created_at.strftime("%Y %b %d") %></p>
+        <p> Number of people I booked for (including myself): <%= booking.booking_size %></p>
+        <%= link_to "Edit Booking", edit_tour_booking_path(Tour.find(booking.tour_id),booking) %> | <%= link_to "Delete Booking", tour_booking_path(Tour.find(booking.tour_id),booking), method: :delete, data: {confirm: "Are you sure you want to delete the?"}%>
+        <p>-----------------------------------------------------</p>
+      </div>
+    <% end %>
   <% end %>
 </div>

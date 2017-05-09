@@ -5,11 +5,9 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :tours
 
-  validates :name, presence: true
-  validates :username, presence: true, uniqueness: true
-  # validates :password, presence: true
-  validates :email, presence: true, uniqueness: true
-  validates :phone, presence: true, uniqueness: true
+  validates :name, :username, :email, :phone, :password, presence: true
+  validates :username, :email, :phone, uniqueness: true
+  validates :email, format: { with: /[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+/i }
 
 
 
