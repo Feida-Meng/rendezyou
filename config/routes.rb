@@ -1,13 +1,6 @@
 Rails.application.routes.draw do
 
-  # get 'sessions/new'
-  #
-  # get 'sessions/create'
-  #
-  # get 'sessions/destroy'
-
-
-  resources :users, except: %i(destroy, show)
+  resources :users, except: %i(destroy, index)
 
   get '/profile' => 'users#show'
 
