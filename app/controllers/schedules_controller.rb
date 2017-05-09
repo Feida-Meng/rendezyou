@@ -1,6 +1,10 @@
 class SchedulesController < ApplicationController
   before_action :load_tour
 
+  def index
+    @schedule = Schedule.all
+  end
+
   def new
     @schedule = Schedule.new
   end
@@ -11,7 +15,7 @@ class SchedulesController < ApplicationController
     if @schedule.save
       redirect_to profile_path
     else
-      render: new
+      render :new
     end
   end
 
