@@ -16,25 +16,27 @@ class Booking < ApplicationRecord
   end
 
   def booking
-    save
+    # byebug
+    return  tourtime.update(current_capacity: booking_size ) && save
   end
 
   def edit_booking(new_booking)
 
-    if new_booking.schedule_id != schedule_id #check if new booking has the same tour session as the old one
-      byebug
-      tourtime.update(current_capacity: tourtime.current_capacity - booking_size)
-      update(schedule_id:new_booking.schedule_id,booking_size:new_booking.booking_size)
-      return tourtime.update(current_capacity:tourtime.current_capacity + booking_size)
-    else
+    # if new_booking.schedule_id != schedule_id #check if new booking has the same tour session as the old one
+    #   byebug
+    #   tourtime.update(current_capacity: tourtime.current_capacity - booking_size)
+    #   update(schedule_id:new_booking.schedule_id,booking_size:new_booking.booking_size)
+    #   return tourtime.update(current_capacity:tourtime.current_capacity + booking_size)
+    # else
 
       if  tourtime.update(current_capacity: ( tourtime.current_capacity + new_booking.booking_size - booking_size) )
+        # byebug
         return update(booking_size: new_booking.booking_size )
       else
         return false
       end
 
-    end
+    # end
 
   end
 

@@ -12,9 +12,10 @@ class BookingsController < ApplicationController
     @booking = @schedule.bookings.build(booking_params)
     @booking.user_id = current_user.id
     if @booking.booking
+      byebug
       redirect_to user_path(current_user)
     else
-      render :new #try render "booking" directly later
+      render :new
     end
 
   end
@@ -25,9 +26,9 @@ class BookingsController < ApplicationController
 
   def update
     @oldbooking = Booking.find(params[:id])
-    # byebug
-    @newbooking = Booking.new(booking_params)
-    if @oldbooking.edit_booking(@newbooking)
+    @booking = Booking.new(booking_params)
+    if @oldbooking.edit_booking(@booking)
+      byebug
       redirect_to user_path(current_user)
     else
       render :edit
