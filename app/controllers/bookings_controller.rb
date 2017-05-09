@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
     @booking = @schedule.bookings.build(booking_params)
     @booking.user_id = current_user.id
     if @booking.booking
-      byebug
+      # byebug
       redirect_to user_path(current_user)
     else
       render :new
@@ -28,7 +28,7 @@ class BookingsController < ApplicationController
     @oldbooking = Booking.find(params[:id])
     @booking = Booking.new(booking_params)
     if @oldbooking.edit_booking(@booking)
-      byebug
+      # byebug
       redirect_to user_path(current_user)
     else
       render :edit
