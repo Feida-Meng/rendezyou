@@ -8,6 +8,8 @@ please fill the information below to submit booking request
 
 <%= form_for ([@tour,@schedule,@booking]) do |f|%>
 
+  
+
   <div class="booking_size">
     <%= f.label :booking_size %>
     <%= f.number_field :booking_size, min: 1, max: 20, step:1 %>

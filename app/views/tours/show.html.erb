@@ -10,9 +10,9 @@
 <br>
 <br>
 <% @tour.schedules.each do |t_s| %>
-<div class="">
-
+<p class="">
   <%= t_s.tour_session %>
-  <%= link_to 'Book now!', new_tour_schedule_booking_path(@tour,t_s) %>
-</div>
+</p>
 <% end %>
+
+<%= link_to 'Book now!', new_tour_schedule_booking_path(@tour,t_s) %>
