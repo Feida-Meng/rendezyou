@@ -4,7 +4,6 @@ class ToursController < ApplicationController
 
   def index
     @tours = Tour.all
-
   end
 
   def new
@@ -49,11 +48,6 @@ class ToursController < ApplicationController
   end
 
   private
-
-  # def load_countries_and_cities
-  #   @countries_and_cities = Tour.countries_and_cities
-  #   # byebug
-  # end
 
   def tour_params
     params[:tour][:schedules_attributes]["0"][:current_capacity] = 0
