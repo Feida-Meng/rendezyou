@@ -2,22 +2,24 @@
 
 <%="Tour description: #{@tour.description}" %>
 
-<%="Tour guide: #{@user.name}" %>
+<%="Tour guide: " %>
 
 please fill the information below to submit booking request
 
-<%= form_for ([@tour,@booking]) do |f|%>
+<%= form_for ([@tour,@schedule,@booking]) do |f|%>
+
+
 
   <div class="booking_size">
     <%= f.label :booking_size %>
     <%= f.number_field :booking_size, min: 1, max: 20, step:1 %>
-    #try find a way to link the max: to @tour.schedules.max_capacity- @tour.schedules.current
+    #try find a way to link the max: to @tour.schedules.max_capacity - @tour.schedules.current
   </div>
 
-  <div class="schedule_id">
-    <%= f.label :schedule_id %>
-    <%=collection_select :booking, :schedule_id, @tour.schedules, :id, :tour_session%>
-  </div>
+  <!-- <div class="schedule_id"> -->
+    <!-- <%= f.label :schedule_id %> -->
+    <!-- <%=collection_select :booking, :schedule_id, @tour.schedules, :id, :tour_session%> -->
+  <!-- </div> -->
 
   <div class="submit">
     <%= f.submit "Submit booking request" %>

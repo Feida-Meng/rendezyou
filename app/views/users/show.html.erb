@@ -14,17 +14,27 @@
 <% end %>
 
 <div class="tour">
-  <h2>Tour I booked</h2>
-  <% @bookings.each do |booking| %>
-    <div class="Booking-info">
-      <p> Tour name: <%= link_to "#{Tour.find(booking.tour_id).name}", tour_url(Tour.find(booking.tour_id)) %> </p>
-      <p> Tour description: <%= Tour.find(booking.tour_id).description %> </p>
-      <p> Current tour size: <%= Schedule.find(booking.schedule_id).current_capacity %></p>
-      <p> Tour date and time: <%= Schedule.find(booking.schedule_id).tour_session %> </p>
-      <p> Date I booked: <%= booking.created_at.strftime("%Y %b %d") %></p>
-      <p> Number of people I booked for (including myself): <%= booking.booking_size %></p>
-      <%= link_to "Edit Booking", edit_tour_booking_path(Tour.find(booking.tour_id),booking) %> | <%= link_to "Delete Booking", tour_booking_path(Tour.find(booking.tour_id),booking), method: :delete, data: {confirm: "Are you sure you want to delete the?"}%>
-      <p>-----------------------------------------------------</p>
-    </div>
+  <% if @bookings.size > 0 %>
+    <h2>Tour I booked</h2>
+
+    <% @tours_booked.each do |t| %>
+      <% t.schedules.each do |s| %>
+        <% s.bookings.each do |b| %>
+          <div class="Booking-info">
+            <p> Tour name: <%= link_to t.name,tour_url(t) %> </p>
+            <p> Tour description: <%= t.description %> </p>
+            <p> Current tour size: <%= Schedule.find(b.schedule_id).current_capacity %></p>
+            <p> Tour date and time: <%= Schedule.find(b.schedule_id).tour_session %> </p>
+            <p> Date I booked: <%= b.created_at.strftime("%Y %b %d") %></p>
+            <p> Number of people I booked for (including myself): <%= b.booking_size %></p>
+            <%= link_to "Edit Booking", edit_tour_schedule_booking_path(t,Schedule.find(b.schedule_id),b) %> | <%= link_to "Cancel Booking", tour_schedule_booking_path(t,Schedule.find(b.schedule_id),b), method: :delete, data: {confirm: "Are you sure you want to delete the?"}%>
+            <p>-----------------------------------------------------</p>
+          </div>
+        <% end %>  
+      <% end %>
+    <% end %>
+  <% else %>
+    <h2>I have not booked any tour yet, <%= link_to "find a tour now!", "/"%> </h2>
+
   <% end %>
 </div>

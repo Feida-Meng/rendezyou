@@ -9,4 +9,9 @@
 <br>
 <br>
 <br>
-<%= link_to 'Book now!', new_tour_schedule_booking_path(@tour.id) %>
+<% @tour.schedules.each do |t_s| %>
+<p class="">
+  <%= "#{t_s.tour_session}, #{t_s.current_capacity} people booked, space left: #{t_s.max_capacity - t_s.current_capacity}" %>
+  <%= link_to 'Book now!', new_tour_schedule_booking_path(@tour,t_s) %>
+</p>
+<% end %>
