@@ -11,6 +11,13 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :phone, presence: true, uniqueness: true
 
+  def booked_tours
+    tours=[]
+    bookings.each do |b|
+      tours << Tour.find( Schedule.find( (b.schedule_id) ).tour_id )
+    end
+    return tours
 
+  end
 
 end

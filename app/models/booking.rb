@@ -8,7 +8,7 @@ class Booking < ApplicationRecord
   end
   def booking
     # tourtime = current_tour.schedules.find(schedule_id)
-    # byebug
+    byebug
     if capacity_check(booking_size) && self.save #call capacity_check method below
       tourtime.update(current_capacity: tourtime.current_capacity + booking_size)
     else
@@ -19,16 +19,17 @@ class Booking < ApplicationRecord
 
   def edit_booking(new_booking)
 
-    if new_booking.schedule_id != schedule_id #check if new booking has the same tour session as the old one
-      # byebug
-      if new_booking.booking #call booking() method to create new tour session
-        cancel_booking #call cancel_booking method
-        return true #double check if necessary, just in case.
-      else
-        return false
-      end
+    # if new_booking.schedule_id != schedule_id #check if new booking has the same tour session as the old one
+    #   byebug
+    #   if new_booking.booking #call booking() method to create new tour session
+    #     cancel_booking #call cancel_booking method
+    #     return true #double check if necessary, just in case.
+    #   else
+    #     return false
+    #   end
     elsif new_booking.booking_size != booking_size #check if the new booking size = the old one
       if new_booking.capacity_check(new_booking.booking_size - booking_size)#check if the new booking would over max capacity
+        byebug
         tourtime.update(current_capacity: ( tourtime.current_capacity + new_booking.booking_size - booking_size) )
         return update(booking_size: new_booking.booking_size )
       else
