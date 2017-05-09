@@ -1,6 +1,15 @@
 class Booking < ApplicationRecord
   belongs_to :schedule
   belongs_to :user
+  validate :capacity_check
+ # after_save :update_capacitiy
+
+ def capacity_check
+   unless tourtime.max_capacity > (tourtime.current_capacity + booking_size)
+     errors[:base] << "No capacity"
+   end
+
+ end
 
 
   def tourtime
