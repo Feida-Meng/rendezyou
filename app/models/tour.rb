@@ -11,9 +11,14 @@ class Tour < ApplicationRecord
       COUNTRIES << [k,k]
     end
 
-    # CITIES = []
-    # COUNTRIES_AND_CITIES.each do |k,v|
-    #   COUNTRIES << [v,v]
-    # end
+    def self.cities(country)
+      cities = []
+      COUNTRIES_AND_CITIES[:country].each do |city|
+        cities << [city,city]
+      end
+    end
+
+
+
 
 end
