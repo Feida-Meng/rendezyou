@@ -4,7 +4,11 @@
 <h2>Hello <%= @user.name %>!</h2>
 
 
+<div class="yield">
+
+
 <h3 class="sub_heading">My Guided Tours</h3>
+
 <% if @tours_created.empty? %>
   <p>You don't have any guided tours yet! Click <%= link_to "here", new_tour_url %> to create one</p>
 <% else %>
@@ -55,4 +59,6 @@
       <% end %>
     <% end %>
   <% end %>
+</div>
+
 </div>

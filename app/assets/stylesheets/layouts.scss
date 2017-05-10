@@ -1,0 +1,54 @@
+
+// Our code starts here
+ .navigate {
+   position: relative;
+   min-width: 1200px;
+   z-index: 100;
+ }
+
+.nav_bar {
+  width: 100%;
+  height: 6em;
+  background: rgba(0,0,0,.2);
+  position: fixed;
+  min-width: 1200px;
+
+}
+ .nav_home {
+   display: inline-block;
+   color: white;
+   padding: 1.5em;
+   height: 5em;
+ }
+ .a_nav_home{
+   vertical-align: middle;
+   font-family: 'Pacifico', cursive;
+   font-size: 2em;
+   color: #ffc800;
+ }
+
+ .not_current_user {
+   display: inline-block;
+   color: white;
+   padding: 1.5em;
+   height: 5em;
+   margin-left: 60%;
+ }
+
+ .a_login {
+   vertical-align: middle;
+   color: grey;
+   font-size: 1.1em;
+   padding: 0 10px;
+ }
+ .a_signup{
+   vertical-align: middle;
+   color: grey;
+   font-size: 1.1em;
+   padding: 0 10px;
+
+ }
+
+div.yield{
+  padding-top: 8em;
+}
