@@ -17,9 +17,16 @@
   <% @tour.schedules.each do |t_s| %>
   <p class="">
     <%= "#{t_s.tour_session}, #{t_s.current_capacity} people booked, space left: #{t_s.max_capacity - t_s.current_capacity}" %>
-    <% unless @tour.user_id == current_user.id %> 
+    <% unless @tour.user_id == current_user.id %>
     <%= link_to 'Book now!', new_tour_schedule_booking_path(@tour,t_s) %>
   </p>
   <% end %>
   <% end %>
 <% end %>
+
+<div class="">
+  <% if @tour.user_id == current_user.id %>
+  <%= link_to 'Add more dates', new_tour_schedule_path(@tour) %>
+  <% end %>
+  
+</div>
