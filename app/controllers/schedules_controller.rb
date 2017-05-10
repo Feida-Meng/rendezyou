@@ -17,7 +17,7 @@ class SchedulesController < ApplicationController
     @schedule = @tour.schedules.build(schedule_params)
     ensure_tour_user
     if @schedule.save
-      redirect_to profile_path
+      redirect_to tour_path(@tour)
     else
       render :new
     end
