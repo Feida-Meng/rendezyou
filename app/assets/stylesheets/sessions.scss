@@ -17,7 +17,7 @@
   position: absolute;
   color: white;
   text-align: right;
-  top: 30%;
+  top: 35%;
   right: 7%;
 }
 
@@ -30,11 +30,12 @@
 }
 
 .red_logo{
-  color: #db2d0e;
+  color: white;
+  // color: #db2d0e;
   // color: rgba(255, 255, 255, .9);
   // text-decoration: underline;
-
 }
+
 .tag_line{
   position: relative;
   font-size: 1.4em;
@@ -47,4 +48,15 @@
   background: white;
   width: 100%;
   height: 100em;
+}
+
+.oneliner{
+  // font-family: 'Cabin Sketch', cursive;
+  // font-family: 'Oswald', sans-serif;
+  font-family: 'Yrsa', serif;
+  color: black;
+  font-size: 5em;
+  text-align: center;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
 }
