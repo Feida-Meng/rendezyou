@@ -18,19 +18,19 @@
     <%= f.text_field :name %>
   </div>
 
-  <div class="field">
+  <div clas="field">
     <%= f.label :description %>
     <%= f.text_area :description %>
   </div>
 
-  <div class="field">
-    <%= f.label :city %>
-    <%= f.text_field :city %>
+  <div class="field" >
+      <%= f.label :country %>
+      <%= f.select(:country, options_for_select(Tour::COUNTRIES_AND_CITIES.keys ), :include_blank => "Please select a country") %>
   </div>
 
   <div class="field">
-    <%= f.label :country %>
-    <%= f.text_field :country %>
+    <%= f.label :city %>
+    <%= f.select(:city, options_for_select( Tour::COUNTRIES_AND_CITIES.values ), :include_blank => "Please select a city")%>
   </div>
 
   <div class="field">
@@ -47,11 +47,8 @@
 
   <%= f.fields_for :schedules do |s| %>
     <%= render 'schedule_fields', :f => s %><br>
-      <!-- <%= render 'schedule_fields', :f => s %><br>
-        <%= render 'schedule_fields', :f => s %> -->
+
     <% end %>
-
-
 
   <div class="field">
     <%= f.submit %>
