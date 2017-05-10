@@ -9,9 +9,13 @@
 <br>
 <br>
 <br>
-<% @tour.schedules.each do |t_s| %>
-<p class="">
-  <%= "#{t_s.tour_session}, #{t_s.current_capacity} people booked, space left: #{t_s.max_capacity - t_s.current_capacity}" %>
-  <%= link_to 'Book now!', new_tour_schedule_booking_path(@tour,t_s) %>
-</p>
+<% if @tour.schedules.empty? %>
+  <p>This tour doesn't currently have any dates to be booked! Check back again soon!</p>
+<% else %>
+  <% @tour.schedules.each do |t_s| %>
+  <p class="">
+    <%= "#{t_s.tour_session}, #{t_s.current_capacity} people booked, space left: #{t_s.max_capacity - t_s.current_capacity}" %>
+    <%= link_to 'Book now!', new_tour_schedule_booking_path(@tour,t_s) %>
+  </p>
+  <% end %>
 <% end %>
