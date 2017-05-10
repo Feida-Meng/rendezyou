@@ -4,11 +4,11 @@ Rails.application.routes.draw do
 
   get '/profile' => 'users#show'
 
-  resources :sessions, only: [:new, :create, :destroy, :show]
+  resources :sessions, only: [:new, :create, :destroy]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root 'sessions#show'
+  root 'pages#show'
 
   resources :tours do
     resources :schedules do
