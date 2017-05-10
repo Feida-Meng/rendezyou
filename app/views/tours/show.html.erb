@@ -2,8 +2,10 @@
 
 <%= render 'tourdetails', tour: @tour %>
 
+<% if @tour.user_id == current_user.id %>
 <%= link_to 'Edit this Tour', edit_tour_path(@tour.id) %>
 <%= link_to 'Delete this Tour', tour_path(@tour.id), method: :delete %>
+<% end %>
 <%= link_to 'Back to Tours', tours_path %>
 
 <br>
@@ -15,7 +17,9 @@
   <% @tour.schedules.each do |t_s| %>
   <p class="">
     <%= "#{t_s.tour_session}, #{t_s.current_capacity} people booked, space left: #{t_s.max_capacity - t_s.current_capacity}" %>
+    <% unless @tour.user_id == current_user.id %> 
     <%= link_to 'Book now!', new_tour_schedule_booking_path(@tour,t_s) %>
   </p>
+  <% end %>
   <% end %>
 <% end %>
