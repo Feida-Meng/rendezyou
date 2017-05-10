@@ -10,6 +10,8 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require_tree .
+ *= require_self
 
  */
 
@@ -67,20 +69,19 @@ table {
  @import "bootstrap";
 
 // Our code starts here
-body{
-  background: image-url('top-view-rendez-you.jpg');
-  background-size: 100%;
-}
-
  .navigate {
    position: relative;
+   min-width: 1200px;
+   z-index: 100;
  }
 
 .nav_bar {
   width: 100%;
-  height: 5em;
+  height: 6em;
   background: rgba(0,0,0,.2);
   position: fixed;
+  min-width: 1200px;
+
 }
  .nav_home {
    display: inline-block;
@@ -90,7 +91,9 @@ body{
  }
  .a_nav_home{
    vertical-align: middle;
-   color: yellow;
+   font-family: 'Pacifico', cursive;
+   font-size: 2em;
+   color: #ffc800;
  }
 
  .not_current_user {
@@ -98,7 +101,7 @@ body{
    color: white;
    padding: 1.5em;
    height: 5em;
-   margin-left: 70%;
+   margin-left: 60%;
  }
 
  .a_login {
@@ -113,17 +116,4 @@ body{
    font-size: 1.1em;
    padding: 0 10px;
 
- }
-
- //
- // .nav_login {
- //  display: inline-block;
- //  color: white;
- //  padding: .75em;
- //  margin-left: 50%;
-
- // }
-
- div.container{
-   height: 1100px;
  }
