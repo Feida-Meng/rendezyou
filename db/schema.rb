@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170508203954) do
+ActiveRecord::Schema.define(version: 20170510010255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20170508203954) do
     t.datetime "updated_at", null: false
     t.datetime "tour_end_time"
     t.integer "max_capacity"
-    t.integer "current_capacity"
+    t.integer "current_capacity", default: 0
   end
 
   create_table "tours", force: :cascade do |t|
