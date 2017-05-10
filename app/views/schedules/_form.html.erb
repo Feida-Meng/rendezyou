@@ -19,10 +19,17 @@
   <%=   f.datetime_select :tour_start_time %>
   </div>
 
-  <div class="field">
-    <%= f.label :tour_end_time %>
-    <%= f.datetime_select :tour_end_time %>
-  </div>
+
+<div class="field">
+  <%= f.label :tour_start_time %>
+<%=   f.datetime_select :tour_start_time, ampm: true %>
+</div>
+
+<div class="field">
+  <%= f.label :tour_end_time %>
+  <%= f.datetime_select :tour_end_time, ampm: true%>
+</div>
+
 
   <div class="field">
     <%= f.label :max_capacity, "Capacity" %>
