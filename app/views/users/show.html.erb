@@ -3,19 +3,18 @@
 
 <h2>Hello <%= @user.name %>!</h2>
 
-<h3>My Guided Tours</h3>
-<div class="guided_tours">
+
+<h3 class="sub_heading">My Guided Tours</h3>
 <% if @tours_created.empty? %>
   <p>You don't have any guided tours yet! Click <%= link_to "here", new_tour_url %> to create one</p>
 <% else %>
+  <div class="tour_container">
+  <h4>Click <%= link_to "here", new_tour_url %> to create more tours</h4>
   <% @tours_created.each do |tour| %>
     <% if current_user.id == tour.user_id %>
-      <div class="guided_tour_details">
         <h3><%= tour.name %></h3>
         <%= link_to "Edit Tour", edit_tour_url(tour.id) %><br>
         <%= tour.description%>
-      </div>
-      <div class="guided_tour_schedule">
         <h4>Schedule:</h4>
       <% if tour.schedules.empty? %>
       <p>You don't have any dates scheduled for this tour! Click <%= link_to "here", new_tour_schedule_path(tour) %> to schedule some! </p>
@@ -28,14 +27,14 @@
     <%= link_to "Add another date", new_tour_schedule_path(tour) %>
       <% end %>
     <% end %>
+  </div>
   <% end %>
 <% end %>
-</div>
-</div>
+
 
 <div class="tour">
 
-<h3>My Booked Tours</h3>
+<h3 class="sub_heading">My Booked Tours</h3>
   <% if @bookings.empty? %>
     <p>You don't have any tours booked yet! Click <%= link_to "here", tours_url %> to find a tour to book!</p>
   <% else %>
