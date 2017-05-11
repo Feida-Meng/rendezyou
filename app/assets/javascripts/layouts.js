@@ -15,13 +15,17 @@ $(document).ready(function(){
       };
   });
   $('.a_login').on('click', function(e){
-    e.stopPropagation;
+    e.stopPropagation();
     e.preventDefault;
     $('.login_window').fadeIn();
   });
 
   $('.login_form').on('click', function(e){
-    e.stopPropagation;
+    e.stopPropagation();
     $('.login_window').fadeOut();
+  });
+
+  $('.login_form input').on('click', function(e){
+    e.stopPropagation();
   });
 });
