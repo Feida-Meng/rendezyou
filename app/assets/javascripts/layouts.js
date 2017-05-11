@@ -13,5 +13,15 @@ $(document).ready(function(){
         $('.nav_bar').css('background', 'rgba(0,0,0,0)').css('transition','0.3s ease-in-out');
         // $('a').css('font-size', '100%').css('transition','0.3s ease-in-out');
       };
-  })
+  });
+  $('.a_login').on('click', function(e){
+    e.stopPropagation;
+    e.preventDefault;
+    $('.login_window').fadeIn();
+  });
+
+  $('.login_form').on('click', function(e){
+    e.stopPropagation;
+    $('.login_window').fadeOut();
+  });
 });

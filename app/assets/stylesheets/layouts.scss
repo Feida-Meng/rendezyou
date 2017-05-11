@@ -52,3 +52,28 @@
 div.yield{
   padding-top: 8em;
 }
+
+.login_window {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30,30,30,0.8);
+}
+
+
+.login_form {
+    display: block;
+    width: 400px;
+    height: 18em;
+    padding: 2em;
+    background-color: #b9c2cc;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
