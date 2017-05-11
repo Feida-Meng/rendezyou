@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170511211348) do
+ActiveRecord::Schema.define(version: 20170511212143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,17 @@ ActiveRecord::Schema.define(version: 20170511211348) do
     t.integer "current_capacity", default: 0
   end
 
+  create_table "tourpoints", force: :cascade do |t|
+    t.string "tour_point_name"
+    t.jsonb "tour_point_laglng"
+    t.string "tour_point_img"
+    t.string "tour_point_description"
+    t.bigint "tour_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tour_id"], name: "index_tourpoints_on_tour_id"
+  end
+
   create_table "tours", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -73,4 +84,5 @@ ActiveRecord::Schema.define(version: 20170511211348) do
   end
 
   add_foreign_key "cities", "countries"
+  add_foreign_key "tourpoints", "tours"
 end
