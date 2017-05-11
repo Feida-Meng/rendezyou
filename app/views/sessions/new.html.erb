@@ -1,8 +1,8 @@
 <!-- <h1>Sessions#new</h1>
 <p>Find me in app/views/sessions/new.html.erb</p> -->
 <div class="yield">
-<div class="login_window">
-<%= form_tag sessions_path, {:class => "login_form"} do %>
+<div class="login_window_static">
+<%= form_tag sessions_path, {:class => "login_form_static"} do %>
   <div class="field">
   <%= label_tag :email %>
   <%= text_field_tag :email, params[:email] %>
