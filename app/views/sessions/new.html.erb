@@ -1,13 +1,22 @@
 <!-- <h1>Sessions#new</h1>
 <p>Find me in app/views/sessions/new.html.erb</p> -->
 <div class="yield">
-  <%= form_tag sessions_path do %>
-    <%= label_tag :email %>
-    <%= text_field_tag :email, params[:email] %>
+<div class="login_window_static">
+<%= form_tag sessions_path, {:class => "login_form_static"} do %>
+  <div class="field">
+  <%= label_tag :email %>
+  <%= text_field_tag :email, params[:email] %>
+</div>
 
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-    <%= submit_tag "Log in" %>
+<div class="field">
+  <%= label_tag :password %>
+  <%= password_field_tag :password %>
+</div>
 
-  <% end %>
+<div class="submit">
+  <%= submit_tag "Log in" %>
+</div>
+
+<% end %>
+</div>
 </div>

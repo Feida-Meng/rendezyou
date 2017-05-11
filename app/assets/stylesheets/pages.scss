@@ -1,3 +1,62 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.map_img{
+  position: fixed;
+  width: 100%;
+  z-index: -500;
+  min-width: 1200px;
+}
+
+.logo_container{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+.container{
+  position: absolute;
+  color: white;
+  text-align: right;
+  top: 35%;
+  right: 7%;
+}
+
+.logo{
+  position: relative;
+  font-family: 'Pacifico', cursive;
+  font-size: 8em;
+  font-style: italic;
+  text-shadow: 5px 5px rgba(0, 0, 0, 1);
+}
+
+.red_logo{
+  color: white;
+  // color: #db2d0e;
+  // color: rgba(255, 255, 255, .9);
+  // text-decoration: underline;
+}
+
+.tag_line{
+  position: relative;
+  font-size: 1.4em;
+  letter-spacing: .2em;
+  padding-top: 1.75em;
+  text-shadow: 3px 3px rgba(0, 0, 0, 1);
+}
+
+.set_up{
+  background: white;
+  width: 100%;
+  height: 100em;
+}
+
+.oneliner{
+  // font-family: 'Cabin Sketch', cursive;
+  // font-family: 'Oswald', sans-serif;
+  font-family: 'Yrsa', serif;
+  color: black;
+  font-size: 5em;
+  text-align: center;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+}
