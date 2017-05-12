@@ -1,6 +1,6 @@
 class ToursController < ApplicationController
   before_action :ensure_logged_in, only: [:new, :create, :edit, :destroy]
-  # before_action :load_countries_and_cities, only: [:new, :create]
+  before_action :load_countries, only: [:new, :edit]
 
   def index
     @tours = Tour.all
@@ -21,6 +21,7 @@ class ToursController < ApplicationController
   end
 
   def create
+
     @tour = Tour.new(tour_params)
     @tour.user_id = current_user.id
     if @tour.save
@@ -57,12 +58,14 @@ class ToursController < ApplicationController
   end
 
   private
+  def load_countries
+    @countries = Country.all.order(:name)
+  end
 
 
   def tour_params
-    # params[:tour][:schedules_attributes]["0"][:current_capacity] = 0
-    # byebug
-    params.require(:tour).permit(:name, :description, :city, :country, :address, :category, :capacity, :duration_in_ms)
+
+    params.require(:tour).permit(:name, :description, :country_id, :rendezvous_point, :category, :capacity, :duration_in_ms)
   end
 
 
