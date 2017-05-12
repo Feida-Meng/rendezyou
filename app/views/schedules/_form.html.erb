@@ -1,4 +1,4 @@
-<div class="yield">
+
   <div id="schedule-form">
   <%= form_for ([@tour, @schedule]) do |f| %>
 
@@ -33,13 +33,12 @@
   </div>
 
   <div class="submit">
-   <%= f.submit %>
-
-  <button type="button" name="add" id="add-schedule">Add Another Date</button>
+   <%= f.submit "Save Schedule", name: "save_one" %>
+   or
+   <%= f.submit "Save and Add Another Date", name: "add_more" %>
   </div>
 
 
 
   <% end %>
   </div>
-</div>
