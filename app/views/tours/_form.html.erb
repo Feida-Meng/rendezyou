@@ -1,5 +1,3 @@
-<div class="yield">
-
 <%= form_for @tour do |f| %>
 
 <% if @tour.errors.any? %>
@@ -16,50 +14,71 @@
 
   <form class="form-horizontal">
 
-    <div class="form-group">
-      <%= f.label :name, :class=>"col-sm-1 control-label" %>
-      <div class="col-sm-12">
-        <%= f.text_field :name, :class=>"form-control" %>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :description, :class=>"col-sm-1 control-label" %>
-      <div class="col-sm-12">
-        <%= f.text_area :description, :class=>"form-control" %>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :country, :class=>"col-sm-1 control-label" %>
-      <div class="col-sm-12">
-        <%= f.select(:country, options_for_select(Tour::COUNTRIES_AND_CITIES.keys ), :include_blank => "Please select a country", :class=>"form-control") %>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :city, :class=>"col-sm-1 control-label" %>
-        <div class="col-sm-12">
-          <%= f.select(:city, options_for_select( Tour::COUNTRIES_AND_CITIES.values ), :include_blank => "Please select a city", :class=>"form-control")%>
-        </div>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :address, :class=>"col-sm-1 control-label" %>
-        <div class="col-sm-12">
-          <%= f.text_field :address, :class=>"form-control" %>
-        </div>
-    </div>
 
     <div class="form-group">
       <%= f.label :category, :class=>"col-sm-1 control-label"  %>
-        <div class="col-sm-12">
+        <div class="col-sm-8">
           <%= f.text_field :category, :class=>"form-control" %>
         </div>
     </div>
 
+        <br>
+        <br>
+
     <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
+      <%= f.label :name, :class=>"col-sm-1 control-label" %>
+      <div class="col-sm-8">
+        <%= f.text_field :name, :class=>"form-control" %>
+      </div>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="form-group">
+      <%= f.label :description, :class=>"col-sm-1 control-label" %>
+      <div class="col-sm-8">
+        <%= f.text_area :description, :class=>"form-control" %>
+      </div>
+    </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+    <div class="form-group">
+      <%= f.label :country, :class=>"col-sm-1 control-label" %>
+      <div class="col-sm-8">
+        <%= f.select(:country, options_for_select(Tour::COUNTRIES_AND_CITIES.keys ), :include_blank => "Please select a country", :class=>"form-control") %>
+      </div>
+    </div>
+
+        <br>
+        <br>
+
+    <div class="form-group">
+      <%= f.label :city, :class=>"col-sm-1 control-label" %>
+        <div class="col-sm-8">
+          <%= f.select(:city, options_for_select( Tour::COUNTRIES_AND_CITIES.values ), :include_blank => "Please select a city", :class=>"form-control")%>
+        </div>
+    </div>
+
+        <br>
+        <br>
+
+    <div class="form-group">
+      <%= f.label :address, :class=>"col-sm-1 control-label" %>
+        <div class="col-sm-8">
+          <%= f.text_field :address, :class=>"form-control" %>
+        </div>
+    </div>
+
+        <br>
+        <br>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-6">
         <%= f.submit %>
         <button><%= link_to 'Cancel', tours_path %></button>
       </div>
