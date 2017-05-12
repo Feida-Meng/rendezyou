@@ -59,7 +59,10 @@
     </div>
 
     <div class="form-group">
-      <%= f.submit %>
+      <div class="col-sm-offset-2 col-sm-10">
+        <%= f.submit %>
+        <button><%= link_to 'Cancel', tours_path %></button>
+      </div>
     </div>
 
   </div>
