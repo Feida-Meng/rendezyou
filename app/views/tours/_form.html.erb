@@ -32,20 +32,15 @@
     </div>
 
 
-  <div class="field">
-    <%= f.label :capacity %>
-    <%= f.number_field :capacity %>
-  </div>
+    <div class="field">
+      <%= f.label :capacity %>
+      <%= f.number_field :capacity %>
+    </div>
 
-  <div class="field">
-    <%= f.label :duration_in_ms, "Approximate Duration(hrs)" %>
-    <%= f.number_field :duration_in_ms %>
-  </div>
-
-  <div class="field">
-    <%= f.label :address %>
-    <%= f.text_field :address %>
-  </div>
+    <div class="field">
+      <%= f.label :duration_in_ms, "Approximate Duration(hrs)" %>
+      <%= f.number_field :duration_in_ms %>
+    </div>
 
     <div class="form-group">
       <%= f.label :description, :class=>"col-sm-1 control-label" %>
@@ -54,48 +49,28 @@
       </div>
     </div>
 
-
-    <div class="form-group">
-      <%= f.label :country, :class=>"col-sm-1 control-label" %>
-      <div class="col-sm-8">
-        <%= f.select(:country, options_for_select(Tour::COUNTRIES_AND_CITIES.keys ), :include_blank => "Please select a country", :class=>"form-control") %>
-      </div>
-    </div>
-
         <br>
         <br>
 
     <div class="form-group">
-      <%= f.label :city, :class=>"col-sm-1 control-label" %>
+      <%= f.label :rendezvous_point, :class=>"col-sm-1 control-label" %>
         <div class="col-sm-8">
-          <%= f.select(:city, options_for_select( Tour::COUNTRIES_AND_CITIES.values ), :include_blank => "Please select a city", :class=>"form-control")%>
+          <%= f.text_field :rendezvous_point, :class=>"form-control" %>
         </div>
     </div>
 
         <br>
         <br>
 
-    <div class="form-group">
-      <%= f.label :address, :class=>"col-sm-1 control-label" %>
-        <div class="col-sm-8">
-          <%= f.text_field :address, :class=>"form-control" %>
-        </div>
+   <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-6">
+      <%= f.submit "Book some dates", name: "add_schedule" %>
+      or
+      <%= f.submit "Add dates later", name: "no_schedule" %>
+        <button><%= link_to 'Cancel', tours_path %></button>
     </div>
-
-        <br>
-        <br>
-
-
-
- <div class="form-group">
-  <div class="col-sm-offset-2 col-sm-6">
-    <%= f.submit "Book some dates", name: "add_schedule" %>
-    or
-    <%= f.submit "Add dates later", name: "no_schedule" %>
-      <button><%= link_to 'Cancel', tours_path %></button>
-  </div>
 </div>
 
   <% end %>
- 
+
 </form>
