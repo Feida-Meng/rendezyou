@@ -40,6 +40,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :duration_in_ms, "Approximate Duration(hrs)" %>
+    <%= f.number_field :duration_in_ms %>
+  </div>
+
+  <div class="field">
     <%= f.label :address %>
     <%= f.text_field :address %>
   </div>

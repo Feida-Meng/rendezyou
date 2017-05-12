@@ -19,6 +19,7 @@ class ToursController < ApplicationController
     @tour = Tour.new(tour_params)
     @tour.user_id = current_user.id
     if @tour.save
+      byebug
       redirect_to tours_path
     else
       render :new
@@ -49,10 +50,11 @@ class ToursController < ApplicationController
 
   private
 
+
   def tour_params
     # params[:tour][:schedules_attributes]["0"][:current_capacity] = 0
     # byebug
-    params.require(:tour).permit(:name, :description, :city, :country, :address, :category, :capacity)
+    params.require(:tour).permit(:name, :description, :city, :country, :address, :category, :capacity, :duration_in_ms)
   end
 
 
