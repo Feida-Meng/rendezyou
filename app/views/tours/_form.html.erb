@@ -14,41 +14,57 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+  <form class="form-horizontal">
 
-  <div clas="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
+    <div class="form-group">
+      <%= f.label :name, :class=>"col-sm-1 control-label" %>
+      <div class="col-sm-12">
+        <%= f.text_field :name, :class=>"form-control" %>
+      </div>
+    </div>
 
-  <div class="field" >
-      <%= f.label :country %>
-      <%= f.select(:country, options_for_select(Tour::COUNTRIES_AND_CITIES.keys ), :include_blank => "Please select a country") %>
-  </div>
+    <div class="form-group">
+      <%= f.label :description, :class=>"col-sm-1 control-label" %>
+      <div class="col-sm-12">
+        <%= f.text_area :description, :class=>"form-control" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :city %>
-    <%= f.select(:city, options_for_select( Tour::COUNTRIES_AND_CITIES.values ), :include_blank => "Please select a city")%>
-  </div>
+    <div class="form-group">
+      <%= f.label :country, :class=>"col-sm-1 control-label" %>
+      <div class="col-sm-12">
+        <%= f.select(:country, options_for_select(Tour::COUNTRIES_AND_CITIES.keys ), :include_blank => "Please select a country", :class=>"form-control") %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :address %>
-    <%= f.text_field :address %>
-  </div>
+    <div class="form-group">
+      <%= f.label :city, :class=>"col-sm-1 control-label" %>
+        <div class="col-sm-12">
+          <%= f.select(:city, options_for_select( Tour::COUNTRIES_AND_CITIES.values ), :include_blank => "Please select a city", :class=>"form-control")%>
+        </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :category %>
-    <%= f.text_field :category %>
-  </div>
+    <div class="form-group">
+      <%= f.label :address, :class=>"col-sm-1 control-label" %>
+        <div class="col-sm-12">
+          <%= f.text_field :address, :class=>"form-control" %>
+        </div>
+    </div>
 
+    <div class="form-group">
+      <%= f.label :category, :class=>"col-sm-1 control-label"  %>
+        <div class="col-sm-12">
+          <%= f.text_field :category, :class=>"form-control" %>
+        </div>
+    </div>
 
-  <div class="field">
-    <%= f.submit %>
+    <div class="form-group">
+      <%= f.submit %>
+    </div>
+
   </div>
 
   <% end %>
-
-</div>
+    </div>
+  </div>
+</form>
