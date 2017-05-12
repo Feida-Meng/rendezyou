@@ -6,41 +6,34 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCGaxhVo8MuhbWtVWcKcAf-PEBJXjXtzA&v=3&callback=initMap">
     </script>
+
   </head>
 
   <body>
     <header>
-    </header>
-    <% if flash[:notice] %>
-      <p id="notice"><%=flash[:notice] %></p>
-    <%end%>
-    <% if flash[:alert] %>
-      <p id="alert"><%=flash[:alert] %></p>
-    <%end%>
 
-  <div class="navigate">
-    <div class="nav_bar">
-      <div class="nav_home">
-        <%= link_to "RendezYou Home", root_path, :class=>"a_nav_home" %>
+      <div class="navigate">
+        <div class="nav_bar">
+          <div class="nav_home">
+            <%= link_to "RendezYou Home", root_path, :class=>"a_nav_home" %>
+          </div>
+          <% if current_user %>
+            <div class="nav_current_user">
+              <%= link_to "My Profile", profile_path, :class=>"a_myprofile" %>
+              <%= link_to "Log Out", session_path("current"), :method => :delete, :class=>"a_logout" %>
+            </div>
+          <% else %>
+            <div class="nav_not_current_user">
+              <button type="button" class="a_login">Log In</button>
+              or <%=link_to "Sign Up", new_user_path, :class=>"a_signup" %>
+            </div>
+          <% end %>
+        </div>
       </div>
-      <% if current_user %>
-      <div class="nav_login">
-        <%= link_to "My Profile", profile_path, :class=>"nav_login" %>
-      </div>
-      <div class="nav_logout">
-        <%= link_to "Log Out", session_path("current"), :method => :delete, :class=>"a_nav_logout" %>
-      </div>
-      <% else %>
-      <div class="not_current_user">
-        <button type="button" class="a_login">Log In</button>
-or <%=link_to "Sign Up", new_user_path, :class=>"a_signup" %>
-      </div>
-      <% end %>
-    </div>
-  </div>
 
   <div class="login_window">
   <%= form_tag sessions_path, {:class => "login_form"} do %>
@@ -49,17 +42,33 @@ or <%=link_to "Sign Up", new_user_path, :class=>"a_signup" %>
     <%= text_field_tag :email, params[:email] %>
   </div>
 
-  <div class="field">
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-  </div>
+      <div class="login_window">
+        <%= form_tag sessions_path, {:class => "login_form"} do %>
+        <div class="field">
+          <%= label_tag :email %>
+          <%= text_field_tag :email, params[:email] %>
+        </div>
 
-  <div class="submit">
-    <%= submit_tag "Log in" %>
-  </div>
+        <div class="field">
+          <%= label_tag :password %>
+          <%= password_field_tag :password %>
+        </div>
 
-  <% end %>
-  </div>
+        <div class="submit">
+          <%= submit_tag "Log in" %>
+        </div>
+
+        <% end %>
+      </div>
+      <% if flash[:notice] %>
+      <p id="notice"><%=flash[:notice] %></p>
+      <%end%>
+      <% if flash[:alert] %>
+      <p id="alert"><%=flash[:alert] %></p>
+      <%end%>
+
+    </header>
+
     <%= yield %>
 
   </body>

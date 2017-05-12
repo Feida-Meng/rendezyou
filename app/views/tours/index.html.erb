@@ -1,6 +1,10 @@
+<div class="yield">
 <h2>Tours</h2>
 
-
+<%= form_tag(tours_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Tours" %>
+    <%= submit_tag "Search", :name => nil %>
+<% end %>
 
 <% @tours.each do |tour| %>
 
@@ -16,3 +20,4 @@
   <% end %>
 
 <%= link_to 'Create a New Tour', new_tour_path %>
+</div>

@@ -10,6 +10,9 @@ class Tour < ApplicationRecord
   before_save { |tour| tour.duration_in_ms = (tour.duration_in_ms) * 3600000 }
 
 
+  def self.search(search)
+    where("name LIKE ? OR description LIKE ? OR category LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%") 
+  end
 
 
   enum category: [ :nature, :city, :"food & drinks", :recreation, :social, :other]

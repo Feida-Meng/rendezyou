@@ -1,19 +1,18 @@
 <!-- <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p> -->
 
-<h2>Hello <%= @user.name %>!</h2>
 
 
 <div class="yield">
 
 
-<h3 class="sub_heading">My Guided Tours</h3>
+<h3 class="sub_heading">Hello <%= @user.name %>! Here are your Guided Tours!</h3>
 
 <% if @tours_created.empty? %>
   <p>You don't have any guided tours yet! Click <%= link_to "here", new_tour_url %> to create one</p>
 <% else %>
   <div class="tour_container">
-  <h4>Click <%= link_to "here", new_tour_url %> to create more tours</h4>
+  <h4 class="creat">Click <%= link_to "here", new_tour_url %> to create more tours</h4>
   <% @tours_created.each do |tour| %>
     <% if current_user.id == tour.user_id %>
         <h3><%= tour.name %></h3>
@@ -31,10 +30,9 @@
     <%= link_to "Add another date", new_tour_schedule_path(tour) %>
       <% end %>
     <% end %>
-  </div>
   <% end %>
 <% end %>
-
+</div>
 
 <div class="tour">
 
