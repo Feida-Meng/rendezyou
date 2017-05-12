@@ -49,9 +49,17 @@
       </div>
     </div>
 
-        <br>
-        <br>
+    <br>
+    <br>
 
+    <div class="form-group">
+      <%= f.label :country_id, :class=>"col-sm-1 control-label" %>
+        <div class="col-sm-8">
+          <%= f.collection_select :country_id, @countries, :id, :name, include_blank: 'Please select a country', :class=>"form-control" %>
+        </div>
+    </div>
+    <br>
+    <br>
     <div class="form-group">
       <%= f.label :rendezvous_point, :class=>"col-sm-1 control-label" %>
         <div class="col-sm-8">
