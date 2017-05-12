@@ -19,8 +19,11 @@ class ToursController < ApplicationController
     @tour = Tour.new(tour_params)
     @tour.user_id = current_user.id
     if @tour.save
-      byebug
-      redirect_to tours_path
+      if params[:add_schedule]
+        redirect_to new_tour_schedule_path(@tour)
+      elsif params[:no_schedule]
+        redirect_to tour_path(@tour)
+      end
     else
       render :new
     end
@@ -36,7 +39,7 @@ class ToursController < ApplicationController
     @tour.update_attributes(tour_params)
     ensure_tour_user
     if @tour.save
-      redirect_to tour_path
+        redirect_to tour_path(@tour)
     else
       render :edit
     end
