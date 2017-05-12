@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170510021535) do
+
+ActiveRecord::Schema.define(version: 20170512022528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,26 +25,44 @@ ActiveRecord::Schema.define(version: 20170510021535) do
     t.integer "booking_size"
   end
 
+  create_table "countries", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "schedules", force: :cascade do |t|
     t.datetime "tour_start_time"
     t.integer "tour_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "tour_end_time"
     t.integer "max_capacity"
     t.integer "current_capacity", default: 0
+  end
+
+  create_table "tourpoints", force: :cascade do |t|
+    t.string "tour_point_name"
+    t.jsonb "tour_point_laglng"
+    t.string "tour_point_img"
+    t.string "tour_point_description"
+    t.bigint "tour_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tour_id"], name: "index_tourpoints_on_tour_id"
   end
 
   create_table "tours", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.string "city"
-    t.string "country"
-    t.string "address"
+    t.string "rendezvous_point"
     t.integer "user_id"
-    t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "capacity"
+    t.integer "duration_in_ms"
+    t.integer "category"
+    t.integer "country_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -58,4 +77,5 @@ ActiveRecord::Schema.define(version: 20170510021535) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "tourpoints", "tours"
 end

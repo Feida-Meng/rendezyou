@@ -6,6 +6,11 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCGaxhVo8MuhbWtVWcKcAf-PEBJXjXtzA&v=3&callback=initMap">
+    </script>
+
   </head>
 
   <body>
@@ -29,6 +34,13 @@
           <% end %>
         </div>
       </div>
+
+  <div class="login_window">
+  <%= form_tag sessions_path, {:class => "login_form"} do %>
+    <div class="field">
+    <%= label_tag :email %>
+    <%= text_field_tag :email, params[:email] %>
+  </div>
 
       <div class="login_window">
         <%= form_tag sessions_path, {:class => "login_form"} do %>

@@ -1,4 +1,21 @@
+<div class="yield">
+
 <h2>When do you want to guide your tour?</h2>
+
+<% unless @tour.schedules.empty? %>
+  <h3>You have currently scheduled:</h3>
+  <ul>
+    <% @tour.schedules.each do |s| %>
+      <li>
+          <%= "#{s.tour_session}" %>
+      </li>
+    <% end %>
+  </ul>
+
+<% end %>
+
 <div class='form_container'>
   <%= render 'form' %><br>
+</div>
+
 </div>

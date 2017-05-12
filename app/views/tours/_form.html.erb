@@ -31,8 +31,21 @@
       </div>
     </div>
 
-    <br>
-    <br>
+
+  <div class="field">
+    <%= f.label :capacity %>
+    <%= f.number_field :capacity %>
+  </div>
+
+  <div class="field">
+    <%= f.label :duration_in_ms, "Approximate Duration(hrs)" %>
+    <%= f.number_field :duration_in_ms %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
 
     <div class="form-group">
       <%= f.label :description, :class=>"col-sm-1 control-label" %>
@@ -41,10 +54,6 @@
       </div>
     </div>
 
-        <br>
-        <br>
-        <br>
-        <br>
 
     <div class="form-group">
       <%= f.label :country, :class=>"col-sm-1 control-label" %>
@@ -76,16 +85,17 @@
         <br>
         <br>
 
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-6">
-        <%= f.submit %>
-        <button><%= link_to 'Cancel', tours_path %></button>
-      </div>
-    </div>
 
+
+ <div class="form-group">
+  <div class="col-sm-offset-2 col-sm-6">
+    <%= f.submit "Book some dates", name: "add_schedule" %>
+    or
+    <%= f.submit "Add dates later", name: "no_schedule" %>
+      <button><%= link_to 'Cancel', tours_path %></button>
   </div>
+</div>
 
   <% end %>
-    </div>
-  </div>
+ 
 </form>

@@ -8,16 +8,21 @@ class SchedulesController < ApplicationController
   end
 
   def new
-    @schedule = Schedule.new
     ensure_tour_user
+    @schedule = Schedule.new
   end
 
   def create
+    ensure_tour_user
     @schedule = Schedule.new
     @schedule = @tour.schedules.build(schedule_params)
-    ensure_tour_user
+    @schedule.max_capacity = @tour.capacity
     if @schedule.save
-      redirect_to tour_path(@tour)
+      if params[:save_one]
+        redirect_to tour_path(@tour)
+      elsif params[:add_more]
+        redirect_to new_tour_schedule_path(@tour)
+      end
     else
       render :new
     end
@@ -56,7 +61,7 @@ class SchedulesController < ApplicationController
   end
 
   def schedule_params
-    params.require(:schedule).permit(:tour_start_time, :tour_end_time, :tour_id, :max_capacity, :current_capacity)
+    params.require(:schedule).permit(:tour_start_time, :tour_id, :max_capacity, :current_capacity)
   end
 
 end
