@@ -2,7 +2,7 @@ class Schedule < ApplicationRecord
   has_many :bookings
   belongs_to :tour
 
-  validates :max_capacity, presence: true
+  # validates :max_capacity, presence: true
   validate :date_in_past
   validate :no_duplicates
 
