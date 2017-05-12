@@ -60,7 +60,7 @@ class SchedulesController < ApplicationController
   end
 
   def schedule_params
-    params.require(:schedule).permit(:tour_start_time, :tour_end_time, :tour_id, :max_capacity, :current_capacity)
+    params.require(:schedule).permit(:tour_start_time, :tour_id, :max_capacity, :current_capacity)
   end
 
 end
