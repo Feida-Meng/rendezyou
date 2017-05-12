@@ -17,7 +17,7 @@
     <div class="form-group">
         <%= f.label :category, :class=>"col-sm-1 control-label"  %>
       <div class="col-sm-8">
-        <%= f.text_field :category, :class=>"form-control" %>
+        <%= f.select :category, options_for_select(Tour.categories.map {|cat,v| [cat,cat]}) %>
       </div>
     </div>
 

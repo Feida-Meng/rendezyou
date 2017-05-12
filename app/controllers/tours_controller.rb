@@ -21,6 +21,7 @@ class ToursController < ApplicationController
   end
 
   def create
+
     @tour = Tour.new(tour_params)
     @tour.user_id = current_user.id
     if @tour.save
