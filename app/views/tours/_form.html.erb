@@ -35,6 +35,16 @@
   </div>
 
   <div class="field">
+    <%= f.label :capacity %>
+    <%= f.number_field :capacity %>
+  </div>
+
+  <div class="field">
+    <%= f.label :duration_in_ms, "Approximate Duration(hrs)" %>
+    <%= f.number_field :duration_in_ms %>
+  </div>
+
+  <div class="field">
     <%= f.label :address %>
     <%= f.text_field :address %>
   </div>
@@ -44,9 +54,10 @@
     <%= f.text_field :category %>
   </div>
 
-
   <div class="field">
-    <%= f.submit %>
+    <%= f.submit "Book some dates", name: "add_schedule" %>
+    or
+    <%= f.submit "Add dates later", name: "no_schedule" %>
   </div>
 
   <% end %>

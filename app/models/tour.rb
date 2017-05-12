@@ -4,6 +4,13 @@ class Tour < ApplicationRecord
   has_many :bookings, through: :schedules
   has_many :schedules
   has_many :tourpoints
+  validates :duration_in_ms, numericality: true
+
+  #converting duration input to ms before saving
+  before_save { |tour| tour.duration_in_ms = (tour.duration_in_ms) * 3600000 }
+
+
+
 
   enum category: [ :nature, :city, :"food & drinks", :recreation, :social, :other]
 

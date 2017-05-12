@@ -1,4 +1,4 @@
-<div class="yield">
+
   <div id="schedule-form">
   <%= form_for ([@tour, @schedule]) do |f| %>
 
@@ -14,10 +14,6 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :tour_start_time %>
-  <%=   f.datetime_select :tour_start_time %>
-  </div>
 
 
 <div class="field">
@@ -25,25 +21,14 @@
 <%=   f.datetime_select :tour_start_time, ampm: true %>
 </div>
 
-<div class="field">
-  <%= f.label :tour_end_time %>
-  <%= f.datetime_select :tour_end_time, ampm: true%>
-</div>
-
-
-  <div class="field">
-    <%= f.label :max_capacity, "Capacity" %>
-    <%= f.number_field :max_capacity %>
-  </div>
 
   <div class="submit">
-   <%= f.submit %>
-
-  <button type="button" name="add" id="add-schedule">Add Another Date</button>
+   <%= f.submit "Save Schedule", name: "save_one" %>
+   or
+   <%= f.submit "Save and Add Another Date", name: "add_more" %>
   </div>
 
 
 
   <% end %>
   </div>
-</div>
