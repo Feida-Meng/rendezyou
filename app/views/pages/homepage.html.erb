@@ -58,6 +58,66 @@
 <p id="alert"><%=flash[:alert] %></p>
 <%end%>
 
+<!-- SignUp Modal -->
+
+<<div class="yield">
+
+<%=form_for(@user) do |f| %>
+<% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= pluralize(@user.errors.count, "error") %> prohibited this product from being saved:</h4>
+
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name%>
+    <%= f.text_field :name%>
+  </div>
+
+  <div class="field">
+    <%= f.label :email%>
+    <%= f.text_field :email%>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone%>
+    <%= f.telephone_field :phone%>
+  </div>
+
+  <div class="field">
+    <%= f.label :password%>
+    <%= f.password_field :password%>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation%>
+    <%= f.password_field :password_confirmation%>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :picture%>
+    <%= f.text_field :picture%>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :username%>
+    <%= f.text_field :username%><br><br>
+    <%= f.submit %>
+
+  </div>
+<%end%>
+
+</div>
+
+
 <!-- landing page -->
 
 <%= image_tag("top.jpg", :class=>"map_img")%>
