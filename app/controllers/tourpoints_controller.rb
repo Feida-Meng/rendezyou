@@ -1,8 +1,5 @@
 class TourpointsController < ApplicationController
-  before_action :load_tour except: %i(tourpoint_params)
-  def index
-    @tourpoints=@tour.tourpoints
-  end
+  before_action :load_tour, except: %i(tourpoint_params)
 
   def new
     @tourpoint = Tourpoint.new

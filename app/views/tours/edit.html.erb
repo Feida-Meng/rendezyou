@@ -1,3 +1,5 @@
 <h2>Edit Tour</h2>
 
 <%= render 'form' %>
+<%= link_to "Add new tour point", new_tour_tourpoint_path(@tour) %>
+<%= link_to "Back to tour", tour_path(@tour) %>
