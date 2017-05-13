@@ -1,5 +1,7 @@
 <div class="yield">
 
+<div class="user_left">
+
 <%=form_for @user, :html => {:class => "form-horizontal"} do |f| %>
 <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -35,6 +37,8 @@
     <%= f.label :email, class:"control-label col-sm-2"%>
     <div class="col-sm-5">
       <%= f.text_field :email, class: "form-control", id:"inputEmail3"%>
+      <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+      <span id="inputSuccess3Status" class="sr-only"></span>
     </div>
   </div>
 
@@ -42,8 +46,12 @@
     <%= f.label :phone, class:"control-label col-sm-2" %>
     <div class="col-sm-5">
       <%= f.telephone_field :phone, class:"form-control", id:"inputSuccess3"%>
+      <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+      <span id="inputSuccess3Status" class="sr-only"></span>
     </div>
   </div>
+
+</div>
 
   <div class="field">
     <%= f.label :password%>
