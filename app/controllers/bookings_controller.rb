@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
     @booking = @schedule.bookings.build(booking_params)
     @booking.schedule_id = @schedule.id
     @booking.user_id = current_user.id
-    byebug
+
     if @booking.booking
       # byebug
       redirect_to user_path(current_user)

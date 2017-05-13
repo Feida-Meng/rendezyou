@@ -16,7 +16,7 @@ class Booking < ApplicationRecord
   end
 
   def booking
-  byebug
+
     return  tourtime.update(current_capacity:tourtime.current_capacity + booking_size ) && save
   end
 
