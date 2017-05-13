@@ -3,7 +3,7 @@ $(function(){
 
   // $("#rendezvous-point").on('click',function(){
   $("#rendezvous-point-input").on("input",function(){
-    var map = new google.maps.Map(document.getElementById('map'), {
+    var map = new google.maps.Map(document.getElementById('rendezvous-map'), {
       zoom: 16,
       center: {lat: -34.397, lng: 150.644}
     });
