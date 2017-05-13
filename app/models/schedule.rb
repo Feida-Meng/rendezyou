@@ -17,7 +17,7 @@ class Schedule < ApplicationRecord
   end
 
   def no_duplicates
-    if Schedule.where(tour_id: tour_id, tour_start_time: tour_start_time).exists?
+    if current_capacity == 0 && Schedule.where(tour_id: tour_id, tour_start_time: tour_start_time).exists?
       errors.add(:tour_start_time, "already exists")
     end
   end

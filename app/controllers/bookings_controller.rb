@@ -8,9 +8,11 @@ class BookingsController < ApplicationController
   end
 
   def create
-    # byebug
+
     @booking = @schedule.bookings.build(booking_params)
+    @booking.schedule_id = @schedule.id
     @booking.user_id = current_user.id
+
     if @booking.booking
       # byebug
       redirect_to user_path(current_user)
