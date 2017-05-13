@@ -35,11 +35,14 @@
     <%= f.label :email, class:"control-label col-sm-2"%>
     <div class="col-sm-5">
       <%= f.text_field :email, class: "form-control", id:"inputEmail3"%>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :phone%>
-    <%= f.telephone_field :phone%>
+  <div class="form-group has-success has-feedback">
+    <%= f.label :phone, class:"control-label col-sm-2" %>
+    <div class="col-sm-5">
+      <%= f.telephone_field :phone, class:"form-control", id:"inputSuccess3"%>
+    </div>
   </div>
 
   <div class="field">
