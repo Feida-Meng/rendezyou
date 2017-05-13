@@ -1,0 +1,43 @@
+class TourpointsController < ApplicationController
+  before_action :load_tour except: %i(tourpoint_params)
+  def index
+    @tourpoints=@tour.tourpoints
+  end
+
+  def new
+    @tourpoint = Tourpoint.new
+  end
+
+  def create
+
+    @tourpoint = @tour.tourpoings.build(tourpoint_params)
+    if @tourpoint.save
+      redirect_to tour_path(@tour)
+    else
+      render :new
+    end
+
+  end
+
+  def edit
+
+  end
+
+  def update
+
+  end
+
+  def destroy
+
+  end
+
+  private
+  def load_tour
+    @tour = Tour.find(params[:tour_id])
+  end
+
+  def tourpoint_params
+  params.require(:tourpoint).permit(:tour_point_name, :tour_point_laglng, :tour_point_img, :tour_point_description, :tour_id)
+  end
+
+end
