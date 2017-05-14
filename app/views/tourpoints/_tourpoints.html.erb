@@ -1,5 +1,16 @@
 
-<div class="">
+
+
+<br>
+<h3>Please fill the approximate location: </h3>
+<input id="tour-site-input" type="text" name="the location" value="" maxlength="100" />
+<div id="tourpointmap">
+
+</div>
+<br>
+
+<div class="form">
+
 
   <%= form_for [@tour,@tourpoint] do |f| %>
 
@@ -23,5 +34,6 @@
         <%= f.submit "Save this tour point" %>
     </div>
     <%= link_to 'Cancel', edit_tour_path(@tour) %>
+
   <% end %>
 </div>

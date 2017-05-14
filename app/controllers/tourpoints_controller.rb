@@ -9,7 +9,7 @@ class TourpointsController < ApplicationController
 
     @tourpoint = @tour.tourpoings.build(tourpoint_params)
     if @tourpoint.save
-      redirect_to tour_path(@tour)
+      redirect_to edit_tour_path(@tour)
     else
       render :new
     end
