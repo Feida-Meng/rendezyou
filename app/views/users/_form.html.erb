@@ -1,78 +1,85 @@
 <div class="yield">
 
-<div class="user_left">
+<div class="main_form">
+  <%=form_for @user, :html => {:class => "form-horizontal"} do |f| %>
 
-<%=form_for @user, :html => {:class => "form-horizontal"} do |f| %>
-<% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h4><%= pluralize(@user.errors.count, "error") %> prohibited this product from being saved:</h4>
+  <div class="user_left">
+  <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h4><%= pluralize(@user.errors.count, "error") %> prohibited this product from being saved:</h4>
 
-      <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group has-success has-feedback">
+      <%= f.label :name, class:"control-label col-sm-3"%>
+      <div class="col-sm-8">
+        <%= f.text_field :name, class:"form-control", id:"inputSuccess3"%>
+        <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+        <span id="inputSuccess3Status" class="sr-only"></span>
+      </div>
     </div>
-  <% end %>
 
-  <div class="form-group has-success has-feedback">
-    <%= f.label :name, class:"control-label col-sm-2"%>
-    <div class="col-sm-5">
-      <%= f.text_field :name, class:"form-control", id:"inputSuccess3"%>
-      <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-      <span id="inputSuccess3Status" class="sr-only"></span>
+    <div class="form-group has-success has-feedback">
+      <%= f.label :username, class:"control-label col-sm-3"%>
+      <div class="col-sm-8">
+        <%= f.text_field :username, class:"form-control", id:"inputSuccess3"%>
+        <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+        <span id="inputSuccess3Status" class="sr-only"></span>
+      </div>
     </div>
-  </div>
 
-  <div class="form-group has-success has-feedback">
-    <%= f.label :username, class:"control-label col-sm-2"%>
-    <div class="col-sm-5">
-      <%= f.text_field :username, class:"form-control", id:"inputSuccess3"%>
-      <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-      <span id="inputSuccess3Status" class="sr-only"></span>
+    <div class="form-group has-success has-feedback">
+      <%= f.label :email, class:"control-label col-sm-3"%>
+      <div class="col-sm-8">
+        <%= f.text_field :email, class: "form-control", id:"inputEmail3"%>
+        <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+        <span id="inputSuccess3Status" class="sr-only"></span>
+      </div>
     </div>
-  </div>
 
-  <div class="form-group has-success has-feedback">
-    <%= f.label :email, class:"control-label col-sm-2"%>
-    <div class="col-sm-5">
-      <%= f.text_field :email, class: "form-control", id:"inputEmail3"%>
-      <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-      <span id="inputSuccess3Status" class="sr-only"></span>
+    <div class="form-group has-success has-feedback">
+      <%= f.label :phone, class:"control-label col-sm-3" %>
+      <div class="col-sm-8">
+        <%= f.telephone_field :phone, class:"form-control", id:"inputSuccess3"%>
+        <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+        <span id="inputSuccess3Status" class="sr-only"></span>
+      </div>
     </div>
-  </div>
 
-  <div class="form-group has-success has-feedback">
-    <%= f.label :phone, class:"control-label col-sm-2" %>
-    <div class="col-sm-5">
-      <%= f.telephone_field :phone, class:"form-control", id:"inputSuccess3"%>
-      <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-      <span id="inputSuccess3Status" class="sr-only"></span>
+    <div class="form-group has-success has-feedback">
+      <%= f.label :password, class:"control-label col-sm-3" %>
+      <div class="col-sm-8">
+        <%= f.password_field :password, class:"form-control", id:"inputEmail3"%>
+      </div>
     </div>
+
+    <div class="form-group has-success has-feedback">
+      <%= f.label :password_confirmation, class:"control-label col-sm-3" %>
+      <div class="col-sm-8">
+        <%= f.password_field :password_confirmation, class:"form-control", id:"inputEmail3"%>
+      </div>
+    </div>
+    <br>
+    <br>
+    <%= f.submit 'I\'m ready', :class=>"btn btn-primary btn-lg active" %>
   </div>
 
-</div>
+  <div class="user_right">
+      <%= f.text_field :picture, class:"picture-frame"%>
+      <%= f.label :picture%>
+      <input type="file" id="exampleInputFile" />
+    </div>
 
-  <div class="field">
-    <%= f.label :password%>
-    <%= f.password_field :password%>
+
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation%>
-    <%= f.password_field :password_confirmation%>
-  </div>
-
-
-  <div class="field">
-    <%= f.label :picture%>
-    <%= f.text_field :picture%>
-  </div>
-
-
-    <%= f.submit %>
-
-<%end%>
+  <%end%>
 
 </div>
 
