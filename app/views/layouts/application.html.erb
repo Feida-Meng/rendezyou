@@ -23,7 +23,7 @@
           </div>
           <% if current_user %>
             <div class="nav_current_user">
-              <%= link_to "My Profile", profile_path, :class=>"a_myprofile" %>
+              <%= link_to @user.name.capitalize + "'s profile", profile_path, :class=>"a_myprofile" %>
               <%= link_to "Log Out", session_path("current"), :method => :delete, :class=>"a_logout" %>
             </div>
           <% else %>
