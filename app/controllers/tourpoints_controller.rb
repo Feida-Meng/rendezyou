@@ -7,9 +7,12 @@ class TourpointsController < ApplicationController
 
   def create
 
-    @tourpoint = @tour.tourpoings.build(tourpoint_params)
+
+
+    @tourpoint = @tour.tourpoints.build(tourpoint_params)
+
     if @tourpoint.save
-      redirect_to edit_tour_path(@tour)
+      redirect_to tour_path(@tour)
     else
       render :new
     end

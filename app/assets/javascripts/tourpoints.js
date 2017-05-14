@@ -57,10 +57,15 @@ $(function(){
 
     tourPointDrawing.setMap(tourPointMap);
 
-    tourPointMap.addListener('click', function(event) {
-      addMarker(event.latLng);
 
-    });
+
+      tourPointMap.addListener('click', function(event) {
+        if (markers.length === 0) {
+        console.log(markers.length);
+        addMarker(event.latLng);
+        }
+      });
+
 
   }
 
@@ -74,12 +79,14 @@ $(function(){
   }
 
   function addMarker(location) {
+
   var marker = new google.maps.Marker({
     position: location,
     map: tourPointMap,
-    draggable: true
+    // draggable: true
   });
-  console.log(marker.getPosition().toJSON());
+  console.log(marker.getPosition());
+  $("#tourpoint_tour_point_laglng").val( marker.getPosition().toString() );
   markers.push(marker);
   }
 

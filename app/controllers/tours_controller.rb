@@ -18,6 +18,7 @@ class ToursController < ApplicationController
 
   def show
     @tour = Tour.find(params[:id])
+    @tourpoints = @tour.tourpoints
     # for ajax
     if request.xhr?
       respond_to do |format|
@@ -25,7 +26,7 @@ class ToursController < ApplicationController
           render @tour
         end
         format.json do
-          render json: @tour
+          render :json => @tour.to_json(:include => [:tourpoints])
         end
       end
     end

@@ -22,7 +22,8 @@
   <h4 class="creat">Click <%= link_to "here", new_tour_url %> to create more tours</h4>
   <% @tours_created.each do |tour| %>
     <% if current_user.id == tour.user_id %>
-        <h3><%= tour.name %></h3>
+        <h3><%=link_to tour.name, tour_path(tour)%></h3>
+
         <%= link_to "Edit Tour", edit_tour_url(tour.id) %><br>
         <%= tour.description%>
         <h4>Schedule:</h4>

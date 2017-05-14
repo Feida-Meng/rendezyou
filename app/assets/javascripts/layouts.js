@@ -19,7 +19,7 @@ $(document).ready(function(){
   //login modal
   $('.a_login').on('click', function(e){
     e.stopPropagation();
-    e.preventDefault(());
+    e.preventDefault();
     $('.login_window').fadeIn();
   });
 
