@@ -8,16 +8,37 @@
 <!-- <div class="layout_nav_bar">
 </div> -->
 
-<%= image_tag("chalkboard.jpg", :class=>"chalkboard_img")%>
+<div class="navigate">
+  <div class="nav_bar">
+    <div class="nav_home">
+      <%= link_to "RendezYou Home", root_path, :class=>"a_nav_home_user" %>
 
-<div class="yield">
+    </div>
+    <% if current_user %>
+      <div class="nav_current_user">
+        <%= link_to @user.name + "'s profile˅", profile_path, :class=>"a_myprofile", :id=>"black_text" %>
+        <%= link_to "Log Out", session_path("current"), :method => :delete, :class=>"a_logout", :id=>"black_text" %>
+      </div>
+    <% else %>
+      <div class="nav_not_current_user">
+        <button type="button" class="a_login">Log In</button>
+        or <%=link_to "Sign Up", new_user_path, :class=>"a_signup" %>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-  <div id="white">
 
-    <h3 class="user_click">Click <%= link_to "here", :anchor => "user_show_created" %> to see your CREATED tours!</h3>
-    <h3 class="user_click">Click <%= link_to "here", :anchor => "user_show_scheduled" %> to see your SCHEDULED tours!</h3>
-    <h3 class="user_click">Click Here to search Rendez You</h3>
+<div id="white">
+]<div class="yield">
 
+
+
+  <div class="user_show_board">
+    <h3 class="user_click"><%= link_to "VIEW YOUR TOURS", :anchor => "user_show_created" %></h3>
+    <h3 class="user_click"><%= link_to "SEARCH YOUR CREATED TOURS", :anchor => "user_show_scheduled" %></h3>
+    <h3 class="user_click"><%= link_to "BOOK A NEW TOUR", :anchor => "search" %></h3>
+  </div>
 
     <!-- <h3 class="hey_you"><%= @user.name.capitalize %>'s profile ˅<h3> -->
 

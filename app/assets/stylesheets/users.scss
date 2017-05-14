@@ -78,6 +78,7 @@ h3.hey_you{
 }
 
 #white{
+  background: #f9f0ea;
   color: white;
 }
 
@@ -85,11 +86,27 @@ h3.hey_you{
 h3.user_click{
   font-size: 3em;
   text-align: center;
-  padding: 100px;
-  margin-top: 20px;
+  padding: 10px;
+  // margin-top: %;
+}
 
+.user_show_board{
+  margin-top: 5%;
+  margin-bottom: 10%;
 }
 
 #user_show_scheduled{
   height: 500px;
+}
+
+.a_nav_home_user{
+  vertical-align: middle;
+  font-family: 'Pacifico', cursive;
+  font-size: 2em;
+  color: #ff584c;
+}
+
+
+#black_text{
+  color: black;
 }

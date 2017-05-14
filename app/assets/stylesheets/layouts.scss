@@ -48,17 +48,20 @@ html{
  .a_logout,
  .a_login {
    vertical-align: middle;
-   color: grey;
+   color: white;
    font-size: 1.1em;
-   padding: 0 10px;
+   padding: 0 15px;
+   z-index: 5000;
  }
 
  .a_myprofile,
  .a_signup{
    vertical-align: middle;
-   color: grey;
+   color: white;
    font-size: 1.1em;
-   padding: 0 10px;
+   padding: 0 15px;
+   z-index: 5000;
+
 
  }
 
