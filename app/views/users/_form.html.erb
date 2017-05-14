@@ -64,15 +64,13 @@
               <%= f.password_field :password_confirmation, class:"form-control", id:"inputEmail3"%>
             </div>
           </div>
-          <br>
-          <br>
-          <%= f.submit 'I\'m ready', :class=>"btn btn-primary btn-lg active" %>
+          <%= f.submit 'Sign Me Up!', :class=>"btn btn-danger btn-lg active col-sm-4", :id=>"signupbutton" %>
         </div>
 
         <div class="user_right">
-            <%= f.text_field :picture, class:"picture-frame"%>
-            <%= f.label :picture%>
-            <input type="file" id="exampleInputFile" />
+            <%= f.text_field :picture, class:"picture-frame"%><br>
+            <input type="file" class="picbutton" id="exampleInputFile">
+            <%= f.label :picture, class:"piclabel"%>
           </div>
 
 
