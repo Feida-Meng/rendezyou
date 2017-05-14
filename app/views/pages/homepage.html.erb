@@ -39,6 +39,82 @@
 <p id="alert"><%=flash[:alert] %></p>
 <%end%>
 
+<!-- signup page -->
+
+<div class="signup_window">
+  <%=form_for new_user_path, {:class => "signup_form"} do |f| %>
+
+  <div class="main_form">
+
+    <div class="user_left">
+      <div class="form-group has-success has-feedback">
+        <%= f.label :name, class:"control-label col-sm-3"%>
+        <div class="col-sm-8">
+          <%= f.text_field :name, class:"form-control", id:"inputSuccess3"%>
+          <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+          <span id="inputSuccess3Status" class="sr-only"></span>
+        </div>
+      </div>
+
+      <div class="form-group has-success has-feedback">
+        <%= f.label :username, class:"control-label col-sm-3"%>
+        <div class="col-sm-8">
+          <%= f.text_field :username, class:"form-control", id:"inputSuccess3"%>
+          <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+          <span id="inputSuccess3Status" class="sr-only"></span>
+        </div>
+      </div>
+
+      <div class="form-group has-success has-feedback">
+        <%= f.label :email, class:"control-label col-sm-3"%>
+        <div class="col-sm-8">
+          <%= f.text_field :email, class: "form-control", id:"inputEmail3"%>
+          <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+          <span id="inputSuccess3Status" class="sr-only"></span>
+        </div>
+      </div>
+
+      <div class="form-group has-success has-feedback">
+        <%= f.label :phone, class:"control-label col-sm-3" %>
+        <div class="col-sm-8">
+          <%= f.telephone_field :phone, class:"form-control", id:"inputSuccess3"%>
+          <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+          <span id="inputSuccess3Status" class="sr-only"></span>
+        </div>
+      </div>
+
+      <div class="form-group has-success has-feedback">
+        <%= f.label :password, class:"control-label col-sm-3" %>
+        <div class="col-sm-8">
+          <%= f.password_field :password, class:"form-control", id:"inputEmail3"%>
+        </div>
+      </div>
+
+      <div class="form-group has-success has-feedback">
+        <%= f.label :password_confirmation, class:"control-label col-sm-3" %>
+        <div class="col-sm-8">
+          <%= f.password_field :password_confirmation, class:"form-control", id:"inputEmail3"%>
+        </div>
+      </div>
+      <br>
+      <br>
+      <%= f.submit 'I\'m ready', :class=>"btn btn-primary btn-lg active" %>
+    </div>
+
+    <div class="user_right">
+        <%= f.text_field :picture, class:"picture-frame"%>
+        <%= f.label :picture%>
+        <input type="file" id="exampleInputFile" />
+      </div>
+    </div>
+
+    <%end%>
+
+  </div>
+
+</div>
+
+
 <!-- landing page -->
 
 <%= image_tag("top.jpg", :class=>"map_img")%>

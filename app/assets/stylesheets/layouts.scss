@@ -68,6 +68,7 @@ div.yield{
   margin: auto;
 }
 
+.signup_window,
 .login_window {
   display: none;
   position: fixed;
@@ -79,7 +80,8 @@ div.yield{
   z-index: 990;
 }
 
-
+.signup_form,
+.signup_form_static,
 .login_form,
 .login_form_static {
     display: block;
