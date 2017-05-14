@@ -34,7 +34,7 @@
   position: fixed;
   width: 100%;
   z-index: -500;
-  hieght: 100vw;
+  height: 200%;
 }
 
 .piclabel{
@@ -79,4 +79,17 @@ h3.hey_you{
 
 #white{
   color: white;
+}
+
+
+h3.user_click{
+  font-size: 3em;
+  text-align: center;
+  padding: 100px;
+  margin-top: 20px;
+
+}
+
+#user_show_scheduled{
+  height: 500px;
 }

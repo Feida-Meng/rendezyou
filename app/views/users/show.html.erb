@@ -14,9 +14,14 @@
 
   <div id="white">
 
-    <h3 class="hey_you"><%= @user.name.capitalize %>'s profile ˅<h3>
+    <h3 class="user_click">Click <%= link_to "here", :anchor => "user_show_created" %> to see your CREATED tours!</h3>
+    <h3 class="user_click">Click <%= link_to "here", :anchor => "user_show_scheduled" %> to see your SCHEDULED tours!</h3>
+    <h3 class="user_click">Click Here to search Rendez You</h3>
 
-      <h3 class="your_guide_tours">Here are your Guided Tours!</h3>
+
+    <!-- <h3 class="hey_you"><%= @user.name.capitalize %>'s profile ˅<h3> -->
+
+      <h3 class="your_guide_tours" id="user_show_tour">Here are your Guided Tours!</h3>
 
       <h4 class="btn btn ">Click <%= link_to "here", new_tour_url %> to create more tours</h4>
 
@@ -69,7 +74,7 @@
 
 <!-- DONT TOUCH User's Booked Tours -->
 
-    <div class="tour">
+    <div class="tour" id="user_show_scheduled">
 
       <h3 class="sub_heading">My Booked Tours</h3>
       <% if @bookings.empty? %>
