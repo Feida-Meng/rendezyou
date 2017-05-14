@@ -4,8 +4,7 @@
 .main_form{
   margin: auto;
   width: 60vw;
-  margin-top: 7%;
-
+  margin-top: 6.5%;
 }
 
 .user_left {
@@ -47,7 +46,17 @@
 
 #signupbutton{
 background-color: green;
+border-color: green;
 margin-left: 5%;
 margin-top: 2%;
+box-shadow: 1px 1px 3px black;
+}
+
+#inputSuccess3,
+#inputEmail3{
+  opacity: .5;
+  border-top: none;
+  border-left: none;
+  border-right: none;
 
 }
