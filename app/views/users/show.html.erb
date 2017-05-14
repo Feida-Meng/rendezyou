@@ -8,18 +8,21 @@
 <div class="layout_nav_bar">
 </div>
 
+<%= image_tag("chalkboard.jpg", :class=>"chalkboard_img")%>
+
 <div class="yield">
+
 
 
 <h3 class="hey_you">Hello <%= @user.name.capitalize %>!<h3>
 
-<h3>Here are your Guided Tours!</h3>
+<h3 class="your_guide_tours">Here are your Guided Tours!</h3>
 
 <% if @tours_created.empty? %>
   <p>You don't have any guided tours yet! Click <%= link_to "here", new_tour_url %> to create one</p>
 <% else %>
   <div class="tour_container">
-  <h4 class="creat">Click <%= link_to "here", new_tour_url %> to create more tours</h4>
+  <h4 class="btn btn ">Click <%= link_to "here", new_tour_url %> to create more tours</h4>
   <% @tours_created.each do |tour| %>
     <% if current_user.id == tour.user_id %>
         <h3><%= tour.name %></h3>
