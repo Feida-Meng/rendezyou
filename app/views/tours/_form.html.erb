@@ -55,20 +55,21 @@
     <div class="form-group">
       <%= f.label :country_id, :class=>"col-sm-1 control-label" %>
         <div class="col-sm-8">
-          <%= f.collection_select :country_id, @countries, :id, :name, include_blank: 'Please select a country', :class=>"form-control" %>
+          <%= f.collection_select :country_id, @countries, :id, :name, include_blank: 'Please select a country', class: "form-control", id:"country-input" %>
         </div>
     </div>
     <br>
     <br>
     <div class="form-group">
-      <%= f.label :rendezvous_point, :class=>"col-sm-1 control-label" %>
+      <%= f.label :rendezvous_point, :class=>"col-sm-1 control-label"%>
         <div class="col-sm-8">
-          <%= f.text_field :rendezvous_point, :class=>"form-control" %>
+          <%= f.text_field :rendezvous_point, class:"form-control", id:"rendezvous-point-input" %>
+          <button id="rendezvous-point"> Click to confirm the rendezvous point on map</button>
         </div>
     </div>
 
-        <br>
-        <br>
+
+
 
    <div class="form-group">
     <div class="col-sm-offset-2 col-sm-6">
@@ -81,4 +82,10 @@
 
   <% end %>
 
+
+
 </form>
+<br>
+<br>
+
+<div id="map"> </div>

@@ -1,7 +1,8 @@
+
 $(document).ready(function(){
   $('.nav_bar').css('background',"transparent");
   $(window).scroll(function(){
-    console.log($(window.height))
+    console.log($(window.height));
     if ($(this).scrollTop()>150){
         $('.nav_bar').css('background', 'rgba(0,0,0,.8)').css('transition','0.3s ease-in-out');
         // $('a').css('font-size', '98%').css('transition','0.3s ease-in-out');
@@ -12,13 +13,13 @@ $(document).ready(function(){
       }else{
         $('.nav_bar').css('background', 'rgba(0,0,0,0)').css('transition','0.3s ease-in-out');
         // $('a').css('font-size', '100%').css('transition','0.3s ease-in-out');
-      };
+      }
   });
 
   //login modal
   $('.a_login').on('click', function(e){
     e.stopPropagation();
-    e.preventDefault;
+    e.preventDefault(());
     $('.login_window').fadeIn();
   });
 
@@ -34,7 +35,7 @@ $(document).ready(function(){
   //signup modal
   $('.a_signup').on('click', function(e){
     e.stopPropagation();
-    e.preventDefault;
+    e.preventDefault();
     $('.signup_window').fadeIn();
   });
 
