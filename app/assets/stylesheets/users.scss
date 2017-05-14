@@ -29,12 +29,11 @@
   height: 11em;
   background: rgba(0,0,0,.1);
 }
-.chalkboard_img,
 .passport_img{
   position: fixed;
   width: 100%;
   z-index: -500;
-  height: 200%;
+  height: 105%;
 }
 
 .piclabel{
@@ -53,13 +52,11 @@ margin-top: 2%;
 box-shadow: 1px 1px 3px black;
 }
 
-#inputSuccess3,
-#inputEmail3{
+#inputSuccess3,{
   opacity: .5;
   border-top: none;
   border-left: none;
   border-right: none;
-
 }
 
 // User Show css
