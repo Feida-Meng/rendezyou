@@ -8,9 +8,11 @@ class BookingsController < ApplicationController
   end
 
   def create
-    # byebug
+
     @booking = @schedule.bookings.build(booking_params)
+    @booking.schedule_id = @schedule.id
     @booking.user_id = current_user.id
+
     if @booking.booking
       # byebug
       redirect_to user_path(current_user)
@@ -29,6 +31,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     if @oldbooking.edit_booking(@booking)
       # byebug
+      UserMailer.booking_confirmaion_email.deliver_later
       redirect_to user_path(current_user)
     else
       render :edit
