@@ -7,27 +7,31 @@ $(function(){
   //   dataType:'json'
   //
   // });
-
+//map------------------------------------------------------------------------------------------
   $("#tour-site-input").on("input",initMap);
+
+  var tourPointDrawing;
+  var markers = [];
+  var tourPointMap;
 
 
   function initMap(){
-    var markers = [];
 
-    var tourpointmap = new google.maps.Map(document.getElementById("tourpointmap"), {
+    tourPointMap = new google.maps.Map(document.getElementById("tourpointmap"), {
       zoom: 16,
       center: {lat: -34.397, lng: 150.644}
     });
-      var geocoder = new google.maps.Geocoder();
-      tourPointLocator(geocoder, tourpointmap);
 
-    var drawingManager = new google.maps.drawing.DrawingManager({
-      drawingMode: google.maps.drawing.OverlayType.MARKER,
+      var geocoder = new google.maps.Geocoder();
+      tourPointLocator(geocoder, tourPointMap);
+
+      tourPointDrawing = new google.maps.drawing.DrawingManager({
+      drawingMode: google.maps.drawing.OverlayType.POLYLINE,
       drawingControl: true,
 
       drawingControlOptions: {
-        position: google.maps.ControlPosition.TOP_CENTER,
-        drawingModes: ['marker', 'circle', 'polygon', 'polyline', 'rectangle']
+        position: google.maps.ControlPosition.TOP_RIGHT,
+        // drawingModes: ['circle', 'polygon', 'polyline', 'rectangle']
       },
       rectangleOptions: {
         editable: true
@@ -42,18 +46,41 @@ $(function(){
         icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
       },
       circleOptions: {
-       fillColor: '#ffff00',
-       fillOpacity: 1,
-       strokeWeight: 5,
-       clickable: false,
-       editable: true,
-       zIndex: 1
+        fillColor: '#ffff00',
+        fillOpacity: 0.3,
+        strokeWeight: 5,
+        clickable: false,
+        editable: true,
+        zIndex: 1
      }
     });
 
-    drawingManager.setMap(tourpointmap);
+    tourPointDrawing.setMap(tourPointMap);
 
+    tourPointMap.addListener('click', function(event) {
+      addMarker(event.latLng);
 
+    });
+
+  }
+
+  $("#remove-drawing").click(removeDrawing);
+
+  function removeDrawing() {
+    // console.log("hahha");
+    initMap();
+    markers = [];
+
+  }
+
+  function addMarker(location) {
+  var marker = new google.maps.Marker({
+    position: location,
+    map: tourPointMap,
+    draggable: true
+  });
+  console.log(marker.getPosition().toJSON());
+  markers.push(marker);
   }
 
   function tourPointLocator(geocoder, resultsMap) {
@@ -73,13 +100,8 @@ $(function(){
         alert('Geocode was not successful for the following reason: ' + status);
       }
     });
-
-
-
-
   }
 
-
-
+//map------------------------------------------------------------------------------------------
 
 });
