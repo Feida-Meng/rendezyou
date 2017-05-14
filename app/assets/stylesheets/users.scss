@@ -1,3 +1,62 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.main_form{
+  margin: auto;
+  width: 60vw;
+  margin-top: 6.5%;
+}
+
+.user_left {
+  position: relative;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 30em;
+  width: 40vw;
+  left: 0px;
+}
+.user_right {
+  position: absolute;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 30em;
+  width: 16vw;
+  margin-left: 30px;
+}
+
+.picture-frame{
+  width: 9em;
+  height: 11em;
+  background: rgba(0,0,0,.1);
+}
+
+.passport_img{
+  position: fixed;
+  width: 100%;
+  z-index: -500;
+}
+
+.piclabel{
+  margin-top: 3%;
+}
+
+.picbutton{
+  margin-top: 3%;
+}
+
+#signupbutton{
+background-color: green;
+border-color: green;
+margin-left: 5%;
+margin-top: 2%;
+box-shadow: 1px 1px 3px black;
+}
+
+#inputSuccess3,
+#inputEmail3{
+  opacity: .5;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+
+}

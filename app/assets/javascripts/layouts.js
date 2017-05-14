@@ -14,6 +14,8 @@ $(document).ready(function(){
         // $('a').css('font-size', '100%').css('transition','0.3s ease-in-out');
       };
   });
+
+  //login modal
   $('.a_login').on('click', function(e){
     e.stopPropagation();
     e.preventDefault;
@@ -28,4 +30,21 @@ $(document).ready(function(){
   $('.login_form input').on('click', function(e){
     e.stopPropagation();
   });
+
+  //signup modal
+  $('.a_signup').on('click', function(e){
+    e.stopPropagation();
+    e.preventDefault;
+    $('.signup_window').fadeIn();
+  });
+
+  $('.signup_form').on('click', function(e){
+    e.stopPropagation();
+    $('.signup_window').fadeOut();
+  });
+
+  $('.signup_form input').on('click', function(e){
+    e.stopPropagation();
+  });
+
 });

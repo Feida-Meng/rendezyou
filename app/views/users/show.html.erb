@@ -1,12 +1,19 @@
 <!-- <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p> -->
 
+<% flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, class: alert %>
+<% end -%>
 
+<div class="layout_nav_bar">
+</div>
 
 <div class="yield">
 
 
-<h3 class="sub_heading">Hello <%= @user.name %>! Here are your Guided Tours!</h3>
+<h3 class="sub_heading">Hello <%= @user.name.capitalize %>!<h3>
+
+<h3>Here are your Guided Tours!</h3>
 
 <% if @tours_created.empty? %>
   <p>You don't have any guided tours yet! Click <%= link_to "here", new_tour_url %> to create one</p>
@@ -33,6 +40,17 @@
   <% end %>
 <% end %>
 </div>
+
+<!-- User Created Tours -->
+
+
+
+
+
+
+
+
+<!-- User's Booked Tours -->
 
 <div class="tour">
 

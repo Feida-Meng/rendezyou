@@ -1,56 +1,86 @@
 <div class="yield">
 
-<%=form_for(@user) do |f| %>
-<% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h4><%= pluralize(@user.errors.count, "error") %> prohibited this product from being saved:</h4>
+  <div class="main_form">
+      <%=form_for @user, :html => {:class => "form-horizontal"} do |f| %>
+        <div class="user_left">
 
-      <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+          <% if @user.errors.any? %>
+          <div id="error_explanation">
+            <h4><%= pluralize(@user.errors.count, "error") %> prohibited this product from being saved:</h4>
+
+            <ul>
+              <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+          <% end %>
+          
+          <div class="form-group has-success has-feedback">
+            <%= f.label :name, class:"control-label col-sm-3"%>
+            <div class="col-sm-8">
+              <%= f.text_field :name, class:"form-control", id:"inputSuccess3"%>
+              <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+              <span id="inputSuccess3Status" class="sr-only"></span>
+            </div>
+          </div>
+
+          <div class="form-group has-success has-feedback">
+            <%= f.label :username, class:"control-label col-sm-3"%>
+            <div class="col-sm-8">
+              <%= f.text_field :username, class:"form-control", id:"inputSuccess3"%>
+              <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+              <span id="inputSuccess3Status" class="sr-only"></span>
+            </div>
+          </div>
+
+          <div class="form-group has-success has-feedback">
+            <%= f.label :email, class:"control-label col-sm-3"%>
+            <div class="col-sm-8">
+              <%= f.text_field :email, class: "form-control", id:"inputEmail3"%>
+              <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+              <span id="inputSuccess3Status" class="sr-only"></span>
+            </div>
+          </div>
+
+          <div class="form-group has-success has-feedback">
+            <%= f.label :phone, class:"control-label col-sm-3" %>
+            <div class="col-sm-8">
+              <%= f.telephone_field :phone, class:"form-control", id:"inputSuccess3"%>
+              <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+              <span id="inputSuccess3Status" class="sr-only"></span>
+            </div>
+          </div>
+
+          <div class="form-group has-success has-feedback">
+            <%= f.label :password, class:"control-label col-sm-3" %>
+            <div class="col-sm-8">
+              <%= f.password_field :password, class:"form-control", id:"inputEmail3"%>
+            </div>
+          </div>
+
+          <div class="form-group has-success has-feedback">
+            <%= f.label :password_confirmation, class:"control-label col-sm-3" %>
+            <div class="col-sm-8">
+              <%= f.password_field :password_confirmation, class:"form-control", id:"inputEmail3"%>
+            </div>
+          </div>
+          <%= f.submit 'Sign Me Up!', :class=>"btn btn-danger btn-lg active col-sm-4", :id=>"signupbutton" %>
+        </div>
+
+        <div class="user_right">
+            <%= f.text_field :picture, class:"picture-frame"%><br>
+            <input type="file" class="picbutton" id="exampleInputFile">
+            <%= f.label :picture, class:"piclabel"%>
+          </div>
+
+
+        </div>
+
+        <%end%>
+
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name%>
-    <%= f.text_field :name%>
   </div>
-
-  <div class="field">
-    <%= f.label :email%>
-    <%= f.text_field :email%>
-  </div>
-
-  <div class="field">
-    <%= f.label :phone%>
-    <%= f.telephone_field :phone%>
-  </div>
-
-  <div class="field">
-    <%= f.label :password%>
-    <%= f.password_field :password%>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation%>
-    <%= f.password_field :password_confirmation%>
-  </div>
-
-
-  <div class="field">
-    <%= f.label :picture%>
-    <%= f.text_field :picture%>
-  </div>
-
-
-  <div class="field">
-    <%= f.label :username%>
-    <%= f.text_field :username%><br><br>
-    <%= f.submit %>
-
-  </div>
-<%end%>
 
 </div>

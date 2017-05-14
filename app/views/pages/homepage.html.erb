@@ -1,46 +1,119 @@
-<div class="navigate">
-  <div class="nav_bar">
-    <div class="nav_home">
-      <%= link_to "RendezYou Home", root_path, :class=>"a_nav_home" %>
-    </div>
-    <% if current_user %>
-      <div class="nav_current_user">
-        <%= link_to "My Profile", profile_path, :class=>"a_myprofile" %>
-        <%= link_to "Log Out", session_path("current"), :method => :delete, :class=>"a_logout" %>
-      </div>
-    <% else %>
-      <div class="nav_not_current_user">
-        <button type="button" class="a_login">Log In</button>
-        or <%=link_to "Sign Up", new_user_path, :class=>"a_signup" %>
-      </div>
-    <% end %>
-  </div>
-</div>
+<!-- Login Modal -->
 
 <div class="login_window">
   <%= form_tag sessions_path, {:class => "login_form"} do %>
-  <div class="field">
-    <%= label_tag :email %>
-    <%= text_field_tag :email, params[:email] %>
-  </div>
 
-  <div class="field">
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-  </div>
+  <div class="form-horiztonal">
+    <div class="col-md-12">
 
-  <div class="submit">
-    <%= submit_tag "Log in" %>
+      <div class="form-group">
+        <%= label_tag :email %>
+        <%= text_field_tag :email, params[:email], class:"form-control", id:"inputEmail3" %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :password %>
+        <%= password_field_tag :password, [:password], class: "form-control", id:"inputPassword3"  %>
+      </div>
+
+      <div class="form-group">
+        <label>
+          <input type="checkbox" /> Remember Me
+        </label>
+      </div>
+
+      <div class="form-group">
+          <%= submit_tag "Log in", class: "btn btn-primary"%>
+      </div>
+
+    </div>
   </div>
 
   <% end %>
 </div>
+
 <% if flash[:notice] %>
 <p id="notice"><%=flash[:notice] %></p>
 <%end%>
 <% if flash[:alert] %>
 <p id="alert"><%=flash[:alert] %></p>
 <%end%>
+
+<!-- signup page -->
+
+<div class="signup_window">
+  <%=form_for new_user_path, {:class => "signup_form"} do |f| %>
+
+  <div class="main_form">
+
+    <div class="user_left">
+      <div class="form-group has-success has-feedback">
+        <%= f.label :name, class:"control-label col-sm-3"%>
+        <div class="col-sm-8">
+          <%= f.text_field :name, class:"form-control", id:"inputSuccess3"%>
+          <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+          <span id="inputSuccess3Status" class="sr-only"></span>
+        </div>
+      </div>
+
+      <div class="form-group has-success has-feedback">
+        <%= f.label :username, class:"control-label col-sm-3"%>
+        <div class="col-sm-8">
+          <%= f.text_field :username, class:"form-control", id:"inputSuccess3"%>
+          <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+          <span id="inputSuccess3Status" class="sr-only"></span>
+        </div>
+      </div>
+
+      <div class="form-group has-success has-feedback">
+        <%= f.label :email, class:"control-label col-sm-3"%>
+        <div class="col-sm-8">
+          <%= f.text_field :email, class: "form-control", id:"inputEmail3"%>
+          <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+          <span id="inputSuccess3Status" class="sr-only"></span>
+        </div>
+      </div>
+
+      <div class="form-group has-success has-feedback">
+        <%= f.label :phone, class:"control-label col-sm-3" %>
+        <div class="col-sm-8">
+          <%= f.telephone_field :phone, class:"form-control", id:"inputSuccess3"%>
+          <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+          <span id="inputSuccess3Status" class="sr-only"></span>
+        </div>
+      </div>
+
+      <div class="form-group has-success has-feedback">
+        <%= f.label :password, class:"control-label col-sm-3" %>
+        <div class="col-sm-8">
+          <%= f.password_field :password, class:"form-control", id:"inputEmail3"%>
+        </div>
+      </div>
+
+      <div class="form-group has-success has-feedback">
+        <%= f.label :password_confirmation, class:"control-label col-sm-3" %>
+        <div class="col-sm-8">
+          <%= f.password_field :password_confirmation, class:"form-control", id:"inputEmail3"%>
+        </div>
+      </div>
+      <br>
+      <br>
+      <%= f.submit 'I\'m ready', :class=>"btn btn-primary btn-lg active" %>
+    </div>
+
+    <div class="user_right">
+        <%= f.text_field :picture, class:"picture-frame"%>
+        <%= f.label :picture%>
+        <input type="file" id="exampleInputFile" />
+      </div>
+    </div>
+
+    <%end%>
+
+  </div>
+
+</div>
+
 
 <!-- landing page -->
 

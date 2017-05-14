@@ -35,32 +35,40 @@
         </div>
       </div>
 
-  <div class="login_window">
-  <%= form_tag sessions_path, {:class => "login_form"} do %>
-    <div class="field">
-    <%= label_tag :email %>
-    <%= text_field_tag :email, params[:email] %>
-    <% end %>
-  </div>
+      <!-- Login Modal -->
 
       <div class="login_window">
         <%= form_tag sessions_path, {:class => "login_form"} do %>
-        <div class="field">
-          <%= label_tag :email %>
-          <%= text_field_tag :email, params[:email] %>
-        </div>
 
-        <div class="field">
-          <%= label_tag :password %>
-          <%= password_field_tag :password %>
-        </div>
+        <div class="form-horiztonal">
+          <div class="col-md-12">
 
-        <div class="submit">
-          <%= submit_tag "Log in" %>
+            <div class="form-group">
+              <%= label_tag :email %>
+              <%= text_field_tag :email, params[:email], class:"form-control", id:"inputEmail3" %>
+            </div>
+
+            <div class="form-group">
+              <%= label_tag :password %>
+              <%= password_field_tag :password, [:password], class: "form-control", id:"inputPassword3"  %>
+            </div>
+
+            <div class="form-group">
+              <label>
+                <input type="checkbox" /> Remember Me
+              </label>
+            </div>
+
+            <div class="form-group">
+                <%= submit_tag "Log in", class: "btn btn-primary"%>
+            </div>
+
+          </div>
         </div>
 
         <% end %>
       </div>
+
       <% if flash[:notice] %>
       <p id="notice"><%=flash[:notice] %></p>
       <%end%>
