@@ -31,8 +31,6 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     if @oldbooking.edit_booking(@booking)
       # byebug
-      UserMailer.booking_confirmaion_email.deliver_later
-      redirect_to user_path(current_user)
     else
       render :edit
     end
