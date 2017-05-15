@@ -59,29 +59,34 @@ box-shadow: 1px 1px 3px black;
   border-right: none;
 }
 
-// User Show css
+// below for Chalk board use!
 
-h3.hey_you{
-  text-align: center;
-  // font-family: 'Bitter', serif;
-  // font-family: 'Copse', serif;
-  font-family: 'Cabin', sans-serif;
-  // font-family: 'Pacifico', cursive;
-  font-size: 4em;
-  font-weight: bolder;
-  color: white;
-  // font-style: italic;
+// h3.hey_you{
+//   text-align: center;
+//   // font-family: 'Bitter', serif;
+//   // font-family: 'Copse', serif;
+//   font-family: 'Cabin', sans-serif;
+//   // font-family: 'Pacifico', cursive;
+//   font-size: 4em;
+//   font-weight: bolder;
+//   color: white;
+//   // font-style: italic;
+//
+// }
+//
+// #white{
+//   background: #f9f0ea;
+//   color: white;
+// }
 
+// above is for Chalk board use!
+
+.black{
+    background: #f9f0ea;
 }
-
-#white{
-  background: #f9f0ea;
-  color: white;
-}
-
 
 h3.user_click{
-  font-size: 3em;
+  font-size: 4em;
   text-align: center;
   padding: 10px;
   letter-spacing: 2px;
@@ -91,19 +96,18 @@ h3.user_click{
   font-family: 'Harmattan', sans-serif;
   // margin-top: %;
   // font-family: 'Shanti', sans-serif;
-
 }
 
 .user_show_board{
-  margin-top: 5%;
-  margin-bottom: 10%;
+  margin-top: 18%;
+  margin-bottom: 14%;
 }
 
 #user_show_scheduled{
   height: 500px;
 }
 
-.a_nav_home_user{
+#a_nav_home_user{
   vertical-align: middle;
   font-family: 'Pacifico', cursive;
   font-size: 2em;
@@ -113,4 +117,27 @@ h3.user_click{
 
 #black_text{
   color: black;
+}
+
+
+/* unvisited link */
+a:visited,
+a:link,
+a:active {
+  text-decoration: none;
+  color: black;
+}
+
+h3.user_click a:hover {
+  position: relative;
+  text-decoration: none;
+  color: #ff584c;
+}
+
+
+.book_img{
+  position: absolute;
+  top: 0;
+left: 30%;
+  width: 50%;
 }
