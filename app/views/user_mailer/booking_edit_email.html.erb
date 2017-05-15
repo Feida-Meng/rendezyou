@@ -1,6 +1,6 @@
 <h3>Dear <%= @user.name %>,</h3>
 
-<h4>Your booking for the following tour has been confirmed:</h4>
+<h4>Your booking for the following tour has been <b>updated:</b></h4>
 
 <ul>
   <li>What: <%= @tour.name %></li>
@@ -10,7 +10,7 @@
   <li>Meet Your Tour Guide At: <%= @tour.rendezvous_point %> </li>
 </ul>
 
-<p>Should you need to make any adjustments to your booking, please log in to your profile on Rendezyou. If you need to get in touch with your tour guide, you can reach them at <%= @tour_guide.email %> or <%= @tour_guide.phone %>.</p>
+<p>Should you need to make any further adjustments to your booking, please log in to your profile on Rendezyou. If you need to get in touch with your tour guide, you can reach them at <%= @tour_guide.email %> or <%= @tour_guide.phone %>.</p>
 
 <h4>Enjoy your tour!</h4>
 
