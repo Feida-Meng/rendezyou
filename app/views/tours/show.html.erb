@@ -8,6 +8,7 @@
 <% if @tour.user_id == current_user.id %>
 <%= link_to 'Edit this Tour', edit_tour_path(@tour.id) %>
 <%= link_to 'Delete this Tour', tour_path(@tour.id), method: :delete %>
+<%= link_to "Add new tour point", new_tour_tourpoint_path(@tour) %>
 <% end %>
 <%= link_to 'Back to Tours', tours_path %>
 

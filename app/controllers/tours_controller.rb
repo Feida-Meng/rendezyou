@@ -18,6 +18,19 @@ class ToursController < ApplicationController
 
   def show
     @tour = Tour.find(params[:id])
+    @tourpoints = @tour.tourpoints
+
+    if request.xhr?
+      respond_to do |format|
+        format.html do
+          render @tour
+        end
+        format.json do
+          render :json => @tour.to_json(:include => [:tourpoints])
+        end
+      end
+    end
+
   end
 
   def create
@@ -64,9 +77,6 @@ class ToursController < ApplicationController
 
 
   def tour_params
-
-    # params[:tour][:schedules_attributes]["0"][:current_capacity] = 0
-    # byebug
 
     params.require(:tour).permit(:name, :description, :country_id, :rendezvous_point, :category, :capacity, :duration_in_ms)
 
