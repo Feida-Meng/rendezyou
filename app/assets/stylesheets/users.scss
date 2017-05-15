@@ -29,11 +29,11 @@
   height: 11em;
   background: rgba(0,0,0,.1);
 }
-
 .passport_img{
   position: fixed;
-  width: 100%;
+  width: 100vw;
   z-index: -500;
+  height: 110%;
 }
 
 .piclabel{
@@ -52,11 +52,144 @@ margin-top: 2%;
 box-shadow: 1px 1px 3px black;
 }
 
-#inputSuccess3,
-#inputEmail3{
+#inputSuccess3,{
   opacity: .5;
   border-top: none;
   border-left: none;
   border-right: none;
+}
 
+// below for Chalk board use!
+
+// h3.hey_you{
+//   text-align: center;
+//   // font-family: 'Bitter', serif;
+//   // font-family: 'Copse', serif;
+//   font-family: 'Cabin', sans-serif;
+//   // font-family: 'Pacifico', cursive;
+//   font-size: 4em;
+//   font-weight: bolder;
+//   color: white;
+//   // font-style: italic;
+//
+// }
+//
+// #white{
+//   background: #f9f0ea;
+//   color: white;
+// }
+
+// above is for Chalk board use!
+
+.black{
+    background: #f9f0ea;
+}
+
+h3.user_click{
+  font-size: 4em;
+  text-align: center;
+  padding: 10px;
+  letter-spacing: 2px;
+ // font-family: 'Open Sans', sans-serif;
+  // font-family: 'Niconne', cursive;
+  // font-family: 'Grand Hotel', cursive;
+  font-family: 'Harmattan', sans-serif;
+  // margin-top: %;
+  // font-family: 'Shanti', sans-serif;
+  z-index: 6000;
+}
+
+chalkboard_img{
+  position: absolute;
+}
+
+.user_show_board{
+  position: absolute;
+  margin-top: 20%;
+  margin-bottom: 14%;
+  z-index: 10000;
+}
+
+#user_show_scheduled{
+  height: 500px;
+}
+
+#a_nav_home_user{
+  vertical-align: middle;
+  font-family: 'Pacifico', cursive;
+  font-size: 2em;
+  color: #ff584c;
+  z-index: 10000;
+}
+
+
+#black_text{
+  color: black;
+}
+
+
+/* unvisited link */
+#userpage a:visited
+.userpage a:visited,
+.user_click a:visited,
+#userpage a:link,
+.userpage a:link,
+.user_click a:link,
+#userpage a:active,
+.userpage a:active,
+.user_click a:active,{
+  text-decoration: none;
+  color: white;
+  padding: 0 15px;
+}
+
+h3.user_click a:hover {
+  position: relative;
+  text-decoration: none;
+  color: #ff584c;
+  padding: 0 15px;
+
+}
+
+.map_img{
+  position: fixed;
+  width: 100%;
+  z-index: -500;
+}
+
+.book_img{
+  position: absolute;
+  top: 0;
+  left: 42%;
+  width: 50%;
+  z-index: 5000;
+}
+
+.book_img_black{
+  top: 0;
+  left: 42%;
+  width: 50%;
+  z-index: 5000;
+}
+
+
+#userpage{
+  z-index: 2500;
+}
+
+.user_nav_bar {
+  width: 100%;
+  height: 6em;
+  position: fixed;
+  z-index: 2000;
+  background: #f9f0ea;
+}
+
+#iwhite{
+  color: black;
+  margin-right: -15em;
+}
+
+#i{
+margin-right: -1em;
 }

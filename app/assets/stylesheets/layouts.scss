@@ -1,9 +1,21 @@
+// <link href="https://fonts.googleapis.com/css?family=Grand+Hotel|Harmattan|Niconne|Open+Sans:700" rel="stylesheet">
+// Specify in CSS
+//
+// Use the following CSS rules to specify these families:
+// font-family: 'Open Sans', sans-serif;
+// font-family: 'Niconne', cursive;
+// font-family: 'Grand Hotel', cursive;
+// font-family: 'Harmattan', sans-serif;
+// font-family: 'Shanti', sans-serif;
+
+
+
 html{
   font-size: 1.5em;
 }
 
 // Our code starts here
- .navigate {
+.navigate {
    position: relative;
    min-width: 1200px;
    z-index: 100;
@@ -23,7 +35,7 @@ html{
   position: fixed;
 }
 
-
+ .nav_tours,
  .nav_home {
    display: inline-block;
    color: white;
@@ -36,31 +48,62 @@ html{
    font-size: 2em;
    color: #ffc800;
  }
- .nav_current_user,
- .nav_not_current_user {
+
+// nav right floats
+ .nav_right_float {
    float: right;
    display: inline-block;
    color: white;
    padding: 1.5em;
    height: 5em;
  }
-
+ .a_myprofile,
+ .a_signup,
  .a_logout,
  .a_login {
-   vertical-align: middle;
-   color: grey;
-   font-size: 1.1em;
-   padding: 0 10px;
+   display: inline-block;
+   color: white;
+   padding: 14px;
  }
 
- .a_myprofile,
- .a_signup{
-   vertical-align: middle;
-   color: grey;
+ .dropdown-toggle{
+   display: inline-block;
+   color: white;
    font-size: 1.1em;
-   padding: 0 10px;
-
+   padding: 6px 15px;
  }
+
+li{
+  list-style: none;
+  color: white;
+}
+.nav_drop{
+  position: absolute;
+  display: inline-block;
+  float: left;
+  padding: 14px;
+  margin-top: 1.2%;
+}
+
+.nav_drop_b{
+  position: absolute;
+  display: inline-block;
+  float: left;
+  padding: 14px;
+  margin-top: 1.2%;
+  margin-left: 10%;
+}
+.nav_drop_c{
+  position: absolute;
+  display: inline-block;
+  float: left;
+  padding: 14px;
+  margin-top: 1.2%;
+  margin-left: 20%;
+
+}
+
+
 
 div.yield{
   padding-top: 8em;
@@ -106,4 +149,9 @@ div.yield{
   right: 0;
   text-align: center;
   color: grey;
+}
+
+ul.dropdown-menu {
+  background-color: black;
+  opacity: .8;
 }
