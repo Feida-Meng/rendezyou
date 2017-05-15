@@ -18,6 +18,10 @@ class UsersController < ApplicationController
     @tours_created = @user.tours
   end
 
+  def profile
+    @user = current_user
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save
