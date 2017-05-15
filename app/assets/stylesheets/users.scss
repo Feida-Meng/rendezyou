@@ -97,14 +97,17 @@ h3.user_click{
   // margin-top: %;
   // font-family: 'Shanti', sans-serif;
   z-index: 6000;
+}
 
+chalkboard_img{
+  position: absolute;
 }
 
 .user_show_board{
-  margin-top: 18%;
+  position: absolute;
+  margin-top: 20%;
   margin-bottom: 14%;
   z-index: 10000;
-
 }
 
 #user_show_scheduled{
@@ -136,7 +139,7 @@ h3.user_click{
 .userpage a:active,
 .user_click a:active,{
   text-decoration: none;
-  color: black;
+  color: white;
   padding: 0 15px;
 }
 
