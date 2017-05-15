@@ -5,11 +5,11 @@ class Tour < ApplicationRecord
   has_many :schedules
   has_many :tourpoints
 
-  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  has_attached_file :tourpic, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
 
 
   validates :duration_in_ms, numericality: true
-  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+  validates_attachment_content_type :tourpic, content_type: /\Aimage\/.*\z/
 
   #converting duration input to ms before saving
   before_save { |tour| tour.duration_in_ms = (tour.duration_in_ms) * 3600000 }

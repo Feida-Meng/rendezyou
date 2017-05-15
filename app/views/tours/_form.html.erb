@@ -1,4 +1,4 @@
-<%= form_for @tour do |f| %>
+<%= form_for @tour, url: tours_path, html: { multipart: true} do |f| %>
 
 <% if @tour.errors.any? %>
     <div id="error_explanation">
@@ -69,6 +69,10 @@
 
         <br>
         <br>
+
+        <%= image_tag @tour.tourpic.url %>
+        <%= f.file_field :tourpic %>
+
 
    <div class="form-group">
     <div class="col-sm-offset-2 col-sm-6">

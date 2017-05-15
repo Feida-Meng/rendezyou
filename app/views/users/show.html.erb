@@ -1,6 +1,9 @@
 <!-- <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p> -->
-  <%= image_tag("chalkboard.jpg", :class=>"map_img")%>
+  <!-- <%= image_tag("chalkboard.jpg", :class=>"map_img")%> -->
+  <div class="layout_nav_bar">
+  </div>
+
   <div class="logo_container">
     <div class="container">
     <h3 class="user_click"><%= link_to "Click here to give a tour", :anchor => "user_show_created" %></h3>
@@ -9,7 +12,7 @@
 </div>
 </div>
 
-<%= image_tag("feather_user-02.png", :class=>"book_img")%>
+<!-- <%= image_tag("feather_user-02.png", :class=>"book_img")%> -->
 
 <% flash.each do |name, msg| -%>
 <%= content_tag :div, msg, class: alert %>
@@ -30,7 +33,9 @@
 
         <div class="col-md-4">
           <div class="thumbnail">
-            <img alt="Bootstrap Thumbnail Second" src="http://lorempixel.com/output/city-q-c-600-200-1.jpg" />
+            <!-- <img alt="Bootstrap Thumbnail Second" src="http://lorempixel.com/output/city-q-c-600-200-1.jpg" /> -->
+            <%= image_tag @tour.tourpic.url(:thumb), :class=>"tour_pic_tourdetails" %>
+
             <div class="caption">
 
               <h3><%= tour.name %></h3>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170515173712) do
+ActiveRecord::Schema.define(version: 20170515213707) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,10 @@ ActiveRecord::Schema.define(version: 20170515173712) do
     t.integer "country_id"
     t.integer "capacity"
     t.integer "duration_in_ms"
+    t.string "tourpic_file_name"
+    t.string "tourpic_content_type"
+    t.integer "tourpic_file_size"
+    t.datetime "tourpic_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
