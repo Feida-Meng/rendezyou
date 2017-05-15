@@ -35,7 +35,7 @@ html{
   position: fixed;
 }
 
-
+ .nav_tours,
  .nav_home {
    display: inline-block;
    color: white;
@@ -49,31 +49,44 @@ html{
    color: #ffc800;
  }
 
- .nav_current_user,
- .nav_not_current_user {
+// nav right floats
+ .nav_right_float {
    float: right;
    display: inline-block;
    color: white;
    padding: 1.5em;
    height: 5em;
  }
-
-.a_tours_nav,
+ .a_myprofile,
+ .a_signup,
  .a_logout,
  .a_login {
-   vertical-align: middle;
+   display: inline-block;
    color: white;
    font-size: 1.1em;
-   padding: 0 15px;
+   padding: 14px;
  }
 
- .a_myprofile,
- .a_signup{
-   vertical-align: middle;
+ .dropdown-toggle{
+   display: inline-block;
    color: white;
    font-size: 1.1em;
-   padding: 0 15px;
+   padding: 6px 15px;
  }
+
+li{
+  list-style: none;
+  color: white;
+}
+.nav_drop{
+  position: absolute;
+  display: inline-block;
+  float: left;
+  padding: 14px;
+  margin-top: 1%;
+}
+
+
 
 
 
@@ -121,4 +134,9 @@ div.yield{
   right: 0;
   text-align: center;
   color: grey;
+}
+
+ul.dropdown-menu {
+  background-color: black;
+  opacity: .8;
 }
