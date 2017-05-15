@@ -36,5 +36,15 @@ class UserMailer < ApplicationMailer
          subject: "Tour Booking Updated")
   end
 
+  def guide_booking_edit_email(tourguide, booking, tour, schedule)
+    @tour_guide = tourguide
+    @booking = booking
+    @tour = tour
+    @schedule = schedule
+    mail(to: @tour_guide.email,
+         subject: "Someone has updated their booking")
+
+  end
+
 
 end

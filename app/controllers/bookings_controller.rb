@@ -50,6 +50,10 @@ class BookingsController < ApplicationController
                                     @schedule,
                                     @tour_guide,
                                     @booking).deliver
+      UserMailer.guide_booking_edit_email(@tour_guide,
+                                          @booking,
+                                          @tour,
+                                          @schedule).deliver
       redirect_to user_path(current_user)
     else
       render :edit
