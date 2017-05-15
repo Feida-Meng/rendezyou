@@ -20,7 +20,7 @@
 }
 
 .login_window{
-  opacity: .9;
+  opacity: 1;
 }
 
 .login_form{
@@ -28,4 +28,20 @@
   height: 20em;
   border-radius: 5px;
 
+  background-color: white;
+}
+
+#login_modal_button{
+  background-color: #ff584c;
+  border-color: #ff584c;
+}
+#notice {
+  position: absolute;
+  margin: auto;
+  top: 50px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: grey;
+d
 }

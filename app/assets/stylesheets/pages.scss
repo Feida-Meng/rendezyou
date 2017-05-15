@@ -77,3 +77,14 @@ background: none;
 input{
   align-items: right;
 }
+
+#notice {
+  position: absolute;
+  margin: auto;
+  top: 50px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: grey;
+  z-index: 5000;
+}

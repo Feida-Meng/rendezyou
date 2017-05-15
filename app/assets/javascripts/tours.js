@@ -1,5 +1,6 @@
 $(function(){
 
+
   var showTourMapDiv = document.getElementById('show-tour-map');
 
 
@@ -118,5 +119,10 @@ $(function(){
       }
     });
   }
+
+
+
+
+
 
 });

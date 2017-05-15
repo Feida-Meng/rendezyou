@@ -1,3 +1,53 @@
+<!-- Nav Bar -->
+
+<div class="navigate">
+  <div class="nav_bar">
+    <div class="nav_home">
+      <%= link_to "RendezYou", root_path, :class=>"a_nav_home" %>
+    </div>
+
+    <% if current_user %>
+    <div class="nav_drop">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tours <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><%= link_to "Your Created Tours", :anchor=>"user_show_created" %></li>
+          <li role="separator" class="divider"></li>
+          <li><%= link_to "Your Scheduled Tours", :anchor => "user_show_scheduled" %></li>
+          <li role="separator" class="divider"></li>
+          <li><%= link_to "Search All Tours", profile_path %></li>
+        </ul>
+      </li>
+    </div>
+
+    <div class="nav_drop_b">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About Us</a>
+      </li>
+    </div>
+
+    <div class="nav_drop_c">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contact</a>
+      </li>
+    </div>
+
+    <div class="nav_right_float">
+      <i class="fa fa-cog" aria-hidden="true" id="i"></i>
+      <%= link_to "My Profile", profile_path, :class=>"a_myprofile" %>
+      <%= link_to "Log Out", session_path("current"), :method => :delete, :class=>"a_logout" %>
+    </div>
+
+    <% else %>
+    <div class="nav_right_float">
+      <button type="button" class="a_login">Log In</button>
+      or <%=link_to "Sign Up", new_user_path, :class=>"a_signup" %>
+    </div>
+    <% end %>
+
+  </div>
+</div>
+
 <!-- Login Modal -->
 
 <div class="login_window">
@@ -23,21 +73,21 @@
       </div>
 
       <div class="form-group">
-          <%= submit_tag "Log in", class: "btn btn-primary"%>
+        <%= submit_tag "Log in", class: "btn btn-primary", id: "login_modal_button"%>
       </div>
 
     </div>
   </div>
-
   <% end %>
+
+  <% if flash[:notice] %>
+  <p id="notice"><%=flash[:notice] %></p>
+  <%end%>
+  <% if flash[:alert] %>
+  <p id="alert"><%=flash[:alert] %></p>
+  <%end%>
 </div>
 
-<% if flash[:notice] %>
-<p id="notice"><%=flash[:notice] %></p>
-<%end%>
-<% if flash[:alert] %>
-<p id="alert"><%=flash[:alert] %></p>
-<%end%>
 
 <!-- signup page -->
 
@@ -102,15 +152,15 @@
     </div>
 
     <div class="user_right">
-        <%= f.text_field :picture, class:"picture-frame"%>
-        <%= f.label :picture%>
-        <input type="file" id="exampleInputFile" />
-      </div>
+      <%= f.text_field :picture, class:"picture-frame"%>
+      <%= f.label :picture%>
+      <input type="file" id="exampleInputFile" />
     </div>
-
-    <%end%>
-
   </div>
+
+  <%end%>
+
+</div>
 
 </div>
 
@@ -132,9 +182,9 @@
   <div class="oneliner">
     <!-- <p>Fall in love with your city again!</p> -->
   </div>
-<div>
+  <div>
 
-<div class="onetwothree">
-  <div class="">
-  </div>
-</div>
+    <div class="onetwothree">
+      <div class="">
+      </div>
+    </div>
