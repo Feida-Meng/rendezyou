@@ -36,6 +36,8 @@ gem 'bcrypt', '~> 3.1.10'
 #mail previewer
 gem "letter_opener", :group => :development
 
+#paperclip
+gem "paperclip", "~> 5.1.0"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
