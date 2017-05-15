@@ -55,12 +55,15 @@ $(function(){
         }
       }
       // showTourMap.fitBounds(bounds);
-      if (markerPlaced === false) {
-        tourPointMap.addListener('click', function(event) {
+
+      tourPointMap.addListener('click', function(event) {
+        if (markerPlaced === false) {
           markerMaker(event.latLng, tourPointMap, (i+1).toString());
-          markerPlaced === true;
-        });
-      }
+        }
+        markerPlaced = true;
+      });
+
+
 
     }).fail(function(){
       console.log("fails");
