@@ -2,6 +2,7 @@ $(function(){
 
   var showTourMapDiv = document.getElementById('show-tour-map');
 
+
   if ($.contains(document,showTourMapDiv) ) {
     var currentUrl = window.location.href;
     var tourId = currentUrl.substring(currentUrl.lastIndexOf('/') + 1);
@@ -16,22 +17,24 @@ $(function(){
       tour = reponseData;
       console.log(tour);
 
-
       var showTourMap = new google.maps.Map(showTourMapDiv, {
-        zoom: 16,
+        zoom: 13,
         center: {lat: -34.397, lng: 150.644}
       });
 
       var rendezvousPoint = tour.rendezvous_point;
       var country = "Canada";//tour.rendezvous_point;
       var rendezvousGeocoder = new google.maps.Geocoder();
+
       geocodeAddress(rendezvousGeocoder, showTourMap, country,rendezvousPoint, rendezvousPoint);
 
       var latlng;
       var latP;
       var lagP;
       var markerPosition;
-
+      var largeInfowindow = new google.maps.InfoWindow();
+      var bounds = new google.maps.LatLngBounds();
+      var marker;
       for (var i = 0; i<tour.tourpoints.length;i++) {
 
         laglng = tour.tourpoints[i].tour_point_laglng;
@@ -39,10 +42,25 @@ $(function(){
         lagP = Number(laglng.substring(laglng.indexOf(",")+1,laglng.indexOf(")")-1));
         markerPosition = {lat:latP,lng:lagP};
         console.log(markerPosition);
-        markerMaker(markerPosition, showTourMap,(i+1).toString());
+        marker = markerMaker(markerPosition, showTourMap,(i+1).toString());
+        marker.addListener('click', function () {
+          populateInfoWindow(this, largeInfowindow, showTourMap);
+        });
+        // bounds.extend(marker.position);
       }
-
+    // showTourMap.fitBounds(bounds);
     });
+  }
+
+  function populateInfoWindow(marker, infowindow, map) {
+    if (infowindow.marker != marker) {
+      infowindow.marker = marker;
+      infowindow.setContent('<div>' + marker.title + '</div>');
+      infowindow.open(map, marker);
+      infowindow.addListener('closeclick',function(){
+        infowindow.setMarker = null;
+      });
+    }
   }
 
   var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
@@ -52,9 +70,11 @@ $(function(){
       map: map,
       label:label,
       icon:image,
-      title: 'First Marker!',
+      title: 'TP',
       animation: google.maps.Animation.DROP
     });
+
+    return marker;
   }
 
 
@@ -78,7 +98,7 @@ $(function(){
       }, function(results, status) {
       if (status === 'OK') {
         resultsMap.setCenter(results[0].geometry.location);
-        var marker = new google.maps.Marker({
+        var rendezvousPointMarker = new google.maps.Marker({
           map: resultsMap,
           label:"R",
           position: results[0].geometry.location,
