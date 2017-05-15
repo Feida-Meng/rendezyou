@@ -1,8 +1,8 @@
 class BookingsController < ApplicationController
   before_action :load_tour,except: %i(load_schedule booking_params)
   before_action :load_schedule,except: %i(load_tour booking_params)
-  before_action :ensure_logged_in, only: [:new, :create, :edit, :destroy]
-  before_action :load_tour_guide, only: [:create, :edit, :destroy]
+  before_action :ensure_logged_in, only: [:new, :create, :edit, :destroy, :update]
+  before_action :load_tour_guide, only: [:create, :edit, :update, :destroy]
 
   def new
     @booking = Booking.new
@@ -44,10 +44,12 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     ensure_booking_user (@oldbooking)
     if @oldbooking.edit_booking(@booking)
+      @user = current_user
       UserMailer.booking_edit_email(@user,
                                     @tour,
                                     @schedule,
-                                    @tour_guide)
+                                    @tour_guide,
+                                    @booking).deliver
       redirect_to user_path(current_user)
     else
       render :edit

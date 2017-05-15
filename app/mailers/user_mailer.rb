@@ -26,11 +26,12 @@ class UserMailer < ApplicationMailer
     mail(to: user.email, subject: "Welcome to Rendezyou!")
   end
 
-  def booking_edit_email(user, tour, schedule, tourguide)
+  def booking_edit_email(user, tour, schedule, tourguide, booking)
     @user = user
     @tour = tour
     @schedule = schedule
     @tour_guide = tourguide
+    @booking = booking
     mail(to: @user.email,
          subject: "Tour Booking Updated")
   end
