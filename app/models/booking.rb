@@ -5,7 +5,7 @@ class Booking < ApplicationRecord
  # after_save :update_capacitiy
 
  def capacity_check
-   unless tourtime.max_capacity > (tourtime.current_capacity + booking_size)
+   unless tourtime.max_capacity >= (tourtime.current_capacity + booking_size)
      errors[:base] << "Not enough capacity"
    end
 
@@ -41,8 +41,8 @@ class Booking < ApplicationRecord
   end
 
   def cancel_booking
-    tourtime.update(current_capacity: tourtime.current_capacity - booking_size)
     destroy
+    tourtime.update(current_capacity: tourtime.current_capacity - booking_size)
   end
 
 end
