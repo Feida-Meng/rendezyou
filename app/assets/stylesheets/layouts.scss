@@ -48,6 +48,7 @@ html{
    font-size: 2em;
    color: #ffc800;
  }
+
  .nav_current_user,
  .nav_not_current_user {
    float: right;
@@ -57,6 +58,7 @@ html{
    height: 5em;
  }
 
+.a_tours_nav,
  .a_logout,
  .a_login {
    vertical-align: middle;
@@ -72,6 +74,8 @@ html{
    font-size: 1.1em;
    padding: 0 15px;
  }
+
+
 
 div.yield{
   padding-top: 8em;

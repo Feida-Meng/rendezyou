@@ -9,7 +9,8 @@
 <!-- <div class="layout_nav_bar">
 </div> -->
 
-<div class="navigate" id="userpage">
+
+<!-- <div class="navigate" id="userpage">
   <div class="user_nav_bar">
     <div class="nav_home">
       <%= link_to "RendezYou Home", root_path, :class=>"userpage", :id=>"a_nav_home_user" %>
@@ -17,7 +18,8 @@
     </div>
     <% if current_user %>
       <div class="nav_current_user">
-          <%= link_to @user.name.capitalize, profile_path, :class=>"a_myprofile", :class=>"userpage", :id=>"black_text" %>
+        <i class="fa fa-cog" aria-hidden="true" id="i"></i>
+        <%= link_to @user.name.capitalize, profile_path, :class=>"a_myprofile", :class=>"userpage", :id=>"black_text" %>
         <%= link_to "Log Out", session_path("current"), :method => :delete, :class=>"a_logout", :class=>"userpage", :id=>"black_text" %>
       </div>
     <% else %>
@@ -27,7 +29,7 @@
       </div>
     <% end %>
   </div>
-</div>
+</div> -->
 
 <!-- #id White is for Chalk board use only -->
 <!-- <div id="white"> -->
