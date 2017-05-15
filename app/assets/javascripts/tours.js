@@ -1,47 +1,48 @@
 $(function(){
 
   var showTourMapDiv = document.getElementById('show-tour-map');
-  // $.ajax({
-  //   method:"GET",
-  //   url: tour_page_url,
-  //   dataType:'json'
-  // });
+
   if ($.contains(document,showTourMapDiv) ) {
-    var current_url = window.location.href;
-    var tour_id = current_url.substring(current_url.lastIndexOf('/') + 1);
-    var tour_page_url = "/tours/"+tour_id;
+    var currentUrl = window.location.href;
+    var tourId = currentUrl.substring(currentUrl.lastIndexOf('/') + 1);
+    var tourPageUrl = "/tours/"+tourId;
+    var tour;
     $.ajax({
       method:"GET",
-      url: tour_page_url,
+      url: tourPageUrl,
       dataType:'json'
     }).done(function(reponseData){
-      console.log(reponseData);
+      tour = reponseData;
+
+      var showTourMap = new google.maps.Map(showTourMapDiv, {
+        zoom: 16,
+        center: {lat: -34.397, lng: 150.644}
+      });
+
+      var rendezvousPoint = tour.rendezvous_point;
+      var country = "Canada";//tour.rendezvous_point;
+      var rendezvousGeocoder = new google.maps.Geocoder();
+      geocodeAddress(rendezvousGeocoder, showTourMap, country,rendezvousPoint);
+
     });
-    console.log(tour_page_url);
-    console.log(document.URL);
   }
-
-  var showTourMap = new google.maps.Map(showTourMapDiv, {
-    zoom: 16,
-    center: {lat: -34.397, lng: 150.644}
-  });
-
 
   // $("#rendezvous-point").on('click',function(){
   $("#rendezvous-point-input").on("input",function(){
-    var map = new google.maps.Map(document.getElementById('rendezvous-map'), {
+    var rendezvousMap = new google.maps.Map(document.getElementById('rendezvous-map'), {
       zoom: 16,
       center: {lat: -34.397, lng: 150.644}
     });
-      var geocoder = new google.maps.Geocoder();
-      geocodeAddress(geocoder, map);
-  });
-
-  function geocodeAddress(geocoder, resultsMap) {
     var rendezvousPoint = $("#rendezvous-point-input").val();
     var country = $("#tour_country_id option:selected").text();
+    var rendezvousGeocoder = new google.maps.Geocoder();
+    geocodeAddress(rendezvousGeocoder, rendezvousMap, country, rendezvousPoint);
+  });
+
+  function geocodeAddress(geocoder, resultsMap, country, address) {
+
     geocoder.geocode(
-      { address: rendezvousPoint,
+      { address: address,
         componentRestrictions: {country: country}
       }, function(results, status) {
       if (status === 'OK') {
