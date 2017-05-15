@@ -11,6 +11,15 @@ class UserMailer < ApplicationMailer
          subject: "Booking Confirmation")
   end
 
+  def guide_booking_confirmation_email(tourguide, booking, tour, schedule)
+    @tour_guide = tour_guide
+    @booking = booking
+    @tour = tour
+    @schedule = schedule
+    mail(to: @tour_guide.email
+         subject: "Someone has booked your tour!")
+  end
+
   def welcome_email(user)
     @user = user
     mail(to: user.email, subject: "Welcome to Rendezyou!")

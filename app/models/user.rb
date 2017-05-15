@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :username, :email, :phone, uniqueness: true
   validates :password, length: { in: 4..20 }
   validates :email, format: { with: /[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+/i }
-  validates :phone, length: { is: 10 }, format: { with: /[\d]+/, message: 'can only contain numbers'}
+  validates :phone, length: { is: 15 }, format: { with: /[\d]+/, message: 'can only contain numbers'}
 
   def booked_tours
     tours=[]
