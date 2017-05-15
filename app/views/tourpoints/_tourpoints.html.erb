@@ -29,9 +29,11 @@
       <%= f.text_field :tour_point_name %>
     </div>
 
+
+
     <div class="form-group">
-      <%= f.label :tour_point_laglng %>
-      <%= f.text_field :tour_point_laglng%>
+      <% f.label :tour_point_laglng %>
+      <%= f.hidden_field :tour_point_laglng %>
     </div>
 
     <div class="form-group">
@@ -47,7 +49,7 @@
     <div class="form-group">
         <%= f.submit "Save this tour point" %>
     </div>
-    <%= link_to 'Cancel', edit_tour_path(@tour) %>
+    <%= link_to 'Cancel', tour_path(@tour) %>
 
   <% end %>
 </div>

@@ -10,12 +10,12 @@ $(function(){
     var tour;
     var tourpoints = [];
     $.ajax({
-      method:"GET",
+      method: "GET",
       url: tourPageUrl,
       dataType:'json'
     }).done(function(reponseData){
       tour = reponseData;
-
+      
       console.log(tour);
 
       var tourPointMap = new google.maps.Map(tourPointMapDiv, {
@@ -36,7 +36,8 @@ $(function(){
       var tourPointInfoWindow = new google.maps.InfoWindow();
       var bounds = new google.maps.LatLngBounds();
       var marker;
-      var i ;
+      var markers = {};
+      var i;
       var markerPlaced = false;
       if (tour.tourpoints.length > 0) {
 
@@ -47,15 +48,18 @@ $(function(){
           lagP = Number(laglng.substring(laglng.indexOf(",")+1,laglng.indexOf(")")-1));
           markerPosition = {lat:latP,lng:lagP};
           console.log(markerPosition);
-          marker = markerMaker(markerPosition, tourPointMap,(i+1).toString());
+          marker = markerMaker(markerPosition,tourPointMap,(i+1).toString());
+          markers[marker.label]= tour.tourpoints[i];
           marker.addListener('click', function () {
-            populateInfoWindow(this,tour.tourpoints[i],tourPointInfoWindow,tourPointMap);
+
+            console.log(this);
+            populateInfoWindow(this,markers[this.label],tourPointInfoWindow,tourPointMap);
           });
           // bounds.extend(marker.position);
         }
       }
       // showTourMap.fitBounds(bounds);
-
+      console.log("markerPlaced" + markerPlaced);
       tourPointMap.addListener('click', function(event) {
         if (markerPlaced === false) {
           markerMaker(event.latLng, tourPointMap, (i+1).toString());
@@ -71,11 +75,13 @@ $(function(){
   }
 
   function populateInfoWindow(marker, tourpoint, infowindow, map) {
+    console.log("tourpoint"+tourpoint+"!!!");
     var tourPointName = "<div>" + tourpoint.tour_point_name + "</div>";
-    var tourPointImg = "<img src=" + tourpoint.tour_point_img + " alt='tour point image' width='42' height='42' border=0>";
+    var tourPointImg = "<img src=" + tourpoint.tour_point_img + " alt='tour point image' width='400px' height='400px' border=0>";
     var tourPointImgDiv = "<div>" + "<a href =" + tourpoint.tour_point_img + ">" + tourPointImg + "</a>" + "</div>";
     if (infowindow.marker != marker) {
       infowindow.marker = marker;
+      infowindow.setOptions({maxWidth:500});
       infowindow.setContent( tourPointName + tourPointImgDiv );
 
       infowindow.open(map, marker);
@@ -96,6 +102,8 @@ $(function(){
       animation: google.maps.Animation.DROP
     });
     $("#tourpoint_tour_point_laglng").val( marker.getPosition().toString() );
+    console.log(marker.getPosition());
+      // $("#tourpoint_tour_point_laglng").val( marker.getPosition().toJson() );
     return marker;
   }
 
