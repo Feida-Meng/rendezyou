@@ -33,7 +33,6 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     ensure_booking_user (@oldbooking)
     if @oldbooking.edit_booking(@booking)
-      # byebug
       redirect_to user_path(current_user)
     else
       render :edit
@@ -44,6 +43,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.cancel_booking
+    byebug
     redirect_to user_path(current_user)
   end
 
