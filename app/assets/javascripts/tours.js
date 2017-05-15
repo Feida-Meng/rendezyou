@@ -7,12 +7,15 @@ $(function(){
     var tourId = currentUrl.substring(currentUrl.lastIndexOf('/') + 1);
     var tourPageUrl = "/tours/"+tourId;
     var tour;
+    var tourpoints = [];
     $.ajax({
       method:"GET",
       url: tourPageUrl,
       dataType:'json'
     }).done(function(reponseData){
       tour = reponseData;
+      console.log(tour);
+
 
       var showTourMap = new google.maps.Map(showTourMapDiv, {
         zoom: 16,
@@ -22,10 +25,38 @@ $(function(){
       var rendezvousPoint = tour.rendezvous_point;
       var country = "Canada";//tour.rendezvous_point;
       var rendezvousGeocoder = new google.maps.Geocoder();
-      geocodeAddress(rendezvousGeocoder, showTourMap, country,rendezvousPoint);
+      geocodeAddress(rendezvousGeocoder, showTourMap, country,rendezvousPoint, rendezvousPoint);
+
+      var latlng;
+      var latP;
+      var lagP;
+      var markerPosition;
+
+      for (var i = 0; i<tour.tourpoints.length;i++) {
+
+        laglng = tour.tourpoints[i].tour_point_laglng;
+        latP = Number(laglng.substring(laglng.indexOf("(")+1,laglng.indexOf(",")-1));
+        lagP = Number(laglng.substring(laglng.indexOf(",")+1,laglng.indexOf(")")-1));
+        markerPosition = {lat:latP,lng:lagP};
+        console.log(markerPosition);
+        markerMaker(markerPosition, showTourMap,(i+1).toString());
+      }
 
     });
   }
+
+  var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+  function markerMaker(position,map,label) {
+    var marker = new google.maps.Marker({
+      position: position,
+      map: map,
+      label:label,
+      icon:image,
+      title: 'First Marker!',
+      animation: google.maps.Animation.DROP
+    });
+  }
+
 
   // $("#rendezvous-point").on('click',function(){
   $("#rendezvous-point-input").on("input",function(){
@@ -39,7 +70,7 @@ $(function(){
     geocodeAddress(rendezvousGeocoder, rendezvousMap, country, rendezvousPoint);
   });
 
-  function geocodeAddress(geocoder, resultsMap, country, address) {
+  function geocodeAddress(geocoder, resultsMap, country, address, markerTitle) {
 
     geocoder.geocode(
       { address: address,
@@ -49,7 +80,10 @@ $(function(){
         resultsMap.setCenter(results[0].geometry.location);
         var marker = new google.maps.Marker({
           map: resultsMap,
-          position: results[0].geometry.location
+          label:"R",
+          position: results[0].geometry.location,
+          title: markerTitle,
+          animation: google.maps.Animation.DROP
         });
       } else {
         alert('Geocode was not successful for the following reason: ' + status);
