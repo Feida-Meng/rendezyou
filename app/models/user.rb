@@ -11,6 +11,7 @@ class User < ApplicationRecord
   validates :password, length: { in: 4..20 }
   validates :email, format: { with: /[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+/i }
   validates :phone, length: { is: 10 }, format: { with: /[\d]+/, message: 'can only contain numbers'}
+
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   def booked_tours
