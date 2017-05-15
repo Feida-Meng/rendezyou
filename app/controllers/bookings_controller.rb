@@ -44,6 +44,10 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     ensure_booking_user (@oldbooking)
     if @oldbooking.edit_booking(@booking)
+      UserMailer.booking_edit_email(@user,
+                                    @tour,
+                                    @schedule,
+                                    @tour_guide)
       redirect_to user_path(current_user)
     else
       render :edit
