@@ -18,7 +18,15 @@ class BookingsController < ApplicationController
     if @booking.booking
       # byebug
       @user = current_user
-      UserMailer.booking_confirmation_email(@user, @tour, @schedule, @tour_guide).deliver
+      UserMailer.booking_confirmation_email(@user,
+                                            @tour,
+                                            @schedule,
+                                            @tour_guide,
+                                            @booking).deliver
+      UserMailer.guide_booking_confirmation_email(@tour_guide,
+                                                  @booking,
+                                                  @tour,
+                                                  @schedule).deliver
       redirect_to user_path(current_user)
     else
       render :new
