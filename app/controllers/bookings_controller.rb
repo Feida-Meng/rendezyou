@@ -65,6 +65,10 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.cancel_booking
     # byebug
+    UserMailer.guide_cancel_booking_email(@tour_guide,
+                                          @booking,
+                                          @tour,
+                                          @schedule).deliver
     redirect_to user_path(current_user)
   end
 

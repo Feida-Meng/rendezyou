@@ -46,5 +46,14 @@ class UserMailer < ApplicationMailer
 
   end
 
+  def guide_cancel_booking_email(tourguide, booking, tour, schedule)
+    @tour_guide = tourguide
+    @booking = booking
+    @tour = tour
+    @schedule = schedule
+    mail(to: @tour_guide.email,
+         subject: "Someone has cancelled their booking")
+  end
+
 
 end
