@@ -148,14 +148,27 @@ h3.user_click a:hover {
 
 }
 
+.map_img{
+  position: fixed;
+  width: 100%;
+  z-index: -500;
+}
 
 .book_img{
   position: absolute;
   top: 0;
-  left: 30%;
+  left: 42%;
   width: 50%;
   z-index: 5000;
 }
+
+.book_img_black{
+  top: 0;
+  left: 42%;
+  width: 50%;
+  z-index: 5000;
+}
+
 
 #userpage{
   z-index: 2500;
