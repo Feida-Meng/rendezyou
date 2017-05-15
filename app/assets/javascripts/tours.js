@@ -44,7 +44,7 @@ $(function(){
         console.log(markerPosition);
         marker = markerMaker(markerPosition, showTourMap,(i+1).toString());
         marker.addListener('click', function () {
-          populateInfoWindow(this, largeInfowindow, showTourMap);
+          populateInfoWindow(this,tour.tourpoints[i],largeInfowindow,showTourMap);
         });
         // bounds.extend(marker.position);
       }
@@ -52,17 +52,19 @@ $(function(){
     });
   }
 
-  function populateInfoWindow(marker, infowindow, map) {
+  function populateInfoWindow(marker, tourpoint, infowindow, map) {
+    var tourPointName = "<div>" + tourpoint.tour_point_name + "</div>";
+    var tourPointImg = "<img src=" + tourpoint.tour_point_img + " alt='tour point image' width='42' height='42' border=0>";
+    var tourPointImgDiv = "<div>" + "<a href =" + tourpoint.tour_point_img + ">" + tourPointImg + "</a>" + "</div>";
     if (infowindow.marker != marker) {
       infowindow.marker = marker;
-      infowindow.setContent('<div>' + marker.title + '</div>');
+      infowindow.setContent( tourPointName + tourPointImgDiv );
       infowindow.open(map, marker);
       infowindow.addListener('closeclick',function(){
         infowindow.setMarker = null;
       });
     }
   }
-
   var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
   function markerMaker(position,map,label) {
     var marker = new google.maps.Marker({
@@ -101,6 +103,7 @@ $(function(){
         var rendezvousPointMarker = new google.maps.Marker({
           map: resultsMap,
           label:"R",
+          // Icon: "https://maxcdn.icons8.com/Share/icon/Network//router1600.png",
           position: results[0].geometry.location,
           title: markerTitle,
           animation: google.maps.Animation.DROP

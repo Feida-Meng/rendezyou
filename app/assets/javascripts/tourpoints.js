@@ -33,7 +33,7 @@ $(function(){
       var latP;
       var lagP;
       var markerPosition;
-      var largeInfowindow = new google.maps.InfoWindow();
+      var tourPointInfoWindow = new google.maps.InfoWindow();
       var bounds = new google.maps.LatLngBounds();
       var marker;
       var i ;
@@ -49,7 +49,7 @@ $(function(){
           console.log(markerPosition);
           marker = markerMaker(markerPosition, tourPointMap,(i+1).toString());
           marker.addListener('click', function () {
-            populateInfoWindow(this, largeInfowindow, tourPointMap);
+            populateInfoWindow(this,tour.tourpoints[i],tourPointInfoWindow,tourPointMap);
           });
           // bounds.extend(marker.position);
         }
@@ -70,11 +70,14 @@ $(function(){
     });
   }
 
-  function populateInfoWindow(marker, infowindow, map) {
-
+  function populateInfoWindow(marker, tourpoint, infowindow, map) {
+    var tourPointName = "<div>" + tourpoint.tour_point_name + "</div>";
+    var tourPointImg = "<img src=" + tourpoint.tour_point_img + " alt='tour point image' width='42' height='42' border=0>";
+    var tourPointImgDiv = "<div>" + "<a href =" + tourpoint.tour_point_img + ">" + tourPointImg + "</a>" + "</div>";
     if (infowindow.marker != marker) {
       infowindow.marker = marker;
-      infowindow.setContent('<div>' + marker.title + '</div>');
+      infowindow.setContent( tourPointName + tourPointImgDiv );
+
       infowindow.open(map, marker);
       infowindow.addListener('closeclick',function(){
         infowindow.setMarker = null;
