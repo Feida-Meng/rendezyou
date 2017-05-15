@@ -96,11 +96,15 @@ h3.user_click{
   font-family: 'Harmattan', sans-serif;
   // margin-top: %;
   // font-family: 'Shanti', sans-serif;
+  z-index: 6000;
+
 }
 
 .user_show_board{
   margin-top: 18%;
   margin-bottom: 14%;
+  z-index: 10000;
+
 }
 
 #user_show_scheduled{
@@ -112,6 +116,7 @@ h3.user_click{
   font-family: 'Pacifico', cursive;
   font-size: 2em;
   color: #ff584c;
+  z-index: 10000;
 }
 
 
@@ -121,23 +126,47 @@ h3.user_click{
 
 
 /* unvisited link */
-a:visited,
-a:link,
-a:active {
+#userpage a:visited
+.userpage a:visited,
+.user_click a:visited,
+#userpage a:link,
+.userpage a:link,
+.user_click a:link,
+#userpage a:active,
+.userpage a:active,
+.user_click a:active,{
   text-decoration: none;
   color: black;
+  padding: 0 15px;
+
+
 }
 
 h3.user_click a:hover {
   position: relative;
   text-decoration: none;
   color: #ff584c;
+  padding: 0 15px;
+
 }
 
 
 .book_img{
   position: absolute;
   top: 0;
-left: 30%;
+  left: 30%;
   width: 50%;
+  z-index: 5000;
+}
+
+#userpage{
+  z-index: 2500;
+}
+
+.user_nav_bar {
+  width: 100%;
+  height: 6em;
+  position: fixed;
+  z-index: 2000;
+  background: #f9f0ea;
 }

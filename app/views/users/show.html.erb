@@ -1,6 +1,5 @@
 <!-- <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p> -->
-
 <%= image_tag("feather_user-02.png", :class=>"book_img")%>
 
 
@@ -11,16 +10,16 @@
 <!-- <div class="layout_nav_bar">
 </div> -->
 
-<div class="navigate">
-  <div class="nav_bar">
+<div class="navigate" id="userpage">
+  <div class="user_nav_bar">
     <div class="nav_home">
-      <%= link_to "RendezYou Home", root_path, :id=>"a_nav_home_user" %>
+      <%= link_to "RendezYou Home", root_path, :class=>"userpage", :id=>"a_nav_home_user" %>
 
     </div>
     <% if current_user %>
       <div class="nav_current_user">
-        <%= link_to "My Profile", profile_path, :class=>"a_myprofile", :id=>"black_text" %>
-        <%= link_to "Log Out", session_path("current"), :method => :delete, :class=>"a_logout", :id=>"black_text" %>
+        <%= link_to "My Profile", profile_path, :class=>"a_myprofile", :class=>"userpage", :id=>"black_text" %>
+        <%= link_to "Log Out", session_path("current"), :method => :delete, :class=>"a_logout", :class=>"userpage", :id=>"black_text" %>
       </div>
     <% else %>
       <div class="nav_not_current_user">
@@ -48,7 +47,7 @@
 
     <!-- <h3 class="hey_you"><%= @user.name.capitalize %>'s profile ˅<h3> -->
 
-      <h3 class="your_guide_tours" id="user_show_tour">Here are your Guided Tours!</h3>
+      <h3 class="your_guide_tours" id="user_show_created">Here are your Guided Tours!</h3>
 
       <h4 class="btn btn ">Click <%= link_to "here", new_tour_url %> to create more tours</h4>
 
