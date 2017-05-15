@@ -1,13 +1,17 @@
 class UsersController < ApplicationController
   def new
     @user = User.new
+    #  render :layout=>"applicationb"
+
   end
 
   def edit
     @user = current_user
   end
 
+
   def show
+    # layout :applicationb
     @user = current_user
     @bookings = @user.bookings
     @tours_booked = @user.booked_tours
