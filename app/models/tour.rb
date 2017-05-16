@@ -4,6 +4,7 @@ class Tour < ApplicationRecord
   has_many :bookings, through: :schedules
   has_many :schedules
   has_many :tourpoints
+  has_many :reviews
   validates :duration_in_ms, numericality: true
 
   #converting duration input to ms before saving

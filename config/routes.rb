@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :schedules do
       resources :bookings
     end
-
+    resources :reviews
     resources :tourpoints do
 
     end
