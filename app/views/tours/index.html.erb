@@ -9,19 +9,54 @@
     <%= text_field_tag :search, params[:search], placeholder: "Search Tours" %>
     <%= submit_tag "Search", :name => nil %>
 <% end %>
+<br>
 
-<% @tours.each do |tour| %>
+<h4 class="show_entice">Click <%= link_to "here", new_tour_url %> to create more tours</h4>
 
-<h3>
-  <%= link_to tour.name, tour_path(tour.id)%>
-</h3>
-  <p><%= tour.description %></p>
-  <p><%= tour.city %>, <%= tour.country %></p>
-  <p>Starting Address: <%= tour.rendezvous_point %></p>
-  <p>Category: <%= tour.category %></p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
 
+        <% @tours.each do |tour| %>
+        <% if current_user.id == tour.user_id %>
 
-  <% end %>
+        <div class="col-md-4">
+          <div class="thumbnail">
+            <!-- <img alt="Bootstrap Thumbnail Second" src="http://lorempixel.com/output/city-q-c-600-200-1.jpg" /> -->
+            <p><%= image_tag tour.tourpic.url(:thumb), :class=>"tour_pic_tourdetails" %></p>
 
-<%= link_to 'Create a New Tour', new_tour_path %>
+            <div class="caption">
+
+              <h3><%= link_to tour.name, tour_path(tour.id)%></h3>
+              <p><%= tour.description %></p>
+              <p>city: <%= tour.city %>
+              <p>Starting Address: <%= tour.rendezvous_point %></p>
+              <p>Category: <%= tour.category %></p>
+
+              <p>
+                <%= link_to "edit", tour_path(tour), :class=>"btn btn-primary" %>
+                <%= link_to "Add a date", new_tour_schedule_path(tour) %>
+              </p>
+              <h4>Schedule:</h4>
+              <% if tour.schedules.empty? %>
+              <p>You don't have any dates scheduled for this tour! Click <%= link_to "here", new_tour_schedule_path(tour) %> to schedule some! </p>
+              <% else %>
+              <ul>
+                <% tour.schedules.each do |t_s| %>
+                <%= "#{t_s.tour_session}, #{t_s.current_capacity} people booked, space left: #{t_s.max_capacity - t_s.current_capacity}" %>
+                <% end %>
+              </ul>
+
+              <% end %>
+              <%= link_to "Edit Tour", edit_tour_url(tour.id) %>
+              <%= link_to 'Delete Tour', tour_path(tour.id), method: :delete %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

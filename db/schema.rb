@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170515222239) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -72,6 +73,10 @@ ActiveRecord::Schema.define(version: 20170515222239) do
     t.integer "country_id"
     t.integer "capacity"
     t.integer "duration_in_ms"
+    t.string "tourpic_file_name"
+    t.string "tourpic_content_type"
+    t.integer "tourpic_file_size"
+    t.datetime "tourpic_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -84,6 +89,10 @@ ActiveRecord::Schema.define(version: 20170515222239) do
     t.string "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_foreign_key "reviews", "tours"

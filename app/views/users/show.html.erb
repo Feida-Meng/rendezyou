@@ -1,114 +1,127 @@
 <!-- <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p> -->
-  <%= image_tag("chalkboard.jpg", :class=>"map_img")%>
-  <div class="logo_container">
-    <div class="container">
-    <h3 class="user_click"><%= link_to "View your created tours", :anchor => "user_show_created" %></h3>
-    <h3 class="user_click"><%= link_to "Search your tours by schedule", :anchor => "user_show_scheduled" %></h3>
-    <h3 class="user_click"><%= link_to "Book a new tour", :anchor => "search" %></h3>
-</div>
+<!-- <%= image_tag("chalkboard.jpg", :class=>"map_img")%> -->
+<div class="layout_nav_bar">
 </div>
 
-<%= image_tag("feather_user-02.png", :class=>"book_img")%>
+<div class="yield">
+</div>
+
+<!-- Carousel -->
+<div class="container-fluid" id="user-carousel-container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="carousel slide" id="carousel-334026">
+        <ol class="carousel-indicators">
+          <li class="active" data-slide-to="0" data-target="#carousel-334026">
+          </li>
+          <li data-slide-to="1" data-target="#carousel-334026">
+          </li>
+          <li data-slide-to="2" data-target="#carousel-334026">
+          </li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="item active">
+            <%= image_tag("carou1-01.jpg", :class=>"")%>
+            <div class="carousel-caption">
+              <h4>
+                City Tours
+              </h4>
+              <p>
+                Browse through our library of fantastic City Tours
+              </p>
+            </div>
+          </div>
+          <div class="item">
+            <%= image_tag("carou2-01.jpg", :class=>"")%>
+            <div class="carousel-caption">
+              <h4>
+                FEATURING THIS MONTH
+              </h4>
+              <p>
+                There's always an event waiting for you.
+              </p>
+            </div>
+          </div>
+          <div class="item">
+            <%= image_tag("carou3-01.jpg", :class=>"")%>
+            <div class="carousel-caption">
+              <h4>
+                BOOK A NEW TOUR
+              </h4>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </div>
+          </div>
+        </div> <a class="left carousel-control" href="#carousel-334026" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-334026" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <%= image_tag("feather_user-02.png", :class=>"book_img")%> -->
 
 <% flash.each do |name, msg| -%>
 <%= content_tag :div, msg, class: alert %>
 <% end %>
 
-<!-- Created Tours -->
-<h3 class="your_guide_tours" id="user_show_created">Here are your Guided Tours!</h3>
+<!-- entice page -->
 
-<h4 class="btn btn ">Click <%= link_to "here", new_tour_url %> to create more tours</h4>
+<div class="row">
+  <div class="col-md-6" id="entice_section">
+    <h4>Click here to</h4>
+    <h3><%= link_to "GUIDE A TOUR!", new_tour_url %></h3>
+  </div>
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="row">
-
-        <% @tours_created.each do |tour| %>
-        <% if current_user.id == tour.user_id %>
-
-        <div class="col-md-4">
-          <div class="thumbnail">
-            <img alt="Bootstrap Thumbnail Second" src="http://lorempixel.com/output/city-q-c-600-200-1.jpg" />
-            <div class="caption">
-
-              <h3><%= tour.name %></h3>
-              <%= link_to "Edit Tour", edit_tour_url(tour.id) %><br>
-              <%= tour.description%>
-              <h4>Schedule:</h4>
-              <p>
-                <a class="btn btn-primary" href="#">Action</a> <a class="btn" href="#">Action</a>
-                <%= link_to "Add another date", new_tour_schedule_path(tour) %>
-              </p>
-              <% if tour.schedules.empty? %>
-              <p>You don't have any dates scheduled for this tour! Click <%= link_to "here", new_tour_schedule_path(tour) %> to schedule some! </p>
-              <% else %>
-              <ul>
-                <% tour.schedules.each do |t_s| %>
-                <li><%= "#{t_s.tour_session}, #{t_s.current_capacity} people booked, space left: #{t_s.max_capacity - t_s.current_capacity}" %></li>
-                <% end %>
-              </ul>
-
-              <% end %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-        <% end %>
-
-
-      </div>
-    </div>
+  <div class="col-md-6" id="entice_section">
+    <h4>Click here to</h4>
+    <h3><%= link_to "BOOK A TOUR!", tours_url %></h3>
   </div>
 </div>
 
-
-<!-- <div class="layout_nav_bar">
-</div> -->
+<!-- Created Tours -->
 
 
-<!-- <div class="navigate" id="userpage">
-  <div class="user_nav_bar">
-    <div class="nav_home">
-      <%= link_to "RendezYou Home", root_path, :class=>"userpage", :id=>"a_nav_home_user" %>
+<div class=user_show_guided>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <h3 class="show_entice">Here are your Guided Tours!</h3>
+          <%= link_to 'See All', tours_path %>
+          <h4 class="show_entice">Click <%= link_to "here", new_tour_url %> to create more tours</h4>
 
 
+          <% @tours_created.each do |tour| %>
+          <% if current_user.id == tour.user_id %>
 
-    </div>
-    <% if current_user %>
-      <div class="nav_current_user">
-        <i class="fa fa-cog" aria-hidden="true" id="i"></i>
-        <%= link_to @user.name.capitalize, profile_path, :class=>"a_myprofile", :class=>"userpage", :id=>"black_text" %>
-        <%= link_to "Log Out", session_path("current"), :method => :delete, :class=>"a_logout", :class=>"userpage", :id=>"black_text" %>
-      </div>
-    <% else %>
-      <div class="nav_not_current_user">
-        <button type="button" class="a_login">Log In</button>
-        or <%=link_to "Sign Up", new_user_path, :class=>"a_signup" %>
-      </div>
+          <div class="col-md-4">
+            <div class="thumbnail">
+              <!-- <img alt="Bootstrap Thumbnail Second" src="http://lorempixel.com/output/city-q-c-600-200-1.jpg" /> -->
+              <p><%= image_tag tour.tourpic.url(:thumb), :class=>"tour_pic_tourdetails" %></p>
 
-    <% end %>
-  </div>
-</div> -->
+              <div class="caption">
 
-<!-- #id White is for Chalk board use only -->
-<!-- <div id="white"> -->
+                <h3><%= link_to tour.name, tour_path(tour.id)%></h3>
+                <%= tour.description%>
 
-<div class="black">
-  <%= image_tag("feather_user-02.png", :class=>"book_img_black")%>
-
-<div class="yield">
+                <%= link_to "Edit Tour | ", edit_tour_url(tour.id) %>
+                <%= link_to 'Delete Tour', tour_path(tour.id), method: :delete %><br>
 
 
-
-
-
+                <h4>Schedule:</h4>
+                <% if tour.schedules.empty? %>
+                <p>You don't have any dates scheduled for this tour! Click <%= link_to "here", new_tour_schedule_path(tour) %> to schedule some! </p>
+                <% else %>
+                <ul>
+                  <% tour.schedules.each do |t_s| %>
+                  <%= "#{t_s.tour_session}, #{t_s.current_capacity} people booked, space left: #{t_s.max_capacity - t_s.current_capacity}" %>
+                  <% end %>
+                </ul>
 
 
 
-
-<!-- User's Booked Tours -->
 
     <div class="tour" id="user_show_scheduled">
 
@@ -129,12 +142,49 @@
         <%= link_to "Edit Booking", edit_tour_schedule_booking_path(t,Schedule.find(b.schedule_id),b) %> | <%= link_to "Cancel Booking", tour_schedule_booking_path(t,Schedule.find(b.schedule_id),b), method: :delete, data: {confirm: "Are you sure you want to cancel this booking?"}%>
         <p>-----------------------------------------------------</p>
         <%= link_to "Review this tour!", new_tour_review_url(t.id) %>
+                <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
       </div>
-      <% end %>
-      <% end %>
-      <% end %>
-      <% end %>
     </div>
-
   </div>
+</div>
+
+
+
+
+
+
+<!-- User's Booked Tours -->
+
+<div class="tour" id="user_show_scheduled">
+
+  <h3 class="show_entice">My Booked Tours</h3>
+  <% if @bookings.empty? %>
+  <h4 class="show_entice">You don't have any tours booked yet! Click <%= link_to "here", tours_url %> to find a tour to book!</h4>
+  <% else %>
+  <% @tours_booked.each do |t| %>
+  <% t.schedules.each do |s| %>
+  <% s.bookings.each do |b| %>
+  <div class="Booking-info">
+    <p> Tour name: <%= link_to t.name,tour_url(t) %> </p>
+    <p> Tour description: <%= t.description %> </p>
+    <p> Current tour size: <%= Schedule.find(b.schedule_id).current_capacity %></p>
+    <p> Tour date and time: <%= Schedule.find(b.schedule_id).tour_session %> </p>
+    <p> Date I booked: <%= b.created_at.strftime("%Y %b %d") %></p>
+    <p> Number of people I booked for (including myself): <%= b.booking_size %></p>
+    <%= link_to "Edit Booking", edit_tour_schedule_booking_path(t,Schedule.find(b.schedule_id),b) %> | <%= link_to "Cancel Booking", tour_schedule_booking_path(t,Schedule.find(b.schedule_id),b), method: :delete, data: {confirm: "Are you sure you want to cancel this booking?"}%>
+    <p>-----------------------------------------------------</p>
+  </div>
+  <% end %>
+  <% end %>
+  <% end %>
+  <% end %>
+</div>
+
+</div>
 </div>
