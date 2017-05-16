@@ -58,6 +58,7 @@ class ToursController < ApplicationController
     @tour.update_attributes(tour_params)
     ensure_tour_user
     if @tour.save
+
         redirect_to tour_path(@tour)
     else
       render :edit

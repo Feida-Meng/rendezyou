@@ -56,6 +56,16 @@
   </div>
 </div>
 
+<% unless @tour.reviews.empty? %>
+<div class="reviews">
+  <h3>Reviews:</h3>
+  <% @tour.reviews.each do |r| %>
+  <h4><%= r.created_at %></h4>
+  <h4><%= r.rating %></h4>
+  <p><%= r.comment %><p>
+  <% end %>
+</div>
+
 <% if current_user && @tour.user_id == current_user.id %>
 <%= link_to 'Edit this Tour | ', edit_tour_path(@tour.id) %>
 <%= link_to 'Delete this Tour | ', tour_path(@tour.id), method: :delete %>
