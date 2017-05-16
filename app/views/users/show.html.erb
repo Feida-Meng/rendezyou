@@ -22,7 +22,7 @@
         </ol>
         <div class="carousel-inner">
           <div class="item active">
-             <%= image_tag("carou1-01.jpg", :class=>"")%>
+            <%= image_tag("carou1-01.jpg", :class=>"")%>
             <div class="carousel-caption">
               <h4>
                 City Tours
@@ -84,89 +84,87 @@
 
 
 <div class=user_show_guided>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="row">
-        <h3 class="show_entice">Here are your Guided Tours!</h3>
-        <%= link_to 'See All', tours_path %>
-        <h4 class="show_entice">Click <%= link_to "here", new_tour_url %> to create more tours</h4>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <h3 class="show_entice">Here are your Guided Tours!</h3>
+          <%= link_to 'See All', tours_path %>
+          <h4 class="show_entice">Click <%= link_to "here", new_tour_url %> to create more tours</h4>
 
 
-        <% @tours_created.each do |tour| %>
-        <% if current_user.id == tour.user_id %>
+          <% @tours_created.each do |tour| %>
+          <% if current_user.id == tour.user_id %>
 
-        <div class="col-md-4">
-          <div class="thumbnail">
-            <!-- <img alt="Bootstrap Thumbnail Second" src="http://lorempixel.com/output/city-q-c-600-200-1.jpg" /> -->
-            <p><%= image_tag tour.tourpic.url(:thumb), :class=>"tour_pic_tourdetails" %></p>
+          <div class="col-md-4">
+            <div class="thumbnail">
+              <!-- <img alt="Bootstrap Thumbnail Second" src="http://lorempixel.com/output/city-q-c-600-200-1.jpg" /> -->
+              <p><%= image_tag tour.tourpic.url(:thumb), :class=>"tour_pic_tourdetails" %></p>
 
-            <div class="caption">
+              <div class="caption">
 
-              <h3><%= tour.name %></h3>
-              <%= tour.description%>
+                <h3><%= link_to tour.name, tour_path(tour.id)%></h3>
+                <%= tour.description%>
+
+                <%= link_to "Edit Tour | ", edit_tour_url(tour.id) %>
+                <%= link_to 'Delete Tour', tour_path(tour.id), method: :delete %><br>
 
 
-              <p>
-                <%= link_to "BOOK", tour_path(tour), :class=>"btn btn-primary" %>
-                <%= link_to "Add a date", new_tour_schedule_path(tour) %>
-              </p>
-              <h4>Schedule:</h4>
-              <% if tour.schedules.empty? %>
-              <p>You don't have any dates scheduled for this tour! Click <%= link_to "here", new_tour_schedule_path(tour) %> to schedule some! </p>
-              <% else %>
-              <ul>
-                <% tour.schedules.each do |t_s| %>
-        <%= "#{t_s.tour_session}, #{t_s.current_capacity} people booked, space left: #{t_s.max_capacity - t_s.current_capacity}" %>
+                <h4>Schedule:</h4>
+                <% if tour.schedules.empty? %>
+                <p>You don't have any dates scheduled for this tour! Click <%= link_to "here", new_tour_schedule_path(tour) %> to schedule some! </p>
+                <% else %>
+                <ul>
+                  <% tour.schedules.each do |t_s| %>
+                  <%= "#{t_s.tour_session}, #{t_s.current_capacity} people booked, space left: #{t_s.max_capacity - t_s.current_capacity}" %>
+                  <% end %>
+                </ul>
+
+
+
                 <% end %>
-              </ul>
-
-              <%= link_to "Edit Tour", edit_tour_url(tour.id) %>
-              <%= link_to 'Delete Tour', tour_path(tour.id), method: :delete %><br>
-
-              <% end %>
-              <% end %>
+                <% end %>
+              </div>
             </div>
           </div>
+          <% end %>
         </div>
-        <% end %>
       </div>
     </div>
   </div>
 </div>
+
+
+
+
+
+
+<!-- User's Booked Tours -->
+
+<div class="tour" id="user_show_scheduled">
+
+  <h3 class="show_entice">My Booked Tours</h3>
+  <% if @bookings.empty? %>
+  <h4 class="show_entice">You don't have any tours booked yet! Click <%= link_to "here", tours_url %> to find a tour to book!</h4>
+  <% else %>
+  <% @tours_booked.each do |t| %>
+  <% t.schedules.each do |s| %>
+  <% s.bookings.each do |b| %>
+  <div class="Booking-info">
+    <p> Tour name: <%= link_to t.name,tour_url(t) %> </p>
+    <p> Tour description: <%= t.description %> </p>
+    <p> Current tour size: <%= Schedule.find(b.schedule_id).current_capacity %></p>
+    <p> Tour date and time: <%= Schedule.find(b.schedule_id).tour_session %> </p>
+    <p> Date I booked: <%= b.created_at.strftime("%Y %b %d") %></p>
+    <p> Number of people I booked for (including myself): <%= b.booking_size %></p>
+    <%= link_to "Edit Booking", edit_tour_schedule_booking_path(t,Schedule.find(b.schedule_id),b) %> | <%= link_to "Cancel Booking", tour_schedule_booking_path(t,Schedule.find(b.schedule_id),b), method: :delete, data: {confirm: "Are you sure you want to cancel this booking?"}%>
+    <p>-----------------------------------------------------</p>
+  </div>
+  <% end %>
+  <% end %>
+  <% end %>
+  <% end %>
 </div>
 
-
-
-
-
-
-    <!-- User's Booked Tours -->
-
-    <div class="tour" id="user_show_scheduled">
-
-      <h3 class="show_entice">My Booked Tours</h3>
-      <% if @bookings.empty? %>
-      <h4 class="show_entice">You don't have any tours booked yet! Click <%= link_to "here", tours_url %> to find a tour to book!</h4>
-      <% else %>
-      <% @tours_booked.each do |t| %>
-      <% t.schedules.each do |s| %>
-      <% s.bookings.each do |b| %>
-      <div class="Booking-info">
-        <p> Tour name: <%= link_to t.name,tour_url(t) %> </p>
-        <p> Tour description: <%= t.description %> </p>
-        <p> Current tour size: <%= Schedule.find(b.schedule_id).current_capacity %></p>
-        <p> Tour date and time: <%= Schedule.find(b.schedule_id).tour_session %> </p>
-        <p> Date I booked: <%= b.created_at.strftime("%Y %b %d") %></p>
-        <p> Number of people I booked for (including myself): <%= b.booking_size %></p>
-        <%= link_to "Edit Booking", edit_tour_schedule_booking_path(t,Schedule.find(b.schedule_id),b) %> | <%= link_to "Cancel Booking", tour_schedule_booking_path(t,Schedule.find(b.schedule_id),b), method: :delete, data: {confirm: "Are you sure you want to cancel this booking?"}%>
-        <p>-----------------------------------------------------</p>
-      </div>
-      <% end %>
-      <% end %>
-      <% end %>
-      <% end %>
-    </div>
-
-  </div>
+</div>
 </div>
