@@ -1,14 +1,21 @@
 class ReviewsController < ApplicationController
 
   before_action :load_tour,except: %i(load_schedule review_params)
-  before_action :load_schedule,except: %i(load_tour review_params)
   before_action :ensure_logged_in
-  before_action :load_tour_guide, only: [:create, :edit, :update, :destroy]
 
   def new
+    @review = Review.new
   end
 
   def create
+    @review = Review.new
+    @review = @tour.reviews.build(review_params)
+    @review.author_id = current_user.id
+    if @review.save
+      redirect_to tour_path(@tour)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -25,18 +32,7 @@ class ReviewsController < ApplicationController
      @tour = Tour.find(params[:tour_id])
    end
 
-   def load_schedule
-     @schedule = Schedule.find(params[:schedule_id])
-   end
-
-    def booking_params
-    params.require(:booking).permit(:schedule_id, :booking_size)
-    end
-
-    def load_tour_guide
-      @tour_guide = User.find(@tour.user_id)
-    end
-
+  def review_params
+    params.require(:review).permit(:rating, :comment, :tour_id, :created_at)
   end
-
 end

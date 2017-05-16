@@ -1,0 +1,38 @@
+<%= form_for ([@tour, @review]) do |f| %>
+
+<% if @review.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h3>
+
+    <ul>
+      <% @schedule.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="field">
+  <p>How would you rate your tour overall:</p>
+  <%= f.label :rating, 1 %>
+  <%= f.radio_button :rating, 1 %>
+  <%= f.label :rating, 2 %>
+  <%= f.radio_button :rating, 2 %>
+  <%= f.label :rating, 3 %>
+  <%= f.radio_button :rating, 3 %>
+  <%= f.label :rating, 4 %>
+  <%= f.radio_button :rating, 4 %>
+  <%= f.label :rating, 5 %>
+  <%= f.radio_button :rating, 5 %>
+</div>
+
+<div class="field">
+  <%= f.label :comment, "Tell us more:" %>
+  <%= f.text_area :comment %>
+</div>
+
+<div class="submit">
+  <%= f.submit %>
+</div>
+
+<% end %>
