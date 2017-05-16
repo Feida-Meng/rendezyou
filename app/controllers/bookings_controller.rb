@@ -1,6 +1,8 @@
 class BookingsController < ApplicationController
   before_action :load_tour,except: %i(load_schedule booking_params)
   before_action :load_schedule,except: %i(load_tour booking_params)
+  before_action :ensure_logged_in, only: [:new, :create, :edit, :destroy, :update]
+  before_action :load_tour_guide, only: [:create, :edit, :update, :destroy]
 
   def new
     @booking = Booking.new
@@ -15,6 +17,16 @@ class BookingsController < ApplicationController
 
     if @booking.booking
       # byebug
+      @user = current_user
+      UserMailer.booking_confirmation_email(@user,
+                                            @tour,
+                                            @schedule,
+                                            @tour_guide,
+                                            @booking).deliver
+      UserMailer.guide_booking_confirmation_email(@tour_guide,
+                                                  @booking,
+                                                  @tour,
+                                                  @schedule).deliver
       redirect_to user_path(current_user)
     else
       render :new
@@ -24,14 +36,24 @@ class BookingsController < ApplicationController
 
   def edit
     @booking = Booking.find(params[:id])
+    ensure_booking_user(@booking)
   end
 
   def update
     @oldbooking = Booking.find(params[:id])
     @booking = Booking.new(booking_params)
+    ensure_booking_user (@oldbooking)
     if @oldbooking.edit_booking(@booking)
-      # byebug
-      UserMailer.booking_confirmaion_email.deliver_later
+      @user = current_user
+      UserMailer.booking_edit_email(@user,
+                                    @tour,
+                                    @schedule,
+                                    @tour_guide,
+                                    @booking).deliver
+      UserMailer.guide_booking_edit_email(@tour_guide,
+                                          @booking,
+                                          @tour,
+                                          @schedule).deliver
       redirect_to user_path(current_user)
     else
       render :edit
@@ -42,6 +64,11 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.cancel_booking
+    # byebug
+    UserMailer.guide_cancel_booking_email(@tour_guide,
+                                          @booking,
+                                          @tour,
+                                          @schedule).deliver
     redirect_to user_path(current_user)
   end
 
@@ -60,5 +87,8 @@ private
   params.require(:booking).permit(:schedule_id, :booking_size)
   end
 
+  def load_tour_guide
+    @tour_guide = User.find(@tour.user_id)
+  end
 
 end

@@ -66,6 +66,39 @@
   </div>
 </div>
 
+
+
+<!-- <div class="layout_nav_bar">
+</div> -->
+
+
+<!-- <div class="navigate" id="userpage">
+  <div class="user_nav_bar">
+    <div class="nav_home">
+      <%= link_to "RendezYou Home", root_path, :class=>"userpage", :id=>"a_nav_home_user" %>
+
+
+
+    </div>
+    <% if current_user %>
+      <div class="nav_current_user">
+        <i class="fa fa-cog" aria-hidden="true" id="i"></i>
+        <%= link_to @user.name.capitalize, profile_path, :class=>"a_myprofile", :class=>"userpage", :id=>"black_text" %>
+        <%= link_to "Log Out", session_path("current"), :method => :delete, :class=>"a_logout", :class=>"userpage", :id=>"black_text" %>
+      </div>
+    <% else %>
+      <div class="nav_not_current_user">
+        <button type="button" class="a_login">Log In</button>
+        or <%=link_to "Sign Up", new_user_path, :class=>"a_signup" %>
+      </div>
+
+    <% end %>
+  </div>
+</div> -->
+
+<!-- #id White is for Chalk board use only -->
+<!-- <div id="white"> -->
+
 <div class="black">
   <%= image_tag("feather_user-02.png", :class=>"book_img_black")%>
 
@@ -88,7 +121,7 @@
         <p> Tour date and time: <%= Schedule.find(b.schedule_id).tour_session %> </p>
         <p> Date I booked: <%= b.created_at.strftime("%Y %b %d") %></p>
         <p> Number of people I booked for (including myself): <%= b.booking_size %></p>
-        <%= link_to "Edit Booking", edit_tour_schedule_booking_path(t,Schedule.find(b.schedule_id),b) %> | <%= link_to "Cancel Booking", tour_schedule_booking_path(t,Schedule.find(b.schedule_id),b), method: :delete, data: {confirm: "Are you sure you want to delete the?"}%>
+        <%= link_to "Edit Booking", edit_tour_schedule_booking_path(t,Schedule.find(b.schedule_id),b) %> | <%= link_to "Cancel Booking", tour_schedule_booking_path(t,Schedule.find(b.schedule_id),b), method: :delete, data: {confirm: "Are you sure you want to cancel this booking?"}%>
         <p>-----------------------------------------------------</p>
       </div>
       <% end %>

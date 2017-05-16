@@ -1,0 +1,13 @@
+<h3>Dear <%= @tour_guide.name %>,</h3>
+
+<h4>Someone has cancelled their booking for your <%= @tour.name %> tour.</h4>
+
+<ul>
+  <li>When: <%= @schedule.tour_start_time %></li>
+  <li>Party Size: <%= @booking.booking_size %></li>
+  <li>Remaining Capacity: <%= @schedule.current_capacity %> </li>
+</ul>
+
+<h4>Enjoy your tour!</h4>
+
+<h3>The Rendezyou team</h3>

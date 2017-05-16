@@ -18,6 +18,19 @@ class ToursController < ApplicationController
 
   def show
     @tour = Tour.find(params[:id])
+    @tourpoints = @tour.tourpoints
+
+    if request.xhr?
+      respond_to do |format|
+        format.html do
+          render @tour
+        end
+        format.json do
+          render :json => @tour.to_json(:include => [:tourpoints])
+        end
+      end
+    end
+
   end
 
   def create

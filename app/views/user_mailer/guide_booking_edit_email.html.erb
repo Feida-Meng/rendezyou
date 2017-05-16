@@ -1,0 +1,15 @@
+<h3>Dear <%= @tour_guide.name %>,</h3>
+
+<h4>Someone has edited their booking for <%= @tour.name %> tour!</h4>
+
+<p>Here are the new details:</p>
+
+<ul>
+  <li>When: <%= @schedule.tour_start_time %></li>
+  <li>Party Size: <%= @booking.booking_size %></li>
+  <li>Remaining Capacity: <%= @schedule.current_capacity %> </li>
+</ul>
+
+<h4>Enjoy your tour!</h4>
+
+<h3>The Rendezyou team</h3>

@@ -1,3 +1,4 @@
+
 // <link href="https://fonts.googleapis.com/css?family=Grand+Hotel|Harmattan|Niconne|Open+Sans:700" rel="stylesheet">
 // Specify in CSS
 //
@@ -7,6 +8,7 @@
 // font-family: 'Grand Hotel', cursive;
 // font-family: 'Harmattan', sans-serif;
 // font-family: 'Shanti', sans-serif;
+
 
 
 
@@ -20,6 +22,7 @@ html{
    min-width: 1200px;
    z-index: 100;
  }
+
 
 .nav_bar {
   width: 100%;
@@ -35,7 +38,18 @@ html{
   position: fixed;
 }
 
+
+//
+.nav_bar {
+  width: 100%;
+  height: 6em;
+  background: rgba(0,0,0,.2);
+  position: fixed;
+}
+
+
  .nav_tours,
+
  .nav_home {
    display: inline-block;
    color: white;
@@ -111,6 +125,7 @@ div.yield{
   margin: auto;
 }
 
+
 .signup_window,
 .login_window {
   display: none;
@@ -124,7 +139,11 @@ div.yield{
 }
 
 .signup_form,
-.signup_form_static,
+.signup_form_static{
+  background-color: rgba(30,30,30,0.8);
+  z-index: 990;
+}
+
 .login_form,
 .login_form_static {
     display: block;

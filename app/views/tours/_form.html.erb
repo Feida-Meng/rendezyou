@@ -55,20 +55,21 @@
     <div class="form-group">
       <%= f.label :country_id, :class=>"col-sm-1 control-label" %>
         <div class="col-sm-8">
-          <%= f.collection_select :country_id, @countries, :id, :name, include_blank: 'Please select a country', :class=>"form-control" %>
+          <%= f.collection_select :country_id, @countries, :id, :name, include_blank: 'Please select a country', class: "form-control"%>
         </div>
     </div>
     <br>
     <br>
     <div class="form-group">
-      <%= f.label :rendezvous_point, :class=>"col-sm-1 control-label" %>
+      <%= f.label :rendezvous_point, :class=>"col-sm-1 control-label"%>
         <div class="col-sm-8">
-          <%= f.text_field :rendezvous_point, :class=>"form-control" %>
+          <%= f.text_field :rendezvous_point, class:"form-control", id:"rendezvous-point-input" %>
+
+
         </div>
     </div>
 
-        <br>
-        <br>
+
 
         <%= image_tag @tour.tourpic.url %>
         <%= f.file_field :tourpic %>
@@ -81,8 +82,11 @@
       <%= f.submit "Add dates later", name: "no_schedule" %>
         <button><%= link_to 'Cancel', tours_path %></button>
     </div>
-</div>
+  </div>
 
   <% end %>
 
 </form>
+<br>
+<br>
+<div id="rendezvous-map"> </div>
