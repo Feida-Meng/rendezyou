@@ -1,4 +1,5 @@
 class ToursController < ApplicationController
+
   before_action :ensure_logged_in, only: [:new, :create, :edit, :destroy]
   before_action :load_countries, only: [:new, :edit]
 
@@ -50,13 +51,14 @@ class ToursController < ApplicationController
 
   def edit
     @tour = Tour.find(params[:id])
-    ensure_tour_user
+    ensure_owner(@tour)
+    # @tour = current_user.tours.find(params[:id])
   end
 
   def update
     @tour = Tour.find(params[:id])
     @tour.update_attributes(tour_params)
-    ensure_tour_user
+    ensure_owner(@tour)
     if @tour.save
 
         redirect_to tour_path(@tour)

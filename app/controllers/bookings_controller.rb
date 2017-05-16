@@ -36,13 +36,13 @@ class BookingsController < ApplicationController
 
   def edit
     @booking = Booking.find(params[:id])
-    ensure_booking_user(@booking)
+    ensure_owner(@booking)
   end
 
   def update
     @oldbooking = Booking.find(params[:id])
     @booking = Booking.new(booking_params)
-    ensure_booking_user (@oldbooking)
+    ensure_owner(@oldbooking)
     if @oldbooking.edit_booking(@booking)
       @user = current_user
       UserMailer.booking_edit_email(@user,

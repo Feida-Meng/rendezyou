@@ -8,12 +8,12 @@ class SchedulesController < ApplicationController
   end
 
   def new
-    ensure_tour_user
+    ensure_owner(@tour)
     @schedule = Schedule.new
   end
 
   def create
-    ensure_tour_user
+    ensure_owner(@tour)
     @schedule = Schedule.new
     @schedule = @tour.schedules.build(schedule_params)
     @schedule.max_capacity = @tour.capacity
@@ -29,14 +29,14 @@ class SchedulesController < ApplicationController
   end
 
   def edit
-    ensure_tour_user
+    ensure_owner(@tour)
     @schedule = Schedule.find(params[:id])
   end
 
   def update
     @schedule = Schedule.find(params[:id])
     @schedule.update_attributes(schedule_params)
-    ensure_tour_user
+    ensure_owner(@tour)
     if @schedule.save
       redirect_to profile_path
     else
