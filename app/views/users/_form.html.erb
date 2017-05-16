@@ -1,7 +1,13 @@
+
 <div class="yield">
 
+  <!-- <%= image_tag @user.avatar.url(:medium) %>
+  <%= image_tag @user.avatar.url(:thumb) %> -->
+
   <div class="main_form">
-      <%=form_for @user, :html => {:class => "form-horizontal"} do |f| %>
+      <%= form_for @user, url: users_path, html: { multipart: true, :class => "form-horizontal"} do |f| %>
+
+
         <div class="user_left">
 
           <% if @user.errors.any? %>
@@ -69,15 +75,14 @@
         </div>
 
         <div class="user_right">
-            <%= f.text_field :picture, class:"picture-frame"%><br>
-            <input type="file" class="picbutton" id="exampleInputFile">
-            <%= f.label :picture, class:"piclabel"%>
-          </div>
 
+          <%= image_tag @user.avatar.url %>
+          <%= f.file_field :avatar %>
 
         </div>
 
         <%end%>
+
 
       </div>
     </div>

@@ -110,9 +110,9 @@ chalkboard_img{
   z-index: 10000;
 }
 
-#user_show_scheduled{
-  height: 500px;
-}
+// #user_show_scheduled{
+//   height: 500px;
+// }
 
 #a_nav_home_user{
   vertical-align: middle;
@@ -139,7 +139,7 @@ chalkboard_img{
 .userpage a:active,
 .user_click a:active,{
   text-decoration: none;
-  color: white;
+  color: black;
   padding: 0 15px;
 }
 
@@ -192,4 +192,45 @@ h3.user_click a:hover {
 
 #i{
 margin-right: -1em;
+}
+
+.pro_pic_nav{
+  height: 3em;
+  border-radius: 50%;
+}
+
+
+// carousel
+#user-carousel-container-fluid{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+img.carou_one{
+  width: 1600px;
+  height: 500px;
+}
+
+#entice_section{
+  font-family: 'Harmattan', sans-serif;
+  height: 300px;
+  text-align: center;
+}
+
+#entice_section h3{
+  font-size: 3em;
+  margin-top: 10px;
+}
+#entice_section h4{
+  margin-top: 2.5em;
+}
+
+.user_show_guided{
+ // background: #ff584c;
+background: grey;
+}
+
+
+h3.show_entice,
+h4.show_entice{
+  margin-left: 2%;
 }
