@@ -1,17 +1,25 @@
 class UsersController < ApplicationController
   def new
     @user = User.new
+    #  render :layout=>"applicationb"
+
   end
 
   def edit
     @user = current_user
   end
 
+
   def show
+    # layout :applicationb
     @user = current_user
     @bookings = @user.bookings
     @tours_booked = @user.booked_tours
     @tours_created = @user.tours
+  end
+
+  def profile
+    @user = current_user
   end
 
   def create
@@ -42,7 +50,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :username, :email, :phone, :password, :password_confirmation, :picture)
+    params.require(:user).permit(:name, :username, :email, :phone, :password, :password_confirmation, :picture, :avatar)
   end
 
 end

@@ -1,36 +1,74 @@
 <div class="layout_nav_bar">
 </div>
 
-<h2><%= @tour.name %></h2>
+<div class="yield">
+</div>
 
-<%= render 'tourdetails', tour: @tour %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-5">
+          <h3>
+            <%= @tour.name %>
+          </h3>
+          <p><%= @tour.description %></p>
+          <p><%= @tour.city %><%= @tour.country %></p>
+          <p>Starting Address: <%= @tour.rendezvous_point %></p>
+          <p>Category: <%=@tour.category %></p>
+          <p>Tour map</p>
+          <div id="show-tour-map">
+
+          </div>
+        </div>
+        <div class="col-md-7">
+
+          <p class="show_page_tour_image"><%= image_tag @tour.tourpic.url, :class=>"tour_pic_tourdetails" %></p>
+
+          <p><strong>Schedule:</strong></p>
+
+          <p>
+            <% if @tour.schedules.empty? %>
+            <p>This tour doesn't currently have any dates to be booked! Check back again soon!</p>
+            <% else %>
+            <% @tour.schedules.each do |t_s| %>
+            <p class="">
+              <%= "#{t_s.tour_session}, #{t_s.current_capacity} people booked, space left: #{t_s.max_capacity - t_s.current_capacity}" %>
+              <% unless current_user && @tour.user_id == current_user.id %>
+              <%= link_to 'Book now!', new_tour_schedule_booking_path(@tour,t_s) %>
+            </p>
+            <% end %>
+            <% end %>
+            <% end %>
+
+            <div class="">
+              <% if current_user && @tour.user_id == current_user.id %>
+              <%= link_to 'Add more dates', new_tour_schedule_path(@tour), :class=>"btn btn-primary" %>
+              <% end %>
+              <%= link_to 'Back to Tours', tours_path, :class=>"btn btn-default" %>
+
+            </div>
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% unless @tour.reviews.empty? %>
+<div class="reviews">
+  <h3>Reviews:</h3>
+  <% @tour.reviews.each do |r| %>
+  <h4><%= r.created_at %></h4>
+  <h4><%= r.rating %></h4>
+  <p><%= r.comment %><p>
+  <% end %>
+</div>
+<% end %>
 
 <% if current_user && @tour.user_id == current_user.id %>
-<%= link_to 'Edit this Tour', edit_tour_path(@tour.id) %>
-<%= link_to 'Delete this Tour', tour_path(@tour.id), method: :delete %>
-<%= link_to "Add new tour point", new_tour_tourpoint_path(@tour) %>
+<%= link_to 'Edit this Tour | ', edit_tour_path(@tour.id) %>
+<%= link_to 'Delete this Tour | ', tour_path(@tour.id), method: :delete %>
+<%= link_to "Add new tour point | ", new_tour_tourpoint_path(@tour) %>
 <% end %>
-<%= link_to 'Back to Tours', tours_path %>
-
-<br>
-<br>
-<br>
-<% if @tour.schedules.empty? %>
-  <p>This tour doesn't currently have any dates to be booked! Check back again soon!</p>
-<% else %>
-  <% @tour.schedules.each do |t_s| %>
-  <p class="">
-    <%= "#{t_s.tour_session}, #{t_s.current_capacity} people booked, space left: #{t_s.max_capacity - t_s.current_capacity}" %>
-    <% unless current_user && @tour.user_id == current_user.id %>
-    <%= link_to 'Book now!', new_tour_schedule_booking_path(@tour,t_s) %>
-  </p>
-  <% end %>
-  <% end %>
-<% end %>
-
-<div class="">
-  <% if current_user && @tour.user_id == current_user.id %>
-  <%= link_to 'Add more dates', new_tour_schedule_path(@tour) %>
-  <% end %>
-
-</div>

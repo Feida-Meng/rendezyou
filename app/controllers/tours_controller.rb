@@ -58,6 +58,7 @@ class ToursController < ApplicationController
     @tour.update_attributes(tour_params)
     ensure_tour_user
     if @tour.save
+
         redirect_to tour_path(@tour)
     else
       render :edit
@@ -78,7 +79,10 @@ class ToursController < ApplicationController
 
   def tour_params
 
-    params.require(:tour).permit(:name, :description, :country_id, :rendezvous_point, :category, :capacity, :duration_in_ms)
+    # params[:tour][:schedules_attributes]["0"][:current_capacity] = 0
+    # byebug
+
+    params.require(:tour).permit(:name, :description, :country_id, :rendezvous_point, :category, :capacity, :duration_in_ms, :tourpic)
 
   end
 
