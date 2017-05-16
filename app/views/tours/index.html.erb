@@ -19,7 +19,6 @@
       <div class="row">
 
         <% @tours.each do |tour| %>
-        <% if current_user && current_user.id == tour.user_id %>
 
         <div class="col-md-4">
           <div class="thumbnail">
@@ -34,6 +33,7 @@
               <p>Starting Address: <%= tour.rendezvous_point %></p>
               <p>Category: <%= tour.category %></p>
 
+              <% if current_user && current_user.id == tour.user_id %>
               <p>
                 <%= link_to "edit", tour_path(tour), :class=>"btn btn-primary" %>
                 <%= link_to "Add a date", new_tour_schedule_path(tour) %>
