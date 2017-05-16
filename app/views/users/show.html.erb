@@ -89,8 +89,8 @@
     <div class="col-md-12">
       <div class="row">
         <h3 class="show_entice">Here are your Guided Tours!</h3>
-        <h4 class="show_entice">Click <%= link_to "here", new_tour_url %> to create more tours</h4>
         <%= link_to 'See All', tours_path %>
+        <h4 class="show_entice">Click <%= link_to "here", new_tour_url %> to create more tours</h4>
 
 
         <% @tours_created.each do |tour| %>
