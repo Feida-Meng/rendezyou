@@ -66,15 +66,32 @@
 <%= content_tag :div, msg, class: alert %>
 <% end %>
 
+<!-- entice page -->
+
+<div class="row">
+  <div class="col-md-6" id="entice_section">
+    <h4>Click here to</h4>
+    <h3><%= link_to "GUIDE A TOUR!", new_tour_url %></h3>
+  </div>
+
+  <div class="col-md-6" id="entice_section">
+    <h4>Click here to</h4>
+    <h3><%= link_to "BOOK A TOUR!", tours_url %></h3>
+  </div>
+</div>
+
 <!-- Created Tours -->
-<h3 class="your_guide_tours" id="user_show_created">Here are your Guided Tours!</h3>
 
-<h4 class="btn btn ">Click <%= link_to "here", new_tour_url %> to create more tours</h4>
 
+<div class=user_show_guided>
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12">
       <div class="row">
+        <h3 class="show_entice">Here are your Guided Tours!</h3>
+        <h4 class="show_entice">Click <%= link_to "here", new_tour_url %> to create more tours</h4>
+        <%= link_to 'See All', tours_path %>
+
 
         <% @tours_created.each do |tour| %>
         <% if current_user.id == tour.user_id %>
@@ -87,21 +104,25 @@
             <div class="caption">
 
               <h3><%= tour.name %></h3>
-              <%= link_to "Edit Tour", edit_tour_url(tour.id) %><br>
               <%= tour.description%>
-              <h4>Schedule:</h4>
+
+
               <p>
-                <a class="btn btn-primary" href="#">Action</a> <a class="btn" href="#">Action</a>
-                <%= link_to "Add another date", new_tour_schedule_path(tour) %>
+                <%= link_to "BOOK", tour_path(tour), :class=>"btn btn-primary" %>
+                <%= link_to "Add a date", new_tour_schedule_path(tour) %>
               </p>
+              <h4>Schedule:</h4>
               <% if tour.schedules.empty? %>
               <p>You don't have any dates scheduled for this tour! Click <%= link_to "here", new_tour_schedule_path(tour) %> to schedule some! </p>
               <% else %>
               <ul>
                 <% tour.schedules.each do |t_s| %>
-                <li><%= "#{t_s.tour_session}, #{t_s.current_capacity} people booked, space left: #{t_s.max_capacity - t_s.current_capacity}" %></li>
+        <%= "#{t_s.tour_session}, #{t_s.current_capacity} people booked, space left: #{t_s.max_capacity - t_s.current_capacity}" %>
                 <% end %>
               </ul>
+
+              <%= link_to "Edit Tour", edit_tour_url(tour.id) %>
+              <%= link_to 'Delete Tour', tour_path(tour.id), method: :delete %><br>
 
               <% end %>
               <% end %>
@@ -113,14 +134,20 @@
     </div>
   </div>
 </div>
+</div>
+
+
+
+
+
 
     <!-- User's Booked Tours -->
 
     <div class="tour" id="user_show_scheduled">
 
-      <h3 class="sub_heading">My Booked Tours</h3>
+      <h3 class="show_entice">My Booked Tours</h3>
       <% if @bookings.empty? %>
-      <p>You don't have any tours booked yet! Click <%= link_to "here", tours_url %> to find a tour to book!</p>
+      <h4 class="show_entice">You don't have any tours booked yet! Click <%= link_to "here", tours_url %> to find a tour to book!</h4>
       <% else %>
       <% @tours_booked.each do |t| %>
       <% t.schedules.each do |s| %>
