@@ -128,6 +128,7 @@
         <p> Number of people I booked for (including myself): <%= b.booking_size %></p>
         <%= link_to "Edit Booking", edit_tour_schedule_booking_path(t,Schedule.find(b.schedule_id),b) %> | <%= link_to "Cancel Booking", tour_schedule_booking_path(t,Schedule.find(b.schedule_id),b), method: :delete, data: {confirm: "Are you sure you want to cancel this booking?"}%>
         <p>-----------------------------------------------------</p>
+        <%= link_to "Review this tour!", new_tour_review_url(t.id) %>
       </div>
       <% end %>
       <% end %>
