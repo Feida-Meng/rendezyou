@@ -4,6 +4,70 @@
 <div class="layout_nav_bar">
 </div>
 
+<div class="yield">
+</div>
+
+<!-- Carousel -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="carousel slide" id="carousel-334026">
+        <ol class="carousel-indicators">
+          <li class="active" data-slide-to="0" data-target="#carousel-334026">
+          </li>
+          <li data-slide-to="1" data-target="#carousel-334026">
+          </li>
+          <li data-slide-to="2" data-target="#carousel-334026">
+          </li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="item active">
+            <img alt="Carousel Bootstrap First" src="http://lorempixel.com/output/sports-q-c-1600-500-1.jpg" />
+            <div class="carousel-caption">
+              <h4>
+                First Thumbnail label
+              </h4>
+              <p>
+                Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+              </p>
+            </div>
+          </div>
+          <div class="item">
+            <img alt="Carousel Bootstrap Second" src="http://lorempixel.com/output/sports-q-c-1600-500-2.jpg" />
+            <div class="carousel-caption">
+              <h4>
+                Second Thumbnail label
+              </h4>
+              <p>
+                Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+              </p>
+            </div>
+          </div>
+          <div class="item">
+            <img alt="Carousel Bootstrap Third" src="http://lorempixel.com/output/sports-q-c-1600-500-3.jpg" />
+            <div class="carousel-caption">
+              <h4>
+                Third Thumbnail label
+              </h4>
+              <p>
+                Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+              </p>
+            </div>
+          </div>
+        </div> <a class="left carousel-control" href="#carousel-334026" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-334026" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
 <div class="logo_container">
   <div class="container">
     <h3 class="user_click"><%= link_to "Click here to give a tour", :anchor => "user_show_created" %></h3>
@@ -66,43 +130,6 @@
   </div>
 </div>
 
-
-
-<!-- <div class="layout_nav_bar">
-</div> -->
-
-
-<!-- <div class="navigate" id="userpage">
-  <div class="user_nav_bar">
-    <div class="nav_home">
-      <%= link_to "RendezYou Home", root_path, :class=>"userpage", :id=>"a_nav_home_user" %>
-
-
-
-    </div>
-    <% if current_user %>
-      <div class="nav_current_user">
-        <i class="fa fa-cog" aria-hidden="true" id="i"></i>
-        <%= link_to @user.name.capitalize, profile_path, :class=>"a_myprofile", :class=>"userpage", :id=>"black_text" %>
-        <%= link_to "Log Out", session_path("current"), :method => :delete, :class=>"a_logout", :class=>"userpage", :id=>"black_text" %>
-      </div>
-    <% else %>
-      <div class="nav_not_current_user">
-        <button type="button" class="a_login">Log In</button>
-        or <%=link_to "Sign Up", new_user_path, :class=>"a_signup" %>
-      </div>
-
-    <% end %>
-  </div>
-</div> -->
-
-<!-- #id White is for Chalk board use only -->
-<!-- <div id="white"> -->
-
-<div class="black">
-  <%= image_tag("feather_user-02.png", :class=>"book_img_black")%>
-
-  <div class="yield">
     <!-- User's Booked Tours -->
 
     <div class="tour" id="user_show_scheduled">
