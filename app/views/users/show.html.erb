@@ -1,15 +1,15 @@
 <!-- <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p> -->
-  <!-- <%= image_tag("chalkboard.jpg", :class=>"map_img")%> -->
-  <div class="layout_nav_bar">
-  </div>
+<!-- <%= image_tag("chalkboard.jpg", :class=>"map_img")%> -->
+<div class="layout_nav_bar">
+</div>
 
-  <div class="logo_container">
-    <div class="container">
+<div class="logo_container">
+  <div class="container">
     <h3 class="user_click"><%= link_to "Click here to give a tour", :anchor => "user_show_created" %></h3>
     <h3 class="user_click"><%= link_to "Click here to take a tour", :anchor => "user_show_scheduled" %></h3>
     <h3 class="user_click"><%= link_to "Book a new tour", :anchor => "search" %></h3>
-</div>
+  </div>
 </div>
 
 <!-- <%= image_tag("feather_user-02.png", :class=>"book_img")%> -->
@@ -61,56 +61,16 @@
           </div>
         </div>
         <% end %>
-
-
       </div>
     </div>
   </div>
 </div>
 
-
-<!-- <div class="layout_nav_bar">
-</div> -->
-
-
-<!-- <div class="navigate" id="userpage">
-  <div class="user_nav_bar">
-    <div class="nav_home">
-      <%= link_to "RendezYou Home", root_path, :class=>"userpage", :id=>"a_nav_home_user" %>
-
-    </div>
-    <% if current_user %>
-      <div class="nav_current_user">
-        <i class="fa fa-cog" aria-hidden="true" id="i"></i>
-        <%= link_to @user.name.capitalize, profile_path, :class=>"a_myprofile", :class=>"userpage", :id=>"black_text" %>
-        <%= link_to "Log Out", session_path("current"), :method => :delete, :class=>"a_logout", :class=>"userpage", :id=>"black_text" %>
-      </div>
-    <% else %>
-      <div class="nav_not_current_user">
-        <button type="button" class="a_login">Log In</button>
-        or <%=link_to "Sign Up", new_user_path, :class=>"a_signup" %>
-      </div>
-    <% end %>
-  </div>
-</div> -->
-
-<!-- #id White is for Chalk board use only -->
-<!-- <div id="white"> -->
-
 <div class="black">
   <%= image_tag("feather_user-02.png", :class=>"book_img_black")%>
 
-<div class="yield">
-
-
-
-
-
-
-
-
-
-<!-- User's Booked Tours -->
+  <div class="yield">
+    <!-- User's Booked Tours -->
 
     <div class="tour" id="user_show_scheduled">
 
