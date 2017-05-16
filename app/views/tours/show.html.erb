@@ -40,6 +40,7 @@
   <h3>Reviews:</h3>
   <% @tour.reviews.each do |r| %>
   <h4><%= r.created_at %></h4>
+  <h4><%= r.rating %></h4>
   <p><%= r.comment %><p>
   <% end %>
 </div>
