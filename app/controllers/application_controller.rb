@@ -29,4 +29,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def ensure_review_author
+    unless current_user.id == @review.author_id
+      flash[:alert] = "You are not authorized to do this"
+      redirect_to tour_path(@tour)
+    end
+
+  end
+
 end

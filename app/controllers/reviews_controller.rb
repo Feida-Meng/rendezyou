@@ -20,12 +20,12 @@ class ReviewsController < ApplicationController
 
   def edit
     @review = Review.find(params[:id])
+    ensure_review_author
   end
 
   def update
     @review = Review.find(params[:id])
     @review.update_attributes(review_params)
-    ensure_review_author
     if @review.save
       redirect_to tour_path(@tour)
     else
@@ -45,11 +45,5 @@ class ReviewsController < ApplicationController
     params.require(:review).permit(:rating, :comment, :tour_id, :created_at)
   end
 
-  def ensure_review_author
-    unless current_user.id == @review.author_id
-      flash[:alert] = "You are not authorized to do this"
-      redirect_to tour_path(@tour)
-    end
 
-  end
 end
