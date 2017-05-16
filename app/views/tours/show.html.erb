@@ -8,7 +8,7 @@
   <div class="row">
     <div class="col-md-12">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-5">
           <h3>
             <%= @tour.name %>
           </h3>
@@ -21,9 +21,9 @@
 
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-7">
 
-          <p><%= image_tag @tour.tourpic.url(:medium), :class=>"tour_pic_tourdetails" %></p>
+          <p class="show_page_tour_image"><%= image_tag @tour.tourpic.url, :class=>"tour_pic_tourdetails" %></p>
 
           <p><strong>Schedule:</strong></p>
 
@@ -43,15 +43,13 @@
 
             <div class="">
               <% if current_user && @tour.user_id == current_user.id %>
-              <%= link_to 'Add more dates', new_tour_schedule_path(@tour) %>
+              <%= link_to 'Add more dates', new_tour_schedule_path(@tour), :class=>"btn btn-primary" %>
               <% end %>
+              <%= link_to 'Back to Tours', tours_path, :class=>"btn btn-default" %>
 
             </div>
           </p>
 
-          <button type="button" class="btn btn-default">
-            Default
-          </button>
         </div>
       </div>
     </div>
@@ -59,12 +57,7 @@
 </div>
 
 <% if current_user && @tour.user_id == current_user.id %>
-<%= link_to 'Edit this Tour', edit_tour_path(@tour.id) %>
-<%= link_to 'Delete this Tour', tour_path(@tour.id), method: :delete %>
-<%= link_to "Add new tour point", new_tour_tourpoint_path(@tour) %>
+<%= link_to 'Edit this Tour | ', edit_tour_path(@tour.id) %>
+<%= link_to 'Delete this Tour | ', tour_path(@tour.id), method: :delete %>
+<%= link_to "Add new tour point | ", new_tour_tourpoint_path(@tour) %>
 <% end %>
-<%= link_to 'Back to Tours', tours_path %>
-
-<br>
-<br>
-<br>

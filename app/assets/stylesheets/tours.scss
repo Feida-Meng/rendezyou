@@ -15,6 +15,8 @@
 #show-tour-map {
   height:300px;
   width:100%;
+  margin-bottom: 2%;
+
 
 }
 
@@ -22,4 +24,11 @@
 .tour_show_full{
   position: relative;
   box-sizing: border-box;
+}
+
+.tour_pic_tourdetails{
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  margin-top: 2%;
 }
