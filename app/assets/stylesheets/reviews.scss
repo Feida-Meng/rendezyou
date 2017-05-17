@@ -8,8 +8,37 @@ star icons are label i, i.fa
 title "how would you rate your tour overall" in p
 radio button - input id = review_rating_number */
 
+$mustard: #ffc800;
+
+
+.star-rating {
+  float: left;
+}
+
+.star-rating:not(:checked) > label {
+  float: right;
+  color: lightgray;
+}
+
 .star-rating:not(:checked) > input {
-position:absolute;
-   top:-9999px;
- clip:rect(0,0,0,0);
+  position:absolute;
+  top:-9999px;
+  clip:rect(0,0,0,0);
+}
+
+.star-rating > input:checked ~ label {
+    color: $mustard;
+}
+
+.star-rating:not(:checked) > label:hover,
+.star-rating:not(:checked) > label:hover ~ label {
+    color: $mustard;
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: $mustard;
 }
