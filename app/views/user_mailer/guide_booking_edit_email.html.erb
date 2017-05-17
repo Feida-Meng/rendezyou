@@ -7,7 +7,7 @@
 <ul>
   <li>When: <%= @schedule.tour_start_time %></li>
   <li>Party Size: <%= @booking.booking_size %></li>
-  <li>Remaining Capacity: <%= @schedule.current_capacity %> </li>
+  <li>Remaining Capacity: <%= @schedule.max_capacity - @schedule.current_capacity %> </li>
 </ul>
 
 <h4>Enjoy your tour!</h4>

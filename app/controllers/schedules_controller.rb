@@ -50,9 +50,9 @@ class SchedulesController < ApplicationController
 
   def destroy
     @schedule = Schedule.find(params[:id])
-    load_bookings
     load_tourists
-    byebug
+    UserMailer.cancel_schedule_email(@tourists, @schedule, @tour).deliver
+    # byebug
     @schedule.destroy
     @bookings.destroy_all
     redirect_to tour_path(@tour)
@@ -75,17 +75,13 @@ class SchedulesController < ApplicationController
     end
   end
 
-  def load_bookings
-    @bookings = @schedule.bookings
-  end
 
   def load_tourists
+    @bookings = @schedule.bookings
     tourist_ids = []
-
     @bookings.each do |booking|
       tourist_ids << booking.user_id
     end
-
     @tourists = User.where(id: tourist_ids)
   end
 
