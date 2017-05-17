@@ -1,4 +1,4 @@
-<%= form_for @tour, url: tours_path, html: { multipart: true} do |f| %>
+<%= form_for @tour, html: { multipart: true} do |f| %>
 
 <% if @tour.errors.any? %>
     <div id="error_explanation">
@@ -38,8 +38,8 @@
     </div>
 
     <div class="field">
-      <%= f.label :duration_in_ms, "Approximate Duration(hrs)" %>
-      <%= f.number_field :duration_in_ms %>
+      <%= f.label :duration_in_hr, "Approximate Duration(hrs)" %>
+      <%= number_field_tag :duration_in_hr %>
     </div>
 
     <div class="form-group">

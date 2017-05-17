@@ -23,9 +23,14 @@ $(document).ready(function(){
     $('.login_window').fadeIn();
   });
 
+  $('.login_window').on('click', function(e){
+    e.preventDefault();
+    $('.login_window').fadeOut();
+  });
+
   $('.login_form').on('click', function(e){
     e.stopPropagation();
-    $('.login_window').fadeOut();
+    e.preventDefault();
   });
 
   $('.login_form input').on('click', function(e){
