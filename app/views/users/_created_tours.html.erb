@@ -1,31 +1,31 @@
 
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-12">
+  <div class="row user_created_tours">
+    <div class="col-md-12 user_created_tours">
       <div class="row">
 
-        <%= link_to 'See All', tours_path %>
-        <h3 class="show_entice">Here are your Guided Tours!</h3>
+        <div id="see-all-user-show"><%= link_to 'see all >>', tours_path, :id=>"see-all-user-show" %></div>
+        <h3 class="show_entice none">Here are your Guided Tours!</h3>
         <% @tours_created.reverse.each do |tour| %>
 
-          <div class="col-md-4">
+          <div class="col-md-3">
             <div id="thumbnail_tour_index" class="thumbnail">
 
 
-              <div class="index-container-relative">
+              <div class="index-container-relative userneedcenter">
                 <% if current_user.id == tour.user_id %>
                   <%= image_tag tour.tourpic.url(:medium), :class=>"tour_pic_tourdetails" %>
-                  <%= image_tag("gradient-01.png", :class=>"grad_img")%>
+                  <%= image_tag("gradient-01.png", :class=>"grad2_img")%>
                   <p><%= link_to tour.name, tour_path(tour.id), class:"tour_index_name"%></p>
                   <hr/>
                   <p class="tour_index_cat"><%= tour.category %></p>
-                  <div class="caption" id="tourindexcaption">
-                    <p class="tourp"><%= tour.description %></p>
-                    <p class="tourp">Starting Address: <%= tour.rendezvous_point %></p>
-                  </div>
                 <% end %>
               </div><!--.index-container-relative-->
-
+              <div class="caption" id="tourindexcaption">
+                <p class="tourp"><%= tour.description %></p>
+                <p class="tourp">Starting Address: <%= tour.rendezvous_point %></p>
+                <%= link_to "EDIT", tour_path(tour), :class=>"btn btn-success", :id=>"tourindexbut" %>
+              </div>
             </div> <!--#thumbnail_tour_index-->
           </div><!--.col-md-4-->
         <% end %>

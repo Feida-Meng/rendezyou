@@ -47,6 +47,8 @@ text-align: center;
   text-align: right;
   margin-bottom: 2%;
   margin-top: 0%;
+  font-size: 1.5em;
+  vertical-align: middle;
 }
 
 #thumbnail_tour_index{
@@ -147,6 +149,15 @@ hr {
   box-sizing: border-box;
   zoom: 110%;
   width: 100%;
+  bottom: 0px;
+}
+
+.grad2_img{
+  position: absolute;
+  bottom: 0px;
+  box-sizing: border-box;
+  zoom: 110%;
+  width: 100%;
 }
 
 div#tourindexcaption{
@@ -164,6 +175,7 @@ a#tourindexbut{
 .tourp{
   margin: 0px;
   margin-right: 20%;
+  font-size: .9em
 }
 
 div#verticalcarousel{
@@ -195,4 +207,23 @@ margin-top: 20%;
  margin-top: 5%;
  margin-bottom: 5%;
  text-align: right;
+}
+
+.col-md-4.push-img-to-float{
+  height: 375px;
+}
+
+.blue_names{
+  color: blue;
+}
+
+.yield.tours-index{
+  width: 90%;
+  margin: auto;
+}
+
+#plus-square{
+  color: #0274b3;
+  font-size: 2em;
+  padding: 3%;
 }

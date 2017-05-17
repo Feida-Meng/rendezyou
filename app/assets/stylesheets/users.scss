@@ -212,8 +212,8 @@ img.carou_one{
 
 #entice_section{
   font-family: 'Harmattan', sans-serif;
-  height: 300px;
   text-align: center;
+  height: 150px;
 }
 
 #entice_section h3{
@@ -241,4 +241,37 @@ h4.show_entice{
   opacity: .5;
   margin-top: 5%;
   margin-bottom: 5%;
+}
+
+#carousel-example-generic img{
+  display: inline;
+}
+
+#see-all-user-show{
+  text-align: right;
+  margin-right: 1%;
+}
+
+
+.col-md-12.user_created_tours{
+  width: 100%;
+  margin: auto;
+
+}
+
+.row.user_created_tours{
+  margin-left: 0px;
+  margin-right: 0px;
+  margin: auto;
+}
+
+.index-container-relative.userneedcenter{
+  margin: auto;
+}
+
+.show_entice.none{
+  margin-top: 0px;
+  margin-bottom:1%;
+  margin-left: 0px;
+  font-size: 1.5em;
 }

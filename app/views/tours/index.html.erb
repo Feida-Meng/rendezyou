@@ -1,7 +1,7 @@
 <div class="layout_nav_bar">
 </div>
 
-<div class="yield">
+<div class="yield tours-index">
 
 <div class="tours_index_search_bar">
 
@@ -14,7 +14,10 @@
 <br>
 </div>
 
-<h4 class="tours_show_entice">Click <%= link_to "here", new_tour_url %> to create <span class="new">NEW tours</span></h4>
+<h4 class="tours_show_entice">Click <%= link_to "here", new_tour_url %> to create <span class="new">NEW tours</span>
+  <i class="fa fa-plus-square" aria-hidden="true" id="plus-square"></i>
+</h4>
+
 <!-- <p class="btn btn-primary"><span class=""+<p> -->
 
 <div class="container-fluid">
@@ -24,7 +27,7 @@
 
         <% @tours.each do |tour| %>
 
-        <div class="col-md-4">
+        <div class="col-md-4 push-img-to-float">
           <div class="thumbnail" id="thumbnail_tour_index">
             <div class="index-container-relative">
               <%= image_tag tour.tourpic.url(:medium), :class=>"tour_pic_tourdetails" %>
@@ -36,9 +39,9 @@
 
             <div class="caption" id="tourindexcaption">
 
-              <p class="tourp"><%= tour.description %></p>
+              <p class="tourp"><span class="blue_names">Desc: </span><%= tour.description %></p>
               <!-- <p>city: <%= tour.city %></p> -->
-              <p class="tourp">Starting Address: <%= tour.rendezvous_point %></p>
+              <p class="tourp"><span class="blue_names">Starting Address: </span><%= tour.rendezvous_point %></p>
 
 
               <% if current_user && current_user.id == tour.user_id %>
