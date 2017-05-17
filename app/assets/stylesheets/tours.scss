@@ -90,11 +90,11 @@ text-align: center;
 
 // .btn.btn-primary {}
 
-.index-container-relative .tour_pic_tourdetails {
-  box-sizing: border-box;
-  position: relative;
-  zoom: 205%;
-}
+// .index-container-relative .tour_pic_tourdetails {
+//   box-sizing: border-box;
+//   position: relative;
+//   zoom: 205%;
+// }
 
 // -- below 2 are same--
 // .abc {
@@ -136,7 +136,8 @@ text-align: center;
 
 .grad_img{
   position: absolute;
-  top: 130px;
+  top: 150px;
+  width: 100%;
 }
 
 div#tourindexcaption{
