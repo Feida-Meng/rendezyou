@@ -26,7 +26,9 @@ class ToursController < ApplicationController
           render @tour
         end
         format.json do
-          render :json => @tour.to_json(:include => [:tourpoints])
+        
+          render :json => @tour.to_json({:include => :tourpoints, :method => :country})
+
         end
       end
     end

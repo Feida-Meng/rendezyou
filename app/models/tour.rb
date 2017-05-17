@@ -16,6 +16,11 @@ class Tour < ApplicationRecord
   before_save { |tour| tour.duration_in_ms = (tour.duration_in_ms) * 3600000 }
 
 
+
+  def country #for json 
+    Country.find(country_id).name
+  end
+
   def self.search(search)
     where("name LIKE ? OR description LIKE ? OR category LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
   end
