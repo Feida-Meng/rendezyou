@@ -1,0 +1,35 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+
+        <%= link_to 'See All', tours_path %>
+        <h3 class="show_entice">Here are your Guided Tours!</h3>
+        <% @tours_created.reverse.each do |tour| %>
+
+          <div class="col-md-4">
+            <div id="thumbnail_tour_index" class="thumbnail">
+
+
+              <div class="index-container-relative">
+                <% if current_user.id == tour.user_id %>
+                  <%= image_tag tour.tourpic.url(:medium), :class=>"tour_pic_tourdetails" %>
+                  <%= image_tag("gradient-01.png", :class=>"grad_img")%>
+                  <p><%= link_to tour.name, tour_path(tour.id), class:"tour_index_name"%></p>
+                  <hr/>
+                  <p class="tour_index_cat"><%= tour.category %></p>
+                  <div class="caption" id="tourindexcaption">
+                    <p class="tourp"><%= tour.description %></p>
+                    <p class="tourp">Starting Address: <%= tour.rendezvous_point %></p>
+                  </div>
+                <% end %>
+              </div><!--.index-container-relative-->
+
+            </div> <!--#thumbnail_tour_index-->
+          </div><!--.col-md-4-->
+        <% end %>
+      </div><!--.row-->
+    </div><!--.col-md-12-->
+  </div><!--.row-->
+</div><!--.container-fluid-->
