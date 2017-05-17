@@ -1,93 +1,88 @@
 <%= form_for @tour, url: tours_path, html: { multipart: true} do |f| %>
 
+  <% if @tour.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= pluralize(@tour.errors.count, "error") %> prohibited this tour from being saved:</h3>
 
-
-<% if @tour.errors.any? %>
-    <div id="error_explanation">
-      <h3><%= pluralize(@tour.errors.count, "error") %> prohibited this tour from being saved:</h3>
-
-      <ul>
-        <% @tour.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
+    <ul>
+      <% @tour.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
   <% end %>
 
-  <form>
-    <div class="row">
-      <div class="col-sm-8">
+<form>
+  <div class="row">
+    <div class="col-sm-8">
 
-    <div class="form-group">
-      <br>
-      <br>
+      <div class="form-group">
+        <br>
+        <br>
         <%= f.label :category%><br>
         <%= f.select :category,  options_for_select(Tour.categories.map {|cat,v| [cat,cat]}), class:"form-control" %>
-    </div>
+      </div>
 
 
-    <div class="form-group">
-      <%= f.label :name %><br>
-      <%= f.text_field :name, :class=>"form-control" %>
-    </div>
+      <div class="form-group">
+        <%= f.label :name %><br>
+        <%= f.text_field :name, :class=>"form-control" %>
+      </div>
 
-    <div class="form-group">
-      <%= f.label :description %><br>
-      <%= f.text_area :description, :class=>"form-control" %>
-    </div>
+      <div class="form-group">
+        <%= f.label :description %><br>
+        <%= f.text_area :description, :class=>"form-control" %>
+      </div>
 
-    <div class="form-inline">
-    <div class="row">
-      <div class="col-sm-4">
+      <div class="form-inline">
+        <div class="row">
 
-        <div class="field">
-          <%= f.label :capacity %><br>
-          <%= f.number_field :capacity, :class=>"col-sm-12" %>
+          <div class="col-sm-4">
+            <div class="field">
+              <%= f.label :capacity %><br>
+              <%= f.number_field :capacity, :class=>"col-sm-12" %>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="field">
+              <%= f.label :duration_in_ms,"Approx duration (hrs)" %>
+              <%= f.number_field :duration_in_ms, :class=>"col-sm-12" %>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <%= f.label :country_id%>
+            <%= f.collection_select :country_id, @countries, :id, :name, include_blank: 'Select a country  ....'%>
+          </div>
         </div>
       </div>
-
-      <div class="col-sm-4">
-        <div class="field">
-          <%= f.label :duration_in_ms,"Approx duration (hrs)" %>
-          <%= f.number_field :duration_in_ms, :class=>"col-sm-12" %>
-        </div>
-      </div>
-
-      <div class="col-sm-4">
-        <%= f.label :country_id%>
-        <%= f.collection_select :country_id, @countries, :id, :name, include_blank: 'Select a country  ....'%>
-      </div>
-      </div>
-    </div>
     </br>
 
     <div class="form-group">
       <%= f.label :rendezvous_point%><br>
       <%= f.text_field :rendezvous_point, class:"form-control"%>
     </div>
+    <br>
 
-    <%= f.submit "FINISHED", name: "add_schedule", :class=>"btn btn-primary" %>
+    <%= f.submit "FINISHED (add dates later)", name: "no_schedule", :class=>"btn btn-primary" %>
     <p class="tour-or">or</p>
-    <%= f.submit "OK (add dates later)", name: "no_schedule", :class=>"btn btn-primary" %>
+    <%= f.submit "CONTINUE (next)", name: "add_schedule", :class=>"btn btn-primary" %>
     <p class="tour-or">or</p>
     <%= link_to 'Cancel', tours_path, :class=>"btn btn-default" %>
+  </div>
 
-
-        <%= image_tag @tour.tourpic.url %>
-        <%= f.file_field :tourpic %>
-
-
-   <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-6">
+  <div class="col-sm-4">
+    <div class="tour_new_pic_img">
+      <%= image_tag(@tour.tourpic.url, :class=>"missing_tours_new") %>
+      <%= f.file_field :tourpic %>
     </div>
   </div>
 
   <% end %>
-
-</div>
-</div>
-
 </form>
+
 <br>
 <br>
+
 <div id="rendezvous-map"> </div>
