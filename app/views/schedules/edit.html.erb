@@ -1,0 +1,34 @@
+<div class="yield">
+
+  <div id="schedule-form">
+  <%= form_for ([@tour, @schedule]) do |f| %>
+
+  <% if @schedule.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@schedule.errors.count, "error")%> prohibited this schedule from being saved:</h3>
+
+      <ul>
+        <% @schedule.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+<div class="field">
+  <%= f.label :tour_start_time %>
+<%=   f.datetime_select :tour_start_time, ampm: true %>
+</div>
+
+
+  <div class="submit">
+   <%= f.submit %>
+
+
+
+
+  <% end %>
+  </div>
+</div>

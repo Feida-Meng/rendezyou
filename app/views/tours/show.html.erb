@@ -34,8 +34,10 @@
             <% @tour.schedules.each do |t_s| %>
             <p class="">
               <%= "#{t_s.tour_session}, #{t_s.current_capacity} people booked, space left: #{t_s.max_capacity - t_s.current_capacity}" %>
-              <% unless current_user && @tour.user_id == current_user.id %>
+              <% unless (current_user && @tour.user_id == current_user.id) || t_s.tour_start_time < Time.now %>
               <%= link_to 'Book now!', new_tour_schedule_booking_path(@tour,t_s) %>
+              <% else  %>
+              <%= link_to 'Edit this Schedule', edit_tour_schedule_path(@tour, t_s) %> | <%= link_to 'Cancel this Schedule', tour_schedule_path(@tour, t_s), method: :delete %>
             </p>
             <% end %>
             <% end %>

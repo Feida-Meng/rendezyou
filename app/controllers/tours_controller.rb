@@ -96,8 +96,8 @@ class ToursController < ApplicationController
   end
 
   def tour_booked
-    if @tour.schedules.each do |schedule|
-      schedule.current_capacity == 0
+    @tour.schedules.each do |schedule|
+      if schedule.current_capacity != 0
       flash[:alert] = "You cannot edit a tour if people have booked it "
       redirect_to profile_path
     end

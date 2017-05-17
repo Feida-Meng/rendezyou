@@ -31,12 +31,12 @@ class SchedulesController < ApplicationController
   def edit
     ensure_owner(@tour)
     @schedule = Schedule.find(params[:id])
+    no_bookings
   end
 
   def update
     @schedule = Schedule.find(params[:id])
     @schedule.update_attributes(schedule_params)
-    ensure_owner(@tour)
     if @schedule.save
       redirect_to profile_path
     else
@@ -50,8 +50,12 @@ class SchedulesController < ApplicationController
 
   def destroy
     @schedule = Schedule.find(params[:id])
+    load_bookings
+    load_tourists
+    byebug
     @schedule.destroy
-    redirect_to profile_path
+    @bookings.destroy_all
+    redirect_to tour_path(@tour)
   end
 
   private
@@ -62,6 +66,27 @@ class SchedulesController < ApplicationController
 
   def schedule_params
     params.require(:schedule).permit(:tour_start_time, :tour_id, :max_capacity, :current_capacity)
+  end
+
+  def no_bookings
+    unless @schedule.bookings.empty?
+      flash[:alert] = "You cannot edit a schedule if people have booked it"
+      redirect_to tour_path(@tour)
+    end
+  end
+
+  def load_bookings
+    @bookings = @schedule.bookings
+  end
+
+  def load_tourists
+    tourist_ids = []
+
+    @bookings.each do |booking|
+      tourist_ids << booking.user_id
+    end
+
+    @tourists = User.where(id: tourist_ids)
   end
 
 end
