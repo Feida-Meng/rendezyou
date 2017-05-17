@@ -12,13 +12,11 @@
     </div>
   <% end %>
 
-  <form class="form-horizontal">
+  <form>
 
     <div class="form-group">
-        <%= f.label :category, :class=>"col-sm-1 control-label"  %>
-      <div class="col-sm-8">
+        <%= f.label :category%>
         <%= f.select :category, options_for_select(Tour.categories.map {|cat,v| [cat,cat]}) %>
-      </div>
     </div>
 
         <br>
@@ -26,7 +24,7 @@
 
     <div class="form-group">
       <%= f.label :name, :class=>"col-sm-1 control-label" %>
-      <div class="col-sm-8">
+      <div class="col-sm-6">
         <%= f.text_field :name, :class=>"form-control" %>
       </div>
     </div>
@@ -44,7 +42,7 @@
 
     <div class="form-group">
       <%= f.label :description, :class=>"col-sm-1 control-label" %>
-      <div class="col-sm-8">
+      <div class="col-sm-6">
         <%= f.text_area :description, :class=>"form-control" %>
       </div>
     </div>
@@ -54,7 +52,7 @@
 
     <div class="form-group">
       <%= f.label :country_id, :class=>"col-sm-1 control-label" %>
-        <div class="col-sm-8">
+        <div class="col-sm-6">
           <%= f.collection_select :country_id, @countries, :id, :name, include_blank: 'Please select a country', class: "form-control"%>
         </div>
     </div>
@@ -62,7 +60,7 @@
     <br>
     <div class="form-group">
       <%= f.label :rendezvous_point, :class=>"col-sm-1 control-label"%>
-        <div class="col-sm-8">
+        <div class="col-sm-6">
           <%= f.text_field :rendezvous_point, class:"form-control", id:"rendezvous-point-input" %>
 
 
