@@ -1,9 +1,6 @@
 
 <div class="yield">
 
-  <!-- <%= image_tag @user.avatar.url(:medium) %>
-  <%= image_tag @user.avatar.url(:thumb) %> -->
-
   <div class="main_form">
       <%= form_for @user, url: users_path, html: { multipart: true, :class => "form-horizontal"} do |f| %>
 
@@ -76,7 +73,7 @@
 
         <div class="user_right">
 
-          <%= image_tag @user.avatar.url %>
+          <%= image_tag ("panda_avatar.png"), :class=>"user_new_signin_avatar" %>
           <%= f.file_field :avatar %>
 
         </div>

@@ -13,11 +13,9 @@
 
 // gmap:-----------------------
 #show-tour-map {
-  height:300px;
+  height:200px;
   width:100%;
   margin-bottom: 2%;
-
-
 }
 
 
@@ -26,9 +24,65 @@
   box-sizing: border-box;
 }
 
-.tour_pic_tourdetails{
-  box-sizing: border-box;
-  position: relative;
-  width: 100%;
-  margin-top: 2%;
+.tour-desc{
+height: 25vw;
 }
+
+.tours_index_search_bar{
+  margin-top: 5%;
+text-align: center;
+}
+
+.tours_index_actual_bar{
+  height: 3.5em;
+  margin-right: 2%;
+  margin-top: 1%;
+  width: 50%;
+  border-radius: 6px;
+
+}
+
+.tours_show_entice{
+  margin-right: 5%;
+  text-align: right;
+}
+
+#thumbnail_tour_index{
+  border: 0;
+}
+
+.tour_index_name{
+  font-family: 'Harmattan', sans-serif;
+  color: white
+
+}
+
+// SCSS code
+.index-container-relative {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+  .tour_pic_tourdetails {
+    box-sizing: border-box;
+    position: relative;
+    zoom: 205%;
+  }
+}
+
+// compiled (normal css) code
+// .index-container-relative {
+//   position: relative;
+//   overflow: hidden;
+//   width: 100%;
+// }
+//
+// .index-container-relative.modified {
+//   background: white;
+// }
+//
+// .index-container-relative .tour_pic_tourdetails {
+//   box-sizing: border-box;
+//   position: relative;
+//   zoom: 205%;
+// }

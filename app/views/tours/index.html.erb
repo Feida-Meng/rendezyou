@@ -3,15 +3,18 @@
 
 <div class="yield">
 
-<h2>Tours</h2>
+<div class="tours_index_search_bar">
 
-<%= form_tag(tours_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Tours" %>
-    <%= submit_tag "Search", :name => nil %>
+<%= form_tag(tours_path, :method => "get", class: "form-horizontal") do %>
+<div class="form-group">
+    <%= text_field_tag :search, params[:search], placeholder: "Search Tours", class:"tours_index_actual_bar" %>
+    <%= submit_tag "Search Tours", :name => nil, class:"btn btn-success btn-lg"%>
+  </div>
 <% end %>
 <br>
+</div>
 
-<h4 class="show_entice">Click <%= link_to "here", new_tour_url %> to create more tours</h4>
+<h4 class="tours_show_entice">Click <%= link_to "here", new_tour_url %> to create more tours</h4>
 
 <div class="container-fluid">
   <div class="row">
@@ -21,13 +24,15 @@
         <% @tours.each do |tour| %>
 
         <div class="col-md-4">
-          <div class="thumbnail">
+          <div class="thumbnail" id="thumbnail_tour_index">
             <!-- <img alt="Bootstrap Thumbnail Second" src="http://lorempixel.com/output/city-q-c-600-200-1.jpg" /> -->
-            <p><%= image_tag tour.tourpic.url(:thumb), :class=>"tour_pic_tourdetails" %></p>
+            <div class="index-container-relative">
+              <%= image_tag tour.tourpic.url(:thumb), :class=>"tour_pic_tourdetails" %>
+            </div>
 
             <div class="caption">
 
-              <h3><%= link_to tour.name, tour_path(tour.id)%></h3>
+              <h3><%= link_to tour.name, tour_path(tour.id), class:"tour_index_name"%></h3>
               <p><%= tour.description %></p>
               <p>city: <%= tour.city %>
               <p>Starting Address: <%= tour.rendezvous_point %></p>
