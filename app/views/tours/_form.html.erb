@@ -52,7 +52,7 @@
           </div>
 
           <div class="col-sm-4">
-            <%= f.label :country_id%>
+            <%= f.label :country_id%><br>
             <%= f.collection_select :country_id, @countries, :id, :name, include_blank: 'Select a country  ....'%>
           </div>
         </div>

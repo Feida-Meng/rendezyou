@@ -42,25 +42,16 @@
               <% if current_user && current_user.id == tour.user_id %>
               <p>
                 <%= link_to "EDIT", tour_path(tour), :class=>"btn btn-success", :id=>"tourindexbut" %>
-                <!-- <%= link_to "Add a date", new_tour_schedule_path(tour) %> -->
               </p>
-              <!-- <h4>Schedule:</h4>
-              <% if tour.schedules.empty? %>
-              <p>You don't have any dates scheduled for this tour! Click <%= link_to "here", new_tour_schedule_path(tour) %> to schedule some! </p> -->
+
               <% else %>
               <p>
                 <%= link_to "VIEW", tour_path(tour), :class=>"btn btn-success", :id=>"tourindexbut" %>
               </p>
-              <!-- <ul>
-                <% tour.schedules.each do |t_s| %>
-                <%= "#{t_s.tour_session}, #{t_s.current_capacity} people booked, space left: #{t_s.max_capacity - t_s.current_capacity}" %>
-                <% end %>
-              </ul> -->
+
 
               <% end %>
-              <!-- <%= link_to "Edit Tour", edit_tour_url(tour.id) %>
-              <%= link_to 'Delete Tour', tour_path(tour.id), method: :delete %>
-              <% end %> -->
+
             </div>
           </div>
         </div>
