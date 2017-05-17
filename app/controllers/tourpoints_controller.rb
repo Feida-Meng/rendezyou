@@ -20,6 +20,7 @@ class TourpointsController < ApplicationController
   end
 
   def edit
+    
 
   end
 

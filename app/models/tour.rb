@@ -17,7 +17,7 @@ class Tour < ApplicationRecord
 
 
 
-  def country #for json 
+  def country #for json
     Country.find(country_id).name
   end
 
@@ -26,6 +26,6 @@ class Tour < ApplicationRecord
   end
 
 
-  enum category: [ :nature, :city, :"food & drinks", :recreation, :social, :other]
+  enum category: [ :Nature, :"City tour", :"Food & drinks", :Recreation, :Social, :Other]
 
 end

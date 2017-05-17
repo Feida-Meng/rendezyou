@@ -14,7 +14,6 @@
 //= require_tree .
 //= require bootstrap-sprockets
 
-
 function geocodeAddress(geocoder, resultsMap, country, address) {
 
   geocoder.geocode(
@@ -32,19 +31,20 @@ function geocodeAddress(geocoder, resultsMap, country, address) {
         animation: google.maps.Animation.DROP
       });
     } else {
-      alert('Geocode was not successful for the following reason: ' + status);
+      // alert('Geocode was not successful for the following reason: ' + status);
     }
   });
 }
 
 var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
-function markerMaker(position,map,label) {
+function markerMaker(position,map,label,draggable) {
   var marker = new google.maps.Marker({
     position: position,
     map: map,
     label:label,
     icon:image,
     title: 'TP',
+    draggable:draggable,
     animation: google.maps.Animation.DROP
   });
   return marker;

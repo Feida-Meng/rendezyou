@@ -45,6 +45,7 @@ $(function(){
       var marker;
       var markers = {};
       var markerPlaced = false;
+      var newMarker;
 
       if (tour.tourpoints.length > 0) {
         for (var i = 0; i<tour.tourpoints.length;i++) {
@@ -52,7 +53,7 @@ $(function(){
           latP = Number(laglng.substring(laglng.indexOf("(")+1,laglng.indexOf(",")-1));
           lagP = Number(laglng.substring(laglng.indexOf(",")+1,laglng.indexOf(")")-1));
           markerPosition = {lat:latP,lng:lagP};
-          marker = markerMaker(markerPosition,tourMap,(i+1).toString());
+          marker = markerMaker(markerPosition,tourMap,(i+1).toString(),false);
           markers[marker.label]= tour.tourpoints[i];
           marker.addListener('click', function() {
             populateInfoWindow(this,markers[this.label],tourPointInfoWindow,tourMap);
@@ -65,7 +66,11 @@ $(function(){
           if (markerPlaced === false) {
             $("#tourpoint_tour_point_laglng").val(event.latLng.toString());
             console.log(event.latLng);
-            markerMaker(event.latLng, tourMap, (i+1).toString());
+            newMarker = markerMaker(event.latLng, tourMap, (i+1).toString(),true);
+            google.maps.event.addListener(newMarker, 'dragend', function (event) {
+              $("#tourpoint_tour_point_laglng").val(event.latLng.toString());
+            });
+
           }
           markerPlaced = true;
         });
@@ -74,6 +79,7 @@ $(function(){
       tourMap.fitBounds(bounds);
     });
   }
+
 
   $("#rendezvous-point-input").on("input",function(){
     var newTourMapDiv = $("#rendezvous-map");
