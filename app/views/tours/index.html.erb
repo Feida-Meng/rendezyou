@@ -7,7 +7,7 @@
 
 <%= form_tag(tours_path, :method => "get", class: "form-horizontal") do %>
 <div class="form-group">
-    <%= text_field_tag :search, params[:search], placeholder: "Search Tours", class:"tours_index_actual_bar" %>
+    <%= text_field_tag :search, params[:search], placeholder: "   Search Tours", class:"tours_index_actual_bar" %>
     <%= submit_tag "Search Tours", :name => nil, class:"btn btn-success btn-lg"%>
   </div>
 <% end %>

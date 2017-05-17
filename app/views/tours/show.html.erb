@@ -24,9 +24,9 @@
           </div>
         </div>
         <div class="col-md-4">
-
-          <p class="show_page_tour_image"><%= image_tag @tour.tourpic.url, :class=>"tour_pic_tourdetails" %></p>
-
+          <div class="tourshowpiccontain">
+            <p class="show_page_tour_image"><%= image_tag @tour.tourpic.url(:medium), :class=>"tour_pic_tourdetails" %></p>
+          </div>
           <p><strong>Schedule:</strong></p>
 
           <p>
