@@ -37,6 +37,12 @@ $(document).ready(function(){
     e.stopPropagation();
   });
 
+  $(document).keyup(function(event){
+      if(event.which=='27'){
+        $('.login_window').fadeOut();
+      }
+    });
+
   //signup modal
   // $('.a_signup').on('click', function(e){
   //   e.stopPropagation();

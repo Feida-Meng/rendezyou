@@ -36,8 +36,8 @@ class SchedulesController < ApplicationController
 
   def update
     @schedule = Schedule.find(params[:id])
-    @schedule.update_attributes(schedule_params)
-    if @schedule.save
+    # @schedule.update_attributes(schedule_params)
+    if @schedule.update_attributes(schedule_params)
       redirect_to profile_path
     else
       render :edit

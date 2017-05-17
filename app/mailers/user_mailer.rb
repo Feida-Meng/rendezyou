@@ -60,17 +60,8 @@ class UserMailer < ApplicationMailer
     @schedule = schedule
     @tour = tour
     emails = @tourists.collect(&:email).join(",")
-    mail(to: emails, subject: "Tour Cancellation")
+    mail(bcc: emails, subject: "Tour Cancellation")
   end
-  #
-  # def request_replacement(shift)
-  #   @shift = shift
-  #   @user = shift.user
-  #   @recipients = User.where(:replacement_emails => true)
-  #   @url  = root_url
-  #   emails = @recipients.collect(&:email).join(",")
-  #   mail(:to => emails, :subject => "A replacement clerk has been requested")
-  # end
-
+  
 
 end
