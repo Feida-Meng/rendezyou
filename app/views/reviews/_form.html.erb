@@ -14,26 +14,26 @@
 
 <div class="star-rating">
   <p>How would you rate your tour overall:</p>
-  <%= f.label :rating do  %>
-    <i class="fa fa-star-o fa-3x"></i>
-    <% end %>
   <%= f.radio_button :rating, 1 %>
-  <%= f.label :rating do  %>
+  <%= f.label :rating, value: 1 do  %>
     <i class="fa fa-star-o fa-3x"></i>
     <% end %>
   <%= f.radio_button :rating, 2 %>
-  <%= f.label :rating do  %>
+  <%= f.label :rating, value: 2 do  %>
     <i class="fa fa-star-o fa-3x"></i>
     <% end %>
   <%= f.radio_button :rating, 3 %>
-  <%= f.label :rating do  %>
+  <%= f.label :rating, value: 3 do  %>
     <i class="fa fa-star-o fa-3x"></i>
     <% end %>
   <%= f.radio_button :rating, 4 %>
-  <%= f.label :rating do  %>
+  <%= f.label :rating, value: 4 do  %>
     <i class="fa fa-star-o fa-3x"></i>
     <% end %>
   <%= f.radio_button :rating, 5 %>
+  <%= f.label :rating, value: 5 do  %>
+    <i class="fa fa-star-o fa-3x"></i>
+    <% end %>
 </div>
 
 <div class="field">

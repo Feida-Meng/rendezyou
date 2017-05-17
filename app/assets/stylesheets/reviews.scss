@@ -1,3 +1,15 @@
 // Place all the styles related to the Reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* star rating styles
+all within .star-rating
+star icons are label i, i.fa
+title "how would you rate your tour overall" in p
+radio button - input id = review_rating_number */
+
+.star-rating:not(:checked) > input {
+position:absolute;
+   top:-9999px;
+ clip:rect(0,0,0,0);
+}
