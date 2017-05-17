@@ -36,39 +36,41 @@
       <%= f.text_area :description, :class=>"form-control" %>
     </div>
 
+    <div class="form-inline">
     <div class="row">
-      <div class="col-sm-6">
-
-        <div class="field" id="halffield">
-          <%= f.label :capacity %><br>
-          <%= f.number_field :capacity, :class=>"form-control" %><br>
-        </div>
+      <div class="col-sm-4">
 
         <div class="field">
-          <%= f.label :duration_in_ms,"Approximate Duration(hrs)" %><br>
-          <%= f.number_field :duration_in_ms, :class=>"form-control" %><br>
+          <%= f.label :capacity %><br>
+          <%= f.number_field :capacity, :class=>"col-sm-12" %>
         </div>
       </div>
-    </div>
 
+      <div class="col-sm-4">
+        <div class="field">
+          <%= f.label :duration_in_ms,"Approx duration (hrs)" %>
+          <%= f.number_field :duration_in_ms, :class=>"col-sm-12" %>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <%= f.label :country_id%>
+        <%= f.collection_select :country_id, @countries, :id, :name, include_blank: 'Select a country  ....'%>
+      </div>
+      </div>
+    </div>
+    </br>
 
     <div class="form-group">
-      <%= f.label :country_id, :class=>"col-sm-1 control-label" %>
-        <div class="col-sm-6">
-          <%= f.collection_select :country_id, @countries, :id, :name, include_blank: 'Please select a country', class: "form-control"%>
-        </div>
-    </div>
-    <br>
-    <br>
-    <div class="form-group">
-      <%= f.label :rendezvous_point, :class=>"col-sm-1 control-label"%>
-        <div class="col-sm-6">
-          <%= f.text_field :rendezvous_point, class:"form-control", id:"rendezvous-point-input" %>
-
-
-        </div>
+      <%= f.label :rendezvous_point%><br>
+      <%= f.text_field :rendezvous_point, class:"form-control"%>
     </div>
 
+    <%= f.submit "FINISHED", name: "add_schedule", :class=>"btn btn-primary" %>
+    <p class="tour-or">or</p>
+    <%= f.submit "OK (add dates later)", name: "no_schedule", :class=>"btn btn-primary" %>
+    <p class="tour-or">or</p>
+    <%= link_to 'Cancel', tours_path, :class=>"btn btn-default" %>
 
 
         <%= image_tag @tour.tourpic.url %>
@@ -77,10 +79,6 @@
 
    <div class="form-group">
     <div class="col-sm-offset-2 col-sm-6">
-      <%= f.submit "Book some dates", name: "add_schedule" %>
-      or
-      <%= f.submit "Add dates later", name: "no_schedule" %>
-        <button><%= link_to 'Cancel', tours_path %></button>
     </div>
   </div>
 
