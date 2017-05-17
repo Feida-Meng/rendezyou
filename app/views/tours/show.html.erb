@@ -63,7 +63,9 @@
   <h3>Reviews:</h3>
   <% @tour.reviews.each do |r| %>
   <h4><%= r.created_at %></h4>
-  <h4><%= r.rating %></h4>
+  <div class="rating-tours">
+    <h4 class="reviews-star-ratings"><%= r.rating %></h4>
+  </div>
   <p><%= r.comment %><p>
   <% end %>
 </div>

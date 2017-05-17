@@ -2,13 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/* star rating styles
-all within .star-rating
-star icons are label i, i.fa
-title "how would you rate your tour overall" in p
-radio button - input id = review_rating_number */
 
 $mustard: #ffc800;
+$light-mustard: #fcdc6a;
 
 
 .star-rating {
@@ -18,6 +14,7 @@ $mustard: #ffc800;
 .star-rating:not(:checked) > label {
   float: right;
   color: lightgray;
+  padding: 0 .1em;
 }
 
 .star-rating:not(:checked) > input {
@@ -32,7 +29,7 @@ $mustard: #ffc800;
 
 .star-rating:not(:checked) > label:hover,
 .star-rating:not(:checked) > label:hover ~ label {
-    color: $mustard;
+    color: $light-mustard;
 }
 
 .rating > input:checked + label:hover,
@@ -40,5 +37,5 @@ $mustard: #ffc800;
 .rating > input:checked ~ label:hover,
 .rating > input:checked ~ label:hover ~ label,
 .rating > label:hover ~ input:checked ~ label {
-    color: $mustard;
+    color: $light-mustard;
 }
