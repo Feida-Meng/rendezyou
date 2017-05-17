@@ -1,5 +1,7 @@
 <%= form_for @tour, url: tours_path, html: { multipart: true} do |f| %>
 
+
+
 <% if @tour.errors.any? %>
     <div id="error_explanation">
       <h3><%= pluralize(@tour.errors.count, "error") %> prohibited this tour from being saved:</h3>
@@ -13,42 +15,42 @@
   <% end %>
 
   <form>
+    <div class="row">
+      <div class="col-sm-8">
 
     <div class="form-group">
-        <%= f.label :category%>
-        <%= f.select :category, options_for_select(Tour.categories.map {|cat,v| [cat,cat]}) %>
+      <br>
+      <br>
+        <%= f.label :category%><br>
+        <%= f.select :category,  options_for_select(Tour.categories.map {|cat,v| [cat,cat]}), class:"form-control" %>
     </div>
 
-        <br>
-        <br>
 
     <div class="form-group">
-      <%= f.label :name, :class=>"col-sm-1 control-label" %>
+      <%= f.label :name %><br>
+      <%= f.text_field :name, :class=>"form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :description %><br>
+      <%= f.text_area :description, :class=>"form-control" %>
+    </div>
+
+    <div class="row">
       <div class="col-sm-6">
-        <%= f.text_field :name, :class=>"form-control" %>
+
+        <div class="field" id="halffield">
+          <%= f.label :capacity %><br>
+          <%= f.number_field :capacity, :class=>"form-control" %><br>
+        </div>
+
+        <div class="field">
+          <%= f.label :duration_in_ms,"Approximate Duration(hrs)" %><br>
+          <%= f.number_field :duration_in_ms, :class=>"form-control" %><br>
+        </div>
       </div>
     </div>
 
-
-    <div class="field">
-      <%= f.label :capacity %>
-      <%= f.number_field :capacity %>
-    </div>
-
-    <div class="field">
-      <%= f.label :duration_in_ms, "Approximate Duration(hrs)" %>
-      <%= f.number_field :duration_in_ms %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :description, :class=>"col-sm-1 control-label" %>
-      <div class="col-sm-6">
-        <%= f.text_area :description, :class=>"form-control" %>
-      </div>
-    </div>
-
-    <br>
-    <br>
 
     <div class="form-group">
       <%= f.label :country_id, :class=>"col-sm-1 control-label" %>
@@ -83,6 +85,9 @@
   </div>
 
   <% end %>
+
+</div>
+</div>
 
 </form>
 <br>
