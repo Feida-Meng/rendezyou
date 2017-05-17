@@ -26,10 +26,11 @@
         <div class="col-md-4">
           <div class="thumbnail" id="thumbnail_tour_index">
             <div class="index-container-relative">
-              <%= image_tag tour.tourpic.url(:medium), :class=>"tour_pic_tourdetails" %>
               <%= image_tag("gradient-01.png", :class=>"grad_img")%>
-              <h3><%= link_to tour.name, tour_path(tour.id), class:"tour_index_name"%></h3>
-              <p class="tour_index_cat">Category: <%= tour.category %></p>
+              <%= image_tag tour.tourpic.url(:medium), :class=>"tour_pic_tourdetails" %>
+              <p><%= link_to tour.name, tour_path(tour.id), class:"tour_index_name"%></p>
+            <hr/>
+              <p class="tour_index_cat"><%= tour.category %></p>
             </div>
 
             <div class="caption" id="tourindexcaption">

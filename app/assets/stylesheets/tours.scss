@@ -29,7 +29,7 @@ height: 25vw;
 }
 
 .tours_index_search_bar{
-  margin-top: 5%;
+  margin-top: 3%;
 text-align: center;
 }
 
@@ -45,7 +45,8 @@ text-align: center;
 .tours_show_entice{
   margin-right: 5%;
   text-align: right;
-  margin-bottom: 3%;
+  margin-bottom: 2%;
+  margin-top: 0%;
 }
 
 #thumbnail_tour_index{
@@ -67,7 +68,7 @@ text-align: center;
 
   .tour_pic_tourdetails {
     box-sizing: border-box;
-    position: relative;
+    position: absolute;
     zoom: 150%;
   }
 }
@@ -107,36 +108,43 @@ text-align: center;
 //
 // }
 // -- above ---
-
 .tour_index_name{
   position: absolute;
   font-family: 'Raleway', sans-serif;
-  // font-family: 'Crimson Text', serif;
-  // font-weight: lighter;
-  top: 215px;
+  top: 205px;
   left: 20px;
   letter-spacing: .2em;
-  text-shadow: 1px 1px 3px black;
-  font-size: .75em;
-
+  text-shadow: 1px 1px 4px black;
+  color: white;
+  font-size: 175%;
 }
 
 .tour_index_cat{
   position: absolute;
   font-family: 'Raleway', sans-serif;
-  // font-family: 'Crimson Text', serif;
-  // font-weight: lighter;
-  top: 235px;
+  top: 245px;
   left: 20px;
   letter-spacing: .2em;
   text-shadow: 1px 1px 3px black;
   color: white;
-  font-size: 1.5em;
+  font-size: 110%;
 }
+hr {
+  position: absolute;
+    height: 3px;
+    top: 245px;
+    color: white;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
 
 .grad_img{
   position: absolute;
-  top: 150px;
+  box-sizing: border-box;
+  zoom: 110%;
   width: 100%;
 }
 
