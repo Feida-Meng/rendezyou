@@ -4,7 +4,7 @@ $(document).ready(function(){
   $(window).scroll(function(){
 
     if ($(this).scrollTop()>150){
-        $('.nav_bar').css('background', 'rgba(0,0,0,1)').css('transition','0.3s ease-in-out');
+        $('.nav_bar').css('background', 'rgba(0,0,0,.8)').css('transition','0.3s ease-in-out');
         // $('a').css('font-size', '98%').css('transition','0.3s ease-in-out');
       }else if ($(this).scrollTop()>90){
         $('.nav_bar').css('background', 'rgba(0,0,0,0.5)').css('transition','0.3s ease-in-out');

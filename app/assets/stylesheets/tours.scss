@@ -73,26 +73,40 @@ text-align: center;
 }
 
 .tourshowpiccontain{
- margin-top: 10%;  
+ margin-top: 10%;
 }
 
 
 // compiled (normal css) code
-// .index-container-relative {
-//   position: relative;
-//   overflow: hidden;
-//   width: 100%;
+.index-container-relative {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.index-container-relative.modified {
+  background: white;
+}
+
+// .btn.btn-primary {}
+
+.index-container-relative .tour_pic_tourdetails {
+  box-sizing: border-box;
+  position: relative;
+  zoom: 205%;
+}
+
+// -- below 2 are same--
+// .abc {
+//   .xyz {
+//
+//   }
 // }
 //
-// .index-container-relative.modified {
-//   background: white;
-// }
+// .abc > .xyz {
 //
-// .index-container-relative .tour_pic_tourdetails {
-//   box-sizing: border-box;
-//   position: relative;
-//   zoom: 205%;
 // }
+// -- above ---
 
 .tour_index_name{
   position: absolute;
