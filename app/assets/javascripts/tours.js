@@ -124,13 +124,30 @@ $(function(){
     var tourCategory = $('#tour-details-category').html()
     if (tourCategory === ' nature') {
       console.log('nature');
-      var leaf = ("<span class='fa fa-leaf'>")
-      $(this).prepend(leaf)
-    } else if (tourCategory === 'social') {
+      var leaf = ("<span class='fa fa-leaf'>");
+      $(this).prepend(leaf);
+    } else if (tourCategory === ' social') {
       console.log('social');
+      var users = ("<span class='fa fa-users'>");
+      $(this).prepend(users);
+    } else if (tourCategory === ' city') {
+      console.log('city');
+      var building = ("<span class='fa fa-building-o'>");
+      $(this).prepend(building);
+    } else if (tourCategory === ' recreation') {
+      console.log('recreation');
+      var puzzle = ("<span class='fa fa-puzzle-piece'>");
+      $(this).prepend(puzzle);
+    } else if (tourCategory === ' other') {
+      console.log('other');
+      var map = ("<span class='fa fa-map'>");
+      $(this).prepend(map);
+    } else if (tourCategory === ' food &amp; drinks') {
+      console.log(' food &amp; drinks');
+      var map = ("<span class='fa fa-cutlery'>");
+      $(this).prepend(map);
     }
   });
-
 
 
 });
