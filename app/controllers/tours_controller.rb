@@ -20,6 +20,7 @@ class ToursController < ApplicationController
   def show
     @tour = Tour.find(params[:id])
     @tourpoints = @tour.tourpoints
+    @average_rating = average_rating
 
     if request.xhr?
       respond_to do |format|
@@ -112,6 +113,14 @@ class ToursController < ApplicationController
     end
   end
   end
+
+  def average_rating
+    ratings = @tour.reviews.map do |t_r|
+      t_r.rating
+    end
+    return (ratings.sum)/ratings.length
+  end
+
 
 
 
