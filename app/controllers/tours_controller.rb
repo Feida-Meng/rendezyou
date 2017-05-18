@@ -23,13 +23,13 @@ class ToursController < ApplicationController
 
     if request.xhr?
       respond_to do |format|
-        format.html do
-          render @tour
-        end
         format.json do
-        
-          render :json => @tour.to_json({:include => :tourpoints, :method => :country})
 
+          render :json => @tour.to_json({:include => :tourpoints, :method => :country_name})
+
+        end
+        format.html do
+          render :show
         end
       end
     end

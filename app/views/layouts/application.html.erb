@@ -6,8 +6,8 @@
   <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Pacifico|Copse|Cabin|Bitter|Oswald|Grand+Hotel|Harmattan|Niconne|Open+Sans:700|Shanti|Yrsa|Raleway|Crimson+Text" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
 
 
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCGaxhVo8MuhbWtVWcKcAf-PEBJXjXtzA&v=3">
@@ -43,7 +43,7 @@
 
         <div class="nav_drop_b">
           <li class="dropdown-toggle"><%= link_to "About Us", profile_path %></li>
-         
+
         </div>
 
         <div class="nav_drop_c">

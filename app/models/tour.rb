@@ -17,7 +17,7 @@ class Tour < ApplicationRecord
 
 
 
-  def country #for json
+  def country_name #for json
     Country.find(country_id).name
   end
 
