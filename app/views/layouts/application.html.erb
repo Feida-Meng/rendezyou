@@ -30,11 +30,11 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tours <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><%= link_to "Your Created Tours", :anchor=>"sub_heading_guide_all" %></li>
+              <li><%= link_to "Search All Tours", tours_path %></li>
               <li role="separator" class="divider"></li>
-              <li><%= link_to "Your Scheduled Tours", :anchor => "user_show_scheduled" %></li>
+              <li><%= link_to "Your Created Tours", profile_path(anchor: "sub_heading_guide_all") %></li>
               <li role="separator" class="divider"></li>
-              <li><%= link_to "Search All Tours", profile_path %></li>
+              <li><%= link_to "Create a New Tour", new_tour_path %></li>
             </ul>
           </li>
         </div>
