@@ -18,7 +18,7 @@
             <h3 class="main-title"> <%= @tour.name %> </h3>
 
             <div class="col-md-3 tours-icon-div">
-              <p><i class="fa fa-globe"></i> <%= @tour.country.name %></p>
+              <p><i class="fa fa-globe"></i> <%= @tour.country %></p>
               <p class="tour-details-meetup"><i class="fa fa-map-marker"></i> <%= @tour.rendezvous_point %></p>
           </div>
           <div class="col-md-1">
@@ -105,3 +105,4 @@
 <%= link_to "Add new tour point | ", new_tour_tourpoint_path(@tour) %>
 <%= link_to "Edit tour point", tour_tourpoints_edit_path(@tour) %>
 
+<% end %>
