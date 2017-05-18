@@ -32,20 +32,4 @@ $(document).ready(function(){
     e.stopPropagation();
   });
 
-  //signup modal
-  // $('.a_signup').on('click', function(e){
-  //   e.stopPropagation();
-  //   e.preventDefault();
-  //   $('.signup_window').fadeIn();
-  // });
-  //
-  // $('.signup_form').on('click', function(e){
-  //   e.stopPropagation();
-  //   $('.signup_window').fadeOut();
-  // });
-  //
-  // $('.signup_form input').on('click', function(e){
-  //   e.stopPropagation();
-  // });
-
 });
