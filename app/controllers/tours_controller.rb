@@ -21,6 +21,7 @@ class ToursController < ApplicationController
     @tour = Tour.find(params[:id])
     @tourpoints = @tour.tourpoints
     @average_rating = average_rating
+    @recent_schedules = recent_schedules
 
     if request.xhr?
       respond_to do |format|
@@ -123,6 +124,9 @@ class ToursController < ApplicationController
   end
 end
 
+def recent_schedules
+  @tour.schedules.order("tour_start_time ASC").limit(3)
+end
 
 
 

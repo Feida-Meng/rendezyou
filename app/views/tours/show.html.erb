@@ -47,28 +47,24 @@
             <% end %>
           </div>
           <% end %>
-
-          <% if current_user && @tour.user_id == current_user.id %>
-          <%= link_to 'Edit this Tour | ', edit_tour_path(@tour.id) %>
-          <%= link_to 'Delete this Tour | ', tour_path(@tour.id), method: :delete %>
-          <%= link_to "Add new tour point | ", new_tour_tourpoint_path(@tour) %>
-          <% end %>
-
         </div>
 
-        <div class="col-md-3">
+
+
+        <div class="col-md-3 side-bar">
 
           <p class="show_page_tour_image"><%= image_tag @tour.tourpic.url, :class=>"tour_pic_tourdetails" %></p>
-              <p><%= @tour.description %></p>
+
+          <p class="tour-sidebar-description"><%= @tour.description %></p>
 
 
-          <p><strong>Schedule:</strong></p>
+          <h4 class="schedule-title">Available Dates:</h4>
 
           <p>
             <% if @tour.schedules.empty? %>
             <p>This tour doesn't currently have any dates to be booked! Check back again soon!</p>
             <% else %>
-            <% @tour.schedules.each do |t_s| %>
+            <% @recent_schedules.each do |t_s| %>
             <p class="">
               <%= "#{t_s.tour_session}, #{t_s.current_capacity} people booked, space left: #{t_s.max_capacity - t_s.current_capacity}" %>
               <% unless (current_user && @tour.user_id == current_user.id) || t_s.tour_start_time < Time.now %>
@@ -85,7 +81,7 @@
               <%= link_to 'Add more dates', new_tour_schedule_path(@tour), :class=>"btn btn-primary" %>
 
               <% end %>
-              <%= link_to 'Back to Tours', tours_path, :class=>"btn btn-default" %>
+              <%= link_to 'See more dates', tours_path, :class=>"btn btn-default" %>
 
             </div>
           </p>

@@ -22,13 +22,7 @@ class Schedule < ApplicationRecord
     end
   end
 
-  def self.closest_first
-    Schedule.order("tour_start_time DESC")
-  end
 
-  def self.most_recent_three
-    Schedule.closest_first.limit(3)
-  end
   #
   # def validate_dates
   #   if date_in_past(tour_start_time)

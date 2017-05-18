@@ -29,7 +29,8 @@ $light-mustard: #fcdc6a;
 }
 
 .main-title,
-.reviews-title {
+.reviews-title,
+.schedule-title {
   padding-bottom: 15px;
   border-bottom: 2px solid $mustard;
   text-transform: uppercase;
@@ -68,6 +69,23 @@ $light-mustard: #fcdc6a;
   padding: .2em;
 }
 
+
+// right-side-tours-show ------
+
+.col-md-3.side-bar {
+  position: fixed;
+  right: 8.5%;
+}
+
+
+.tour-sidebar-description {
+  line-height: 150%;
+  font-size: 1.1em;
+}
+
+.schedule-title {
+  margin-top: 20px;
+}
 
 // gmap: ----------------------
 #rendezvous-map {
