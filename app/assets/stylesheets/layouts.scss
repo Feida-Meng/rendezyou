@@ -162,3 +162,16 @@ div.yield{
   color: grey;
   z-index: 7000;
 }
+
+.nav_hover a:visited,
+.nav_hover a:active,
+.nav_hover a:link{
+  text-decoration: none;
+  color: white;
+}
+
+#nav_hover a:hover,
+.nav_hover a:hover{
+  text-decoration: none;
+  color: #02a4b3;
+}
