@@ -30,7 +30,7 @@
       </div>
 
 
-   
+
     <div class="form-group">
       <%= f.label :description, :class=>"col-sm-1 control-label" %>
       <div class="col-sm-8">
@@ -54,7 +54,7 @@
           <div class="col-sm-4">
             <div class="field">
               <i class="fa fa-clock-o icon-new-tour" aria-hidden="true" id="i"></i><%= f.label :duration_in_hr, "Approx duration(hrs)" %>
-              <%= f.number_field :duration_in_hr %>
+              <%= number_field_tag :duration_in_hr %>
             </div>
           </div>
 
@@ -99,3 +99,5 @@
 </form>
 </div>
 </div>
+
+<div id="reMap"> </div>

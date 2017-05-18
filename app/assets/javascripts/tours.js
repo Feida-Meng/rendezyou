@@ -127,7 +127,7 @@ $(function(){
 
 
   $('#tour-details-category').each(function(){
-    var tourCategory = $('#tour-details-category').html()
+    var tourCategory = $('#tour-details-category').html();
     if (tourCategory === ' nature') {
       console.log('nature');
       var leaf = ("<span class='fa fa-leaf'>");
@@ -146,18 +146,20 @@ $(function(){
       $(this).prepend(puzzle);
     } else if (tourCategory === ' other') {
       console.log('other');
-      var map = ("<span class='fa fa-map'>");
-      $(this).prepend(map);
+      var mapIcon = ("<span class='fa fa-map'>");
+      $(this).prepend(mapIcon);
     } else if (tourCategory === ' food &amp; drinks') {
       console.log(' food &amp; drinks');
-      var map = ("<span class='fa fa-cutlery'>");
-      $(this).prepend(map);
+      var cutlery = ("<span class='fa fa-cutlery'>");
+      $(this).prepend(cutlery);
     }
   });
 
 
   $("#rendezvous-point-input").on("input",function(){
-    var newTourMapDiv = $("#rendezvous-map");
+    // var newTourMapDiv = document.getElementById('rendezvous-map');
+    var newTourMapDiv = $('#rendezvous-map')[0];
+    //  $('#rendezvous-map') has more than document.getElementById('rendezvous-map'), such as properties, attributes
     var rendezvousPointInput = $("#rendezvous-point-input").val();
     var tourCountry = $("#tour_country_id option:selected").text();
     geocodeAddress(rendezvousGeocoder(), createMap(newTourMapDiv), tourCountry, rendezvousPointInput);
