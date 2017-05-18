@@ -26,7 +26,7 @@
             <p><i class="fa fa-clock-o"></i> duration</p>
           </div>
 
-          <div class="col-md-4 tours-icon-div">
+          <div class="col-md-4 tours-rating-div">
             <p id="tour-details-rating"> <%= @average_rating %></p>
           </div>
         </div>
@@ -39,10 +39,10 @@
           <div class="reviews">
             <h3 class="reviews-title">Reviews:</h3>
             <% @tour.reviews.each do |r| %>
-            <h4><%= r.created_at %></h4>
             <div class="rating-tours">
               <h4 class="reviews-star-ratings"><%= r.rating %></h4>
             </div>
+            <h5><%= r.created_at.strftime("%b %d, %Y at %H:%M") %> </h5>
             <p><%= r.comment %><p>
             <% end %>
           </div>

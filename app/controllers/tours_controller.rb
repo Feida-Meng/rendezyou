@@ -115,11 +115,13 @@ class ToursController < ApplicationController
   end
 
   def average_rating
+    unless @tour.reviews.empty?
     ratings = @tour.reviews.map do |t_r|
       t_r.rating
     end
     return (ratings.sum)/ratings.length
   end
+end
 
 
 
