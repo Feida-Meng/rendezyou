@@ -3,69 +3,69 @@
 
 <div class="yield tours-index">
 
-<div class="tours_index_search_bar">
+  <div class="tours_index_search_bar">
 
-<%= form_tag(tours_path, :method => "get", class: "form-horizontal") do %>
-<div class="form-group">
-    <%= text_field_tag :search, params[:search], placeholder: "   Search Tours", class:"tours_index_actual_bar" %>
-    <%= submit_tag "Search Tours", :name => nil, class:"btn btn-success btn-lg"%>
-    <% if @tours.blank? %>
-  <h4>There are no tours containing the word <%= params[:search] %>.</h4>
-<% end %>
+    <%= form_tag(tours_path, :method => "get", class: "form-horizontal") do %>
+    <div class="form-group">
+      <%= text_field_tag :search, params[:search], placeholder: "   Search Tours", class:"tours_index_actual_bar" %>
+      <%= submit_tag "Search Tours", :name => nil, class:"btn btn-success btn-lg"%>
+      <% if @tours.blank? %>
+      <h4 class="search_bar_error">Oops, no matches were found for <%= params[:search] %></em>.</h4>
+      <% end %>
+    </div>
+    <% end %>
+    <br>
   </div>
-<% end %>
-<br>
-</div>
 
-<h4 class="tours_show_entice">
-  <%= link_to "Click here to create NEW tours", new_tour_url %>
-  <%= link_to new_tour_url do %><i class="fa fa-plus-square" aria-hidden="true" id="plus-square"></i><% end %>
-</h4>
+  <h4 class="tours_show_entice">
+    <%= link_to "Click here to create NEW tours", new_tour_url %>
+    <%= link_to new_tour_url do %><i class="fa fa-plus-square" aria-hidden="true" id="plus-square"></i><% end %>
+  </h4>
 
-<!-- <p class="btn btn-primary"><span class=""+<p> -->
+  <!-- <p class="btn btn-primary"><span class=""+<p> -->
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="row">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
 
-        <% @tours.each do |tour| %>
+          <% @tours.each do |tour| %>
 
-        <div class="col-md-4 push-img-to-float">
-          <div class="thumbnail" id="thumbnail_tour_index">
-            <div class="index-container-relative">
-              <%= image_tag tour.tourpic.url(:medium), :class=>"tour_pic_tourdetails" %>
-              <%= image_tag("gradient-01.png", :class=>"grad_img")%>
-              <p><%= link_to tour.name, tour_path(tour.id), class:"tour_index_name"%></p>
-            <hr/>
-              <p class="tour_index_cat"><%= tour.category %></p>
-            </div>
+          <div class="col-md-4 push-img-to-float">
+            <div class="thumbnail" id="thumbnail_tour_index">
+              <div class="index-container-relative">
+                <%= image_tag tour.tourpic.url(:medium), :class=>"tour_pic_tourdetails" %>
+                <%= image_tag("gradient-01.png", :class=>"grad_img")%>
+                <p><%= link_to tour.name, tour_path(tour.id), class:"tour_index_name"%></p>
+                <hr/>
+                <p class="tour_index_cat"><%= tour.category %></p>
+              </div>
 
-            <div class="caption" id="tourindexcaption">
+              <div class="caption" id="tourindexcaption">
 
-              <p class="tourp"><span class="blue_names">Desc: </span><%= tour.description %></p>
-              <!-- <p>city: <%= tour.city %></p> -->
-              <p class="tourp"><span class="blue_names">Starting Address: </span><%= tour.rendezvous_point %></p>
+                <p class="tourp"><span class="blue_names">Desc: </span><%= tour.description %></p>
+                <!-- <p>city: <%= tour.city %></p> -->
+                <p class="tourp"><span class="blue_names">Starting Address: </span><%= tour.rendezvous_point %></p>
 
 
-              <% if current_user && current_user.id == tour.user_id %>
-              <p>
-                <%= link_to "VIEW / EDIT", tour_path(tour), :class=>"btn btn-success", :id=>"tourindexbut" %>
-              </p>
+                <% if current_user && current_user.id == tour.user_id %>
+                <p>
+                  <%= link_to "VIEW / EDIT", tour_path(tour), :class=>"btn btn-success", :id=>"tourindexbut" %>
+                </p>
 
-              <% else %>
-              <p>
-                <%= link_to "VIEW", tour_path(tour), :class=>"btn btn-success", :id=>"tourindexbut" %>
-              </p>
+                <% else %>
+                <p>
+                  <%= link_to "VIEW", tour_path(tour), :class=>"btn btn-success", :id=>"tourindexbut" %>
+                </p>
 
 
-              <% end %>
+                <% end %>
 
+              </div>
             </div>
           </div>
+          <% end %>
         </div>
-        <% end %>
       </div>
     </div>
   </div>
-</div>
