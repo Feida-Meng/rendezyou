@@ -16,14 +16,14 @@
 
             <h3 class="main-title"> <%= @tour.name %> </h3>
 
-            <div class="col-md-3">
+            <div class="col-md-3 tours-icon-div">
               <p><i class="fa fa-globe"></i> <%= @tour.country.name %></p>
-              <p><i class="fa fa-map-marker"></i> <%= @tour.rendezvous_point %></p>
+              <p class="tour-details-meetup"><i class="fa fa-map-marker"></i> <%= @tour.rendezvous_point %></p>
           </div>
           <div class="col-md-1">
 
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 tours-icon-div">
             <p id="tour-details-category"> <%=@tour.category %></p>
             <p><i class="fa fa-clock-o"></i> duration</p>
           </div>

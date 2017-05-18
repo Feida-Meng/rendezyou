@@ -37,6 +37,15 @@ $light-mustard: #fcdc6a;
 
 .tour-details {
   font-size: 1.2em;
+  padding: 20px 0;
+}
+
+.tours-icon-div {
+  padding-bottom: 20px;
+}
+
+.tour-details-meetup {
+  text-transform: capitalize;
 }
 
 // gmap: ----------------------
@@ -47,7 +56,7 @@ $light-mustard: #fcdc6a;
 
 // gmap:-----------------------
 #show-tour-map {
-  height:300px;
+  height:500px;
   width: 90%;
   margin: 3% 0;
   // margin: 0 auto 2% auto;
