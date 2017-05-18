@@ -14,12 +14,12 @@
             <%= @tour.name %>
           </h3>
           <p><%= @tour.description %></p>
-          <p><%= @tour.city %><%= @tour.country %></p>
-          <p>Starting Address: <%= @tour.rendezvous_point %></p>
+          <p>rendezvous point (address of meeting up): <%= @tour.rendezvous_point %></p>
+          <p>Country: <%= @tour.country  %> </p>
           <p>Category: <%=@tour.category %></p>
         </div>
           <p>Tour map</p>
-          <div id="show-tour-map">
+          <div id="show-tour-map" >
 
           </div>
         </div>
@@ -46,6 +46,7 @@
             <div class="">
               <% if current_user && @tour.user_id == current_user.id %>
               <%= link_to 'Add more dates', new_tour_schedule_path(@tour), :class=>"btn btn-primary" %>
+
               <% end %>
               <%= link_to 'Back to Tours', tours_path, :class=>"btn btn-default" %>
 
@@ -73,4 +74,5 @@
 <%= link_to 'Edit this Tour | ', edit_tour_path(@tour.id) %>
 <%= link_to 'Delete this Tour | ', tour_path(@tour.id), method: :delete %>
 <%= link_to "Add new tour point | ", new_tour_tourpoint_path(@tour) %>
+<%= link_to "Edit tour point", tour_tourpoints_edit_path(@tour) %>
 <% end %>
