@@ -22,7 +22,7 @@ class Tour < ApplicationRecord
   end
 
   def self.search(search)
-    where("name LIKE ? OR description LIKE ? OR category LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
+    where("name ILIKE ? OR description ILIKE ? OR category::text ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
   end
 
 

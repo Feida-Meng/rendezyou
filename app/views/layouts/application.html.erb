@@ -1,15 +1,18 @@
-<!DOCTYPE html>
 <html>
 
 <head>
+  <!DOCTYPE html>
   <title>Rendezyou</title>
-  <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Pacifico|Copse|Cabin|Bitter|Oswald|Grand+Hotel|Harmattan|Niconne|Open+Sans:700|Shanti|Yrsa" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Pacifico|Copse|Cabin|Bitter|Oswald|Grand+Hotel|Harmattan|Niconne|Open+Sans:700|Shanti|Yrsa|Raleway|Crimson+Text" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCGaxhVo8MuhbWtVWcKcAf-PEBJXjXtzA&v=3">
+
+
   </script>
 
 </head>
@@ -21,7 +24,7 @@
     <div class="navigate">
       <div class="nav_bar">
         <div class="nav_home">
-          <%= link_to "RendezYou", root_path, :class=>"a_nav_home" %>
+          <%= link_to "RendezYOU", root_path, :class=>"a_nav_home" %>
         </div>
 
         <% if current_user %>
@@ -29,19 +32,18 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tours <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><%= link_to "Your Created Tours", :anchor=>"user_show_created" %></li>
+              <li><%= link_to "Search All Tours", tours_path %></li>
               <li role="separator" class="divider"></li>
-              <li><%= link_to "Your Scheduled Tours", :anchor => "user_show_scheduled" %></li>
+              <li><%= link_to "Your Created Tours", profile_path(anchor: "sub_heading_guide_all") %></li>
               <li role="separator" class="divider"></li>
-              <li><%= link_to "Search All Tours", profile_path %></li>
+              <li><%= link_to "Create a New Tour", new_tour_path %></li>
             </ul>
           </li>
         </div>
 
         <div class="nav_drop_b">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About Us</a>
-          </li>
+          <li class="dropdown-toggle"><%= link_to "About Us", profile_path %></li>
+         
         </div>
 
         <div class="nav_drop_c">
@@ -53,7 +55,7 @@
         <div class="nav_right_float">
           <%= image_tag current_user.avatar.url(:thumb), :class=>"pro_pic_nav" %>
           <i class="fa fa-cog" aria-hidden="true" id="i"></i>
-          <%= link_to current_user.name.capitalize, profile_path, :class=>"a_myprofile" %>
+          <%= link_to current_user.name.capitalize, profile_path(anchor: "sub_heading_guide_all"), :class=>"a_myprofile" %>
           <%= link_to "Log Out", session_path("current"), :method => :delete, :class=>"a_logout" %>
         </div>
 
