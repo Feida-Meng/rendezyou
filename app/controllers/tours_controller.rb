@@ -23,13 +23,13 @@ class ToursController < ApplicationController
 
     if request.xhr?
       respond_to do |format|
-        format.html do
-          render @tour
-        end
         format.json do
-        
-          render :json => @tour.to_json({:include => :tourpoints, :method => :country})
 
+          render :json => @tour.to_json({:include => :tourpoints, :method => :country_name})
+
+        end
+        format.html do
+          render :show
         end
       end
     end
@@ -88,6 +88,7 @@ class ToursController < ApplicationController
       @tour.schedules.destroy_all
       @tour.reviews.destroy_all
       @tour.destroy
+      redirect_to tours_path
     end
   end
 
@@ -110,7 +111,6 @@ class ToursController < ApplicationController
     @tour.schedules.each do |schedule|
       if schedule.current_capacity != 0
       flash[:alert] = "You cannot edit a tour if people have booked it "
-      redirect_to profile_path
     end
   end
   end
