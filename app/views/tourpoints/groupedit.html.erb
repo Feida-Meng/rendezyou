@@ -1,0 +1,49 @@
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<h3>Please click one marker to edit</h3>
+<div id="edit-tourpoints-map">
+
+</div>
+
+
+
+
+<form id="edit-tour-point-form" action="" accept-charset="UTF-8" method="post">
+  <input name="utf8" type="hidden" value="✓">
+  <input type="hidden" name="_method" value="patch">
+
+    <div class="form-group">
+      <label for="tourpoint_tour_point_name">Tour point name</label>
+      <input type="text" name="tourpoint[tour_point_name]" id="edit_tourpoint_tour_point_name">
+    </div>
+
+    <div class="form-group">
+      <input type="hidden" name="tourpoint[tour_point_laglng]" id="edit_tourpoint_tour_point_laglng">
+    </div>
+
+    <div class="form-group">
+      <label for="tourpoint_tour_point_description">Tour point description</label>
+      <textarea name="tourpoint[tour_point_description]" id="edit_tourpoint_tour_point_description"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="tourpoint_tour_point_img">Tour point image</label>
+      <input type="text" name="tourpoint[tour_point_img]" id="edit_tourpoint_tour_point_img">
+    </div>
+
+    <div class="form-group">
+        <input type="submit" name="commit" value="Save this tour point" >
+    </div>
+
+
+</form>

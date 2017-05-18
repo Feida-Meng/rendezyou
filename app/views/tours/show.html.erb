@@ -8,6 +8,7 @@
   <div class="row">
     <div class="col-md-12" >
       <div class="row">
+
         <div class="col-md-1">
 
         </div>
@@ -31,6 +32,7 @@
 
           <div id="show-tour-map">
 
+
           </div>
           <% unless @tour.reviews.empty? %>
           <div class="reviews">
@@ -52,10 +54,13 @@
           <% end %>
 
         </div>
+
         <div class="col-md-3">
 
           <p class="show_page_tour_image"><%= image_tag @tour.tourpic.url, :class=>"tour_pic_tourdetails" %></p>
               <p><%= @tour.description %></p>
+
+
           <p><strong>Schedule:</strong></p>
 
           <p>
@@ -77,6 +82,7 @@
             <div class="">
               <% if current_user && @tour.user_id == current_user.id %>
               <%= link_to 'Add more dates', new_tour_schedule_path(@tour), :class=>"btn btn-primary" %>
+
               <% end %>
               <%= link_to 'Back to Tours', tours_path, :class=>"btn btn-default" %>
 
@@ -91,3 +97,11 @@
     </div>
   </div>
 </div>
+
+
+<% if current_user && @tour.user_id == current_user.id %>
+<%= link_to 'Edit this Tour | ', edit_tour_path(@tour.id) %>
+<%= link_to 'Delete this Tour | ', tour_path(@tour.id), method: :delete %>
+<%= link_to "Add new tour point | ", new_tour_tourpoint_path(@tour) %>
+<%= link_to "Edit tour point", tour_tourpoints_edit_path(@tour) %>
+

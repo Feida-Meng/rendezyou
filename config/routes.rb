@@ -6,8 +6,6 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
   root 'pages#show'
 
   resources :tours do
@@ -15,11 +13,11 @@ Rails.application.routes.draw do
       resources :bookings
     end
     resources :reviews
+    get '/tourpoints/edit' => 'tourpoints#groupedit'
     resources :tourpoints do
 
     end
 
   end
-
 
 end

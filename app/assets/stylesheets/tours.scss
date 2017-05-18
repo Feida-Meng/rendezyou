@@ -50,12 +50,13 @@ $light-mustard: #fcdc6a;
 
 // gmap: ----------------------
 #rendezvous-map {
-  height:500px;
-  width:50%;
+  height:300px;
+  width: 100%;
 }
 
 // gmap:-----------------------
 #show-tour-map {
+
   height:500px;
   width: 90%;
   margin: 3% 0;
@@ -68,6 +69,235 @@ $light-mustard: #fcdc6a;
 
 .tour_pic_tourdetails{
   position: relative;
+  height:200px;
+  width:100%;
+  margin-bottom: 2%;
+}
+
+
+.tour_show_full{
+  position: relative;
+  box-sizing: border-box;
+}
+
+.tour-desc{
+height: 25vw;
+}
+
+.tours_index_search_bar{
+  margin-top: 3%;
+text-align: center;
+}
+
+.tours_index_actual_bar{
+  height: 3.5em;
+  margin-right: 2%;
+  margin-top: 1%;
+  width: 50%;
+  border-radius: 6px;
+
+}
+
+.tours_show_entice{
+  margin-right: 5%;
+  text-align: right;
+  margin-bottom: 2%;
+  margin-top: 0%;
+  font-size: 1.5em;
+  vertical-align: middle;
+}
+
+#thumbnail_tour_index{
+  border: 0;
+}
+
+.tour_index_name{
+  font-family: 'Harmattan', sans-serif;
+  color: white;
+  border-bottom: 2px solid white;
+
+}
+
+// SCSS code
+.index-container-relative {
+  position: relative;
+  overflow: hidden;
   width: 100%;
-  margin-top: 2%;
+  height: 275px;
+  flex: auto;
+
+
+  .tour_pic_tourdetails {
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    zoom: 150%;
+    vertical-align: middle;
+
+
+  }
+}
+
+.tourshowpiccontain{
+ margin-top: 10%;
+}
+
+// compiled (normal css) code
+.index-container-relative {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.index-container-relative.modified {
+  background: white;
+}
+
+// .btn.btn-primary {}
+
+// .index-container-relative .tour_pic_tourdetails {
+//   box-sizing: border-box;
+//   position: relative;
+//   zoom: 205%;
+// }
+
+// -- below 2 are same--
+// .abc {
+//   .xyz {
+//
+//   }
+// }
+//
+// .abc > .xyz {
+//
+// }
+// -- above ---
+.tour_index_name{
+  position: absolute;
+  font-family: 'Raleway', sans-serif;
+  top: 205px;
+  left: 20px;
+  letter-spacing: .2em;
+  text-shadow: 1px 1px 4px black;
+  color: white;
+  font-size: 160%;
+}
+
+.tour_index_cat{
+  position: absolute;
+  font-family: 'Raleway', sans-serif;
+  top: 245px;
+  left: 20px;
+  letter-spacing: .2em;
+  text-shadow: 1px 1px 3px black;
+  color: white;
+  font-size: 110%;
+}
+hr.thumbnail_black {
+  position: absolute;
+    height: 3px;
+    top: 245px;
+    color: white;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+
+.grad_img{
+  position: absolute;
+  box-sizing: border-box;
+  zoom: 110%;
+  width: 100%;
+  bottom: 0px;
+
+}
+
+.grad2_img{
+  position: absolute;
+  bottom: 0px;
+  box-sizing: border-box;
+  zoom: 110%;
+
+  width: 100%;
+}
+
+div#tourindexcaption{
+  position: relative;
+}
+
+a#tourindexbut{
+  position: absolute;
+  top: 15px;
+  right: 2px;
+  // background: #ff584c;
+  border: #ff584c;
+}
+
+.tourp{
+  margin: 0px;
+  margin-right: 30%;
+  font-size: .9em
+}
+
+div#verticalcarousel{
+height: 100vh;
+}
+
+span.new{
+
+}
+
+#halffield{
+    display: inline-block;
+}
+
+p.tour-or{
+  display: inline;
+  margin: 2%;
+
+}
+
+
+.tour_new_pic_img{
+margin-top: 10%;
+}
+
+.missing_tours_new{
+ width: 200px;
+ height: 150px;
+ margin-bottom: 5%;
+}
+.img_upload_tours_new{
+}
+
+.col-md-4.push-img-to-float{
+  height: 375px;
+}
+
+.blue_names{
+  color: blue;
+}
+
+.yield.tours-index{
+  width: 90%;
+  margin: auto;
+}
+
+#plus-square{
+  color: #0274b3;
+  font-size: 2em;
+  padding: 2%;
+}
+
+.sub_heading_guide_all{
+  font-size: 2em;
+  margin-left: 5%;
+}
+
+.icon-new-tour{
+  margin-right: 5px;
+
 }
