@@ -115,8 +115,28 @@ text-align: center;
   font-family: 'Harmattan', sans-serif;
   color: white;
   border-bottom: 2px solid white;
+  position: relative;
+  // font-family: 'Raleway', sans-serif;
+  left: 20px;
+  letter-spacing: .2em;
+  text-shadow: 1px 1px 4px black;
+  font-size: 160%;
 
 }
+
+.tour_index_cat{
+  position: relative;
+  font-family: 'Raleway', sans-serif;
+  // font-family: 'Harmattan', sans-serif;
+  left: 20px;
+  letter-spacing: .2em;
+  text-shadow: 1px 1px 3px black;
+  color: white;
+  font-size: 110%;
+}
+
+
+
 
 // SCSS code
 .index-container-relative {
@@ -173,27 +193,9 @@ text-align: center;
 //
 // }
 // -- above ---
-.tour_index_name{
-  position: absolute;
-  font-family: 'Raleway', sans-serif;
-  top: 205px;
-  left: 20px;
-  letter-spacing: .2em;
-  text-shadow: 1px 1px 4px black;
-  color: white;
-  font-size: 160%;
-}
 
-.tour_index_cat{
-  position: absolute;
-  font-family: 'Raleway', sans-serif;
-  top: 245px;
-  left: 20px;
-  letter-spacing: .2em;
-  text-shadow: 1px 1px 3px black;
-  color: white;
-  font-size: 110%;
-}
+
+
 hr.thumbnail_black {
   position: absolute;
     height: 3px;

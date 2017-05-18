@@ -7,7 +7,7 @@
   margin-top: 6.5%;
 }
 
-.user_left {
+.user_left{
   position: relative;
   box-sizing: border-box;
   display: inline-block;
@@ -293,4 +293,9 @@ h4.show_entice{
 .item.active > .carousel-caption {
   text-shadow: 2px 2px 3 black;
   font-size: 1.5em;
+}
+
+.container_relative_no_break{
+  position: absolute;
+  bottom: 2px;
 }

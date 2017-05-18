@@ -36,16 +36,17 @@
               <div class="index-container-relative">
                 <%= image_tag tour.tourpic.url(:medium), :class=>"tour_pic_tourdetails" %>
                 <%= image_tag("gradient-01.png", :class=>"grad_img")%>
-                <p><%= link_to tour.name, tour_path(tour.id), class:"tour_index_name"%></p>
-                <hr/>
-                <p class="tour_index_cat"><%= tour.category %></p>
+                <div class="container_relative_no_break">
+                  <p><%= link_to tour.name, tour_path(tour.id), class:"tour_index_name user_show"%></p>
+                  <p class="tour_index_cat"><%= tour.category%></p>
+                </div>
               </div>
 
               <div class="caption" id="tourindexcaption">
 
-                <p class="tourp"><span class="blue_names">Desc: </span><%= tour.description %></p>
+                <!-- <p class="tourp"><span class="blue_names">Desc: </span><%= tour.description %></p> -->
                 <!-- <p>city: <%= tour.city %></p> -->
-                <p class="tourp"><span class="blue_names">Starting Address: </span><%= tour.rendezvous_point %></p>
+                <p class="tourp"><span class="blue_names">Rendezvous Point: </span><%= tour.rendezvous_point %></p>
 
 
                 <% if current_user && current_user.id == tour.user_id %>
