@@ -1,17 +1,15 @@
-<!-- <h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p> -->
-<!-- <%= image_tag("chalkboard.jpg", :class=>"map_img")%> -->
-<div class="layout_nav_bar">
-</div>
+<div class="layout_nav_bar"></div>
 
-<div class="yield">
-</div>
+<div class="yield"></div>
+
+<!-- carousel -->
 
 <!-- Carousel -->
 <div class="container-fluid" id="user-carousel-container-fluid">
   <div class="row">
     <div class="col-md-12">
       <div class="carousel slide" id="carousel-334026">
+
         <ol class="carousel-indicators">
           <li class="active" data-slide-to="0" data-target="#carousel-334026">
           </li>
@@ -20,6 +18,7 @@
           <li data-slide-to="2" data-target="#carousel-334026">
           </li>
         </ol>
+
         <div class="carousel-inner">
 
           <div class="item active">
@@ -28,7 +27,7 @@
               <h4>
                 City Tours
               </h4>
-              <p>
+              <p id="sub_heading_guide_all">
                 Browse through our library of fantastic City Tours
               </p>
             </div>
@@ -58,21 +57,19 @@
             </div>
           </div>
 
-        </div> <a class="left carousel-control" href="#carousel-334026" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-334026" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        </div>
+
+        <a class="left carousel-control" href="#carousel-334026" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-334026" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+
       </div>
     </div>
   </div>
 </div>
 
-<!-- <%= image_tag("feather_user-02.png", :class=>"book_img")%> -->
 
-<% flash.each do |name, msg| -%>
-<%= content_tag :div, msg, class: alert %>
-<% end %>
+<!-- Entice button section -->
 
-<!-- entice page -->
-
-<div class="row">
+<div class="row underline_with_line">
   <div class="col-md-6" id="entice_section">
     <h4>Click here to</h4>
     <h3><%= link_to "GUIDE A TOUR!", new_tour_url %></h3>
@@ -84,63 +81,41 @@
   </div>
 </div>
 
-<!-- Created Tours -->
+<div class="sub_heading_guide_all">Here are your Guided Tours!</div>
+
+<!-- User's created tours -->
+
+<div class="container-fluid">
+  <div class="row user_created_tours">
+    <div class="col-md-12 user_created_tours">
+      <div class="row">
+
+        <% @tours_created.reverse.each do |tour| %>
+
+          <div class="col-md-3">
+            <div id="thumbnail_tour_index" class="thumbnail">
 
 
-<div class=user_show_guided>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="row">
-          <h3 class="show_entice">Here are your Guided Tours!</h3>
-          <%= link_to 'See All', tours_path %>
-          <h4 class="show_entice">Click <%= link_to "here", new_tour_url %> to create more tours</h4>
-
-
-          <% @tours_created.each do |tour| %>
-          <div class="col-md-4">
-            <div class="thumbnail">
-          <% if current_user.id == tour.user_id %>
-
-              <!-- <img alt="Bootstrap Thumbnail Second" src="http://lorempixel.com/output/city-q-c-600-200-1.jpg" /> -->
-              <p><%= image_tag tour.tourpic.url(:thumb), :class=>"tour_pic_tourdetails" %></p>
-
-              <div class="caption">
-
-                <h3><%= link_to tour.name, tour_path(tour.id)%></h3>
-                <%= tour.description%>
-
-                <%= link_to "Edit Tour | ", edit_tour_url(tour.id) %>
-                <%= link_to 'Delete Tour', tour_path(tour.id), method: :delete %><br>
-
-
-
-                <h4>Schedule:</h4>
-                <% if tour.schedules.empty? %>
-                <p>You don't have any dates scheduled for this tour! Click <%= link_to "here", new_tour_schedule_path(tour) %> to schedule some! </p>
-                <% else %>
-                <ul>
-                  <% tour.schedules.each do |t_s| %>
-                  <%= "#{t_s.tour_session}, #{t_s.current_capacity} people booked, space left: #{t_s.max_capacity - t_s.current_capacity}" %>
-                  <% end %>
-                </ul>
+              <div class="index-container-relative userneedcenter">
+                <% if current_user.id == tour.user_id %>
+                  <%= image_tag tour.tourpic.url(:medium), :class=>"tour_pic_tourdetails" %>
+                  <%= image_tag("gradient-01.png", :class=>"grad2_img")%>
+                  <p><%= link_to tour.name, tour_path(tour.id), class:"tour_index_name user_show"%></p>
+                  <p class="tour_index_cat"><%= tour.category %></p>
                 <% end %>
-
-                <% end %>
-                <% end %>
-
+              </div><!--.index-container-relative-->
+              <div class="caption" id="tourindexcaption">
+                <p class="tourp"><%= tour.description %></p>
+                <p class="tourp">Starting Address: <%= tour.rendezvous_point %></p>
+                <%= link_to "EDIT", edit_tour_path(tour), :class=>"btn btn-success", :id=>"tourindexbut" %>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- </div> -->
-
-
-
+            </div> <!--#thumbnail_tour_index-->
+          </div><!--.col-md-4-->
+        <% end %>
+      </div><!--.row-->
+    </div><!--.col-md-12-->
+  </div><!--.row-->
+</div><!--.container-fluid-->
 
 
 <div class="tour" id="user_show_scheduled">

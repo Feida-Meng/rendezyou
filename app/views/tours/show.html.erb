@@ -8,7 +8,8 @@
   <div class="row">
     <div class="col-md-12">
       <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-8">
+          <div class="tour-desc">
           <h3>
             <%= @tour.name %>
           </h3>
@@ -16,15 +17,16 @@
           <p><%= @tour.city %><%= @tour.country %></p>
           <p>Starting Address: <%= @tour.rendezvous_point %></p>
           <p>Category: <%=@tour.category %></p>
+        </div>
           <p>Tour map</p>
           <div id="show-tour-map">
 
           </div>
         </div>
-        <div class="col-md-7">
-
-          <p class="show_page_tour_image"><%= image_tag @tour.tourpic.url, :class=>"tour_pic_tourdetails" %></p>
-
+        <div class="col-md-4">
+          <div class="tourshowpiccontain">
+            <p class="show_page_tour_image"><%= image_tag @tour.tourpic.url(:medium), :class=>"tour_pic_tourdetails" %></p>
+          </div>
           <p><strong>Schedule:</strong></p>
 
           <p>
