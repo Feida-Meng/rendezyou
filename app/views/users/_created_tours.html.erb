@@ -4,8 +4,8 @@
     <div class="col-md-12 user_created_tours">
       <div class="row">
 
-        <div id="see-all-user-show"><%= link_to 'see all >>', tours_path, :id=>"see-all-user-show" %></div>
         <h3 class="show_entice none">Here are your Guided Tours!</h3>
+        <div id="see-all-user-show"><%= link_to 'see all >>', tours_path, :id=>"see-all-user-show" %></div>
         <% @tours_created.reverse.each do |tour| %>
 
           <div class="col-md-3">
@@ -16,7 +16,7 @@
                 <% if current_user.id == tour.user_id %>
                   <%= image_tag tour.tourpic.url(:medium), :class=>"tour_pic_tourdetails" %>
                   <%= image_tag("gradient-01.png", :class=>"grad2_img")%>
-                  <p><%= link_to tour.name, tour_path(tour.id), class:"tour_index_name"%></p>
+                  <p><%= link_to tour.name, tour_path(tour.id), class:"tour_index_name user_show"%></p>
                   <hr/>
                   <p class="tour_index_cat"><%= tour.category %></p>
                 <% end %>

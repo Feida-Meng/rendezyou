@@ -191,7 +191,6 @@ h3.user_click a:hover {
 }
 
 #i{
-margin-right: -1em;
 }
 
 .pro_pic_nav{
@@ -248,6 +247,7 @@ h4.show_entice{
 }
 
 #see-all-user-show{
+  margin-top: 3em;
   text-align: right;
   margin-right: 1%;
 }
@@ -270,8 +270,11 @@ h4.show_entice{
 }
 
 .show_entice.none{
-  margin-top: 0px;
-  margin-bottom:1%;
-  margin-left: 0px;
+  float: left;
+  display: inline;
+}
+
+.tour_index_name.user_show{
   font-size: 1.5em;
+  border-bottom: 1 solid white;
 }
