@@ -120,8 +120,16 @@ $(function(){
     });
   }
 
-
-
+  $('#tour-details-category').each(function(){
+    var tourCategory = $('#tour-details-category').html()
+    if (tourCategory === ' nature') {
+      console.log('nature');
+      var leaf = ("<span class='fa fa-leaf'>")
+      $(this).prepend(leaf)
+    } else if (tourCategory === 'social') {
+      console.log('social');
+    }
+  });
 
 
 
