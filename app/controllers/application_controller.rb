@@ -15,26 +15,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def ensure_tour_user
-    unless current_user.id == @tour.user_id
+  def ensure_owner(item)
+    unless current_user.id == item.user_id
       flash[:alert] = "You are not authorized to do this"
       redirect_to root_path
     end
-  end
-
-  def ensure_booking_user(booking)
-    unless current_user.id == booking.user_id
-      flash[:alert] = "You are not authorized to do this"
-      redirect_to root_path
-    end
-  end
-
-  def ensure_review_author
-    unless current_user.id == @review.author_id
-      flash[:alert] = "You are not authorized to do this"
-      redirect_to tour_path(@tour)
-    end
-
   end
 
 end

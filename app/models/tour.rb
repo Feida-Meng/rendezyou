@@ -13,7 +13,7 @@ class Tour < ApplicationRecord
   validates_attachment_content_type :tourpic, content_type: /\Aimage\/.*\z/
 
   # converting duration input to ms before saving
-  before_save { |tour| tour.duration_in_ms = (tour.duration_in_ms) * 3600000 }
+  # before_save { |tour| tour.duration_in_ms = (tour.duration_in_ms) * 3600000 }
 
 
 

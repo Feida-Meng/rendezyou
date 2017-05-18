@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
 
   def edit
     @review = Review.find(params[:id])
-    ensure_review_author
+    ensure_owner(@review)
   end
 
   def update

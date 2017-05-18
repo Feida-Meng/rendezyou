@@ -1,3 +1,41 @@
 // Place all the styles related to the Reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+$mustard: #ffc800;
+$light-mustard: #fcdc6a;
+
+
+.star-rating {
+  float: left;
+}
+
+.star-rating:not(:checked) > label {
+  float: right;
+  color: lightgray;
+  padding: 0 .1em;
+}
+
+.star-rating:not(:checked) > input {
+  position:absolute;
+  top:-9999px;
+  clip:rect(0,0,0,0);
+}
+
+.star-rating > input:checked ~ label {
+    color: $mustard;
+}
+
+.star-rating:not(:checked) > label:hover,
+.star-rating:not(:checked) > label:hover ~ label {
+    color: $light-mustard;
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: $light-mustard;
+}

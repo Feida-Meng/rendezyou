@@ -8,12 +8,12 @@ class SchedulesController < ApplicationController
   end
 
   def new
-    ensure_tour_user
+    ensure_owner(@tour)
     @schedule = Schedule.new
   end
 
   def create
-    ensure_tour_user
+    ensure_owner(@tour)
     @schedule = Schedule.new
     @schedule = @tour.schedules.build(schedule_params)
     @schedule.max_capacity = @tour.capacity
@@ -29,15 +29,15 @@ class SchedulesController < ApplicationController
   end
 
   def edit
-    ensure_tour_user
+    ensure_owner(@tour)
     @schedule = Schedule.find(params[:id])
+    no_bookings
   end
 
   def update
     @schedule = Schedule.find(params[:id])
-    @schedule.update_attributes(schedule_params)
-    ensure_tour_user
-    if @schedule.save
+    # @schedule.update_attributes(schedule_params)
+    if @schedule.update_attributes(schedule_params)
       redirect_to profile_path
     else
       render :edit
@@ -50,8 +50,18 @@ class SchedulesController < ApplicationController
 
   def destroy
     @schedule = Schedule.find(params[:id])
-    @schedule.destroy
-    redirect_to profile_path
+    unless @schedule.bookings.empty?
+      load_tourists
+      UserMailer.cancel_schedule_email(@tourists, @schedule, @tour).deliver
+      # byebug
+      @schedule.destroy
+      @bookings.destroy_all
+      redirect_to tour_path(@tour)
+    else
+      @schedule.destroy
+      @bookings.destroy_all
+      redirect_to tour_path(@tour)
+    end
   end
 
   private
@@ -62,6 +72,23 @@ class SchedulesController < ApplicationController
 
   def schedule_params
     params.require(:schedule).permit(:tour_start_time, :tour_id, :max_capacity, :current_capacity)
+  end
+
+  def no_bookings
+    unless @schedule.bookings.empty?
+      flash[:alert] = "You cannot edit a schedule if people have booked it"
+      redirect_to tour_path(@tour)
+    end
+  end
+
+
+  def load_tourists
+    @bookings = @schedule.bookings
+    tourist_ids = []
+    @bookings.each do |booking|
+      tourist_ids << booking.user_id
+    end
+    @tourists = User.where(id: tourist_ids)
   end
 
 end

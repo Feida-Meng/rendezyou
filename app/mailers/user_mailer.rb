@@ -55,5 +55,13 @@ class UserMailer < ApplicationMailer
          subject: "Someone has cancelled their booking")
   end
 
+  def cancel_schedule_email(tourists, schedule, tour)
+    @tourists = tourists
+    @schedule = schedule
+    @tour = tour
+    emails = @tourists.collect(&:email).join(",")
+    mail(bcc: emails, subject: "Tour Cancellation")
+  end
+  
 
 end

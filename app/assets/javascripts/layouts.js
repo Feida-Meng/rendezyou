@@ -23,13 +23,41 @@ $(document).ready(function(){
     $('.login_window').fadeIn();
   });
 
+  $('.login_window').on('click', function(e){
+    e.preventDefault();
+    $('.login_window').fadeOut();
+  });
+
   $('.login_form').on('click', function(e){
     e.stopPropagation();
-    $('.login_window').fadeOut();
+    e.preventDefault();
   });
 
   $('.login_form input').on('click', function(e){
     e.stopPropagation();
   });
+
+
+  $(document).keyup(function(event){
+      if(event.which=='27'){
+        $('.login_window').fadeOut();
+      }
+    });
+
+  //signup modal
+  // $('.a_signup').on('click', function(e){
+  //   e.stopPropagation();
+  //   e.preventDefault();
+  //   $('.signup_window').fadeIn();
+  // });
+  //
+  // $('.signup_form').on('click', function(e){
+  //   e.stopPropagation();
+  //   $('.signup_window').fadeOut();
+  // });
+  //
+  // $('.signup_form input').on('click', function(e){
+  //   e.stopPropagation();
+  // });
 
 });
