@@ -6,9 +6,6 @@ class TourpointsController < ApplicationController
   end
 
   def create
-
-
-
     @tourpoint = @tour.tourpoints.build(tourpoint_params)
 
     if @tourpoint.save
@@ -16,15 +13,24 @@ class TourpointsController < ApplicationController
     else
       render :new
     end
-
   end
 
   def edit
-    
+
+  end
+
+  def groupedit
 
   end
 
   def update
+    # @tourpoint = Tourpoint.find(params[])
+
+    # if @tourpoint.update_attributes(tou_params)
+    #   redirect_to tour_path(@tour)
+    # else
+    #   render :edit
+    # end
 
   end
 
