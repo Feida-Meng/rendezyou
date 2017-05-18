@@ -289,3 +289,8 @@ h4.show_entice{
   margin-left: 3%;
   margin-right: 3%;
 }
+
+.item.active > .carousel-caption {
+  text-shadow: 2px 2px 3 black;
+  font-size: 1.5em;
+}
