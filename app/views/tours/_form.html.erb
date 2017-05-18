@@ -19,17 +19,18 @@
       <br>
       <br>
       <div class="form-group">
+        <i class="fa fa-plane icon-new-tour" aria-hidden="true" id="i"></i>
         <%= f.label :category%><br>
         <%= f.select :category, options_for_select(Tour.categories.map {|cat,v| [cat,cat]}) %>
       </div>
 
       <div class="form-group">
-        <%= f.label :name %>
+        <i class="fa fa-user-circle-o icon-new-tour" aria-hidden="true" id="i"></i><%= f.label :name %>
         <%= f.text_field :name, :class=>"form-control" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :description %>
+        <i class="fa fa-list-alt icon-new-tour" aria-hidden="true" id="i"></i><%= f.label :description %>
         <%= f.text_area :description, :class=>"form-control" %>
       </div>
 
@@ -38,21 +39,21 @@
 
           <div class="col-sm-4">
             <div class="field">
-              <%= f.label :capacity %>
+              <i class="fa fa-group icon-new-tour" aria-hidden="true" id="i"></i><%= f.label :capacity %>
               <%= f.number_field :capacity %>
             </div>
           </div>
 
           <div class="col-sm-4">
             <div class="field">
-              <%= f.label :duration_in_ms, "Approx duration(hrs)" %>
+              <i class="fa fa-clock-o icon-new-tour" aria-hidden="true" id="i"></i><%= f.label :duration_in_ms, "Approx duration(hrs)" %>
               <%= f.number_field :duration_in_ms %>
             </div>
           </div>
 
           <div class="col-sm-4">
             <div class="field">
-              <%= f.label :country_id, :class=>"col-sm-1 control-label" %><br>
+              <i class="fa fa-globe icon-new-tour" aria-hidden="true" id="i"></i><%= f.label :country_id %><br>
               <%= f.collection_select :country_id, @countries, :id, :name, include_blank: 'Please select a country'%>
             </div>
           </div>
@@ -63,7 +64,7 @@
       <br>
 
       <div class="form-group">
-        <%= f.label :rendezvous_point%>
+        <i class="fa fa-map-pin icon-new-tour" aria-hidden="true" id="i"></i><%= f.label :rendezvous_point%>
         <%= f.text_field :rendezvous_point, class:"form-control", id:"rendezvous-point-input" %>
         <br>
         <br>
