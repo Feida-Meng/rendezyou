@@ -68,6 +68,8 @@ text-align: center;
   overflow: hidden;
   width: 100%;
   height: 275px;
+  flex: auto;
+
 
   .tour_pic_tourdetails {
     box-sizing: border-box;
@@ -75,13 +77,15 @@ text-align: center;
     width: 100%;
     height: 100%;
     zoom: 150%;
+    vertical-align: middle;
+
+
   }
 }
 
 .tourshowpiccontain{
  margin-top: 10%;
 }
-
 
 // compiled (normal css) code
 .index-container-relative {
