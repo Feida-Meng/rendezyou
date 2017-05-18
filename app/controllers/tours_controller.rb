@@ -55,15 +55,13 @@ class ToursController < ApplicationController
 
   def edit
     @tour = Tour.find(params[:id])
-    tour_booked
-    ensure_owner(@tour)
+    ensure_owner(@tour) || tour_booked
     # @tour = current_user.tours.find(params[:id])
   end
 
   def update
     @tour = Tour.find(params[:id])
     @tour.update_attributes(tour_params)
-    ensure_owner(@tour)
     @tour.duration_in_ms = (params[:duration_in_hr].to_i) * 3600000
     if @tour.save
       if params[:add_schedule]
@@ -88,7 +86,6 @@ class ToursController < ApplicationController
       @tour.schedules.destroy_all
       @tour.reviews.destroy_all
       @tour.destroy
-      redirect_to tours_path
     end
   end
 
@@ -111,6 +108,7 @@ class ToursController < ApplicationController
     @tour.schedules.each do |schedule|
       if schedule.current_capacity != 0
       flash[:alert] = "You cannot edit a tour if people have booked it "
+      redirect_to profile_path
     end
   end
   end

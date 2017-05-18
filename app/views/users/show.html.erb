@@ -81,8 +81,11 @@
   </div>
 </div>
 
+<% unless current_user && @tours_created.empty? %>
+
 <div class="sub_heading_guide_all">Here are your Guided Tours!</div>
 
+<% end %>
 <!-- User's created tours -->
 
 <div class="container-fluid">
