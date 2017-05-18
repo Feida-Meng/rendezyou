@@ -1,6 +1,6 @@
 class TourpointsController < ApplicationController
   before_action :load_tour, except: %i(tourpoint_params)
-
+  skip_before_action :verify_authenticity_token, :only => [:update]
   def new
     @tourpoint = Tourpoint.new
   end
@@ -15,6 +15,24 @@ class TourpointsController < ApplicationController
     end
   end
 
+  def show
+    @tourpoint = Tourpoint.find(params[:id])
+
+    if request.xhr?
+      respond_to do |format|
+        format.html do
+          render @tourpoint
+        end
+        format.json do
+
+          render :json => @tourpoint
+
+        end
+      end
+    end
+
+  end
+
   def edit
 
   end
@@ -24,13 +42,13 @@ class TourpointsController < ApplicationController
   end
 
   def update
-    # @tourpoint = Tourpoint.find(params[])
+    @tourpoint = Tourpoint.find(params[:id])
 
-    # if @tourpoint.update_attributes(tou_params)
-    #   redirect_to tour_path(@tour)
-    # else
-    #   render :edit
-    # end
+    if @tourpoint.update_attributes(tourpoint_params)
+      redirect_to tour_path(@tour)
+    else
+      render :groupedit
+    end
 
   end
 

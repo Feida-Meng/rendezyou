@@ -66,33 +66,34 @@ $(function(){
           markers[marker.label] = tour.tourpoints[i];
           marker.addListener('click', function(event) {
 
-            $.ajax({
-              method:"GET",
-              url: "/tours/" + tourId+"/tourpoints/" + markers[this.label].id,
-              dataType:'json'
-            }).done(function(reponseData){
-              tourpoint = reponseData;
-              var form = document.getElementById('edit-tour-point-form');
-              $(form).attr("action", "/tours/" + tourId+"/tourpoints/" + markers[this.label].id);
-              $("#edit_tourpoint_tour_point_name").val(tourpoint.name);
-              console.log(tourpoint.name);
-              console.log($("#edit_tourpoint_tour_point_name").val());
 
-            }).fail(function(){
-              console.log("fails");
-            });
             if ( tourMapDiv === editPointMapDiv && markerEdited === false ) {
+              var editTourpointData;
+              $.ajax({
+                method:"GET",
+                url: "/tours/" + tourId+"/tourpoints/" + markers[this.label].id,
+                dataType:'json'
+              }).done(function(reponseData){
+                editTourpointData = reponseData;
+                // console.log(tourpoint.tour_point_name);
+                $("#edit_tourpoint_tour_point_name").val(editTourpointData.tour_point_name);
+                $("#edit_tourpoint_tour_point_description").val(editTourpointData.tour_point_description);
+                $("#edit_tourpoint_tour_point_img").val(editTourpointData.tour_point_img);
+
+              }).fail(function(){
+                console.log("fails");
+              });
+
               this.draggable = true;
               // console.log(this);
               markerEdited = true;
               this.setMap(null);
               editMarker = markerMaker(event.latLng, tourMap, this.label,true);
               google.maps.event.addListener(editMarker, 'dragend', function (event) {
-                // $("#tourpoint_tour_point_laglng").val(event.latLng.toString());
+                $("#edit_tourpoint_tour_point_laglng").val(event.latLng.toString());
               });
-
-              //
-
+              var form = document.getElementById('edit-tour-point-form');
+              $(form).attr("action", "/tours/" + tourId+"/tourpoints/" + markers[this.label].id );
 
             } else {
               populateInfoWindow(this,markers[this.label],tourPointInfoWindow,tourMap);
