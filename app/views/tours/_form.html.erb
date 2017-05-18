@@ -1,92 +1,101 @@
 <%= form_for @tour, html: { multipart: true} do |f| %>
 
 <% if @tour.errors.any? %>
-    <div id="error_explanation">
-      <h3><%= pluralize(@tour.errors.count, "error") %> prohibited this tour from being saved:</h3>
+<div id="error_explanation">
+  <h3><%= pluralize(@tour.errors.count, "error") %> prohibited this tour from being saved:</h3>
 
-      <ul>
-        <% @tour.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% @tour.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <form class="form-horizontal">
+<form class="form-horizontal">
+  <div class="row">
+    <div class="col-sm-6">
 
-    <div class="form-group">
-        <%= f.label :category, :class=>"col-sm-1 control-label"  %>
-      <div class="col-sm-8">
+      <br>
+      <br>
+      <div class="form-group">
+        <i class="fa fa-plane icon-new-tour" aria-hidden="true" id="i"></i>
+        <%= f.label :category%><br>
         <%= f.select :category, options_for_select(Tour.categories.map {|cat,v| [cat,cat]}) %>
       </div>
-    </div>
 
-        <br>
-        <br>
-
-    <div class="form-group">
-      <%= f.label :name, :class=>"col-sm-1 control-label" %>
-      <div class="col-sm-8">
+      <div class="form-group">
+        <i class="fa fa-user-circle-o icon-new-tour" aria-hidden="true" id="i"></i><%= f.label :name %>
         <%= f.text_field :name, :class=>"form-control" %>
       </div>
-    </div>
 
 
-    <div class="field">
-      <%= f.label :capacity %>
-      <%= f.number_field :capacity %>
-    </div>
-
-    <div class="field">
-      <%= f.label :duration_in_hr, "Approximate Duration(hrs)" %>
-      <%= number_field_tag :duration_in_hr %>
-    </div>
-
+   
     <div class="form-group">
       <%= f.label :description, :class=>"col-sm-1 control-label" %>
       <div class="col-sm-8">
+
+      <div class="form-group">
+        <i class="fa fa-list-alt icon-new-tour" aria-hidden="true" id="i"></i><%= f.label :description %>
+
         <%= f.text_area :description, :class=>"form-control" %>
       </div>
-    </div>
 
-    <br>
-    <br>
+      <div class="form-inline">
+        <div class="row">
 
-    <div class="form-group">
-      <%= f.label :country_id, :class=>"col-sm-1 control-label" %>
-        <div class="col-sm-8">
-          <%= f.collection_select :country_id, @countries, :id, :name, include_blank: 'Please select a country', class: "form-control"%>
+          <div class="col-sm-4">
+            <div class="field">
+              <i class="fa fa-group icon-new-tour" aria-hidden="true" id="i"></i><%= f.label :capacity %>
+              <%= f.number_field :capacity %>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="field">
+              <i class="fa fa-clock-o icon-new-tour" aria-hidden="true" id="i"></i><%= f.label :duration_in_hr, "Approx duration(hrs)" %>
+              <%= f.number_field :duration_in_hr %>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="field">
+              <i class="fa fa-globe icon-new-tour" aria-hidden="true" id="i"></i><%= f.label :country_id %><br>
+              <%= f.collection_select :country_id, @countries, :id, :name, include_blank: 'Please select a country'%>
+            </div>
+          </div>
+
         </div>
+      </div><!--form-inline-->
+
+      <br>
+
+      <div class="form-group">
+        <i class="fa fa-map-pin icon-new-tour" aria-hidden="true" id="i"></i><%= f.label :rendezvous_point%>
+        <%= f.text_field :rendezvous_point, class:"form-control", id:"rendezvous-point-input" %>
+        <br>
+        <br>
+        <%= f.submit "Add some dates", name: "no_schedule", :class=>"btn btn-primary" %>
+        <p class="tour-or"></p>
+        <%= f.submit "Book some dates", name: "add_schedule", :class=>"btn btn-primary" %>
+        <p class="tour-or"></p>
+        <%= link_to 'Cancel', tours_path, :class=>"btn btn-default" %>
+      </div>
+
+    </div><!--col-sm-7-->
+
+    <div class="col-sm-5">
+      <div class="tour_new_pic_img">
+        <%= image_tag(@tour.tourpic.url, :class=>"missing_tours_new") %>
+        <%= f.file_field :tourpic, :class=>"img_upload_tours_new" %>
+        <br>
+        <br>
+        <div id="rendezvous-map"> </div>
+
+      </div>
     </div>
-    <br>
-    <br>
-    <div class="form-group">
-      <%= f.label :rendezvous_point, :class=>"col-sm-1 control-label"%>
-        <div class="col-sm-8">
-          <%= f.text_field :rendezvous_point, class:"form-control", id:"rendezvous-point-input" %>
-
-
-        </div>
-    </div>
-
-
-
-        <%= image_tag @tour.tourpic.url %>
-        <%= f.file_field :tourpic %>
-
-
-   <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-6">
-      <%= f.submit "Book some dates", name: "add_schedule" %>
-      or
-      <%= f.submit "Add dates later", name: "no_schedule" %>
-        <button><%= link_to 'Cancel', tours_path %></button>
-    </div>
-  </div>
-
-  <% end %>
-
+<% end %>
+</div>
 </form>
-<br>
-<br>
-<div id="rendezvous-map"> </div>
+</div>
+</div>

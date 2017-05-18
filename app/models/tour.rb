@@ -16,11 +16,16 @@ class Tour < ApplicationRecord
   # before_save { |tour| tour.duration_in_ms = (tour.duration_in_ms) * 3600000 }
 
 
+
+  def country #for json
+    Country.find(country_id).name
+  end
+
   def self.search(search)
-    where("name LIKE ? OR description LIKE ? OR category LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
+    where("name ILIKE ? OR description ILIKE ? OR category::text ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
   end
 
 
-  enum category: [ :nature, :city, :"food & drinks", :recreation, :social, :other]
+  enum category: [ :Nature, :"City tour", :"Food & drinks", :Recreation, :Social, :Other]
 
 end

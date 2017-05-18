@@ -191,7 +191,6 @@ h3.user_click a:hover {
 }
 
 #i{
-margin-right: -1em;
 }
 
 .pro_pic_nav{
@@ -212,8 +211,8 @@ img.carou_one{
 
 #entice_section{
   font-family: 'Harmattan', sans-serif;
-  height: 300px;
   text-align: center;
+  height: 170px;
 }
 
 #entice_section h3{
@@ -233,4 +232,65 @@ background: grey;
 h3.show_entice,
 h4.show_entice{
   margin-left: 2%;
+}
+
+.user_new_signin_avatar{
+  width: 70%;
+  height: auto;
+  opacity: .5;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+#carousel-example-generic img{
+  display: inline;
+}
+
+#see-all-user-show{
+  margin-top: 0px;
+  text-align: right;
+  margin-right: 2%;
+  font-size: 1.25em;
+  margin-bottom: 2%;
+}
+
+
+.col-md-12.user_created_tours{
+  width: 100%;
+  margin: auto;
+
+}
+
+.row.user_created_tours{
+  margin-left: 0px;
+  margin-right: 0px;
+  margin: auto;
+}
+
+.index-container-relative.userneedcenter{
+  margin: auto;
+}
+
+.show_entice.none{
+  display: block;
+  background: grey;
+
+
+}
+
+.tour_index_name.user_show{
+  font-size: 1.5em;
+  border-bottom: 1 solid white;
+}
+
+.row.underline_with_line{
+  border-bottom: 1px solid grey;
+  margin-bottom: 2%;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+.item.active > .carousel-caption {
+  text-shadow: 2px 2px 3 black;
+  font-size: 1.5em;
 }
