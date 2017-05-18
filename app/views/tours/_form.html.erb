@@ -14,7 +14,7 @@
 
 <form class="form-horizontal">
   <div class="row">
-    <div class="col-sm-7">
+    <div class="col-sm-6">
 
       <br>
       <br>
@@ -61,25 +61,25 @@
       </div><!--form-inline-->
 
       <br>
-      <br>
 
       <div class="form-group">
         <%= f.label :rendezvous_point%>
         <%= f.text_field :rendezvous_point, class:"form-control", id:"rendezvous-point-input" %>
         <br>
+        <br>
         <%= f.submit "Add some dates", name: "no_schedule", :class=>"btn btn-primary" %>
         <p class="tour-or">or</p>
-        <%= f.submit "Book some dates)", name: "add_schedule", :class=>"btn btn-primary" %>
+        <%= f.submit "Book some dates", name: "add_schedule", :class=>"btn btn-primary" %>
         <p class="tour-or">or</p>
         <%= link_to 'Cancel', tours_path, :class=>"btn btn-default" %>
       </div>
 
     </div><!--col-sm-7-->
 
-    <div class="col-sm-4">
+    <div class="col-sm-5">
       <div class="tour_new_pic_img">
         <%= image_tag(@tour.tourpic.url, :class=>"missing_tours_new") %>
-        <%= f.file_field :tourpic %>
+        <%= f.file_field :tourpic, :class=>"img_upload_tours_new" %>
         <br>
         <br>
         <div id="rendezvous-map"> </div>
