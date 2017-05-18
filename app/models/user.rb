@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   has_many :bookings
   has_many :tours
-  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: ActionController::Base.helpers.asset_path('missing.png')
 
   validates :name, :username, :email, :phone, :password, presence: true
   validates :username, :email, :phone, uniqueness: true
