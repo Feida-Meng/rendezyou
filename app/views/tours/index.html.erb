@@ -14,8 +14,9 @@
 <br>
 </div>
 
-<h4 class="tours_show_entice">Click <%= link_to "here", new_tour_url %> to create <span class="new">NEW tours</span>
-  <i class="fa fa-plus-square" aria-hidden="true" id="plus-square"></i>
+<h4 class="tours_show_entice">
+  <%= link_to "Click here to create NEW tours", new_tour_url %>
+  <%= link_to new_tour_url do %><i class="fa fa-plus-square" aria-hidden="true" id="plus-square"></i><% end %>
 </h4>
 
 <!-- <p class="btn btn-primary"><span class=""+<p> -->
