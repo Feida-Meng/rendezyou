@@ -30,7 +30,7 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tours <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><%= link_to "Your Created Tours", :anchor=>"user_show_created" %></li>
+              <li><%= link_to "Your Created Tours", :anchor=>"sub_heading_guide_all" %></li>
               <li role="separator" class="divider"></li>
               <li><%= link_to "Your Scheduled Tours", :anchor => "user_show_scheduled" %></li>
               <li role="separator" class="divider"></li>
@@ -54,7 +54,7 @@
         <div class="nav_right_float">
           <%= image_tag current_user.avatar.url(:thumb), :class=>"pro_pic_nav" %>
           <i class="fa fa-cog" aria-hidden="true" id="i"></i>
-          <%= link_to current_user.name.capitalize, profile_path(anchor: "see-all-user-show"), :class=>"a_myprofile" %>
+          <%= link_to current_user.name.capitalize, profile_path(anchor: "sub_heading_guide_all"), :class=>"a_myprofile" %>
           <%= link_to "Log Out", session_path("current"), :method => :delete, :class=>"a_logout" %>
         </div>
 

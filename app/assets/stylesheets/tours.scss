@@ -132,7 +132,7 @@ text-align: center;
   color: white;
   font-size: 110%;
 }
-hr {
+hr.thumbnail_black {
   position: absolute;
     height: 3px;
     top: 245px;
@@ -226,4 +226,9 @@ margin-top: 20%;
   color: #0274b3;
   font-size: 2em;
   padding: 2%;
+}
+
+.sub_heading_guide_all{
+  font-size: 2em;
+  margin-left: 5%;
 }

@@ -212,7 +212,7 @@ img.carou_one{
 #entice_section{
   font-family: 'Harmattan', sans-serif;
   text-align: center;
-  height: 150px;
+  height: 170px;
 }
 
 #entice_section h3{
@@ -247,7 +247,7 @@ h4.show_entice{
 }
 
 #see-all-user-show{
-  margin-top: 3em;
+  margin-top: 0px;
   text-align: right;
   margin-right: 2%;
   font-size: 1.25em;
@@ -281,4 +281,11 @@ h4.show_entice{
 .tour_index_name.user_show{
   font-size: 1.5em;
   border-bottom: 1 solid white;
+}
+
+.row.underline_with_line{
+  border-bottom: 1px solid grey;
+  margin-bottom: 2%;
+  margin-left: 3%;
+  margin-right: 3%;
 }

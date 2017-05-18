@@ -9,6 +9,9 @@
 <div class="form-group">
     <%= text_field_tag :search, params[:search], placeholder: "   Search Tours", class:"tours_index_actual_bar" %>
     <%= submit_tag "Search Tours", :name => nil, class:"btn btn-success btn-lg"%>
+    <% if @tours.blank? %>
+  <h4>There are no recipes containing the term <%= params[:search] %>.</h4>
+<% end %>
   </div>
 <% end %>
 <br>

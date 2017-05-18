@@ -159,6 +159,7 @@ div.yield{
     z-index: 1000;
 }
 
+#notice,
 #alert {
   position: absolute;
   margin: auto;
@@ -167,6 +168,7 @@ div.yield{
   right: 0;
   text-align: center;
   color: grey;
+  z-index: 7000;
 }
 
 ul.dropdown-menu {
