@@ -1,10 +1,53 @@
 // Place all the styles related to the Tours controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$mustard: #ffc800;
+$light-mustard: #fcdc6a;
+
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
 
 .carousel_height{
   height: 400px;
 }
+
+
+// leftside: tour details, map, reviews -----------------------------------
+.col-md-7,
+.tour-details,
+.reviews {
+  width: 90%;
+  // margin: 0 auto;
+}
+
+.main-title {
+  font-size: 3em;
+}
+
+.main-title,
+.reviews-title {
+  padding-bottom: 15px;
+  border-bottom: 2px solid $mustard;
+  text-transform: uppercase;
+}
+
+.tour-details {
+  font-size: 1.2em;
+  padding: 20px 0;
+}
+
+.tours-icon-div {
+  padding-bottom: 20px;
+}
+
+.tour-details-meetup {
+  text-transform: capitalize;
+}
+
 // gmap: ----------------------
 #rendezvous-map {
   height:300px;
@@ -13,6 +56,19 @@
 
 // gmap:-----------------------
 #show-tour-map {
+
+  height:500px;
+  width: 90%;
+  margin: 3% 0;
+  // margin: 0 auto 2% auto;
+}
+
+.tour_show_full{
+  position: relative;
+}
+
+.tour_pic_tourdetails{
+  position: relative;
   height:200px;
   width:100%;
   margin-bottom: 2%;
@@ -164,6 +220,7 @@ hr.thumbnail_black {
   bottom: 0px;
   box-sizing: border-box;
   zoom: 110%;
+
   width: 100%;
 }
 

@@ -6,27 +6,61 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12" >
       <div class="row">
-        <div class="col-md-8">
-          <div class="tour-desc">
-          <h3>
-            <%= @tour.name %>
-          </h3>
-          <p><%= @tour.description %></p>
-          <p>rendezvous point (address of meeting up): <%= @tour.rendezvous_point %></p>
-          <p>Country: <%= @tour.country  %> </p>
-          <p>Category: <%=@tour.category %></p>
+
+        <div class="col-md-1">
+
         </div>
-          <p>Tour map</p>
-          <div id="show-tour-map" >
+        <div class="col-md-7">
+          <div class="tour-details">
+
+            <h3 class="main-title"> <%= @tour.name %> </h3>
+
+            <div class="col-md-3 tours-icon-div">
+              <p><i class="fa fa-globe"></i> <%= @tour.country.name %></p>
+              <p class="tour-details-meetup"><i class="fa fa-map-marker"></i> <%= @tour.rendezvous_point %></p>
+          </div>
+          <div class="col-md-1">
 
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="tourshowpiccontain">
-            <p class="show_page_tour_image"><%= image_tag @tour.tourpic.url(:medium), :class=>"tour_pic_tourdetails" %></p>
+          <div class="col-md-3 tours-icon-div">
+            <p id="tour-details-category"> <%=@tour.category %></p>
+            <p><i class="fa fa-clock-o"></i> duration</p>
           </div>
+        </div>
+
+          <div id="show-tour-map">
+
+
+          </div>
+          <% unless @tour.reviews.empty? %>
+          <div class="reviews">
+            <h3 class="reviews-title">Reviews:</h3>
+            <% @tour.reviews.each do |r| %>
+            <h4><%= r.created_at %></h4>
+            <div class="rating-tours">
+              <h4 class="reviews-star-ratings"><%= r.rating %></h4>
+            </div>
+            <p><%= r.comment %><p>
+            <% end %>
+          </div>
+          <% end %>
+
+          <% if current_user && @tour.user_id == current_user.id %>
+          <%= link_to 'Edit this Tour | ', edit_tour_path(@tour.id) %>
+          <%= link_to 'Delete this Tour | ', tour_path(@tour.id), method: :delete %>
+          <%= link_to "Add new tour point | ", new_tour_tourpoint_path(@tour) %>
+          <% end %>
+
+        </div>
+
+        <div class="col-md-3">
+
+          <p class="show_page_tour_image"><%= image_tag @tour.tourpic.url, :class=>"tour_pic_tourdetails" %></p>
+              <p><%= @tour.description %></p>
+
+
           <p><strong>Schedule:</strong></p>
 
           <p>
@@ -56,27 +90,18 @@
           </p>
 
         </div>
+        <div class="col-md-1">
+
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<% unless @tour.reviews.empty? %>
-<div class="reviews">
-  <h3>Reviews:</h3>
-  <% @tour.reviews.each do |r| %>
-  <h4><%= r.created_at %></h4>
-  <div class="rating-tours">
-    <h4 class="reviews-star-ratings"><%= r.rating %></h4>
-  </div>
-  <p><%= r.comment %><p>
-  <% end %>
-</div>
-<% end %>
 
 <% if current_user && @tour.user_id == current_user.id %>
 <%= link_to 'Edit this Tour | ', edit_tour_path(@tour.id) %>
 <%= link_to 'Delete this Tour | ', tour_path(@tour.id), method: :delete %>
 <%= link_to "Add new tour point | ", new_tour_tourpoint_path(@tour) %>
 <%= link_to "Edit tour point", tour_tourpoints_edit_path(@tour) %>
-<% end %>
+

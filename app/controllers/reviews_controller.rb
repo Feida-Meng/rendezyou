@@ -45,5 +45,10 @@ class ReviewsController < ApplicationController
     params.require(:review).permit(:rating, :comment, :tour_id, :created_at)
   end
 
+  def average_rating
+
+  end
+
+
 
 end
