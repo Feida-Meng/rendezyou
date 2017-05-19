@@ -120,7 +120,7 @@
                   <i class="fa fa-map-marker" aria-hidden="true" id="i"></i>
                   <span class="blue_names">Rendezvous Point: </span><br>
                   <%= tour.rendezvous_point %></p>
-                  <%= link_to "EDIT", edit_tour_path(tour), :class=>"btn btn-success", :id=>"tourindexbut" %>
+                  <%= link_to "EDIT", tour_path(tour), :class=>"btn btn-success", :id=>"tourindexbut" %>
                 </div>
               </div> <!--#thumbnail_tour_index-->
             </div><!--.col-md-4-->
@@ -144,8 +144,12 @@
 
   <div class="sub_heading_guide_all">Here are your Booked Tours!</div>
 
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
 
-
+          <div class="col-md-3 push-img-to-float full_border">
 
               <% @tours_booked.each do |t| %>
               <% t.schedules.each do |s| %>
@@ -164,9 +168,15 @@
                 <% end %>
                 <% end %>
                 <% end %>
-
               </div>
 
+              </div>
             </div>
           </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 </div>
