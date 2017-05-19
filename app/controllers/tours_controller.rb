@@ -20,6 +20,9 @@ class ToursController < ApplicationController
   def show
     @tour = Tour.find(params[:id])
     @tourpoints = @tour.tourpoints
+    @average_rating = average_rating
+    @recent_schedules = recent_schedules
+    load_tour_guide
 
     if request.xhr?
       respond_to do |format|
@@ -113,6 +116,22 @@ class ToursController < ApplicationController
   end
   end
 
+  def average_rating
+    unless @tour.reviews.empty?
+    ratings = @tour.reviews.map do |t_r|
+      t_r.rating
+    end
+    return (ratings.sum)/ratings.length
+  end
+end
+
+def recent_schedules
+  @tour.schedules.order("tour_start_time ASC").limit(3)
+end
+
+def load_tour_guide
+  @tour_guide = User.find(@tour.user_id)
+end
 
 
 end

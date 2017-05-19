@@ -29,24 +29,112 @@ $light-mustard: #fcdc6a;
 }
 
 .main-title,
-.reviews-title {
+.reviews-title,
+.schedule-title {
   padding-bottom: 15px;
   border-bottom: 2px solid $mustard;
   text-transform: uppercase;
 }
 
 .tour-details {
-  font-size: 1.2em;
+  font-size: 1.3em;
   padding: 20px 0;
 }
 
-.tours-icon-div {
-  padding-bottom: 20px;
+.tours-icon-div,
+.tours-rating-div {
+  padding: 10px 0 20px 0;
+}
+
+.tours-icon-div p {
+  padding: 5px 0;
+}
+
+.tours-rating-div {
+  text-align: right;
+  color: $light-mustard;
+}
+
+#tour-details-rating span {
+  padding: 5px;
+  font-size: 1.5em;
 }
 
 .tour-details-meetup {
   text-transform: capitalize;
 }
+
+// reviews --------------------
+.reviews-star-ratings span {
+  padding: .2em;
+}
+
+
+// right-side-tours-show ------
+
+.col-md-3.side-bar {
+  position: fixed;
+  right: 8.5%;
+  margin-top: 3em;
+  margin-bottom: 1em;
+}
+
+.booking-button {
+  float: right;
+}
+
+.tour-sidebar-description {
+  line-height: 150%;
+  font-size: 1.1em;
+}
+
+.schedule-title {
+  margin-top: 30px;
+}
+
+.tour-show-date {
+  float: left;
+  width: 60%;
+}
+
+.tour-show-date {
+  font-size: 1.1em;
+}
+
+.tour-show-one-schedule {
+  margin-bottom: 5px;
+  overflow: auto;
+}
+
+// schedules modal ------------
+
+.schedules-modal-window {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30,30,30,0.8);
+  z-index: 990;
+}
+
+.schedules-modal {
+  display: block;
+  overflow: auto;
+  width: 500px;
+  max-height: 500px;
+  padding: 2em;
+  background-color: white;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
 
 // gmap: ----------------------
 #rendezvous-map {

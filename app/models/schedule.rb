@@ -7,7 +7,7 @@ class Schedule < ApplicationRecord
   validate :no_duplicates
 
   def tour_session
-    "#{tour_start_time.strftime("%b %d, %Y at %H:%M")}"
+    "#{tour_start_time.strftime("%b %d, %Y at %I:%M%P")}"
   end
 
   def date_in_past
@@ -21,6 +21,8 @@ class Schedule < ApplicationRecord
       errors.add(:tour_start_time, "already exists")
     end
   end
+
+
   #
   # def validate_dates
   #   if date_in_past(tour_start_time)

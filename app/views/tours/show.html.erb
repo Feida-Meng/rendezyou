@@ -17,16 +17,17 @@
 
             <h3 class="main-title"> <%= @tour.name %> </h3>
 
-            <div class="col-md-3 tours-icon-div">
+            <div class="col-md-4 tours-icon-div">
               <p><i class="fa fa-globe"></i> <%= @tour.country.name %></p>
               <p class="tour-details-meetup"><i class="fa fa-map-marker"></i> <%= @tour.rendezvous_point %></p>
           </div>
-          <div class="col-md-1">
-
+          <div class="col-md-4 tours-icon-div">
+            <p id="tour-details-category"> <%= @tour.category %></p>
+            <p><i class="fa fa-clock-o"></i> Duration: <%= "#{@tour.duration_in_ms / 3600000} hours"%></p>
           </div>
-          <div class="col-md-3 tours-icon-div">
-            <p id="tour-details-category"> <%=@tour.category %></p>
-            <p><i class="fa fa-clock-o"></i> duration</p>
+
+          <div class="col-md-4 tours-rating-div">
+            <p id="tour-details-rating"> <%= @average_rating %></p>
           </div>
         </div>
 
@@ -34,75 +35,121 @@
 
 
           </div>
-          <% unless @tour.reviews.empty? %>
-          <div class="reviews">
-            <h3 class="reviews-title">Reviews:</h3>
-            <% @tour.reviews.each do |r| %>
-            <h4><%= r.created_at %></h4>
-            <div class="rating-tours">
-              <h4 class="reviews-star-ratings"><%= r.rating %></h4>
-            </div>
-            <p><%= r.comment %><p>
-            <% end %>
-          </div>
-          <% end %>
+
+        <div class="user-tour-options">
 
           <% if current_user && @tour.user_id == current_user.id %>
           <%= link_to 'Edit this Tour | ', edit_tour_path(@tour.id) %>
           <%= link_to 'Delete this Tour | ', tour_path(@tour.id), method: :delete %>
           <%= link_to "Add new tour point | ", new_tour_tourpoint_path(@tour) %>
-          <% end %>
+          <%= link_to "Edit tour point", tour_tourpoints_edit_path(@tour) %>
 
+          <% end %>
         </div>
 
-        <div class="col-md-3">
+          <% unless @tour.reviews.empty? %>
+          <div class="reviews">
+            <h3 class="reviews-title">Reviews:</h3>
+            <% @tour.reviews.each do |r| %>
+            <div class="rating-tours">
+              <h4 class="reviews-star-ratings"><%= r.rating %></h4>
+            </div>
+            <h5><%= r.created_at.strftime("%b %d, %Y at %I:%M%P") %> </h5>
+            <p><%= r.comment %><p>
+            <% end %>
+          </div>
+          <% end %>
+        </div>
+
+
+
+        <div class="col-md-3 side-bar">
 
           <p class="show_page_tour_image"><%= image_tag @tour.tourpic.url, :class=>"tour_pic_tourdetails" %></p>
-              <p><%= @tour.description %></p>
 
 
-          <p><strong>Schedule:</strong></p>
+          <p class="tour-sidebar-description">
+            <b>Guide:</b> <%= @tour_guide.name %><br>
+            <%= @tour.description %>
+          </p>
 
-          <p>
+
+          <h4 class="schedule-title">Available Dates:</h4>
+
             <% if @tour.schedules.empty? %>
             <p>This tour doesn't currently have any dates to be booked! Check back again soon!</p>
+
             <% else %>
-            <% @tour.schedules.each do |t_s| %>
-            <p class="">
-              <%= "#{t_s.tour_session}, #{t_s.current_capacity} people booked, space left: #{t_s.max_capacity - t_s.current_capacity}" %>
-              <% unless (current_user && @tour.user_id == current_user.id) || t_s.tour_start_time < Time.now %>
-              <%= link_to 'Book now!', new_tour_schedule_booking_path(@tour,t_s) %>
+
+            <% @recent_schedules.each do |t_s| %>
+            <div class="tour-show-one-schedule">
+
+            <div class="tour-show-date">
+              <p><i class="fa fa-clock-o"></i> <%= t_s.tour_session %>
+              </p>
+            <div class="tour-show-spots">
+              <p class="number-spots"><i class="fa fa-child"></i> <%= "#{t_s.max_capacity - t_s.current_capacity} spots left!" %></p>
+            </div>
+          </div>
+          <% unless (current_user && @tour.user_id == current_user.id) || t_s.tour_start_time < Time.now %>
+              <p class="booking-button"><%= link_to 'Book now!', new_tour_schedule_booking_path(@tour,t_s), :class=>"btn" %></p>
+
+
+
               <% else  %>
-              <%= link_to 'Edit this Schedule', edit_tour_schedule_path(@tour, t_s) %> | <%= link_to 'Cancel this Schedule', tour_schedule_path(@tour, t_s), method: :delete %>
-            </p>
+              <%= link_to 'Edit this Schedule', edit_tour_schedule_path(@tour, t_s) %> <br><%= link_to 'Cancel this Schedule', tour_schedule_path(@tour, t_s), method: :delete %>
             <% end %>
-            <% end %>
+          </div>
             <% end %>
 
-            <div class="">
+
+          <% end %>
               <% if current_user && @tour.user_id == current_user.id %>
               <%= link_to 'Add more dates', new_tour_schedule_path(@tour), :class=>"btn btn-primary" %>
 
               <% end %>
-              <%= link_to 'Back to Tours', tours_path, :class=>"btn btn-default" %>
+              <%= link_to 'See more dates', tours_path, :class=>"btn tour-show-all" %>
 
-            </div>
-          </p>
+
 
         </div>
         <div class="col-md-1">
-
         </div>
+        <!-- schedules modal -->
+
+        <div class="schedules-modal-window">
+
+          <div class="schedules-modal">
+            <% @tour.schedules.each do |schedule| %>
+            <div class="modal-tour-show-one-schedule">
+
+            <div class="modal-tour-show-date">
+              <p><i class="fa fa-clock-o"></i> <%= schedule.tour_session %>
+              </p>
+            <div class="modal-tour-show-spots">
+              <p class="number-spots"><i class="fa fa-child"></i> <%= "#{schedule.max_capacity - schedule.current_capacity} spots left!" %></p>
+            </div>
+          </div>
+          <% unless (current_user && @tour.user_id == current_user.id) || schedule.tour_start_time < Time.now %>
+              <p class="booking-button"><%= link_to 'Book now!', new_tour_schedule_booking_path(@tour,schedule), :class=>"btn" %></p>
+
+
+
+              <% else  %>
+              <%= link_to 'Edit this Schedule', edit_tour_schedule_path(@tour, schedule) %> <br><%= link_to 'Cancel this Schedule', tour_schedule_path(@tour, schedule), method: :delete %>
+            <% end %>
+          </div>
+            <% end %>
+
+              <% if current_user && @tour.user_id == current_user.id %>
+              <%= link_to 'Add more dates', new_tour_schedule_path(@tour), :class=>"btn btn-primary" %>
+
+              <% end %>
+          </div>
+        </div>
+
+
       </div>
     </div>
   </div>
 </div>
-
-
-<% if current_user && @tour.user_id == current_user.id %>
-<%= link_to 'Edit this Tour | ', edit_tour_path(@tour.id) %>
-<%= link_to 'Delete this Tour | ', tour_path(@tour.id), method: :delete %>
-<%= link_to "Add new tour point | ", new_tour_tourpoint_path(@tour) %>
-<%= link_to "Edit tour point", tour_tourpoints_edit_path(@tour) %>
-
-<% end %>
