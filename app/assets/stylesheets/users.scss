@@ -274,28 +274,27 @@ h4.show_entice{
 .show_entice.none{
   display: block;
   background: grey;
-
-
-}
-
-.tour_index_name.user_show{
-  font-size: 1.5em;
-  border-bottom: 1 solid white;
 }
 
 .row.underline_with_line{
   border-bottom: 1px solid grey;
   margin-bottom: 2%;
-  margin-left: 3%;
-  margin-right: 3%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
 }
 
 .item.active > .carousel-caption {
   text-shadow: 2px 2px 3 black;
-  font-size: 1.5em;
+  // font-size: 1.5em;
 }
 
 .container_relative_no_break{
   position: absolute;
   bottom: 2px;
+  width: 100%;
+}
+
+.removing-right-padding{
+  padding-right: 0px;
+  padding-left: 0px;
 }

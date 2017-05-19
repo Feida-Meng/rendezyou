@@ -7,7 +7,7 @@
 <!-- Carousel -->
 <div class="container-fluid" id="user-carousel-container-fluid">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 removing-right-padding">
       <div class="carousel slide" id="carousel-334026">
 
         <ol class="carousel-indicators">
@@ -80,6 +80,7 @@
     <h3><%= link_to "BOOK A TOUR!", tours_url %></h3>
   </div>
 </div>
+<
 
 <% unless current_user && @tours_created.empty? %>
 
@@ -104,14 +105,18 @@
                   <%= image_tag tour.tourpic.url(:medium), :class=>"tour_pic_tourdetails" %>
                   <%= image_tag("gradient-01.png", :class=>"grad2_img")%>
                   <div class="container_relative_no_break">
-                    <p><%= link_to tour.name, tour_path(tour.id), class:"tour_index_name user_show"%></p>
+                    <p class="tour_index_name"><%= link_to tour.name, tour_path(tour.id)%></p>
+                    <hr class="white">
                     <p class="tour_index_cat"><%= tour.category%></p>
                   </div>
                 <% end %>
               </div><!--.index-container-relative-->
               <div class="caption" id="tourindexcaption">
                 <!-- <p class="tourp"><%= tour.description %></p> -->
-                <p class="tourp">Rendezvous Point: <%= tour.rendezvous_point %></p>
+                <p class="tourp">
+                <i class="fa fa-map-marker" aria-hidden="true" id="i"></i>
+                <span class="blue_names">Rendezvous Point: </span><br>
+                <%= tour.rendezvous_point %></p>
                 <%= link_to "EDIT", edit_tour_path(tour), :class=>"btn btn-success", :id=>"tourindexbut" %>
               </div>
             </div> <!--#thumbnail_tour_index-->
