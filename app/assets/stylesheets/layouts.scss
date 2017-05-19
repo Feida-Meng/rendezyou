@@ -63,6 +63,8 @@ html{
    color: white;
    padding: 1.5em;
    height: 5em;
+   color: white;
+
  }
  .a_myprofile,
  .a_signup,
@@ -83,6 +85,7 @@ html{
 li{
   list-style: none;
   color: white;
+  
 }
 .nav_drop{
   position: absolute;
@@ -168,6 +171,7 @@ div.yield{
 .nav_hover a:link{
   text-decoration: none;
   color: white;
+  text-shadow: 1px 1px 1px black;
 }
 
 #nav_hover a:hover,
