@@ -283,6 +283,13 @@ h4.show_entice{
   margin-right: 2.5%;
 }
 
+.row.topline_with_line{
+  border-top: 1px solid grey;
+  // margin-top: 2%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+}
+
 .item.active > .carousel-caption {
   text-shadow: 2px 2px 3 black;
   // font-size: 1.5em;
@@ -297,4 +304,14 @@ h4.show_entice{
 #removing-right-padding{
   padding-right: 0px;
   padding-left: 0px;
+}
+
+.user_show_click_here_to_create_one{
+    margin-left: 2.5%;
+    margin-bottom: 3.5%;
+}
+
+
+.full_border{
+  border: 1px solid
 }
