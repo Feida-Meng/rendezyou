@@ -68,7 +68,8 @@ function populateInfoWindow(marker, tourpoint, infowindow, map) {
 
 function createMap(tourMapDiv) {
   var map = new google.maps.Map(tourMapDiv, {
-    zoom: 10,
+    zoom: 11,
+    fullscreenControl: true,
     center: {lat: -34.397, lng: 150.644}
   });
   return map;
