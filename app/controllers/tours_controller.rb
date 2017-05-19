@@ -40,7 +40,6 @@ class ToursController < ApplicationController
   end
 
   def create
-
     @tour = Tour.new(tour_params)
     @tour.user_id = current_user.id
     @tour.duration_in_ms = (params[:duration_in_hr].to_i) * 3600000
@@ -64,8 +63,7 @@ class ToursController < ApplicationController
 
   def update
     @tour = Tour.find(params[:id])
-    @tour.duration_in_ms = (tour_params[:duration_in_hr].to_i) * 3600000
-     params[:tour].delete :duration_in_hr
+    @tour.duration_in_ms = (params[:duration_in_hr].to_i) * 3600000
     @tour.update_attributes(tour_params)
     if @tour.save
       if params[:add_schedule]
