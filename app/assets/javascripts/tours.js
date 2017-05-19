@@ -6,6 +6,7 @@ $(function(){
   var tourId;
   var mapPage;
   var currentUrl = window.location.href;
+  var i = 0;
 
   if ($.contains(document,showTourMapDiv)) {
     tourId = currentUrl.substring(currentUrl.lastIndexOf('/') + 1);
@@ -39,7 +40,6 @@ $(function(){
       var rendezvousPoint = tour.rendezvous_point;
       var country = tour.country;
 
-      geocodeAddress(rendezvousGeocoder(), tourMap, country, rendezvousPoint);
 
       var latlng;
       var latP;
@@ -55,17 +55,19 @@ $(function(){
       var markerEdited = false;
       // var draggable;
 
+      geocodeAddress(rendezvousGeocoder(), tourMap, country, rendezvousPoint);
       if (tour.tourpoints.length > 0) {
 
-        for (var i = 0; i<tour.tourpoints.length;i++) {
+        for (i = 0; i<tour.tourpoints.length;i++) {
           laglng = tour.tourpoints[i].tour_point_laglng;
           latP = Number(laglng.substring(laglng.indexOf("(")+1,laglng.indexOf(",")-1));
           lagP = Number(laglng.substring(laglng.indexOf(",")+1,laglng.indexOf(")")-1));
           markerPosition = {lat:latP,lng:lagP};
           marker = markerMaker(markerPosition,tourMap,(i+1).toString(),false);
           markers[marker.label] = tour.tourpoints[i];
-          marker.addListener('click', function(event) {
+          bounds.extend(marker.position);
 
+          marker.addListener('click', function(event) {
 
             if ( tourMapDiv === editPointMapDiv && markerEdited === false ) {
               var editTourpointData;
@@ -99,8 +101,8 @@ $(function(){
               populateInfoWindow(this,markers[this.label],tourPointInfoWindow,tourMap);
             }
           });
-           bounds.extend(marker.position);
         }
+        tourMap.fitBounds(bounds);
       }
 
       google.maps.event.addListener(this, 'dragend', function (event) {
@@ -108,7 +110,7 @@ $(function(){
       });
 
       if (tourMapDiv === tourPointMapDiv) {
-        tourMap.addListener('dblclick', function(event) {
+        tourMap.addListener('click', function(event) {
           if (markerPlaced === false) {
             $("#tourpoint_tour_point_laglng").val(event.latLng.toString());
             newMarker = markerMaker(event.latLng, tourMap, (i+1).toString(),true);
@@ -120,8 +122,6 @@ $(function(){
           markerPlaced = true;
         });
       }
-
-      tourMap.fitBounds(bounds);
     });
   }
 
@@ -190,14 +190,10 @@ $(function(){
     e.preventDefault();
   });
 
-
-
   $(document).keyup(function(event){
       if(event.which=='27'){
         $('.schedules-modal-window').fadeOut();
       }
     });
-
-
 
 });

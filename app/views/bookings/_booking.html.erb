@@ -23,7 +23,7 @@
 
     <div class="booking_size">
       <%= f.label :booking_size,"group size" %>
-      <%= f.number_field :booking_size, min: 1, max: @schedule.current_capacity, step:1 %>
+      <%= f.number_field :booking_size, min: 1, max: @schedule.max_capacity, step:1 %>
 
     </div>
 
