@@ -285,11 +285,16 @@ h4.show_entice{
 
 .item.active > .carousel-caption {
   text-shadow: 2px 2px 3 black;
-  font-size: 1.5em;
+  // font-size: 1.5em;
 }
 
 .container_relative_no_break{
   position: absolute;
   bottom: 2px;
   width: 100%;
+}
+
+.removing-right-padding{
+  padding-right: 0px;
+  padding-left: 0px;
 }
