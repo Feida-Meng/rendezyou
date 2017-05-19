@@ -71,9 +71,9 @@
         <%= f.text_field :rendezvous_point, class:"form-control", id:"rendezvous-point-input" %>
         <br>
         <br>
-        <%= f.submit "Add some dates", name: "no_schedule", :class=>"btn btn-primary" %>
+        <%= f.submit "OK - Add dates now", name: "add_schedule", :class=>"btn btn-primary" %>
         <p class="tour-or"></p>
-        <%= f.submit "Book some dates", name: "add_schedule", :class=>"btn btn-primary" %>
+        <%= f.submit "Add dates later", name: "no_schedule", :class=>"btn btn-primary" %>
         <p class="tour-or"></p>
         <%= link_to 'Cancel', tours_path, :class=>"btn btn-default" %>
       </div>
