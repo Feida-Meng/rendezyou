@@ -75,8 +75,13 @@ $light-mustard: #fcdc6a;
 .col-md-3.side-bar {
   position: fixed;
   right: 8.5%;
+  margin-top: 3em;
+  margin-bottom: 1em;
 }
 
+.booking-button {
+  float: right;
+}
 
 .tour-sidebar-description {
   line-height: 150%;
@@ -84,8 +89,52 @@ $light-mustard: #fcdc6a;
 }
 
 .schedule-title {
-  margin-top: 20px;
+  margin-top: 30px;
 }
+
+.tour-show-date {
+  float: left;
+  width: 60%;
+}
+
+.tour-show-date {
+  font-size: 1.1em;
+}
+
+.tour-show-one-schedule {
+  margin-bottom: 5px;
+  overflow: auto;
+}
+
+// schedules modal ------------
+
+.schedules-modal-window {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30,30,30,0.8);
+  z-index: 990;
+}
+
+.schedules-modal {
+  display: block;
+  overflow: auto;
+  width: 500px;
+  max-height: 500px;
+  padding: 2em;
+  background-color: white;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
 
 // gmap: ----------------------
 #rendezvous-map {

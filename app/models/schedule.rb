@@ -7,7 +7,7 @@ class Schedule < ApplicationRecord
   validate :no_duplicates
 
   def tour_session
-    "#{tour_start_time.strftime("%b %d, %Y at %H:%M")}"
+    "#{tour_start_time.strftime("%b %d, %Y at %I:%M%P")}"
   end
 
   def date_in_past
