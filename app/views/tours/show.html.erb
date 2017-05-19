@@ -92,7 +92,7 @@
             </div>
           </div>
           <% unless (current_user && @tour.user_id == current_user.id) || t_s.tour_start_time < Time.now %>
-              <p class="booking-button"><%= link_to 'Book now!', new_tour_schedule_booking_path(@tour,t_s), :class=>"btn" %></p>
+              <span class="booking-button"><%= link_to 'Book now!', new_tour_schedule_booking_path(@tour,t_s), :class=>"booking-button-schedueles btn" %></span>
 
 
 
