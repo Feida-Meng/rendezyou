@@ -1,11 +1,11 @@
 <div class="yield">
-  <%="Tour: #{@tour.name}" %>
+  <h3> <%="Tour: #{@tour.name}" %> </h3>
 
-  <%="Tour description: #{@tour.description}" %>
+  <p> <%="Tour description: #{@tour.description}" %> </p>
 
-  <%="Tour guide: " %>
+  <p> <%="Tour guide: #{User.find(@tour.user_id).name}" %> </p>
 
-  please fill the information below to submit booking request
+  Please select number of companions for this tour
 
   <%= form_for ([@tour,@schedule,@booking]) do |f|%>
 
@@ -22,8 +22,8 @@
     <% end %>
 
     <div class="booking_size">
-      <%= f.label :booking_size %>
-      <%= f.number_field :booking_size, min: 1, max: 50, step:1 %>
+      <%= f.label :booking_size,"group size" %>
+      <%= f.number_field :booking_size, min: 1, max: @schedule.current_capacity, step:1 %>
 
     </div>
 
