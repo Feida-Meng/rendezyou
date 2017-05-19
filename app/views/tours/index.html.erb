@@ -18,7 +18,7 @@
   </div>
 
   <h4 class="tours_show_entice">
-    <%= link_to "Click here to create NEW tours", new_tour_url %>
+    <%= link_to "Create NEW Tours ", new_tour_url, class:"plus-square-font" %>
     <%= link_to new_tour_url do %><i class="fa fa-plus-square" aria-hidden="true" id="plus-square"></i><% end %>
   </h4>
 
@@ -37,7 +37,8 @@
                 <%= image_tag tour.tourpic.url(:medium), :class=>"tour_pic_tourdetails" %>
                 <%= image_tag("gradient-01.png", :class=>"grad_img")%>
                 <div class="container_relative_no_break">
-                  <p><%= link_to tour.name, tour_path(tour.id), class:"tour_index_name user_show"%></p>
+                  <p class="tour_index_name"><%= link_to tour.name, tour_path(tour.id)%></p>
+                  <hr class="white">
                   <p class="tour_index_cat"><%= tour.category%></p>
                 </div>
               </div>
@@ -46,7 +47,8 @@
 
                 <!-- <p class="tourp"><span class="blue_names">Desc: </span><%= tour.description %></p> -->
                 <!-- <p>city: <%= tour.city %></p> -->
-                <p class="tourp"><span class="blue_names">Rendezvous Point: </span><%= tour.rendezvous_point %></p>
+                <p class="tourp"><span class="blue_names">Rendezvous Point: </span><br>
+                <%= tour.rendezvous_point %></p>
 
 
                 <% if current_user && current_user.id == tour.user_id %>
