@@ -15,6 +15,7 @@ class UsersController < ApplicationController
     @user = current_user
     @bookings = @user.bookings
     @tours_booked = @user.booked_tours
+    #fix show page to only show booked tours that belong to that user
     @tours_created = @user.tours
   end
 

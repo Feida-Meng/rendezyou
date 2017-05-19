@@ -152,10 +152,10 @@
         <div class="row">
 
           <% @tours_booked.each do |t| %>
-
-          <div class="col-md-3">
             <% t.schedules.each do |s| %>
             <% s.bookings.each do |b| %>
+            <% unless b.user_id != current_user.id %>
+            <div class="col-md-3">
             <div id="thumbnail_tour_index" class="thumbnail">
               <div class="index-container-relative userneedcenter">
 
@@ -176,7 +176,7 @@
           </div><!--caption-->
         </div> <!--#thumbnail_tour_index-->
       </div><!--.col-md-3-->
-
+      <% end %>
       <% end %>
       <% end %>
       <% end %>
