@@ -24,6 +24,10 @@ class Tour < ApplicationRecord
   end
 
 
+  def duration_in_hr
+    duration_in_ms / 3600000
+  end
+
   enum category: [ :Nature, :"City tour", :"Food & drinks", :Recreation, :Social, :Other]
 
 end
