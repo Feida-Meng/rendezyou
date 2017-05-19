@@ -128,33 +128,42 @@ $(function(){
 
   $('#tour-details-category').each(function(){
     var tourCategory = $('#tour-details-category').html();
-    if (tourCategory === ' nature') {
+    if (tourCategory === ' Nature') {
       console.log('nature');
       var leaf = ("<span class='fa fa-leaf'>");
       $(this).prepend(leaf);
-    } else if (tourCategory === ' social') {
+    } else if (tourCategory === ' Social') {
       console.log('social');
       var users = ("<span class='fa fa-users'>");
       $(this).prepend(users);
-    } else if (tourCategory === ' city') {
+    } else if (tourCategory === ' City tour') {
       console.log('city');
       var building = ("<span class='fa fa-building-o'>");
       $(this).prepend(building);
-    } else if (tourCategory === ' recreation') {
+    } else if (tourCategory === ' Recreation') {
       console.log('recreation');
       var puzzle = ("<span class='fa fa-puzzle-piece'>");
       $(this).prepend(puzzle);
-    } else if (tourCategory === ' other') {
+    } else if (tourCategory === ' Other') {
       console.log('other');
       var mapIcon = ("<span class='fa fa-map'>");
       $(this).prepend(mapIcon);
-    } else if (tourCategory === ' food &amp; drinks') {
-      console.log(' food &amp; drinks');
+    } else if (tourCategory === ' Food &amp; drinks') {
+      console.log(' ood &amp; drinks');
       var cutlery = ("<span class='fa fa-cutlery'>");
       $(this).prepend(cutlery);
     }
   });
 
+  $('#tour-details-rating').each(function(){
+    var starRatingCount = parseInt($(this).html());
+      $(this).html("");
+    for (var i = 0; i < starRatingCount; i++) {
+      $(this).append("<span class='fa fa-star'>");
+      // ("<span class='fa fa-star'>");
+      // span.addClass("fa-star");
+    }
+  });
 
   $("#rendezvous-point-input").on("input",function(){
     // var newTourMapDiv = document.getElementById('rendezvous-map');
@@ -164,6 +173,31 @@ $(function(){
     var tourCountry = $("#tour_country_id option:selected").text();
     geocodeAddress(rendezvousGeocoder(), createMap(newTourMapDiv), tourCountry, rendezvousPointInput);
   });
+
+  $('.tour-show-all').on('click', function(e){
+    e.stopPropagation();
+    e.preventDefault();
+    $('.schedules-modal-window').fadeIn();
+  });
+
+  $('.schedules-modal-window').on('click', function(e){
+    e.preventDefault();
+    $('.schedules-modal-window').fadeOut();
+  });
+
+  $('.schedules-modal').on('click', function(e){
+    e.stopPropagation();
+    e.preventDefault();
+  });
+
+
+
+  $(document).keyup(function(event){
+      if(event.which=='27'){
+        $('.schedules-modal-window').fadeOut();
+      }
+    });
+
 
 
 });

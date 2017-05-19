@@ -14,8 +14,7 @@
 
 <form class="form-horizontal">
   <div class="row">
-    <div class="col-sm-6">
-
+    <div class="col-sm-7">
       <br>
       <br>
       <div class="form-group">
@@ -25,21 +24,18 @@
       </div>
 
       <div class="form-group">
-        <i class="fa fa-user-circle-o icon-new-tour" aria-hidden="true" id="i"></i><%= f.label :name %>
+        <i class="fa fa-user-circle-o icon-new-tour" aria-hidden="true" id="i">
+        </i><%= f.label :name %>
         <%= f.text_field :name, :class=>"form-control" %>
       </div>
 
 
 
     <div class="form-group">
-      <%= f.label :description, :class=>"col-sm-1 control-label" %>
-      <div class="col-sm-8">
-
-      <div class="form-group">
-        <i class="fa fa-list-alt icon-new-tour" aria-hidden="true" id="i"></i><%= f.label :description %>
-
-        <%= f.text_area :description, :class=>"form-control" %>
-      </div>
+      <i class="fa fa-list-alt icon-new-tour" aria-hidden="true" id="i"></i>
+      <%= f.label :description %>
+      <%= f.text_area :description, :class=>"form-control" %>
+    </div>
 
       <div class="form-inline">
         <div class="row">
@@ -53,12 +49,12 @@
 
           <div class="col-sm-4">
             <div class="field">
-              <i class="fa fa-clock-o icon-new-tour" aria-hidden="true" id="i"></i><%= f.label :duration_in_hr, "Approx duration(hrs)" %>
-              <%= number_field_tag :duration_in_hr %>
+              <i class="fa fa-clock-o icon-new-tour" aria-hidden="true" id="i"></i><%= f.label :duration_in_hr, "Duration (hrs)" %>
+              <%= f.number_field :duration_in_hr %>
             </div>
           </div>
 
-          <div class="col-sm-4">
+          <div class="col-sm-3">
             <div class="field">
               <i class="fa fa-globe icon-new-tour" aria-hidden="true" id="i"></i><%= f.label :country_id %><br>
               <%= f.collection_select :country_id, @countries, :id, :name, include_blank: 'Please select a country'%>
@@ -75,16 +71,16 @@
         <%= f.text_field :rendezvous_point, class:"form-control", id:"rendezvous-point-input" %>
         <br>
         <br>
-        <%= f.submit "Add some dates", name: "no_schedule", :class=>"btn btn-primary" %>
+        <%= f.submit "OK - Add dates now", name: "add_schedule", :class=>"btn btn-primary" %>
         <p class="tour-or"></p>
-        <%= f.submit "Book some dates", name: "add_schedule", :class=>"btn btn-primary" %>
+        <%= f.submit "Add dates later", name: "no_schedule", :class=>"btn btn-primary" %>
         <p class="tour-or"></p>
         <%= link_to 'Cancel', tours_path, :class=>"btn btn-default" %>
       </div>
 
     </div><!--col-sm-7-->
 
-    <div class="col-sm-5">
+    <div class="col-sm-4">
       <div class="tour_new_pic_img">
         <%= image_tag(@tour.tourpic.url, :class=>"missing_tours_new") %>
         <%= f.file_field :tourpic, :class=>"img_upload_tours_new" %>

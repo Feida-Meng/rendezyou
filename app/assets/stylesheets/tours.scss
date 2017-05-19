@@ -29,24 +29,116 @@ $light-mustard: #fcdc6a;
 }
 
 .main-title,
-.reviews-title {
+.reviews-title,
+.schedule-title {
   padding-bottom: 15px;
   border-bottom: 2px solid $mustard;
   text-transform: uppercase;
 }
 
 .tour-details {
-  font-size: 1.2em;
+  font-size: 1.3em;
   padding: 20px 0;
 }
 
-.tours-icon-div {
-  padding-bottom: 20px;
+.tours-icon-div,
+.tours-rating-div {
+  padding: 10px 0 20px 0;
+}
+
+.tours-icon-div p {
+  padding: 5px 0;
+}
+
+.tours-rating-div {
+  text-align: right;
+  color: $light-mustard;
+}
+
+#tour-details-rating span {
+  padding: 5px;
+  font-size: 1.5em;
 }
 
 .tour-details-meetup {
   text-transform: capitalize;
 }
+
+// reviews --------------------
+.reviews-star-ratings span {
+  padding: .2em;
+}
+
+
+// right-side-tours-show ------
+
+.col-md-3.side-bar {
+  position: fixed;
+  right: 8.5%;
+  margin-top: 3em;
+  margin-bottom: 1em;
+}
+
+.booking-button {
+  float: right;
+}
+
+.booking-button-schedules span {
+  color: #337ab7;
+}
+
+.tour-sidebar-description {
+  line-height: 150%;
+  font-size: 1.1em;
+}
+
+.schedule-title {
+  margin-top: 30px;
+}
+
+.tour-show-date {
+  float: left;
+  width: 60%;
+}
+
+.tour-show-date {
+  font-size: 1.1em;
+}
+
+.tour-show-one-schedule {
+  margin-bottom: 5px;
+  overflow: auto;
+}
+
+// schedules modal ------------
+
+.schedules-modal-window {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30,30,30,0.8);
+  z-index: 990;
+}
+
+.schedules-modal {
+  display: block;
+  overflow: auto;
+  width: 500px;
+  max-height: 500px;
+  padding: 2em;
+  background-color: white;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
 
 // gmap: ----------------------
 #rendezvous-map {
@@ -72,6 +164,7 @@ $light-mustard: #fcdc6a;
   height:200px;
   width:100%;
   margin-bottom: 2%;
+  object-fit: cover;
 }
 
 
@@ -99,7 +192,7 @@ text-align: center;
 }
 
 .tours_show_entice{
-  margin-right: 5%;
+  padding-right: 18px;
   text-align: right;
   margin-bottom: 2%;
   margin-top: 0%;
@@ -114,25 +207,40 @@ text-align: center;
 .tour_index_name{
   font-family: 'Harmattan', sans-serif;
   color: white;
-  border-bottom: 2px solid white;
+  // border-bottom: 2px solid white;
   position: relative;
   // font-family: 'Raleway', sans-serif;
-  left: 20px;
   letter-spacing: .2em;
   text-shadow: 1px 1px 4px black;
   font-size: 160%;
+  margin-bottom: 0px;
+  margin-left: 20px;
+}
 
+.tour_index_name.user_show{
+  font-size: 1.5em;
+  // border-bottom: 1 solid white;
 }
 
 .tour_index_cat{
   position: relative;
   font-family: 'Raleway', sans-serif;
   // font-family: 'Harmattan', sans-serif;
-  left: 20px;
   letter-spacing: .2em;
   text-shadow: 1px 1px 3px black;
   color: white;
   font-size: 110%;
+  margin-left: 20px;
+
+}
+
+hr.white{
+  align: center;
+  size: 2;
+  width: 90%;
+  color: white;
+  margin-top: 0px;
+  margin-bottom: 6px;
 }
 
 // SCSS code
@@ -192,17 +300,22 @@ text-align: center;
 
 
 
-hr.thumbnail_black {
-  position: absolute;
-    height: 3px;
-    top: 245px;
-    color: white;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
-}
-
+// hr.thumbnail_black {
+//   position: absolute;
+//     height: 3px;
+//     top: 245px;
+//     color: white;
+//     border: 0;
+//     border-top: 1px solid #ccc;
+//     margin: 1em 0;
+//     padding: 0;
+// }
+//
+// hr {
+//   position: relative;
+//   color: whit
+//   border-width: 100px;
+// }
 
 .grad_img{
   position: absolute;
@@ -237,7 +350,9 @@ a#tourindexbut{
 .tourp{
   margin: 0px;
   margin-right: 30%;
-  font-size: .9em
+  font-size: .9em;
+  margin-left: -1%;
+
 }
 
 div#verticalcarousel{
@@ -276,7 +391,8 @@ margin-top: 10%;
 }
 
 .blue_names{
-  color: blue;
+  color: #0f5dc7;
+  font-weight: bold;
 }
 
 .yield.tours-index{
@@ -287,12 +403,18 @@ margin-top: 10%;
 #plus-square{
   color: #0274b3;
   font-size: 2em;
-  padding: 2%;
+  padding-left: 1%;
+}
+
+.plus-square-font{
+   padding-bottom: 5px;
 }
 
 .sub_heading_guide_all{
   font-size: 2em;
-  margin-left: 5%;
+  margin-left: 2.5%;
+  margin-right: 2.5;
+  margin-bottom: 2.5%;
 }
 
 .icon-new-tour{
@@ -305,13 +427,23 @@ margin-top: 10%;
     color: red;
 }
 
+
 .booking {
   text-align: center;
-
-
 }
 
 .booking_size {
   margin: 10px auto;
   font-weight: normal;
+
+p > a:active,
+p > a:visited,
+p > a:link{
+  text-decoration: none;
+  color: white;
+}
+
+.opacity_zero{
+  opacity: 0;
+
 }
