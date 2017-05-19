@@ -7,7 +7,7 @@ class Tour < ApplicationRecord
   has_many :reviews
   has_attached_file :tourpic, styles: { medium: "300x300>", thumb: "100x100>", big: "400x400>"}, default_url: ActionController::Base.helpers.asset_path('top.jpg')
 
-  validates :duration_in_ms, numericality: true
+  validates :duration_in_ms, numericality: { greater_than: 0 }
   validates_attachment_content_type :tourpic, content_type: /\Aimage\/.*\z/
 
   # converting duration input to ms before saving
@@ -24,7 +24,7 @@ class Tour < ApplicationRecord
   end
 
 
-  def duration_in_hr
+  def duration_in_hr(duration_in_ms=0)
     duration_in_ms / 3600000
   end
 
