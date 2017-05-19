@@ -80,9 +80,13 @@
     <h3><%= link_to "BOOK A TOUR!", tours_url %></h3>
   </div>
 </div>
-<
 
-<% unless current_user && @tours_created.empty? %>
+
+<% if current_user && @tours_created.empty? %>
+<div class="sub_heading_guide_all">You have no tours created...</div>
+<h4 class="user_show_click_here_to_create_one"><%= link_to "Click here to create a new tour", new_tour_url %></h3>
+
+<% else %>
 
 <div class="sub_heading_guide_all">Here are your Guided Tours!</div>
 
@@ -126,6 +130,9 @@
     </div><!--.col-md-12-->
   </div><!--.row-->
 </div><!--.container-fluid-->
+
+
+<!-- User's Booked tours -->
 
 
 <div class="tour" id="user_show_scheduled">
