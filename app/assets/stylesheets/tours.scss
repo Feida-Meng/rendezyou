@@ -348,6 +348,18 @@ a#tourindexbut{
   border: #ff584c;
 }
 
+a#tourindexbutboth{
+  position: absolute;
+  display: inline-block;
+  top: 15px;
+  right: 2px;
+  // background: #ff584c;
+  border: #ff584c;
+  background: #ff584c;
+  // text-shadow: 1px 0 black, 0 1px black, 1px 0 black, 0 1px black;
+}
+
+
 .tourp{
   margin: 0px;
   margin-right: 30%;

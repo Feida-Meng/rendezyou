@@ -55,7 +55,7 @@
 
                 <% if current_user && current_user.id == tour.user_id %>
                 <p>
-                  <%= link_to "VIEW / EDIT", tour_path(tour), :class=>"btn btn-success", :id=>"tourindexbut" %>
+                  <%= link_to "VIEW / EDIT", tour_path(tour), :class=>"btn btn-success", :id=>"tourindexbutboth" %>
                 </p>
 
                 <% else %>
