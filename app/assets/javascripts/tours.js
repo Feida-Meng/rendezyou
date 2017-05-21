@@ -40,13 +40,11 @@ $(function(){
       var rendezvousPoint = tour.rendezvous_point;
       var country = tour.country;
 
-
       var latlng;
       var latP;
       var lagP;
       var markerPosition;
       var tourPointInfoWindow = new google.maps.InfoWindow();
-      var bounds = new google.maps.LatLngBounds();
       var marker;
       var markers = {};
       var markerPlaced = false;
@@ -58,6 +56,7 @@ $(function(){
       geocodeAddress(rendezvousGeocoder(), tourMap, country, rendezvousPoint);
       if (tour.tourpoints.length > 0) {
 
+        var bounds = new google.maps.LatLngBounds();
         for (i = 0; i<tour.tourpoints.length;i++) {
           laglng = tour.tourpoints[i].tour_point_laglng;
           latP = Number(laglng.substring(laglng.indexOf("(")+1,laglng.indexOf(",")-1));
@@ -66,6 +65,7 @@ $(function(){
           marker = markerMaker(markerPosition,tourMap,(i+1).toString(),false);
           markers[marker.label] = tour.tourpoints[i];
           bounds.extend(marker.position);
+          tourMap.fitBounds(bounds);
 
           marker.addListener('click', function(event) {
 
@@ -87,7 +87,6 @@ $(function(){
               });
 
               this.draggable = true;
-              // console.log(this);
               markerEdited = true;
               this.setMap(null);
               editMarker = markerMaker(event.latLng, tourMap, this.label,true);
