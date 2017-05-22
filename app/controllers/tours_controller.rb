@@ -19,6 +19,7 @@ class ToursController < ApplicationController
 
   def show
     @tour = Tour.find(params[:id])
+    @booking = Booking.new
     @tourpoints = @tour.tourpoints
     @average_rating = average_rating
     @recent_schedules = recent_schedules
