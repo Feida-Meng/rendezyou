@@ -67,17 +67,21 @@
 
 <!-- Entice button section -->
 <div id="entice_section">
-  
-  <div class="col-md-4 btn entice_section_selected">
-    <h4><%= link_to "Click here to", new_tour_url %></h4>
-    <h3><%= link_to "BE A TOUR GUIDE! ", new_tour_url %><i class="fa fa-hand-o-left font_white"></i></h3>
-    <h4><%= link_to "Create a tour now", new_tour_url %></h4>
+
+  <div class="col-md-6 btn btn-default entice_section_btn">
+  <%=link_to new_tour_url do %>
+    <h4>Click here to</h4>
+    <h3>BE A TOUR GUIDE! <i class="fa fa-hand-o-left"></i></h3>
+    <h4>Create a tour now !</h4>
+    <% end %>
   </div>
 
-  <div class="col-md-4 btn btn-default entice_section_notselected">
-    <h4><%= link_to "Click here to", tours_url %></h4>
-    <h3><%= link_to "BE A TOURIST! ", tours_url %><i class="fa fa-hand-o-left"></i></h3>
-    <h4><%= link_to "Book a tour now", tours_url %></h4>
+  <div class="col-md-6 btn btn-default entice_section_btn">
+  <%=link_to tours_url do %>
+    <h4>Click here to</h4>
+    <h3>BE A TOURIST! <i class="fa fa-hand-o-left"></i></h3>
+    <h4>Book a tour now !</h4>
+    <% end %>
   </div>
 
 </div>
