@@ -1,28 +1,7 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.main_form{
-  margin: auto;
-  width: 60vw;
-  margin-top: 6.5%;
-}
 
-.user_left{
-  position: relative;
-  box-sizing: border-box;
-  display: inline-block;
-  height: 30em;
-  width: 40vw;
-  left: 0px;
-}
-.user_right {
-  position: absolute;
-  box-sizing: border-box;
-  display: inline-block;
-  height: 30em;
-  width: 16vw;
-  margin-left: 30px;
-}
 
 .picture-frame{
   width: 9em;
@@ -33,7 +12,7 @@
   position: fixed;
   width: 100vw;
   z-index: -500;
-  height: 110%;
+  height: 100vh;
 }
 
 .piclabel{
@@ -67,16 +46,6 @@ chalkboard_img{
   position: absolute;
 }
 
-.user_show_board{
-  position: absolute;
-  margin-top: 20%;
-  margin-bottom: 14%;
-  z-index: 10000;
-}
-
-// #user_show_scheduled{
-//   height: 500px;
-// }
 
 #black_text{
   color: black;
@@ -269,4 +238,19 @@ img.carou_one{
 
 .full_border{
   border: 1px solid;
+}
+
+
+.main_passport{
+  margin-left: auto;
+  margin-top: 8em;
+}
+.user_passport_container{
+  margin: auto;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    justify-content: center;
+    height: 100vh;
 }
