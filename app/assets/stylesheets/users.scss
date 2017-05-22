@@ -8,12 +8,7 @@
   height: 11em;
   background: rgba(0,0,0,.1);
 }
-.passport_img{
-  position: fixed;
-  width: 100vw;
-  z-index: -500;
-  height: 100vh;
-}
+
 
 .piclabel{
   margin-top: 3%;
@@ -158,13 +153,6 @@ img.carou_one{
 }
 //entice_section
 
-.user_new_signin_avatar{
-  width: 70%;
-  height: auto;
-  opacity: .5;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
 
 #carousel-example-generic img{
   display: inline;
@@ -245,12 +233,99 @@ img.carou_one{
   margin-left: auto;
   margin-top: 8em;
 }
-.user_passport_container{
-  margin: auto;
+
+.responsive_middle_none{
+  display: none;
+}
+
+
+@media (min-width:770px){
+
+  img.user_new_signin_avatar{
+      width: 70%;
+      height: auto;
+      opacity: .5;
+      margin-top: 5%;
+      margin-bottom: 5%;
+    }
+
+  .user_passport_container{
+    margin: auto;
     position: fixed;
     display: flex;
     flex-direction: row;
     width: 95%;
     justify-content: center;
     height: 100vh;
+    margin-top: 3em;
+  }
+
+  img.passport_img{
+    margin-top: 3em;
+    position: fixed;
+    width: 100vw;
+    z-index: -500;
+    height: 100vh;
+    object-fit: cover;
+  }
+
+  img.passport_wood_img{
+    display: none;
+  }
+
+
+}
+
+
+@media screen and (min-height:10px) and (max-height:770px){
+
+  .user_passport_container{
+    margin-top: 1em;
+  }
+
+}
+@media screen and (min-width:770px) and (max-width:1070px){
+
+  .responsive_middle_none{
+    display: inline-flex;
+  }
+}
+
+
+@media screen and (min-width:0px) and (max-width:770px){
+
+  img.user_new_signin_avatar{
+    display: none;
+    }
+
+    .user_passport_container{
+      display: inline-flex;
+      margin-top: 0px;
+    }
+
+
+  img.passport_img{
+    display: none;
+  }
+  img.passport_wood_img{
+    position: fixed;
+    min-width: 800px;
+    height: 100%;
+  }
+
+  .responsive_none{
+    display: none;
+  }
+
+  .responsive_middle_none{
+    display: none;
+  }
+
+  .form-horizontal{
+    width: 100%;
+  }
+
+  .form-horizontal.user_passport_container{
+    margin-left: 25%;
+ }
 }

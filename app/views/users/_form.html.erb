@@ -6,7 +6,7 @@
       <div class="col-sm-2">
       </div>
 
-      <div class="col-sm-4">
+      <div class="col-sm-5">
 
         <% if @user.errors.any? %>
         <div id="error_explanation">
@@ -22,7 +22,7 @@
 
         <div class="form-group has-success has-feedback">
           <%= f.label :name, class:"control-label col-sm-3"%>
-          <div class="col-sm-8">
+          <div class="col-sm-9">
             <%= f.text_field :name, class:"form-control", id:"inputSuccess3"%>
             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
             <span id="inputSuccess3Status" class="sr-only"></span>
@@ -31,7 +31,7 @@
 
         <div class="form-group has-success has-feedback">
           <%= f.label :username, class:"control-label col-sm-3"%>
-          <div class="col-sm-8">
+          <div class="col-sm-9">
             <%= f.text_field :username, class:"form-control", id:"inputSuccess3"%>
             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
             <span id="inputSuccess3Status" class="sr-only"></span>
@@ -40,7 +40,7 @@
 
         <div class="form-group has-success has-feedback">
           <%= f.label :email, class:"control-label col-sm-3"%>
-          <div class="col-sm-8">
+          <div class="col-sm-9">
             <%= f.text_field :email, class: "form-control", id:"inputSuccess3"%>
             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
             <span id="inputSuccess3Status" class="sr-only"></span>
@@ -49,7 +49,7 @@
 
         <div class="form-group has-success has-feedback">
           <%= f.label :phone, class:"control-label col-sm-3" %>
-          <div class="col-sm-8">
+          <div class="col-sm-9">
             <%= f.telephone_field :phone, class:"form-control", id:"inputSuccess3"%>
             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
             <span id="inputSuccess3Status" class="sr-only"></span>
@@ -58,14 +58,14 @@
 
         <div class="form-group has-success has-feedback">
           <%= f.label :password, class:"control-label col-sm-3" %>
-          <div class="col-sm-8">
+          <div class="col-sm-9">
             <%= f.password_field :password, class:"form-control", id:"inputSuccess3"%>
           </div>
         </div>
 
         <div class="form-group has-success has-feedback">
           <%= f.label :password_confirmation, class:"control-label col-sm-3" %>
-          <div class="col-sm-8">
+          <div class="col-sm-9">
             <%= f.password_field :password_confirmation, class:"form-control", id:"inputSuccess3"%>
           </div>
         </div>
@@ -74,14 +74,17 @@
 
       </div>
 
-      <div class="col-sm-3">
+      <div class="col-sm-1 responsive_middle_none">
+      </div>
+
+      <div class="col-sm-3 responsive_none">
 
         <%= image_tag ("panda_avatar.png"), :class=>"user_new_signin_avatar" %>
         <%= f.file_field :avatar %>
 
       </div>
 
-      <div class="col-sm-1">
+      <div class="col-sm-1 responsive_none">
       </div>
 
       <%end%>
