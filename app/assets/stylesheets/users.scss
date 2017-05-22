@@ -59,44 +59,8 @@ box-shadow: 1px 1px 3px black;
   border-right: none;
 }
 
-// below for Chalk board use!
-
-// h3.hey_you{
-//   text-align: center;
-//   // font-family: 'Bitter', serif;
-//   // font-family: 'Copse', serif;
-//   font-family: 'Cabin', sans-serif;
-//   // font-family: 'Pacifico', cursive;
-//   font-size: 4em;
-//   font-weight: bolder;
-//   color: white;
-//   // font-style: italic;
-//
-// }
-//
-// #white{
-//   background: #f9f0ea;
-//   color: white;
-// }
-
-// above is for Chalk board use!
-
 .black{
     background: #f9f0ea;
-}
-
-h3.user_click{
-  font-size: 4em;
-  text-align: center;
-  padding: 10px;
-  letter-spacing: 2px;
- // font-family: 'Open Sans', sans-serif;
-  // font-family: 'Niconne', cursive;
-  // font-family: 'Grand Hotel', cursive;
-  font-family: 'Harmattan', sans-serif;
-  // margin-top: %;
-  // font-family: 'Shanti', sans-serif;
-  z-index: 6000;
 }
 
 chalkboard_img{
@@ -113,15 +77,6 @@ chalkboard_img{
 // #user_show_scheduled{
 //   height: 500px;
 // }
-
-#a_nav_home_user{
-  vertical-align: middle;
-  font-family: 'Pacifico', cursive;
-  font-size: 2em;
-  color: #ff584c;
-  z-index: 10000;
-}
-
 
 #black_text{
   color: black;
@@ -208,31 +163,47 @@ img.carou_one{
   width: 1600px;
   height: 500px;
 }
+// carousel
+
+
+// entice_section
 
 #entice_section{
-  font-family: 'Harmattan', sans-serif;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: 'Abel', sans-serif;
   text-align: center;
   height: 170px;
+  justify-content: center;
 }
 
 #entice_section h3{
-  font-size: 3em;
-  margin-top: 10px;
-}
-#entice_section h4{
-  margin-top: 2.5em;
+  font-size: 2.5em;
+  margin: 10px 0 5px 0;
+  font-family: 'Nunito', sans-serif;
 }
 
-.user_show_guided{
- // background: #ff584c;
-background: grey;
+.entice_section_selected{
+  margin: 0px 1%;
+  background-color: #0274b3;
 }
 
+.entice_section_notselected{
+  margin: 0px 1%;
+  border-style: none;
+  }
 
-h3.show_entice,
-h4.show_entice{
-  margin-left: 2%;
+#entice_section h3 a:visited,
+#entice_section h4 a:visited{
+  text-decoration: none;
+  color: black;
 }
+
+.font_white{
+  color: white;
+}
+//entice_section
 
 .user_new_signin_avatar{
   width: 70%;
@@ -313,5 +284,5 @@ h4.show_entice{
 
 
 .full_border{
-  border: 1px solid
+  border: 1px solid;
 }

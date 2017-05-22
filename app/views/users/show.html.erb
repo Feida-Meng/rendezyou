@@ -2,8 +2,6 @@
 
 <div class="yield"></div>
 
-<!-- carousel -->
-
 <!-- Carousel -->
 <div class="container-fluid" id="user-carousel-container-fluid">
   <div class="row">
@@ -68,17 +66,22 @@
 
 
 <!-- Entice button section -->
-<div class="row underline_with_line">
-  <div class="col-md-6" id="entice_section">
-    <h4>Click here to</h4>
-    <h3><%= link_to "CREATE A TOUR!", new_tour_url %></h3>
+<div id="entice_section">
+  
+  <div class="col-md-4 btn entice_section_selected">
+    <h4><%= link_to "Click here to", new_tour_url %></h4>
+    <h3><%= link_to "BE A TOUR GUIDE! ", new_tour_url %><i class="fa fa-hand-o-left font_white"></i></h3>
+    <h4><%= link_to "Create a tour now", new_tour_url %></h4>
   </div>
 
-  <div class="col-md-6" id="entice_section">
-    <h4>Click here to</h4>
-    <h3><%= link_to "BOOK A TOUR!", tours_url %></h3>
+  <div class="col-md-4 btn btn-default entice_section_notselected">
+    <h4><%= link_to "Click here to", tours_url %></h4>
+    <h3><%= link_to "BE A TOURIST! ", tours_url %><i class="fa fa-hand-o-left"></i></h3>
+    <h4><%= link_to "Book a tour now", tours_url %></h4>
   </div>
+
 </div>
+
 
 <!-- User's created tours -->
 <div class="row underline_with_line">
