@@ -166,6 +166,13 @@ $light-mustard: #fcdc6a;
  font-size: 2.5em;
  margin-top: 5%;
 }
+.create_a_tour_now{
+ text-align: center;
+ font-weight: bolder;
+ color: #a8a7a7;
+ font-size: 2em;
+ margin-top: 3%;
+}
 
 .small_logo{
   font-size: 1em;
@@ -238,18 +245,6 @@ height: 25vw;
 .tour_index_name.user_show{
   font-size: 1.5em;
   // border-bottom: 1 solid white;
-}
-
-.tour_index_cat{
-  position: relative;
-  font-family: 'Raleway', sans-serif;
-  // font-family: 'Harmattan', sans-serif;
-  letter-spacing: .2em;
-  text-shadow: 1px 1px 3px black;
-  color: white;
-  font-size: 110%;
-  margin-left: 20px;
-
 }
 
 hr.white{
@@ -482,4 +477,19 @@ p > a:link{
 .opacity_zero{
   opacity: 0;
 
+}
+
+
+.tour_index_cat,
+.icon_margin_color_js{
+  position: relative;
+  font-family: 'Raleway', sans-serif;
+  // font-family: 'Harmattan', sans-serif;
+  letter-spacing: .2em;
+  text-shadow: 1px 1px 3px black;
+  color: white;
+  font-size: 110%;
+  margin-left: 20px;
+  color: white;
+  margin-left: 20px;
 }

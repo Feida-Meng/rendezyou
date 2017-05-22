@@ -3,12 +3,12 @@
   <%= form_for ([@tour, @schedule]) do |f| %>
 
   <% if @schedule.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_red">
       <h3><%= pluralize(@schedule.errors.count, "error")%> prohibited this schedule from being saved:</h3>
 
       <ul>
         <% @schedule.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <li id="error_red"><%= msg %></li>
         <% end %>
       </ul>
     </div>
