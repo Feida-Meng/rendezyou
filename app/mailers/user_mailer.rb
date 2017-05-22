@@ -1,6 +1,6 @@
 class UserMailer < ApplicationMailer
 
-  default from: 'notifications@example.com'
+  default from: 'rendezyouteam@gmail.com'
 
   def booking_confirmation_email(user, tour, schedule, tourguide, booking)
     @user = user
@@ -62,6 +62,6 @@ class UserMailer < ApplicationMailer
     emails = @tourists.collect(&:email).join(",")
     mail(bcc: emails, subject: "Tour Cancellation")
   end
-  
+
 
 end
