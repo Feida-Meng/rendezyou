@@ -156,6 +156,31 @@ $light-mustard: #fcdc6a;
   // margin: 0 auto 2% auto;
 }
 
+
+//tours_index_page
+
+.join_a_tour_now{
+ text-align: center;
+ font-weight: bolder;
+ color: #a8a7a7;
+ font-size: 2.5em;
+ margin-top: 5%;
+}
+.create_a_tour_now{
+ text-align: center;
+ font-weight: bolder;
+ color: #a8a7a7;
+ font-size: 2em;
+ margin-top: 3%;
+}
+
+.small_logo{
+  font-size: 1.1em;
+  color: #a8a7a7;
+  vertical-align: text-top;
+
+}
+
 .tour_show_full{
   position: relative;
 }
@@ -180,7 +205,7 @@ height: 25vw;
 
 .tours_index_search_bar{
   margin-top: 3%;
-text-align: center;
+  text-align: center;
 }
 
 .tours_index_actual_bar{
@@ -189,8 +214,9 @@ text-align: center;
   margin-top: 1%;
   width: 50%;
   border-radius: 6px;
-
+  padding-left: 1%;
 }
+
 
 .tours_show_entice{
   padding-right: 18px;
@@ -223,18 +249,6 @@ text-align: center;
   // border-bottom: 1 solid white;
 }
 
-.tour_index_cat{
-  position: relative;
-  font-family: 'Raleway', sans-serif;
-  // font-family: 'Harmattan', sans-serif;
-  letter-spacing: .2em;
-  text-shadow: 1px 1px 3px black;
-  color: white;
-  font-size: 110%;
-  margin-left: 20px;
-
-}
-
 hr.white{
   align: center;
   size: 2;
@@ -242,6 +256,26 @@ hr.white{
   color: white;
   margin-top: 0px;
   margin-bottom: 6px;
+}
+
+hr.black{
+  align: center;
+  height: 3;
+  margin-left: 18px;
+  margin-right: 18px;
+  background: gainsboro;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+hr.black_within{
+  align: center;
+  height: 1;
+  margin-left: 5px;
+  margin-right: 5px;
+  background: black;
+  margin-top: 3px;
+  margin-bottom: 10px;
 }
 
 // SCSS code
@@ -279,45 +313,6 @@ hr.white{
   background: white;
 }
 
-// .btn.btn-primary {}
-
-// .index-container-relative .tour_pic_tourdetails {
-//   box-sizing: border-box;
-//   position: relative;
-//   zoom: 205%;
-// }
-
-// -- below 2 are same--
-// .abc {
-//   .xyz {
-//
-//   }
-// }
-//
-// .abc > .xyz {
-//
-// }
-// -- above ---
-
-
-
-// hr.thumbnail_black {
-//   position: absolute;
-//     height: 3px;
-//     top: 245px;
-//     color: white;
-//     border: 0;
-//     border-top: 1px solid #ccc;
-//     margin: 1em 0;
-//     padding: 0;
-// }
-//
-// hr {
-//   position: relative;
-//   color: whit
-//   border-width: 100px;
-// }
-
 .grad_img{
   position: absolute;
   box-sizing: border-box;
@@ -347,6 +342,18 @@ a#tourindexbut{
   // background: #ff584c;
   border: #ff584c;
 }
+
+a#tourindexbutboth{
+  position: absolute;
+  display: inline-block;
+  top: 15px;
+  right: 2px;
+  // background: #ff584c;
+  border: #ff584c;
+  background: #ff584c;
+  // text-shadow: 1px 0 black, 0 1px black, 1px 0 black, 0 1px black;
+}
+
 
 .tourp{
   margin: 0px;
@@ -391,9 +398,23 @@ margin-top: 10%;
   height: 375px;
 }
 
-.blue_names{
+.col-md-3.push-img-to-float{
+  height: 375px;
+}
+
+.blue_icons{
   color: #0f5dc7;
   font-weight: bold;
+}
+
+.blue_names{
+  color: steelblue;
+  font-weight: bold;
+}
+
+.blue_names_normal{
+  color: steelblue;
+  font-size: 1em;
 }
 
 .yield.tours-index{
@@ -413,9 +434,8 @@ margin-top: 10%;
 
 .sub_heading_guide_all{
   font-size: 2em;
-  margin-left: 2.5%;
-  margin-right: 2.5;
   margin-bottom: 2.5%;
+  margin-left: 17px;
 }
 
 .icon-new-tour{
@@ -425,6 +445,7 @@ margin-top: 10%;
 
 .search_bar_error{
     text-align: center;
+    margin-right: 5%;
     color: red;
 }
 
@@ -448,4 +469,19 @@ p > a:link{
 .opacity_zero{
   opacity: 0;
 
+}
+
+
+.tour_index_cat,
+.icon_margin_color_js{
+  position: relative;
+  font-family: 'Raleway', sans-serif;
+  // font-family: 'Harmattan', sans-serif;
+  letter-spacing: .2em;
+  text-shadow: 1px 1px 3px black;
+  color: white;
+  font-size: 110%;
+  margin-left: 20px;
+  color: white;
+  margin-left: 20px;
 }

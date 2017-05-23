@@ -2,8 +2,6 @@
 
 <div class="yield"></div>
 
-<!-- carousel -->
-
 <!-- Carousel -->
 <div class="container-fluid" id="user-carousel-container-fluid">
   <div class="row">
@@ -68,57 +66,69 @@
 
 
 <!-- Entice button section -->
-<div class="row underline_with_line">
-  <div class="col-md-6" id="entice_section">
-    <h4>Click here to</h4>
-    <h3><%= link_to "CREATE A TOUR!", new_tour_url %></h3>
+<div class="entice_section" id="entice_section_web">
+
+  <div class="col-md-4 btn-default entice_section_btn">
+    <%=link_to new_tour_url do %>
+    <!-- <h4>Click here to</h4> -->
+    <h3>BE A TOUR GUIDE!</h3>
+    <h4>Create a tour now !</h4>
+    <% end %>
   </div>
 
-  <div class="col-md-6" id="entice_section">
-    <h4>Click here to</h4>
-    <h3><%= link_to "BOOK A TOUR!", tours_url %></h3>
+  <div class="col-sm-1"></div>
+
+  <div class="col-md-4 btn-default entice_section_btn">
+    <%=link_to tours_url do %>
+    <!-- <h4>Click here to</h4> -->
+    <h3>BE A TOURIST!</h3>
+    <h4>Book a tour now !</h4>
+    <% end %>
   </div>
+
 </div>
 
 <!-- User's created tours -->
-<div class="row underline_with_line">
-  <% if current_user && @tours_created.empty? %>
-  <div class="sub_heading_guide_all">You have no tours created...</div>
-  <h4 class="user_show_click_here_to_create_one"><%= link_to "Click here to create a new tour", new_tour_url %></h3>
+<div class="container-fluid">
+  <div class="row user_created_tours">
+    <div class="col-md-12 user_created_tours">
+      <div class="row">
 
-  <% else %>
+        <hr class="black">
 
-  <div class="sub_heading_guide_all">Here are your Guided Tours!</div>
+        <% if current_user && @tours_created.empty? %>
+        <div class="sub_heading_guide_all">Tours created: You have no tours created...</div>
+        <div class="sub_heading_guide_all user_show_click_here_to_create_one"><%= link_to "Click here to create a new tour", new_tour_url %></div>
 
-  <% end %>
+        <% else %>
 
-  <div class="container-fluid">
-    <div class="row user_created_tours">
-      <div class="col-md-12 user_created_tours">
-        <div class="row">
+        <div class="sub_heading_guide_all">Here are your <span class="blue_names">Guided</span> Tours!</div>
 
-          <% @tours_created.reverse.each do |tour| %>
+        <% end %>
 
-          <div class="col-md-3">
-            <div id="thumbnail_tour_index" class="thumbnail">
+        <% @tours_created.reverse.each do |tour| %>
 
-              <div class="index-container-relative userneedcenter">
-                <% if current_user.id == tour.user_id %>
-                <%= image_tag tour.tourpic.url(:medium), :class=>"tour_pic_tourdetails" %>
-                <%= image_tag("gradient-01.png", :class=>"grad2_img")%>
-                <div class="container_relative_no_break">
-                  <p class="tour_index_name"><%= link_to tour.name, tour_path(tour.id)%></p>
-                  <hr class="white">
-                  <p class="tour_index_cat"><%= tour.category%></p>
-                </div>
-                <% end %>
-              </div><!--.index-container-relative-->
 
-              <div class="caption" id="tourindexcaption">
-                <!-- <p class="tourp"><%= tour.description %></p> -->
-                <p class="tourp">
-                <i class="fa fa-map-marker" aria-hidden="true" id="i"></i>
-                <span class="blue_names">Rendezvous Point: </span><br>
+        <div class="col-md-3">
+          <div id="thumbnail_tour_index" class="thumbnail">
+
+            <div class="index-container-relative userneedcenter">
+              <% if current_user.id == tour.user_id %>
+              <%= image_tag tour.tourpic.url(:medium), :class=>"tour_pic_tourdetails" %>
+              <%= image_tag("gradient-01.png", :class=>"grad2_img")%>
+              <div class="container_relative_no_break">
+                <p class="tour_index_name"><%= link_to tour.name, tour_path(tour.id)%></p>
+                <hr class="white">
+                <p class="tour_index_cat"><%= tour.category%></p>
+              </div>
+              <% end %>
+            </div><!--.index-container-relative-->
+
+            <div class="caption" id="tourindexcaption">
+              <!-- <p class="tourp"><%= tour.description %></p> -->
+              <p class="tourp">
+                <i class="fa fa-map-marker blue_icons" aria-hidden="true" id="i"></i>
+                <span class="blue_names">RendezVous Point: </span><br>
                 <%= tour.rendezvous_point %></p>
                 <%= link_to "EDIT", tour_path(tour), :class=>"btn btn-success", :id=>"tourindexbut" %>
               </div><!--caption-->
@@ -131,59 +141,61 @@
       </div><!--.col-md-12 user_created_tours-->
     </div><!--.row user_created_tours-->
   </div><!--.container-fluid-->
-</div><!--.row.underline_with_line-->
 
 <!-- User's Booked tours -->
+<div class="container-fluid">
+  <div class="row user_created_tours">
+    <div class="col-md-12 user_created_tours">
+      <div class="row">
 
-<div class="row underline_with_line">
+        <hr class="black">
 
-  <% if @bookings.empty? %>
-  <div class="sub_heading_guide_all">You have no booked tours...</div>
-  <h4 class="user_show_click_here_to_create_one"><%= link_to "Click here to book a tour", tours_url %></h3>
+          <% if @bookings.empty? %>
+            <div class="sub_heading_guide_all">Tours booked: You have no tours booked...</div>
+            <div class="sub_heading_guide_all user_show_click_here_to_create_one"><%= link_to "Click here to book a tour", tours_url %></div>
+          <% else %>
+            <div class="sub_heading_guide_all">Here are your <span class="blue_names">Booked</span> Tours!</div>
 
-  <% else %>
+        <% @tours_booked.reverse.each do |t| %>
 
-  <div class="sub_heading_guide_all">Here are your Booked Tours!</div>
+        <div class="col-md-3">
+          <div id="thumbnail_tour_index" class="thumbnail">
 
-
-  <div class="container-fluid">
-    <div class="row user_created_tours">
-      <div class="col-md-12 user_created_tours">
-        <div class="row">
-
-          <% @tours_booked.each do |t| %>
             <% t.schedules.each do |s| %>
             <% s.bookings.each do |b| %>
             <% unless b.user_id != current_user.id %>
-            <div class="col-md-3">
-            <div id="thumbnail_tour_index" class="thumbnail">
-              <div class="index-container-relative userneedcenter">
 
-              <span> Tour name: <%= link_to t.name,tour_url(t) %> </span>
-              <p> Tour description: <%= t.description %> </p>
-              <p> Current tour size: <%= Schedule.find(b.schedule_id).current_capacity %></p>
-              <p> Tour date and time: <%= Schedule.find(b.schedule_id).tour_session %> </p>
-              <p> Date I booked: <%= b.created_at.strftime("%Y %b %d") %></p>
-              <p> Number of people I booked for (including myself): <%= b.booking_size %></p>
+            <div class="index-container-relative userneedcenter">
+              <%= image_tag t.tourpic.url(:medium), :class=>"tour_pic_tourdetails" %>
+              <%= image_tag("gradient-01.png", :class=>"grad2_img")%>
+              <div class="container_relative_no_break">
+                <p class="tour_index_name"><%= link_to t.name,tour_url(t) %> </p>
+                <hr class="white">
+                <p class="tour_index_cat"><%= t.category%></p>
+              </div><!--container_relative_no_break-->
             </div><!--.index-container-relative-->
-
             <div class="caption" id="tourindexcaption">
+              <div class="caption_booked_height">
+                <p><span class="blue_names_normal">Current tour size: </span><%= Schedule.find(b.schedule_id).current_capacity %></p>
+                <p><span class="blue_names_normal">Tour date and time: </span><br><%= Schedule.find(b.schedule_id).tour_session %></p>
+                <!-- <p> Date I booked: <%= b.created_at.strftime("%Y %b %d") %></p> -->
+                <p><span class="blue_names_normal">Tour description: </span><%= t.description %></p>
+                <p><span class="blue_names_normal">Number I booked for (including myself): </span><%= b.booking_size %></p>
+              </div><!--caption_booked_height-->
+                <hr class="black_within">
+                  <%= link_to "Edit Booking", edit_tour_schedule_booking_path(t,Schedule.find(b.schedule_id),b), :class=>"btn btn-warning" %> <%= link_to "Cancel Booking", tour_schedule_booking_path(t,Schedule.find(b.schedule_id),b), :class=>"btn btn-warning", method: :delete, data: {confirm: "Are you sure you want to cancel this booking?"}%>
+                <%= link_to "Review this tour!", new_tour_review_url(t.id), :class=>"btn btn-primary", :id=>"tourindexbut" %>
+            </div><!--caption-->
+          </div> <!--#thumbnail_tour_index-->
+        </div><!--.col-md-3-->
 
+        <% end %>
+        <% end %>
+        <% end %>
+        <% end %>
+        <% end %>
 
-              <%= link_to "Edit Booking", edit_tour_schedule_booking_path(t,Schedule.find(b.schedule_id),b) %> | <%= link_to "Cancel Booking", tour_schedule_booking_path(t,Schedule.find(b.schedule_id),b), method: :delete, data: {confirm: "Are you sure you want to cancel this booking?"}%>
-              <p>-----------------------------------------------------</p>
-              <%= link_to "Review this tour!", new_tour_review_url(t.id) %>
-          </div><!--caption-->
-        </div> <!--#thumbnail_tour_index-->
-      </div><!--.col-md-3-->
-      <% end %>
-      <% end %>
-      <% end %>
-      <% end %>
-      <% end %>
-
-        </div><!--.row-->
-      </div><!--.col-md-12 user_created_tours-->
-    </div><!--.row user_created_tours-->
-  </div><!--.container-fluid-->
-</div><!--.row.underline_with_line-->
+      </div><!--.row-->
+    </div><!--.col-md-12 user_created_tours-->
+  </div><!--.row user_created_tours-->
+</div><!--.container-fluid-->

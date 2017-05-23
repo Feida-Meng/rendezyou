@@ -1,39 +1,12 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.main_form{
-  margin: auto;
-  width: 60vw;
-  margin-top: 6.5%;
-}
 
-.user_left{
-  position: relative;
-  box-sizing: border-box;
-  display: inline-block;
-  height: 30em;
-  width: 40vw;
-  left: 0px;
-}
-.user_right {
-  position: absolute;
-  box-sizing: border-box;
-  display: inline-block;
-  height: 30em;
-  width: 16vw;
-  margin-left: 30px;
-}
 
 .picture-frame{
   width: 9em;
   height: 11em;
   background: rgba(0,0,0,.1);
-}
-.passport_img{
-  position: fixed;
-  width: 100vw;
-  z-index: -500;
-  height: 110%;
 }
 
 .piclabel{
@@ -45,11 +18,11 @@
 }
 
 #signupbutton{
-background-color: green;
-border-color: green;
-margin-left: 5%;
-margin-top: 2%;
-box-shadow: 1px 1px 3px black;
+  background-color: green;
+  border-color: green;
+  margin-left: 5%;
+  margin-top: 2%;
+  box-shadow: 1px 1px 3px black;
 }
 
 #inputSuccess3,{
@@ -59,67 +32,12 @@ box-shadow: 1px 1px 3px black;
   border-right: none;
 }
 
-// below for Chalk board use!
-
-// h3.hey_you{
-//   text-align: center;
-//   // font-family: 'Bitter', serif;
-//   // font-family: 'Copse', serif;
-//   font-family: 'Cabin', sans-serif;
-//   // font-family: 'Pacifico', cursive;
-//   font-size: 4em;
-//   font-weight: bolder;
-//   color: white;
-//   // font-style: italic;
-//
-// }
-//
-// #white{
-//   background: #f9f0ea;
-//   color: white;
-// }
-
-// above is for Chalk board use!
-
 .black{
-    background: #f9f0ea;
-}
-
-h3.user_click{
-  font-size: 4em;
-  text-align: center;
-  padding: 10px;
-  letter-spacing: 2px;
- // font-family: 'Open Sans', sans-serif;
-  // font-family: 'Niconne', cursive;
-  // font-family: 'Grand Hotel', cursive;
-  font-family: 'Harmattan', sans-serif;
-  // margin-top: %;
-  // font-family: 'Shanti', sans-serif;
-  z-index: 6000;
+  background: #f9f0ea;
 }
 
 chalkboard_img{
   position: absolute;
-}
-
-.user_show_board{
-  position: absolute;
-  margin-top: 20%;
-  margin-bottom: 14%;
-  z-index: 10000;
-}
-
-// #user_show_scheduled{
-//   height: 500px;
-// }
-
-#a_nav_home_user{
-  vertical-align: middle;
-  font-family: 'Pacifico', cursive;
-  font-size: 2em;
-  color: #ff584c;
-  z-index: 10000;
 }
 
 
@@ -137,7 +55,7 @@ chalkboard_img{
 .user_click a:link,
 #userpage a:active,
 .userpage a:active,
-.user_click a:active,{
+.user_click a:active{
   text-decoration: none;
   color: black;
   padding: 0 15px;
@@ -172,17 +90,8 @@ h3.user_click a:hover {
   z-index: 5000;
 }
 
-
 #userpage{
   z-index: 2500;
-}
-
-.user_nav_bar {
-  width: 100%;
-  height: 6em;
-  position: fixed;
-  z-index: 2000;
-  background: #f9f0ea;
 }
 
 #iwhite{
@@ -198,7 +107,6 @@ h3.user_click a:hover {
   border-radius: 50%;
 }
 
-
 // carousel
 #user-carousel-container-fluid{
   padding-left: 0px;
@@ -208,39 +116,7 @@ img.carou_one{
   width: 1600px;
   height: 500px;
 }
-
-#entice_section{
-  font-family: 'Harmattan', sans-serif;
-  text-align: center;
-  height: 170px;
-}
-
-#entice_section h3{
-  font-size: 3em;
-  margin-top: 10px;
-}
-#entice_section h4{
-  margin-top: 2.5em;
-}
-
-.user_show_guided{
- // background: #ff584c;
-background: grey;
-}
-
-
-h3.show_entice,
-h4.show_entice{
-  margin-left: 2%;
-}
-
-.user_new_signin_avatar{
-  width: 70%;
-  height: auto;
-  opacity: .5;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
+// carousel
 
 #carousel-example-generic img{
   display: inline;
@@ -253,7 +129,6 @@ h4.show_entice{
   font-size: 1.25em;
   margin-bottom: 2%;
 }
-
 
 .col-md-12.user_created_tours{
   width: 100%;
@@ -276,20 +151,6 @@ h4.show_entice{
   background: grey;
 }
 
-.row.underline_with_line{
-  border-bottom: 1px solid grey;
-  margin-bottom: 2%;
-  margin-left: 2.5%;
-  margin-right: 2.5%;
-}
-
-.row.topline_with_line{
-  border-top: 1px solid grey;
-  // margin-top: 2%;
-  margin-left: 2.5%;
-  margin-right: 2.5%;
-}
-
 .item.active > .carousel-caption {
   text-shadow: 2px 2px 3 black;
   // font-size: 1.5em;
@@ -307,11 +168,211 @@ h4.show_entice{
 }
 
 .user_show_click_here_to_create_one{
-    margin-left: 2.5%;
+    margin-top: -1%;
     margin-bottom: 3.5%;
+    font-size: 1.5em;
 }
 
-
 .full_border{
-  border: 1px solid
+  border: 1px solid;
+}
+
+.main_passport{
+  margin-left: auto;
+  margin-top: 8em;
+}
+
+.responsive_middle_none{
+  display: none;
+}
+
+#error_message{
+  position: absolute;
+  margin: auto;
+  top: 10em;
+  right: -20px;
+  text-align: center;
+  color: #FF5500;
+  z-index: 7000;
+  background: rgba(0,0,0,.8);
+  width: 450px;
+  height: 200px;
+  border-radius: 25px;
+  padding-right: 20px;
+  padding-top: .5%;
+}
+
+.error_message{
+  color: white;
+}
+
+.extra_avatar_to_hide{
+    display: none;
+}
+
+// entice_section
+
+.entice_section{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: 'Abel', sans-serif;
+  text-align: center;
+  height: 170px;
+  justify-content: center;
+}
+
+.entice_section h3{
+  font-size: 2.25em;
+  margin: 10px 0 5px 0;
+  font-family: 'Nunito', sans-serif;
+}
+
+.col-md-4.btn-default.entice_section_btn,
+.col-md-4.btn-default.entice_section_btn,
+.col-md-4.btn-default.entice_section_btn{
+  background-color: rgba(93, 92, 106, .8);
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.col-md-4.btn-default.entice_section_btn a:active,
+.col-md-4.btn-default.entice_section_btn a:visited,
+.col-md-4.btn-default.entice_section_btn a:link{
+  background-color: rgba(93, 92, 106, .8);
+  color: white;
+}
+
+.col-md-4.btn-default.entice_section_btn:hover{
+  background-color: white;
+  color: rgba(93,92, 106, 1);
+  border: 3px solid rgba(93,92, 106, 1);
+}
+.col-md-4.btn-default.entice_section_btn a:hover{
+  color: rgba(93,92, 106, 1);
+}
+
+.caption_booked_height{
+ height: 170px;
+}
+
+div#thumbnail_tour_index:hover{
+  box-shadow: 0px 0px 4px 4px #888888;
+  transition: all .2s ease-in-out;
+  transform: scale(1.02)
+
+}
+
+// responsive starts here  ------------>
+// responsive starts here  ------------>
+// responsive starts here  ------------>
+// responsive starts here  ------------>
+// responsive starts here  ------------>
+
+@media (min-width:770px){
+
+  img.user_new_signin_avatar{
+      width: 70%;
+      height: auto;
+      opacity: .5;
+      margin-top: 5%;
+      margin-bottom: 5%;
+    }
+
+  .user_passport_container{
+    margin: auto;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    justify-content: center;
+    height: 100vh;
+    margin-top: 3em;
+  }
+
+  img.passport_img{
+    margin-top: 3em;
+    position: fixed;
+    width: 100vw;
+    z-index: -500;
+    height: 100vh;
+    object-fit: cover;
+  }
+
+  img.passport_wood_img{
+    display: none;
+  }
+
+}
+
+@media screen and (min-width:770px) and (max-width:1070px){
+
+  .responsive_middle_none{
+    display: inline-flex;
+  }
+}
+
+@media screen and (min-width:0px) and (max-width:770px){
+
+  img.user_new_signin_avatar{
+    display: none;
+  }
+
+  .user_passport_container{
+    display: inline-flex;
+    margin-top: 1em;
+  }
+
+  img.passport_img{
+    display: none;
+  }
+
+  img.passport_wood_img{
+    position: fixed;
+    min-width: 800px;
+    height: 100%;
+  }
+
+  .responsive_none{
+    display: none;
+  }
+
+  .responsive_middle_none{
+    display: none;
+  }
+
+  .form-horizontal{
+    width: 100%;
+  }
+
+  .form-horizontal.user_passport_container{
+    margin-left: 23%;
+    margin-top: -35px;
+  }
+
+  #error_message{
+   position: absolute;
+   margin: auto;
+   top: 8em;
+   right: -20px;
+   text-align: center;
+   color: #FF5500;
+   z-index: 7000;
+   background: rgba(0,0,0,.8);
+   width: 350px;
+   height: 275px;
+   border-radius: 25px;
+   padding-right: 20px;
+   padding-top: 3%;
+  }
+
+ .extra_avatar_to_hide{
+   display: inherit;
+   color: white;
+  }
+
+  .extra_avatar_to_hide_padding{
+  padding-left: 15px;
+  }
+
 }
