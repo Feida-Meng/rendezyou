@@ -87,23 +87,23 @@
 
 
 <!-- User's created tours -->
-<div class="row underline_with_line">
-  <% if current_user && @tours_created.empty? %>
-  <div class="sub_heading_guide_all">You have no tours created...</div>
-  <h4 class="user_show_click_here_to_create_one"><%= link_to "Click here to create a new tour", new_tour_url %></h3>
-
-  <% else %>
-
-
-  <% end %>
 
   <div class="container-fluid">
     <div class="row user_created_tours">
       <div class="col-md-12 user_created_tours">
         <div class="row">
 
+          <hr class="black">
 
-              <div class="sub_heading_guide_all">Here are your Guided Tours!</div>
+          <% if current_user && @tours_created.empty? %>
+            <div class="sub_heading_guide_all">Tours created: You have no tours created...</div>
+            <div class="sub_heading_guide_all user_show_click_here_to_create_one"><%= link_to "Click here to create a new tour", new_tour_url %></div>
+
+          <% else %>
+
+            <div class="sub_heading_guide_all">Here are your Guided Tours!</div>
+
+          <% end %>
 
           <% @tours_created.reverse.each do |tour| %>
 
@@ -140,33 +140,36 @@
       </div><!--.col-md-12 user_created_tours-->
     </div><!--.row user_created_tours-->
   </div><!--.container-fluid-->
-</div><!--.row.underline_with_line-->
 
 <!-- User's Booked tours -->
+<div class="container-fluid">
+  <div class="row user_created_tours">
+    <div class="col-md-12 user_created_tours">
+      <div class="row">
 
-<div class="row underline_with_line">
+        <hr class="black">
 
   <% if @bookings.empty? %>
-  <div class="sub_heading_guide_all">You have no booked tours...</div>
-  <h4 class="user_show_click_here_to_create_one"><%= link_to "Click here to book a tour", tours_url %></h3>
+  <div class="sub_heading_guide_all">Tours booked: You have no tours booked...</div>
+  <div class="sub_heading_guide_all user_show_click_here_to_create_one"><%= link_to "Click here to book a tour", tours_url %></div>
 
   <% else %>
 
   <div class="sub_heading_guide_all">Here are your Booked Tours!</div>
 
+  <% end %>
 
-  <div class="container-fluid">
-    <div class="row user_created_tours">
-      <div class="col-md-12 user_created_tours">
-        <div class="row">
 
           <% @tours_booked.each do |t| %>
+
+          <div class="col-md-3">
+            <div id="thumbnail_tour_index" class="thumbnail">
+
+              <div class="index-container-relative userneedcenter">
+
             <% t.schedules.each do |s| %>
             <% s.bookings.each do |b| %>
             <% unless b.user_id != current_user.id %>
-            <div class="col-md-3">
-            <div id="thumbnail_tour_index" class="thumbnail">
-              <div class="index-container-relative userneedcenter">
 
               <span> Tour name: <%= link_to t.name,tour_url(t) %> </span>
               <p> Tour description: <%= t.description %> </p>
@@ -189,10 +192,8 @@
       <% end %>
       <% end %>
       <% end %>
-      <% end %>
 
-        </div><!--.row-->
-      </div><!--.col-md-12 user_created_tours-->
-    </div><!--.row user_created_tours-->
-  </div><!--.container-fluid-->
-</div><!--.row.underline_with_line-->
+    </div><!--.row-->
+  </div><!--.col-md-12 user_created_tours-->
+</div><!--.row user_created_tours-->
+</div><!--.container-fluid-->

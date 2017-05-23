@@ -151,20 +151,6 @@ img.carou_one{
   background: grey;
 }
 
-.row.underline_with_line{
-  border-bottom: 1px solid grey;
-  margin-bottom: 2%;
-  margin-left: 2.5%;
-  margin-right: 2.5%;
-}
-
-.row.topline_with_line{
-  border-top: 1px solid grey;
-  // margin-top: 2%;
-  margin-left: 2.5%;
-  margin-right: 2.5%;
-}
-
 .item.active > .carousel-caption {
   text-shadow: 2px 2px 3 black;
   // font-size: 1.5em;
@@ -182,8 +168,9 @@ img.carou_one{
 }
 
 .user_show_click_here_to_create_one{
-    margin-left: 2.5%;
+    margin-top: -1%;
     margin-bottom: 3.5%;
+    font-size: 1.5em;
 }
 
 .full_border{

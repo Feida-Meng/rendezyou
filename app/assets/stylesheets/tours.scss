@@ -258,6 +258,17 @@ hr.white{
   margin-bottom: 6px;
 }
 
+hr.black{
+  align: center;
+  height: 3;
+  margin-left: 18px;
+  margin-right: 18px;
+  background: gainsboro;
+  margin-top: 20px;
+  margin-bottom: 40px;
+
+}
+
 // SCSS code
 .index-container-relative {
   position: relative;
@@ -292,45 +303,6 @@ hr.white{
 .index-container-relative.modified {
   background: white;
 }
-
-// .btn.btn-primary {}
-
-// .index-container-relative .tour_pic_tourdetails {
-//   box-sizing: border-box;
-//   position: relative;
-//   zoom: 205%;
-// }
-
-// -- below 2 are same--
-// .abc {
-//   .xyz {
-//
-//   }
-// }
-//
-// .abc > .xyz {
-//
-// }
-// -- above ---
-
-
-
-// hr.thumbnail_black {
-//   position: absolute;
-//     height: 3px;
-//     top: 245px;
-//     color: white;
-//     border: 0;
-//     border-top: 1px solid #ccc;
-//     margin: 1em 0;
-//     padding: 0;
-// }
-//
-// hr {
-//   position: relative;
-//   color: whit
-//   border-width: 100px;
-// }
 
 .grad_img{
   position: absolute;
