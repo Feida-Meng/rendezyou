@@ -69,6 +69,12 @@ $light-mustard: #fcdc6a;
   padding: .2em;
 }
 
+#tour-responsive-description,
+#see-schedules-responsive,
+.tour-description-title {
+  display: none;
+}
+
 
 // right-side-tours-show ------
 
@@ -111,6 +117,8 @@ $light-mustard: #fcdc6a;
   overflow: auto;
 }
 
+
+
 // schedules and booking modal ------------
 
 .schedules-modal-window,
@@ -125,7 +133,7 @@ $light-mustard: #fcdc6a;
   z-index: 990;
 }
 
-.schedules-modal, 
+.schedules-modal,
 .booking-modal-form {
   display: block;
   overflow: auto;
@@ -487,3 +495,105 @@ p > a:link{
   color: white;
   margin-left: 20px;
 }
+
+
+// Responsive - Tours # Show ----------------------------
+
+@media (max-width:1280px){
+
+  .tour-show-spots {
+    display: none;
+  }
+
+}
+
+@media (max-width:1045px){
+
+  .booking-button {
+    display: none;
+  }
+
+}
+
+@media (max-width: 990px){
+
+  .col-md-4.tours-icon-div {
+      display: inline-block;
+  }
+
+  .col-md-4.tours-rating-div {
+      display: inline-block;
+  }
+
+  .side-bar {
+       display: none;
+  }
+
+  .col-md-7,
+  .tour-details,
+  .reviews,
+  #tour-responsive-description {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  #show-tour-map {
+    margin: 0 auto;
+    height: 350px;
+  }
+
+  .tours-icon-div, .tours-rating-div {
+    padding: 0;
+    margin: 0;
+
+  }
+
+  #tour-responsive-description,
+  .tour-description-title {
+    display: block;
+    margin-bottom: 1%;
+  }
+
+  #see-schedules-responsive {
+    display: inline-block;
+  }
+
+  .tours-rating-div {
+    text-align: left;
+  }
+
+  .tour-guide-name {
+    margin-bottom: 1%;
+  }
+
+  .tour-description-title {
+    padding-bottom: 15px;
+    border-bottom: 2px solid $mustard;
+    text-transform: uppercase;
+  }
+
+}
+
+@media (max-width:415px){
+
+  .main-title,
+  .tour-description-title,
+  .reviews-title {
+    font-size: 1.7em;
+  }
+
+  .tour-details {
+    font-size: .9em;
+    padding: 20px 0;
+  }
+
+}
+
+// .col-md-3.side-bar {
+//     position: absolute;
+//     top: 17%;
+//     /* display: block; */
+// }
+//
+// p.show_page_tour_image {
+//     display: none;
