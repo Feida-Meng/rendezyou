@@ -175,8 +175,10 @@ $light-mustard: #fcdc6a;
 }
 
 .small_logo{
-  font-size: 1em;
+  font-size: 1.1em;
   color: #a8a7a7;
+  vertical-align: text-top;
+
 }
 
 .tour_show_full{
@@ -454,6 +456,7 @@ margin-top: 10%;
 
 .search_bar_error{
     text-align: center;
+    margin-right: 5%;
     color: red;
 }
 
