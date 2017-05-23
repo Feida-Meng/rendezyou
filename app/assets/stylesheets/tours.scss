@@ -174,7 +174,7 @@ $light-mustard: #fcdc6a;
  font-weight: bolder;
  color: #a8a7a7;
  font-size: 2.5em;
- margin-top: 5%;
+ margin-top: 5.5%;
 }
 .create_a_tour_now{
  text-align: center;
@@ -188,6 +188,8 @@ $light-mustard: #fcdc6a;
   font-size: 1.1em;
   color: #a8a7a7;
   vertical-align: text-top;
+  padding-right: .85%;
+  padding-left: .55%;
 
 }
 
@@ -242,29 +244,32 @@ height: 25vw;
 }
 
 .tour_index_name{
+  // border-bottom: 2px solid white;
+  // font-family: 'Raleway', sans-serif;
   font-family: 'Harmattan', sans-serif;
   color: white;
-  // border-bottom: 2px solid white;
   position: relative;
-  // font-family: 'Raleway', sans-serif;
   letter-spacing: .2em;
-  text-shadow: 1px 1px 4px black;
+  text-shadow: 1px 1px 3px black;
   font-size: 160%;
-  margin-bottom: 0px;
-  margin-left: 20px;
+  margin-bottom: 12px;
+  padding-bottom: 0px;
+  margin-left: 18px;
+  margin-right: 25px;
+  line-height: 1em;
 }
 
-.tour_index_name.user_show{
-  font-size: 1.5em;
-  // border-bottom: 1 solid white;
+.tour_index_name a:visited{
+  color: white;
 }
 
 hr.white{
   align: center;
   size: 2;
-  width: 90%;
+  margin-left: 18px;
+  margin-right: 18px;
   color: white;
-  margin-top: 0px;
+  margin-top: -7px;
   margin-bottom: 6px;
 }
 
@@ -364,6 +369,41 @@ a#tourindexbutboth{
   // text-shadow: 1px 0 black, 0 1px black, 1px 0 black, 0 1px black;
 }
 
+a#tourindexbut_bw{
+  position: absolute;
+  display: inline-block;
+  top: 12px;
+  right: 12px;
+  background: rgba(0,0,0,.2);
+  border: white;
+  border: 1px solid white;
+  padding: 3px 7px;
+  letter-spacing: .2em;
+  // text-shadow: 1px 0 black, 0 1px black, 1px 0 black, 0 1px black;
+  font-size: .75em;
+}
+
+a#tourindexbutboth_bw{
+  position: absolute;
+  display: inline-block;
+  top: 12px;
+  right: 12px;
+  background: rgba(0,0,0,.2);
+  border: white;
+  border: 1px solid white;
+  padding: 3px 7px;
+  letter-spacing: .2em;
+  // text-shadow: 1px 0 black, 0 1px black, 1px 0 black, 0 1px black;
+  font-size: .75em;
+}
+
+a#tourindexbutboth_bw:visited,
+a#tourindexbutboth_bw:hover,
+a#tourindexbutboth_bw:link,
+a#tourindexbutboth_bw:active{
+  color: white;
+}
+
 
 .tourp{
   margin: 0px;
@@ -397,8 +437,8 @@ margin-top: 10%;
 }
 
 .missing_tours_new{
- width: 200px;
- height: 150px;
+ width: 175px;
+ height: 125px;
  margin-bottom: 5%;
 }
 .img_upload_tours_new{
@@ -424,7 +464,12 @@ margin-top: 10%;
 
 .blue_names_normal{
   color: steelblue;
-  font-size: 1em;
+  font-size: .8em;
+}
+
+.black_names_normal{
+  color: black;
+  font-size: .8em;
 }
 
 .yield.tours-index{
@@ -493,7 +538,6 @@ p > a:link{
   font-size: 110%;
   margin-left: 20px;
   color: white;
-  margin-left: 20px;
 }
 
 

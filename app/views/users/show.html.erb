@@ -68,8 +68,8 @@
 <!-- Entice button section -->
 <div class="entice_section" id="entice_section_web">
 
-  <div class="col-md-4 btn-default entice_section_btn">
-    <%=link_to new_tour_url do %>
+  <div class="col-md-4">
+    <%=link_to new_tour_url, class: 'btn-default entice_section_btn' do %>
     <!-- <h4>Click here to</h4> -->
     <h3>BE A TOUR GUIDE!</h3>
     <h4>Create a tour now !</h4>
@@ -78,8 +78,8 @@
 
   <div class="col-sm-1"></div>
 
-  <div class="col-md-4 btn-default entice_section_btn">
-    <%=link_to tours_url do %>
+  <div class="col-md-4">
+    <%=link_to tours_url, class: 'btn-default entice_section_btn' do %>
     <!-- <h4>Click here to</h4> -->
     <h3>BE A TOURIST!</h3>
     <h4>Book a tour now !</h4>
@@ -114,10 +114,11 @@
 
             <div class="index-container-relative userneedcenter">
               <% if current_user.id == tour.user_id %>
-              <%= image_tag tour.tourpic.url(:medium), :class=>"tour_pic_tourdetails" %>
-              <%= image_tag("gradient-01.png", :class=>"grad2_img")%>
+              <%= link_to image_tag(tour.tourpic.url(:medium), :class=>"tour_pic_tourdetails"), tour_path(tour)%>
+              <%= link_to image_tag("gradient-01.png", :class=>"grad2_img"), tour_path(tour)%>
+              <%= link_to "EDIT", edit_tour_path(tour), :id=>"tourindexbutboth_bw" %>
               <div class="container_relative_no_break">
-                <p class="tour_index_name"><%= link_to tour.name, tour_path(tour.id)%></p>
+                <p class="tour_index_name" ><%= link_to tour.name.slice(0,1).capitalize + tour.name.slice(1..-1), tour_path(tour.id)%></p>
                 <hr class="white">
                 <p class="tour_index_cat"><%= tour.category%></p>
               </div>
@@ -130,7 +131,7 @@
                 <i class="fa fa-map-marker blue_icons" aria-hidden="true" id="i"></i>
                 <span class="blue_names">RendezVous Point: </span><br>
                 <%= tour.rendezvous_point %></p>
-                <%= link_to "EDIT", tour_path(tour), :class=>"btn btn-success", :id=>"tourindexbut" %>
+                <!-- <%= link_to "EDIT", tour_path(tour), :class=>"btn btn-success", :id=>"tourindexbut" %> -->
               </div><!--caption-->
             </div> <!--#thumbnail_tour_index-->
           </div><!--.col-md-3-->
@@ -169,18 +170,18 @@
               <%= image_tag t.tourpic.url(:medium), :class=>"tour_pic_tourdetails" %>
               <%= image_tag("gradient-01.png", :class=>"grad2_img")%>
               <div class="container_relative_no_break">
-                <p class="tour_index_name"><%= link_to t.name,tour_url(t) %> </p>
+                <p class="tour_index_name" ><%= link_to t.name.slice(0,1).capitalize + t.name.slice(1..-1),tour_url(t) %></p>
                 <hr class="white">
                 <p class="tour_index_cat"><%= t.category%></p>
               </div><!--container_relative_no_break-->
             </div><!--.index-container-relative-->
             <div class="caption" id="tourindexcaption">
               <div class="caption_booked_height">
-                <p><span class="blue_names_normal">Current tour size: </span><%= Schedule.find(b.schedule_id).current_capacity %></p>
-                <p><span class="blue_names_normal">Tour date and time: </span><br><%= Schedule.find(b.schedule_id).tour_session %></p>
+                <p><span class="blue_names_normal">Current tour size: </span><span class="black_names_normal"><%= Schedule.find(b.schedule_id).current_capacity %></span></p>
+                <p><span class="blue_names_normal">Tour date and time: </span><br><span class="black_names_normal"><%= Schedule.find(b.schedule_id).tour_session %></span></p>
                 <!-- <p> Date I booked: <%= b.created_at.strftime("%Y %b %d") %></p> -->
-                <p><span class="blue_names_normal">Tour description: </span><%= t.description %></p>
-                <p><span class="blue_names_normal">Number I booked for (including myself): </span><%= b.booking_size %></p>
+                <p><span class="blue_names_normal">Tour description: </span><span class="black_names_normal"><%= t.description %></span></p>
+                <p><span class="blue_names_normal">Number I booked for (including myself): </span><span class="black_names_normal"><%= b.booking_size %></span></p>
               </div><!--caption_booked_height-->
                 <hr class="black_within">
                   <%= link_to "Edit Booking", edit_tour_schedule_booking_path(t,Schedule.find(b.schedule_id),b), :class=>"btn btn-warning" %> <%= link_to "Cancel Booking", tour_schedule_booking_path(t,Schedule.find(b.schedule_id),b), :class=>"btn btn-warning", method: :delete, data: {confirm: "Are you sure you want to cancel this booking?"}%>
