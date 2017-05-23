@@ -2,7 +2,7 @@
 
   <% if @user.errors.any? %>
   <div id="error_message">
-    <h4><%= pluralize(@user.errors.count, "error") %> prohibited this product from being saved:</h4>
+    <h4><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h4>
 
     <ul>
       <% @user.errors.full_messages.each do |msg| %>
