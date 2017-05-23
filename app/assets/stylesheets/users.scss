@@ -253,9 +253,15 @@ img.carou_one{
 }
 
 .caption_booked_height{
- height: 170px;  
+ height: 170px;
 }
 
+div#thumbnail_tour_index:hover{
+  box-shadow: 0px 0px 4px 4px #888888;
+  transition: all .2s ease-in-out;
+  transform: scale(1.02)
+
+}
 
 // responsive starts here  ------------>
 // responsive starts here  ------------>
