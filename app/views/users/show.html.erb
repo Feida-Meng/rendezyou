@@ -94,7 +94,6 @@
 
   <% else %>
 
-  <div class="sub_heading_guide_all">Here are your Guided Tours!</div>
 
   <% end %>
 
@@ -103,7 +102,11 @@
       <div class="col-md-12 user_created_tours">
         <div class="row">
 
+
+              <div class="sub_heading_guide_all">Here are your Guided Tours!</div>
+
           <% @tours_created.reverse.each do |tour| %>
+
 
           <div class="col-md-3">
             <div id="thumbnail_tour_index" class="thumbnail">
