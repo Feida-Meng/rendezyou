@@ -9,7 +9,6 @@
   background: rgba(0,0,0,.1);
 }
 
-
 .piclabel{
   margin-top: 3%;
 }
@@ -19,11 +18,11 @@
 }
 
 #signupbutton{
-background-color: green;
-border-color: green;
-margin-left: 5%;
-margin-top: 2%;
-box-shadow: 1px 1px 3px black;
+  background-color: green;
+  border-color: green;
+  margin-left: 5%;
+  margin-top: 2%;
+  box-shadow: 1px 1px 3px black;
 }
 
 #inputSuccess3,{
@@ -34,7 +33,7 @@ box-shadow: 1px 1px 3px black;
 }
 
 .black{
-    background: #f9f0ea;
+  background: #f9f0ea;
 }
 
 chalkboard_img{
@@ -56,7 +55,7 @@ chalkboard_img{
 .user_click a:link,
 #userpage a:active,
 .userpage a:active,
-.user_click a:active,{
+.user_click a:active{
   text-decoration: none;
   color: black;
   padding: 0 15px;
@@ -91,7 +90,6 @@ h3.user_click a:hover {
   z-index: 5000;
 }
 
-
 #userpage{
   z-index: 2500;
 }
@@ -117,7 +115,6 @@ h3.user_click a:hover {
   border-radius: 50%;
 }
 
-
 // carousel
 #user-carousel-container-fluid{
   padding-left: 0px;
@@ -128,7 +125,6 @@ img.carou_one{
   height: 500px;
 }
 // carousel
-
 
 // entice_section
 
@@ -165,7 +161,6 @@ img.carou_one{
   font-size: 1.25em;
   margin-bottom: 2%;
 }
-
 
 .col-md-12.user_created_tours{
   width: 100%;
@@ -223,11 +218,9 @@ img.carou_one{
     margin-bottom: 3.5%;
 }
 
-
 .full_border{
   border: 1px solid;
 }
-
 
 .main_passport{
   margin-left: auto;
@@ -238,6 +231,35 @@ img.carou_one{
   display: none;
 }
 
+#error_message{
+  position: absolute;
+  margin: auto;
+  top: 10em;
+  right: -20px;
+  text-align: center;
+  color: #FF5500;
+  z-index: 7000;
+  background: rgba(0,0,0,.8);
+  width: 450px;
+  height: 200px;
+  border-radius: 25px;
+  padding-right: 20px;
+  padding-top: .5%;
+}
+
+.error_message{
+  color: white;
+}
+
+.extra_avatar_to_hide{
+    display: none;
+}
+
+// responsive starts here  ------------>
+// responsive starts here  ------------>
+// responsive starts here  ------------>
+// responsive starts here  ------------>
+// responsive starts here  ------------>
 
 @media (min-width:770px){
 
@@ -273,7 +295,6 @@ img.carou_one{
     display: none;
   }
 
-
 }
 
 
@@ -284,6 +305,7 @@ img.carou_one{
   }
 
 }
+
 @media screen and (min-width:770px) and (max-width:1070px){
 
   .responsive_middle_none{
@@ -291,22 +313,21 @@ img.carou_one{
   }
 }
 
-
 @media screen and (min-width:0px) and (max-width:770px){
 
   img.user_new_signin_avatar{
     display: none;
-    }
+  }
 
-    .user_passport_container{
-      display: inline-flex;
-      margin-top: 0px;
-    }
-
+  .user_passport_container{
+    display: inline-flex;
+    margin-top: 0px;
+  }
 
   img.passport_img{
     display: none;
   }
+
   img.passport_wood_img{
     position: fixed;
     min-width: 800px;
@@ -326,6 +347,33 @@ img.carou_one{
   }
 
   .form-horizontal.user_passport_container{
-    margin-left: 25%;
- }
+    margin-left: 23%;
+    margin-top: -35px;
+  }
+
+  #error_message{
+   position: absolute;
+   margin: auto;
+   top: 8em;
+   right: -20px;
+   text-align: center;
+   color: #FF5500;
+   z-index: 7000;
+   background: rgba(0,0,0,.8);
+   width: 350px;
+   height: 275px;
+   border-radius: 25px;
+   padding-right: 20px;
+   padding-top: 3%;
+  }
+
+ .extra_avatar_to_hide{
+   display: inherit;
+   color: white;
+  }
+
+  .extra_avatar_to_hide_padding{
+  padding-left: 15px;
+  }
+
 }
