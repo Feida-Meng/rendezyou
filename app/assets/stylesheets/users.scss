@@ -256,6 +256,15 @@ div#thumbnail_tour_index:hover{
 
 }
 
+form#new_user{
+  margin-top: 10px;
+}
+
+input#signupbutton{
+  margin-top: 0px;
+}
+
+
 // responsive starts here  ------------>
 // responsive starts here  ------------>
 // responsive starts here  ------------>
@@ -340,7 +349,7 @@ div#thumbnail_tour_index:hover{
 
   .form-horizontal.user_passport_container{
     margin-left: 23%;
-    margin-top: -35px;
+    margin-top: -65px;
   }
 
   #error_message{
@@ -366,6 +375,10 @@ div#thumbnail_tour_index:hover{
 
   .extra_avatar_to_hide_padding{
   padding-left: 15px;
+  }
+  
+  div.main_passport{
+    margin-top: 30px;
   }
 
 }
