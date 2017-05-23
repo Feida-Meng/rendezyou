@@ -6,13 +6,13 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-12" >
+    <div class="col-md-12 tour-full-body" >
       <div class="row">
 
         <div class="col-md-1">
 
         </div>
-        <div class="col-md-7">
+        <div class="col-md-7 tour-left-panel">
           <div class="tour-details">
 
             <h3 class="main-title"> <%= @tour.name %> </h3>
@@ -28,7 +28,16 @@
 
           <div class="col-md-4 tours-rating-div">
             <p id="tour-details-rating"> <%= @average_rating %></p>
+            <p id="see-schedules-responsive"><% unless @tour.schedules.empty? %>
+            <%= link_to 'Book now!', tours_path, :class=>"btn btn-primary tour-show-all" %>
+            <% end %></p>
           </div>
+        </div>
+
+        <div id="tour-responsive-description">
+          <h3 class="tour-description-title">About</h3>
+          <p class="tour-guide-name"><b>Guide:</b> <%= @tour_guide.name %></p>
+          <%= @tour.description %>
         </div>
 
           <div id="show-tour-map">
@@ -49,7 +58,7 @@
 
           <% unless @tour.reviews.empty? %>
           <div class="reviews">
-            <h3 class="reviews-title">Reviews:</h3>
+            <h3 class="reviews-title">Reviews</h3>
             <% @tour.reviews.each do |r| %>
             <div class="rating-tours">
               <h4 class="reviews-star-ratings"><%= r.rating %></h4>
@@ -61,7 +70,7 @@
           <% end %>
         </div>
 
-
+        <!---side bar -->
 
         <div class="col-md-3 side-bar">
 
@@ -73,6 +82,7 @@
             <%= @tour.description %>
           </p>
 
+        <div class="tour-sidebar-dates">
 
           <h4 class="schedule-title">Available Dates:</h4>
 
@@ -124,6 +134,7 @@
 
 
 
+            </div>
         </div>
         <div class="col-md-1">
         </div>
