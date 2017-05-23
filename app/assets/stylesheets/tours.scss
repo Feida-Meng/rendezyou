@@ -574,6 +574,21 @@ p > a:link{
 
 }
 
+@media (max-width:415px){
+
+  .main-title,
+  .tour-description-title,
+  .reviews-title {
+    font-size: 1.7em;
+  }
+
+  .tour-details {
+    font-size: .9em;
+    padding: 20px 0;
+  }
+
+}
+
 // .col-md-3.side-bar {
 //     position: absolute;
 //     top: 17%;
