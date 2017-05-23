@@ -38,8 +38,8 @@
         <div class="col-md-3 push-img-to-float">
           <div class="thumbnail" id="thumbnail_tour_index">
             <div class="index-container-relative">
-              <%= image_tag tour.tourpic.url(:medium), :class=>"tour_pic_tourdetails" %>
-              <%= image_tag("gradient-01.png", :class=>"grad_img")%>
+              <%= link_to image_tag(tour.tourpic.url(:medium), :class=>"tour_pic_tourdetails"), tour_path(tour)%>
+              <%= link_to image_tag("gradient-01.png", :class=>"grad_img"), tour_path(tour)%>
                 <% if current_user && current_user.id == tour.user_id %>
                   <p>
                     <%= link_to "EDIT", tour_path(tour), :id=>"tourindexbutboth_bw" %>
@@ -55,8 +55,6 @@
                 <p class="tour_index_name"><%= link_to tour.name, tour_path(tour.id)%></p>
                 <hr class="white">
                 <p class="tour_index_cat"> <%= tour.category %></p>
-
-
               </div>
             </div>
 

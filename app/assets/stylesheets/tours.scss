@@ -166,7 +166,7 @@ $light-mustard: #fcdc6a;
  font-weight: bolder;
  color: #a8a7a7;
  font-size: 2.5em;
- margin-top: 5%;
+ margin-top: 5.5%;
 }
 .create_a_tour_now{
  text-align: center;
@@ -386,6 +386,13 @@ a#tourindexbutboth_bw{
   font-size: .75em;
 }
 
+a#tourindexbutboth_bw:visited,
+a#tourindexbutboth_bw:hover,
+a#tourindexbutboth_bw:link,
+a#tourindexbutboth_bw:active{
+  color: white;
+}
+
 
 .tourp{
   margin: 0px;
@@ -446,7 +453,12 @@ margin-top: 10%;
 
 .blue_names_normal{
   color: steelblue;
-  font-size: 1em;
+  font-size: .8em;
+}
+
+.black_names_normal{
+  color: black;
+  font-size: .8em;
 }
 
 .yield.tours-index{
