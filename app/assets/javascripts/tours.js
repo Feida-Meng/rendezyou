@@ -192,7 +192,52 @@ $(function(){
   $(document).keyup(function(event){
       if(event.which=='27'){
         $('.schedules-modal-window').fadeOut();
+        $('.booking-modal-window').fadeOut();
       }
     });
+
+
+  $('.booking-button').on('click', function(e){
+    e.stopPropagation();
+    e.preventDefault();
+    $('.booking-modal-window').fadeIn();
+  });
+
+  $('.booking-modal-window').on('click', function(e){
+    e.preventDefault();
+    $('.booking-modal-window').fadeOut();
+  });
+
+  $('.booking-modal-form').on('click', function(e){
+    e.stopPropagation();
+    e.preventDefault();
+  });
+
+  $('.booking-modal-form input').on('click', function(e){
+    e.stopPropagation();
+  });
+  //
+  // BOOKING FORM MODAL FROM SCHEDULES modal
+
+  $('.booking-button-modal').on('click', function(e){
+    e.stopPropagation();
+    e.preventDefault();
+    $('.schedules-modal-window').fadeOut();
+    $('.booking-modal-window').fadeIn();
+  });
+
+  $('.booking-modal-window').on('click', function(e){
+    e.preventDefault();
+    $('.booking-modal-window').fadeOut();
+  });
+
+  $('.booking-modal-form').on('click', function(e){
+    e.stopPropagation();
+    e.preventDefault();
+  });
+
+  $('.booking-modal-form input').on('click', function(e){
+    e.stopPropagation();
+  });
 
 });

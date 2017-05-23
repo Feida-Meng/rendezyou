@@ -94,7 +94,16 @@
           <% unless (current_user && @tour.user_id == current_user.id) || t_s.tour_start_time < Time.now %>
               <span class="booking-button"><%= link_to 'Book now!', new_tour_schedule_booking_path(@tour,t_s), :class=>"booking-button-schedueles btn" %></span>
 
+              <!-- Booking form modal -->
 
+              <div class="booking-modal-window">
+                <div class="booking-modal-form">
+                  How many people are taking this tour?
+
+                  <%= render 'booking_form', tour: @tour, schedule: t_s, booking: @booking %>
+
+                </div>
+              </div>
 
               <% else  %>
               <%= link_to 'Edit this Schedule', edit_tour_schedule_path(@tour, t_s) %> <br><%= link_to 'Cancel this Schedule', tour_schedule_path(@tour, t_s), method: :delete %>
@@ -108,7 +117,10 @@
               <%= link_to 'Add more dates', new_tour_schedule_path(@tour), :class=>"btn btn-primary" %>
 
               <% end %>
+
+              <% unless @tour.schedules.empty? %>
               <%= link_to 'See more dates', tours_path, :class=>"btn tour-show-all" %>
+              <% end %>
 
 
 
@@ -147,6 +159,7 @@
               <% end %>
           </div>
         </div>
+
 
 
       </div>

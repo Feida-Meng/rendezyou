@@ -1,0 +1,25 @@
+<%= form_for ([tour, schedule ,booking]) do |f|%>
+
+<% if @booking.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@booking.errors.count, "error") %> prohibited this tour from being saved:</h3>
+
+      <ul>
+        <% @booking.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="booking_size">
+    <%= f.label :booking_size,"group size" %>
+    <%= f.number_field :booking_size, min: 1, max: schedule.max_capacity, step:1 %>
+
+  </div>
+
+  <div class="submit">
+    <%= f.submit "Submit booking request" %>
+  </div>
+
+<% end %>
