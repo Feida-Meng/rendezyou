@@ -111,9 +111,10 @@ $light-mustard: #fcdc6a;
   overflow: auto;
 }
 
-// schedules modal ------------
+// schedules and booking modal ------------
 
-.schedules-modal-window {
+.schedules-modal-window,
+.booking-modal-window {
   display: none;
   position: fixed;
   top: 0;
@@ -124,7 +125,8 @@ $light-mustard: #fcdc6a;
   z-index: 990;
 }
 
-.schedules-modal {
+.schedules-modal, 
+.booking-modal-form {
   display: block;
   overflow: auto;
   width: 500px;
