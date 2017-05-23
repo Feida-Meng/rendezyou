@@ -3,7 +3,7 @@
 
 <div class="yield tours-index">
 
-<h4 class="join_a_tour_now">Join one of our <span class="a_nav_home small_logo">RendezYOU</span> tours Today!</h4>
+<h4 class="join_a_tour_now">Join one of our <span class="a_nav_home small_logo">RendezYOU</span> tours today!</h4>
 
 <!-- Search Bar -->
 
@@ -42,17 +42,17 @@
               <%= link_to image_tag("gradient-01.png", :class=>"grad_img"), tour_path(tour)%>
                 <% if current_user && current_user.id == tour.user_id %>
                   <p>
-                    <%= link_to "EDIT", tour_path(tour), :id=>"tourindexbutboth_bw" %>
+                    <%= link_to "EDIT", edit_tour_path(tour), :id=>"tourindexbutboth_bw" %>
                     <!-- <%= link_to "VIEW / EDIT", tour_path(tour), :class=>"btn btn-success", :id=>"tourindexbutboth" %> -->
                   </p>
                 <% else %>
                   <p>
-                    <%= link_to "VIEW", tour_path(tour), :id=>"tourindexbut_bw" %>
+                    <!-- <%= link_to "VIEW", tour_path(tour), :id=>"tourindexbut_bw" %> -->
                     <!-- <%= link_to "VIEW", tour_path(tour), :class=>"btn btn-success", :id=>"tourindexbut" %> -->
                   </p>
                 <% end %>
               <div class="container_relative_no_break">
-                <p class="tour_index_name"><%= link_to tour.name, tour_path(tour.id)%></p>
+                <p class="tour_index_name" ><%= link_to tour.name.slice(0,1).capitalize + tour.name.slice(1..-1), tour_path(tour.id)%></p>
                 <hr class="white">
                 <p class="tour_index_cat"> <%= tour.category %></p>
               </div>

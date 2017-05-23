@@ -222,34 +222,27 @@ img.carou_one{
   justify-content: center;
 }
 
-.entice_section h3{
-  font-size: 2.25em;
-  margin: 10px 0 5px 0;
-  font-family: 'Nunito', sans-serif;
-}
-
-.col-md-4.btn-default.entice_section_btn,
-.col-md-4.btn-default.entice_section_btn,
-.col-md-4.btn-default.entice_section_btn{
+.btn-default.entice_section_btn {
+  border: 3px solid transparent;
   background-color: rgba(93, 92, 106, .8);
+  display: block;
+  color: white;
   text-decoration: none;
   border-radius: 5px;
-}
+  padding-left: 0px;
+  padding-right: 0px;
 
-.col-md-4.btn-default.entice_section_btn a:active,
-.col-md-4.btn-default.entice_section_btn a:visited,
-.col-md-4.btn-default.entice_section_btn a:link{
-  background-color: rgba(93, 92, 106, .8);
-  color: white;
-}
+  &:hover{
+    background-color: white;
+    color: rgba(93,92, 106, 1);
+    border: 3px solid rgba(93,92, 106, 1);
+  }
 
-.col-md-4.btn-default.entice_section_btn:hover{
-  background-color: white;
-  color: rgba(93,92, 106, 1);
-  border: 3px solid rgba(93,92, 106, 1);
-}
-.col-md-4.btn-default.entice_section_btn a:hover{
-  color: rgba(93,92, 106, 1);
+  h3{
+    font-size: 2.25em;
+    margin: 0 0 5px 0;
+    font-family: 'Nunito', sans-serif;
+  }
 }
 
 .caption_booked_height{

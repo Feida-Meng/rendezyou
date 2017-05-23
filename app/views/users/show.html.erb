@@ -68,8 +68,8 @@
 <!-- Entice button section -->
 <div class="entice_section" id="entice_section_web">
 
-  <div class="col-md-4 btn-default entice_section_btn">
-    <%=link_to new_tour_url do %>
+  <div class="col-md-4">
+    <%=link_to new_tour_url, class: 'btn-default entice_section_btn' do %>
     <!-- <h4>Click here to</h4> -->
     <h3>BE A TOUR GUIDE!</h3>
     <h4>Create a tour now !</h4>
@@ -78,8 +78,8 @@
 
   <div class="col-sm-1"></div>
 
-  <div class="col-md-4 btn-default entice_section_btn">
-    <%=link_to tours_url do %>
+  <div class="col-md-4">
+    <%=link_to tours_url, class: 'btn-default entice_section_btn' do %>
     <!-- <h4>Click here to</h4> -->
     <h3>BE A TOURIST!</h3>
     <h4>Book a tour now !</h4>
@@ -116,11 +116,11 @@
               <% if current_user.id == tour.user_id %>
               <%= link_to image_tag(tour.tourpic.url(:medium), :class=>"tour_pic_tourdetails"), tour_path(tour)%>
               <%= link_to image_tag("gradient-01.png", :class=>"grad2_img"), tour_path(tour)%>
-              <%= link_to "EDIT", tour_path(tour), :id=>"tourindexbutboth_bw" %>
+              <%= link_to "EDIT", edit_tour_path(tour), :id=>"tourindexbutboth_bw" %>
               <div class="container_relative_no_break">
-                <p class="tour_index_name"><%= link_to tour.name, tour_path(tour.id)%></p>
+                <p class="tour_index_name" ><%= link_to tour.name.slice(0,1).capitalize + tour.name.slice(1..-1), tour_path(tour.id)%></p>
                 <hr class="white">
-                <p class="tour-det-cats"><%= tour.category%></p>
+                <p class="tour_index_cat"><%= tour.category%></p>
               </div>
               <% end %>
             </div><!--.index-container-relative-->
@@ -170,7 +170,7 @@
               <%= image_tag t.tourpic.url(:medium), :class=>"tour_pic_tourdetails" %>
               <%= image_tag("gradient-01.png", :class=>"grad2_img")%>
               <div class="container_relative_no_break">
-                <p class="tour_index_name"><%= link_to t.name,tour_url(t) %> </p>
+                <p class="tour_index_name" ><%= link_to t.name.slice(0,1).capitalize + t.name.slice(1..-1),tour_url(t) %></p>
                 <hr class="white">
                 <p class="tour_index_cat"><%= t.category%></p>
               </div><!--container_relative_no_break-->
