@@ -266,7 +266,16 @@ hr.black{
   background: gainsboro;
   margin-top: 20px;
   margin-bottom: 40px;
+}
 
+hr.black_within{
+  align: center;
+  height: 2;
+  margin-left: 5px;
+  margin-right: 5px;
+  background: black;
+  margin-top: 3px;
+  margin-bottom: 10px;
 }
 
 // SCSS code
@@ -393,9 +402,13 @@ margin-top: 10%;
   height: 375px;
 }
 
-.blue_icons,
-.blue_names{
+.blue_icons{
   color: #0f5dc7;
+  font-weight: bold;
+}
+
+.blue_names{
+  color: steelblue;
   font-weight: bold;
 }
 
