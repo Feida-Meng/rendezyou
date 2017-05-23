@@ -175,15 +175,16 @@
               </div><!--container_relative_no_break-->
             </div><!--.index-container-relative-->
             <div class="caption" id="tourindexcaption">
-              <p> Current tour size: <%= Schedule.find(b.schedule_id).current_capacity %></p>
-              <p> Tour date and time: <%= Schedule.find(b.schedule_id).tour_session %> </p>
-              <!-- <p> Date I booked: <%= b.created_at.strftime("%Y %b %d") %></p> -->
-              <p> Tour description: <%= t.description %> </p>
-              <p> Number of people I booked for (including myself): <%= b.booking_size %></p>
-              <hr class="black_within">
-                <%= link_to "Edit Booking", edit_tour_schedule_booking_path(t,Schedule.find(b.schedule_id),b), :class=>"btn btn-warning" %> | <%= link_to "Cancel Booking", tour_schedule_booking_path(t,Schedule.find(b.schedule_id),b), :class=>"btn btn-warning", method: :delete, data: {confirm: "Are you sure you want to cancel this booking?"}%>
-              <%= link_to "Review this tour!", new_tour_review_url(t.id), :class=>"btn btn-primary", :id=>"tourindexbut" %>
-
+              <div class="caption_booked_height">
+                <p><span class="blue_names_normal">Current tour size: </span><%= Schedule.find(b.schedule_id).current_capacity %></p>
+                <p><span class="blue_names_normal">Tour date and time: </span><br><%= Schedule.find(b.schedule_id).tour_session %></p>
+                <!-- <p> Date I booked: <%= b.created_at.strftime("%Y %b %d") %></p> -->
+                <p><span class="blue_names_normal">Tour description: </span><%= t.description %></p>
+                <p><span class="blue_names_normal">Number I booked for (including myself): </span><%= b.booking_size %></p>
+              </div><!--caption_booked_height-->
+                <hr class="black_within">
+                  <%= link_to "Edit Booking", edit_tour_schedule_booking_path(t,Schedule.find(b.schedule_id),b), :class=>"btn btn-warning" %> <%= link_to "Cancel Booking", tour_schedule_booking_path(t,Schedule.find(b.schedule_id),b), :class=>"btn btn-warning", method: :delete, data: {confirm: "Are you sure you want to cancel this booking?"}%>
+                <%= link_to "Review this tour!", new_tour_review_url(t.id), :class=>"btn btn-primary", :id=>"tourindexbut" %>
             </div><!--caption-->
           </div> <!--#thumbnail_tour_index-->
         </div><!--.col-md-3-->

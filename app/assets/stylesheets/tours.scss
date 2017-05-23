@@ -270,7 +270,7 @@ hr.black{
 
 hr.black_within{
   align: center;
-  height: 2;
+  height: 1;
   margin-left: 5px;
   margin-right: 5px;
   background: black;
@@ -410,6 +410,11 @@ margin-top: 10%;
 .blue_names{
   color: steelblue;
   font-weight: bold;
+}
+
+.blue_names_normal{
+  color: steelblue;
+  font-size: 1em;
 }
 
 .yield.tours-index{
