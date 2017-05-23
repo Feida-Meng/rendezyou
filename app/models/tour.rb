@@ -20,7 +20,8 @@ class Tour < ApplicationRecord
   end
 
   def self.search(search)
-    where("name ILIKE ? OR description ILIKE ? OR category::text ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
+    keywords = search.split.map { |key| "%#{key}%" }
+    where("name ILIKE any ( array[?] ) OR description ILIKE any ( array[?] ) OR category::text ILIKE any ( array[?] ) OR rendezvous_point ILIKE any ( array[?] ) OR country_id = ?", keywords, keywords, keywords, keywords ,Country.where("name ILIKE any ( array[?] )", keywords ).ids.first)
   end
 
 
