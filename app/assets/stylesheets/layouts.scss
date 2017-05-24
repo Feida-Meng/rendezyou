@@ -158,14 +158,27 @@ div.yield{
 #notice,
 #alert {
   position: fixed;
-  margin: auto;
-  top: 50px;
-  left: 0;
-  right: 0;
+  // top: 4em;
+  right: 4em;
   text-align: center;
-  color: grey;
-  z-index: 7000;
+  color: tomato;
+  background: rgba(255,255,255,.9);
+  font-size: 1em;
+  min-height: 6.5em;
+  border-radius: 25px;
+  z-index: 2;
+  padding-top: 3.5em;
+  box-shadow: 1px 1px 3px 2px gainsboro;
+  margin: auto;
 }
+
+#notice{
+  min-width: 20em;
+}
+#alert {
+  min-width: 25em;
+}
+
 
 .nav_hover a:visited,
 .nav_hover a:active,

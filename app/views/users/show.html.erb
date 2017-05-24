@@ -158,13 +158,13 @@
             <div class="sub_heading_guide_all">Here are your <span class="blue_names">Booked</span> Tours!</div>
 
         <% @tours_booked.reverse.each do |t| %>
+        <% t.schedules.each do |s| %>
+        <% s.bookings.each do |b| %>
+        <% unless b.user_id != current_user.id %>
 
         <div class="col-md-3">
           <div id="thumbnail_tour_index" class="thumbnail">
 
-            <% t.schedules.each do |s| %>
-            <% s.bookings.each do |b| %>
-            <% unless b.user_id != current_user.id %>
 
             <div class="index-container-relative userneedcenter">
               <%= image_tag t.tourpic.url(:medium), :class=>"tour_pic_tourdetails" %>
@@ -181,7 +181,7 @@
                 <p><span class="blue_names_normal">Tour date and time: </span><br><span class="black_names_normal"><%= Schedule.find(b.schedule_id).tour_session %></span></p>
                 <!-- <p> Date I booked: <%= b.created_at.strftime("%Y %b %d") %></p> -->
                 <p><span class="blue_names_normal">Tour description: </span><span class="black_names_normal"><%= t.description %></span></p>
-                <p><span class="blue_names_normal">Number I booked for (including myself): </span><span class="black_names_normal"><%= b.booking_size %></span></p>
+                <p><span class="blue_names_normal">Number I booked including myself: </span><span class="black_names_normal"><%= b.booking_size %></span></p>
               </div><!--caption_booked_height-->
                 <hr class="black_within">
                   <%= link_to "Edit Booking", edit_tour_schedule_booking_path(t,Schedule.find(b.schedule_id),b), :class=>"btn btn-warning" %> <%= link_to "Cancel Booking", tour_schedule_booking_path(t,Schedule.find(b.schedule_id),b), :class=>"btn btn-warning", method: :delete, data: {confirm: "Are you sure you want to cancel this booking?"}%>
