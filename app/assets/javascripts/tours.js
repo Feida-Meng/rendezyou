@@ -124,64 +124,49 @@ $(function(){
     });
   }
 
+// Show icon in front of category for index and show --------------------------
 
-  $('#tour-details-category').each(function(){
-    var tourCategory = $('#tour-details-category').html();
-    if (tourCategory === ' Nature') {
-      console.log('nature');
-      var leaf = ("<span class='fa fa-leaf'>");
-      $(this).prepend(leaf);
-    } else if (tourCategory === ' Social') {
-      console.log('social');
-      var users = ("<span class='fa fa-users'>");
-      $(this).prepend(users);
-    } else if (tourCategory === ' City tour') {
-      console.log('city');
-      var building = ("<span class='fa fa-building-o'>");
-      $(this).prepend(building);
-    } else if (tourCategory === ' Recreation') {
-      console.log('recreation');
-      var puzzle = ("<span class='fa fa-puzzle-piece'>");
-      $(this).prepend(puzzle);
-    } else if (tourCategory === ' Other') {
-      console.log('other');
-      var mapIcon = ("<span class='fa fa-map'>");
-      $(this).prepend(mapIcon);
-    } else if (tourCategory === ' Food &amp; drinks') {
-      console.log(' ood &amp; drinks');
-      var cutlery = ("<span class='fa fa-cutlery'>");
-      $(this).prepend(cutlery);
-    }
-  });
+  function tourIcons(catName) {
+    catName.each(function(){
+      var tourCategory = $(this).html();
+      if (tourCategory === ' Nature') {
+        console.log('nature');
+        var leaf = ("<span class='fa fa-leaf'>");
+        $(this).prepend(leaf);
+      } else if (tourCategory === ' Social') {
+        console.log('social');
+        var users = ("<span class='fa fa-users'>");
+        $(this).prepend(users);
+      } else if (tourCategory === ' City tour') {
+        console.log('city');
+        var building = ("<span class='fa fa-building-o'>");
+        $(this).prepend(building);
+      } else if (tourCategory === ' Recreation') {
+        console.log('recreation');
+        var puzzle = ("<span class='fa fa-puzzle-piece'>");
+        $(this).prepend(puzzle);
+      } else if (tourCategory === ' Other') {
+        console.log('other');
+        var mapIcon = ("<span class='fa fa-map'>");
+        $(this).prepend(mapIcon);
+      } else if (tourCategory === ' Food &amp; drinks') {
+        console.log(' ood &amp; drinks');
+        var cutlery = ("<span class='fa fa-cutlery'>");
+        $(this).prepend(cutlery);
+      }
+    });
+  }
 
-  $('#tour-details-category').each(function(){
-    var tourCategory = $('#tour-details-category').html();
-    if (tourCategory === ' Nature') {
-      console.log('nature');
-      var leaf = ("<span class='fa fa-leaf'>");
-      $(this).prepend(leaf);
-    } else if (tourCategory === ' Social') {
-      console.log('social');
-      var users = ("<span class='fa fa-users'>");
-      $(this).prepend(users);
-    } else if (tourCategory === ' City tour') {
-      console.log('city');
-      var building = ("<span class='fa fa-building-o'>");
-      $(this).prepend(building);
-    } else if (tourCategory === ' Recreation') {
-      console.log('recreation');
-      var puzzle = ("<span class='fa fa-puzzle-piece'>");
-      $(this).prepend(puzzle);
-    } else if (tourCategory === ' Other') {
-      console.log('other');
-      var mapIcon = ("<span class='fa fa-map'>");
-      $(this).prepend(mapIcon);
-    } else if (tourCategory === ' Food &amp; drinks') {
-      console.log(' ood &amp; drinks');
-      var cutlery = ("<span class='fa fa-cutlery'>");
-      $(this).prepend(cutlery);
-    }
-  });
+  //call function for each page ----------------------------------------------
+
+  var tourShowPageCat  = $('#tour-details-category');
+  var tourIndexPageCat = $('.tour_index_cat');
+
+  tourIcons(tourShowPageCat);
+  tourIcons(tourIndexPageCat);
+
+  //show star rating insteaf of number ---------------------------------------
+
 
   $('#tour-details-rating').each(function(){
     var starRatingCount = parseInt($(this).html());

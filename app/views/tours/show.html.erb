@@ -22,7 +22,7 @@
               <p class="tour-details-meetup"><i class="fa fa-map-marker"></i> <%= @tour.rendezvous_point %></p>
           </div>
           <div class="col-md-4 tours-icon-div">
-            <p class="tour-details-category"> <%= @tour.category %></p>
+            <p id="tour-details-category"> <%= @tour.category %></p>
             <p><i class="fa fa-clock-o"></i> Duration: <%= "#{@tour.duration_in_ms / 3600000} hours"%></p>
           </div>
 
