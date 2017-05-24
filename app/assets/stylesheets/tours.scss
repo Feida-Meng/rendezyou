@@ -122,23 +122,25 @@ $light-mustard: #fcdc6a;
 // schedules and booking modal ------------
 
 .schedules-modal-window,
-.booking-modal-window {
+.booking-modal-window,
+.schedules-modal-window-responsive {
   display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(30,30,30,0.8);
+  background-color: rgba(30,30,30,0.7);
   z-index: 990;
 }
 
 .schedules-modal,
-.booking-modal-form {
+.booking-modal-form,
+.schedules-modal-responsive {
   display: block;
   overflow: auto;
-  width: 500px;
-  max-height: 500px;
+  max-width: 450px;
+  max-height: 425px;
   padding: 2em;
   background-color: white;
   position: absolute;
@@ -148,6 +150,27 @@ $light-mustard: #fcdc6a;
   left: 0;
   right: 0;
   z-index: 1000;
+}
+
+.booking-modal-form {
+  max-height: 200px;
+  max-width: 350px;
+  text-align: center;
+}
+
+.modal-tour-show-one-schedule {
+  border-bottom: 1px solid $mustard;
+  margin-top: 2%;
+}
+
+.modal-tour-show-date {
+  display: inline-block;
+}
+
+span.booking-button-responsive,
+span.booking-button {
+  display: inline-block;
+  float: right;
 }
 
 
@@ -632,12 +655,3 @@ p > a:link{
   }
 
 }
-
-// .col-md-3.side-bar {
-//     position: absolute;
-//     top: 17%;
-//     /* display: block; */
-// }
-//
-// p.show_page_tour_image {
-//     display: none;

@@ -16,48 +16,82 @@ $(document).ready(function(){
   //     }
   // });
 
-  //login modal
-  $('.a_login').on('click', function(e){
-    e.stopPropagation();
-    e.preventDefault();
-    $('.login_window').fadeIn();
-  });
 
-  $('.login_window').on('click', function(e){
-    e.preventDefault();
-    $('.login_window').fadeOut();
-  });
 
-  $('.login_form').on('click', function(e){
-    e.stopPropagation();
-    e.preventDefault();
-  });
+  //general modal function ----------------------------------------------------
 
-  $('.login_form input').on('click', function(e){
-    e.stopPropagation();
-  });
+  function modal(link, mask, form, input) {
+    link.on('click', function(e){
+      e.stopPropagation();
+      e.preventDefault();
+      mask.fadeIn();
+    });
 
+    mask.on('click', function(e){
+      e.preventDefault();
+      mask.fadeOut();
+    });
+
+    form.on('click', function(e){
+      e.stopPropagation();
+    });
+
+    input.on('click', function(e){
+      e.stopPropagation();
+    });
+
+  }
+
+  //login modal ---------------------------------------------------------------
+
+  var loginLink    = $('.a_login')
+  var loginMask    = $('.login_window')
+  var loginForm    = $('.login_form')
+  var loginInput   = $('.login_form input')
+
+  modal(loginLink, loginMask, loginForm, loginInput);
+
+//booking form modal ---------------------------------------------------------
+
+  var bookingLink  = $('.booking-button')
+  var bookingMask  = $('.booking-modal-window')
+  var bookingForm  = $('.booking-modal-form')
+  var bookingInput = $('.booking-modal-form input')
+
+  modal(bookingLink, bookingMask, bookingForm, bookingInput);
+
+  //schedules modal (non-responsive) ------------------------------------------
+
+  var schedulesLink  = $('.tour-show-all')
+  var schedulesMask  = $('.schedules-modal-window')
+  var schedulesForm  = $('.schedules-modal')
+  var schedulesInput = $('.schedules-modal')
+
+  modal(schedulesLink, schedulesMask, schedulesForm, schedulesInput);
+
+
+  //schedules modal (non-responsive) ------------------------------------------
+
+  var schedulesLink  = $('.tour-show-responsive')
+  var schedulesMask  = $('.schedules-modal-window-responsive')
+  var schedulesForm  = $('.schedules-modal-responsive')
+  var schedulesInput = $('.schedules-modal-responsive')
+
+  modal(schedulesLink, schedulesMask, schedulesForm, schedulesInput);
+
+
+
+  // close all modals on esc key ----------------------------------------------
 
   $(document).keyup(function(event){
       if(event.which=='27'){
         $('.login_window').fadeOut();
+        $('.schedules-modal-window').fadeOut();
+        $('.booking-modal-window').fadeOut();
+        $('.schedules-modal-window-responsive').fadeOut();
       }
     });
 
-  //signup modal
-  // $('.a_signup').on('click', function(e){
-  //   e.stopPropagation();
-  //   e.preventDefault();
-  //   $('.signup_window').fadeIn();
-  // });
-  //
-  // $('.signup_form').on('click', function(e){
-  //   e.stopPropagation();
-  //   $('.signup_window').fadeOut();
-  // });
-  //
-  // $('.signup_form input').on('click', function(e){
-  //   e.stopPropagation();
-  // });
+
 
 });
