@@ -7,6 +7,11 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user
+    if @user.save
+      redirect_to(profile_path(anchor: "sub_heading_guide_all"), notice: "Your profile has been updated.")
+    else
+      render :new
+    end
   end
 
 
@@ -28,7 +33,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       UserMailer.welcome_email(@user).deliver
-      redirect_to profile_path
+      redirect_to(profile_path(anchor: "sub_heading_guide_all"), notice: "You are now logged in.")
     else
       render :new
     end

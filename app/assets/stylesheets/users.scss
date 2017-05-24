@@ -265,13 +265,15 @@ input#signupbutton{
 }
 
 
+
+
 // responsive starts here  ------------>
 // responsive starts here  ------------>
 // responsive starts here  ------------>
 // responsive starts here  ------------>
 // responsive starts here  ------------>
 
-@media (min-width:770px){
+@media (min-width:775px){
 
   img.user_new_signin_avatar{
       width: 70%;
@@ -307,14 +309,19 @@ input#signupbutton{
 
 }
 
-@media screen and (min-width:770px) and (max-width:1070px){
+.reduce_user_show_width{
+  width: 95%;
+  zoom: 95%;
+}
+
+@media screen and (min-width:765px) and (max-width:1070px){
 
   .responsive_middle_none{
     display: inline-flex;
   }
 }
 
-@media screen and (min-width:0px) and (max-width:770px){
+@media screen and (min-width:0px) and (max-width:775px){
 
   img.user_new_signin_avatar{
     display: none;

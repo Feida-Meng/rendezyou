@@ -64,8 +64,8 @@ html{
    padding: 1.5em;
    height: 5em;
    color: white;
-
  }
+
  .a_myprofile,
  .a_signup,
  .a_logout,
@@ -188,8 +188,24 @@ div.yield{
   text-shadow: 1px 1px 1px black;
 }
 
-#nav_hover a:hover,
-.nav_hover a:hover{
-  text-decoration: none;
-  color: #02a4b3;
+  #nav_hover a:hover,
+  .nav_hover a:hover{
+    text-decoration: none;
+    color: #02a4b3;
+}
+
+@media screen and (min-width:0px) and (max-width:775px){
+
+  .nav_drop,
+  .nav_drop_b,
+  .nav_drop_c{
+    display: none;
+  }
+
+  .nav_right_float{
+    zoom: 90%;
+    padding-left: 0px;
+    padding-right: 10px;
+  }
+
 }
