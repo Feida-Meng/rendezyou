@@ -18,7 +18,7 @@ $(document).ready(function(){
 
 
 
-  //login modal
+  //general modal function ---------------------------
 
   function modal(link, mask, form, input) {
     link.on('click', function(e){
@@ -42,6 +42,8 @@ $(document).ready(function(){
     });
 
   }
+
+  //login modal -------------------------------------
 
   var loginLink    = $('.a_login')
   var loginMask    = $('.login_window')
