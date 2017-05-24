@@ -322,11 +322,7 @@ hr.black_within{
 }
 
 // compiled (normal css) code
-.index-container-relative {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-}
+
 
 .index-container-relative.modified {
   background: white;
@@ -468,12 +464,10 @@ margin-top: 10%;
 
 .blue_names_normal{
   color: steelblue;
-  font-size: .8em;
 }
 
 .black_names_normal{
   color: black;
-  font-size: .8em;
 }
 
 .yield.tours-index{
