@@ -18,7 +18,7 @@ $(document).ready(function(){
 
 
 
-  //general modal function ---------------------------
+  //general modal function ----------------------------------------------------
 
   function modal(link, mask, form, input) {
     link.on('click', function(e){
@@ -43,7 +43,7 @@ $(document).ready(function(){
 
   }
 
-  //login modal -------------------------------------
+  //login modal ---------------------------------------------------------------
 
   var loginLink    = $('.a_login')
   var loginMask    = $('.login_window')
@@ -52,8 +52,27 @@ $(document).ready(function(){
 
   modal(loginLink, loginMask, loginForm, loginInput);
 
+//booking form modal ---------------------------------------------------------
+
+  var bookingLink  = $('.booking-button')
+  var bookingMask  = $('.booking-modal-window')
+  var bookingForm  = $('.booking-modal-form')
+  var bookingInput = $('.booking-modal-form input')
+
+  modal(bookingLink, bookingMask, bookingForm, bookingInput);
+
+  //schedules modal (non-responsive) ------------------------------------------
+
+  var schedulesLink  = $('.tour-show-all')
+  var schedulesMask  = $('.schedules-modal-window')
+  var schedulesForm  = $('.schedules-modal')
+  var schedulesInput = $('.schedules-modal')
+
+  modal(schedulesLink, schedulesMask, schedulesForm, schedulesInput);
 
 
+
+  // close all modals on esc key ----------------------------------------------
 
   $(document).keyup(function(event){
       if(event.which=='27'){
