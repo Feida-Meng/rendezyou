@@ -9,9 +9,6 @@
 // font-family: 'Harmattan', sans-serif;
 // font-family: 'Shanti', sans-serif;
 
-
-
-
 html{
   font-size: 1.5em;
 }
@@ -19,68 +16,75 @@ html{
 // Our code starts here
 .navigate {
    position: relative;
-   min-width: 1200px;
+   min-width: 100%;
    z-index: 100;
  }
 
-
 .nav_bar {
-  width: 100%;
-  height: 6em;
-  background: rgba(0,0,0,1);
   position: fixed;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 5.25em;
+  background: rgba(0,0,0,1);
 }
 
-.layout_nav_bar {
-  width: 100%;
-  height: 6em;
-  background: rgba(0,0,0,1);
-  position: fixed;
+.a_nav_logo{
+  vertical-align: middle;
+  font-style: italic;
+  font-family: 'Pacifico', cursive;
+  font-size: 2.5em;
+  color: #ffc800;
+  padding: 0px 30px 0px 30px;
+
+  &:hover{
+    text-decoration: none;
+    color: orange;
+  }
 }
 
+//nav_drop
+.nav_items > a,
+.nav_items,
+.dropdown-toggle.nav_items,
+a.dropdown-toggle.nav_items{
+  font-size: 1.2em;
+  font-family: arial;
+  color: white;
+  margin: 0px 10px 0px 10px;
+  margin-right: 6px;
 
-//
+  &:hover{
+    text-decoration: none;
+    color: white;
+    padding-bottom: 1em;
+    border-bottom: 11px solid aqua;
+  }
+}
 
- .nav_tours,
- .nav_home {
-   display: inline-block;
-   color: white;
-   padding: 1.5em;
-   height: 5em;
- }
- .a_nav_home{
-   vertical-align: middle;
-   font-style: italic;
-   font-family: 'Pacifico', cursive;
-   font-size: 2em;
-   color: #ffc800;
- }
+li.nav_item_margin{
+  margin: 0px 25px 0px 25px;
+}
 
-// nav right floats
- .nav_right_float {
-   float: right;
-   display: inline-block;
-   color: white;
-   padding: 1.5em;
-   height: 5em;
-   color: white;
- }
+li.nav_item_margin.nav_four{
+position: absolute;
+right: 120px;}
 
- .a_myprofile,
- .a_signup,
- .a_logout,
- .a_login {
-   display: inline-block;
-   color: white;
-   padding: 14px;
- }
+li.nav_item_margin.nav_five{
+position: absolute;
+right: 15px;}
 
- .dropdown-toggle{
-   display: inline-block;
-   color: white;
-   font-size: 1.1em;
-   padding: 6px 15px;
- }
+
+
+// bootstrap nav
+
+ // .dropdown-toggle{
+ //   display: inline-block;
+ //   color: white;
+ //   font-size: 1.5em;
+ //   padding: 6px 15px;
+ // }
 
 li{
   list-style: none;
@@ -92,34 +96,13 @@ li{
   display: inline-block;
   float: left;
   padding: 14px;
-  margin-top: 1.2%;
+  margin-top: .5em;
 }
-
-.nav_drop_b{
-  position: absolute;
-  display: inline-block;
-  float: left;
-  padding: 14px;
-  margin-top: 1.2%;
-  margin-left: 10%;
-}
-.nav_drop_c{
-  position: absolute;
-  display: inline-block;
-  float: left;
-  padding: 14px;
-  margin-top: 1.2%;
-  margin-left: 20%;
-
-}
-
-
 
 div.yield{
-  padding-top: 6em;
+  padding-top: 5.25em;
   width: 100%;
 }
-
 
 .signup_window,
 .login_window {
@@ -180,32 +163,7 @@ div.yield{
 }
 
 
-.nav_hover a:visited,
-.nav_hover a:active,
-.nav_hover a:link{
-  text-decoration: none;
-  color: white;
-  text-shadow: 1px 1px 1px black;
-}
-
-  #nav_hover a:hover,
-  .nav_hover a:hover{
-    text-decoration: none;
-    color: #02a4b3;
-}
-
 @media screen and (min-width:0px) and (max-width:775px){
 
-  .nav_drop,
-  .nav_drop_b,
-  .nav_drop_c{
-    display: none;
-  }
-
-  .nav_right_float{
-    zoom: 90%;
-    padding-left: 0px;
-    padding-right: 10px;
-  }
 
 }

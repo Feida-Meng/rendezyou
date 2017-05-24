@@ -10,12 +10,7 @@
   <%= javascript_include_tag 'application' %>
 
   <meta name="viewport", content="width=device-width", initial-scale="1.0"/>
-
-
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCGaxhVo8MuhbWtVWcKcAf-PEBJXjXtzA&v=3">
-
-
-  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCGaxhVo8MuhbWtVWcKcAf-PEBJXjXtzA&v=3"></script>
 
 </head>
 
@@ -25,60 +20,45 @@
 
     <div class="navigate">
       <div class="nav_bar">
-        <div class="nav_left_side">
-          <div class="nav_home">
-            <%= link_to "RendezYOU", root_path, :class=>"a_nav_home" %>
-          </div>
+        <li><%= link_to "RendezYOU", root_path, :class=>"a_nav_logo" %></li>
 
-          <div class="nav_drop">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" id="nav_hover" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tours <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><%= link_to "Search All Tours", tours_path %></li>
-                <li role="separator" class="divider"></li>
-                <li><%= link_to "Your Created Tours", profile_path(anchor: "sub_heading_guide_all") %></li>
-                <li role="separator" class="divider"></li>
-                <li><%= link_to "Create a New Tour", new_tour_path %></li>
-              </ul>
-            </li>
-          </div>
+        <li class="dropdown nav_item_margin">
+          <a href="#" class="dropdown-toggle nav_items nav_one" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tours <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Search All Tours", tours_path %></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to "Your Created Tours", profile_path(anchor: "sub_heading_guide_all") %></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to "Create a New Tour", new_tour_path %></li>
+          </ul>
+        </li>
 
-          <div class="nav_drop_b">
-            <li class="dropdown-toggle nav_hover"><%= link_to "About Us", profile_path %></li>
-          </div>
+        <li class="dropdown-toggle nav_item_margin nav_two"><%= link_to "About Us", profile_path, :class=>"nav_items" %></li>
 
-          <div class="nav_drop_c">
-            <li class="dropdown">
-              <li id="nav_hover"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contact</a></li>
-            </li>
-          </div>
+        <li class="nav_item_margin nav_three"><a href="#" class="dropdown-toggle nav_items" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contact</a></li>
 
-          <% if current_user %>
+        <% if current_user %>
 
-          <div class="nav_right_float">
-            <%= image_tag current_user.avatar.url(:thumb), :class=>"pro_pic_nav nav_hover" %>
+          <li class="dropdown nav_item_margin nav_four">
+            <%=image_tag current_user.avatar.url(:thumb), :class=>"pro_pic_nav" %>
+            <a href="#" class="dropdown-toggle nav_items" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <%= current_user.name.capitalize %><span class="caret"></span>
+             </a>
+            <ul class="dropdown-menu nav_item_margin">
+              <li><%= link_to "My Profile page", profile_path(anchor: "sub_heading_guide_all") %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to "Edit Profile", edit_user_path(current_user.id) %></li>
+            </ul>
+          </li>
 
-            <div class="nav_drop">
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" id="nav_hover" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%=current_user.name.capitalize%><span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><%= link_to "My Profile page", profile_path(anchor: "sub_heading_guide_all") %></li>
-                  <li role="separator" class="divider"></li>
-                  <li><%= link_to "Edit Profile", edit_user_path(current_user.id) %></li>
-                </ul>
-              </li>
-            </div>
-            <li><%= link_to "Log Out", session_path("current"), :method => :delete, :class=>"a_logout nav_hover" %></li>
-          </div>
+          <li class="dropdown-toggle nav_item_margin nav_five"><%= link_to "Log Out", session_path("current"), :method => :delete, :class=>"nav_items" %></li>
 
-          <% else %>
+        <% else %>
 
-          <div class="nav_right_float">
-            <button type="button" class="a_login">Log In</button>
-            or <%=link_to "Sign Up", new_user_path, :class=>"a_signup" %>
-          </div>
-          <% end %>
-        </div>
+          <li><%=link_to "Log In", new_session_path, :class=>"a_login"%><span>or</span><%=link_to "Sign Up", new_user_path, :class=>"a_signup" %></li>
+
+        <% end %>
+
       </div>
     </div>
 
