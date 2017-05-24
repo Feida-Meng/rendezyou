@@ -29,7 +29,7 @@
           <div class="col-md-4 tours-rating-div">
             <p id="tour-details-rating"> <%= @average_rating %></p>
             <p id="see-schedules-responsive"><% unless @tour.schedules.empty? %>
-            <%= link_to 'Book now!', tours_path, :class=>"btn btn-primary tour-show-all" %>
+            <%= link_to 'Book now!', tours_path, :class=>"btn btn-primary tour-show-responsive" %>
             <% end %></p>
           </div>
         </div>
@@ -178,9 +178,9 @@
 
           <!-- responsive schedules modal -->
 
-        <!-- <div class="schedules-modal-window-responsive">
+        <div class="schedules-modal-window-responsive">
 
-          <div class="schedules-modal">
+          <div class="schedules-modal-responsive">
             <% @tour.schedules.each do |schedule| %>
             <div class="modal-tour-show-one-schedule">
 
@@ -210,7 +210,7 @@
 
               <% end %>
           </div>
-        </div> -->
+        </div>
 
 
 

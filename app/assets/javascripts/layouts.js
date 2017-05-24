@@ -34,7 +34,6 @@ $(document).ready(function(){
 
     form.on('click', function(e){
       e.stopPropagation();
-      e.preventDefault();
     });
 
     input.on('click', function(e){
@@ -71,6 +70,16 @@ $(document).ready(function(){
   modal(schedulesLink, schedulesMask, schedulesForm, schedulesInput);
 
 
+  //schedules modal (non-responsive) ------------------------------------------
+
+  var schedulesLink  = $('.tour-show-responsive')
+  var schedulesMask  = $('.schedules-modal-window-responsive')
+  var schedulesForm  = $('.schedules-modal-responsive')
+  var schedulesInput = $('.schedules-modal-responsive')
+
+  modal(schedulesLink, schedulesMask, schedulesForm, schedulesInput);
+
+
 
   // close all modals on esc key ----------------------------------------------
 
@@ -79,6 +88,7 @@ $(document).ready(function(){
         $('.login_window').fadeOut();
         $('.schedules-modal-window').fadeOut();
         $('.booking-modal-window').fadeOut();
+        $('.schedules-modal-window-responsive').fadeOut();
       }
     });
 

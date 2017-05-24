@@ -174,7 +174,7 @@ $(function(){
   });
 
 
-  // 
+  //
   // BOOKING FORM MODAL FROM SCHEDULES modal
 
   $('.booking-button-modal').on('click', function(e){
@@ -197,5 +197,6 @@ $(function(){
   $('.booking-modal-form input').on('click', function(e){
     e.stopPropagation();
   });
+
 
 });

@@ -122,7 +122,8 @@ $light-mustard: #fcdc6a;
 // schedules and booking modal ------------
 
 .schedules-modal-window,
-.booking-modal-window {
+.booking-modal-window,
+.schedules-modal-window-responsive {
   display: none;
   position: fixed;
   top: 0;
@@ -134,7 +135,8 @@ $light-mustard: #fcdc6a;
 }
 
 .schedules-modal,
-.booking-modal-form {
+.booking-modal-form,
+.schedules-modal-responsive {
   display: block;
   overflow: auto;
   max-width: 500px;
