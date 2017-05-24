@@ -173,8 +173,9 @@ $light-mustard: #fcdc6a;
  text-align: center;
  font-weight: bolder;
  color: #a8a7a7;
- font-size: 2.5em;
- margin-top: 5.5%;
+ font-size: 2.2em;
+ margin-top: 4.5%;
+ margin-bottom: 3.25%;
 }
 .create_a_tour_now{
  text-align: center;
@@ -217,7 +218,10 @@ height: 25vw;
 
 .tours_index_search_bar{
   margin-top: 3%;
+  margin: auto;
   text-align: center;
+  width: 90%;
+  line-height: 0px;
 }
 
 .tours_index_actual_bar{
@@ -479,12 +483,15 @@ margin-top: 10%;
 
 #plus-square{
   color: #0274b3;
-  font-size: 2em;
-  padding-left: 1%;
+  font-size: 1.5em;
+  vertical-align: middle;
+  padding-left: .5%;
 }
 
 .plus-square-font{
    padding-bottom: 5px;
+   font-size: .75em;
+   vertical-align: middle;
 }
 
 .sub_heading_guide_all{
