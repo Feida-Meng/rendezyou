@@ -186,15 +186,15 @@ $(function(){
 
   $('.schedules-modal').on('click', function(e){
     e.stopPropagation();
-    e.preventDefault();
+    // e.preventDefault();
   });
 
-  $(document).keyup(function(event){
-      if(event.which=='27'){
-        $('.schedules-modal-window').fadeOut();
-        $('.booking-modal-window').fadeOut();
-      }
-    });
+  // $(document).keyup(function(event){
+  //     if(event.which=='27'){
+  //       $('.schedules-modal-window').fadeOut();
+  //       $('.booking-modal-window').fadeOut();
+  //     }
+  //   });
 
 
   $('.booking-button').on('click', function(e){

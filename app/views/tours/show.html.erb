@@ -104,25 +104,12 @@
           <% unless (current_user && @tour.user_id == current_user.id) || t_s.tour_start_time < Time.now %>
               <span class="booking-button"><%= link_to 'Book now!', new_tour_schedule_booking_path(@tour,t_s), :class=>"booking-button-schedueles btn" %></span>
 
-              <!-- Booking form modal -->
-
-              <div class="booking-modal-window">
-                <div class="booking-modal-form">
-                  How many people are taking this tour?
-
-                  <%= render 'booking_form', tour: @tour, schedule: t_s, booking: @booking %>
-
-                </div>
-              </div>
 
               <% else  %>
-              <%= link_to 'Edit this Schedule', edit_tour_schedule_path(@tour, t_s) %> <br><%= link_to 'Cancel this Schedule', tour_schedule_path(@tour, t_s), method: :delete %>
+              <%= link_to 'Edit this Schedule', edit_tour_schedule_path(@tour, t_s) %> <br><%= link_to 'Cancel this Schedule', tour_schedule_path(@tour, t_s), method: :delete, data: {confirm: "Are you sure you want to cancel this schedule?"} %>
             <% end %>
           </div>
-            <% end %>
 
-
-          <% end %>
               <% if current_user && @tour.user_id == current_user.id %>
               <%= link_to 'Add more dates', new_tour_schedule_path(@tour), :class=>"btn btn-primary" %>
 
@@ -138,6 +125,19 @@
         </div>
         <div class="col-md-1">
         </div>
+        <!-- Booking form modal -->
+
+        <div class="booking-modal-window">
+          <div class="booking-modal-form">
+            How many people are taking this tour?
+
+            <%= render 'booking_form', tour: @tour, schedule: t_s, booking: @booking %>
+
+          </div>
+        </div>
+
+        <% end %>
+        <% end %>
         <!-- schedules modal -->
 
         <div class="schedules-modal-window">
@@ -159,7 +159,10 @@
 
 
               <% else  %>
-              <%= link_to 'Edit this Schedule', edit_tour_schedule_path(@tour, schedule) %> <br><%= link_to 'Cancel this Schedule', tour_schedule_path(@tour, schedule), method: :delete %>
+              <%= link_to 'Edit this Schedule', edit_tour_schedule_path(@tour, schedule) %> <br>
+              <% if schedule.bookings.empty? %>
+              <%= link_to 'Cancel this Schedule', tour_schedule_path(@tour, schedule), method: :delete, data: {confirm: "Are you sure you want to cancel this schedule?"} %>
+            <% end %>
             <% end %>
           </div>
             <% end %>

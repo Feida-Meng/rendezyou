@@ -137,7 +137,7 @@ $light-mustard: #fcdc6a;
 .booking-modal-form {
   display: block;
   overflow: auto;
-  width: 500px;
+  max-width: 500px;
   max-height: 500px;
   padding: 2em;
   background-color: white;

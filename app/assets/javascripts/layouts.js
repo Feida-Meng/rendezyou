@@ -16,48 +16,51 @@ $(document).ready(function(){
   //     }
   // });
 
+
+
   //login modal
-  $('.a_login').on('click', function(e){
-    e.stopPropagation();
-    e.preventDefault();
-    $('.login_window').fadeIn();
-  });
 
-  $('.login_window').on('click', function(e){
-    e.preventDefault();
-    $('.login_window').fadeOut();
-  });
+  function modal(link, mask, form, input) {
+    link.on('click', function(e){
+      e.stopPropagation();
+      e.preventDefault();
+      mask.fadeIn();
+    });
 
-  $('.login_form').on('click', function(e){
-    e.stopPropagation();
-    e.preventDefault();
-  });
+    mask.on('click', function(e){
+      e.preventDefault();
+      mask.fadeOut();
+    });
 
-  $('.login_form input').on('click', function(e){
-    e.stopPropagation();
-  });
+    form.on('click', function(e){
+      e.stopPropagation();
+      e.preventDefault();
+    });
+
+    input.on('click', function(e){
+      e.stopPropagation();
+    });
+
+  }
+
+  var loginLink    = $('.a_login')
+  var loginMask    = $('.login_window')
+  var loginForm    = $('.login_form')
+  var loginInput   = $('.login_form input')
+
+  modal(loginLink, loginMask, loginForm, loginInput);
+
+
 
 
   $(document).keyup(function(event){
       if(event.which=='27'){
         $('.login_window').fadeOut();
+        $('.schedules-modal-window').fadeOut();
+        $('.booking-modal-window').fadeOut();
       }
     });
 
-  //signup modal
-  // $('.a_signup').on('click', function(e){
-  //   e.stopPropagation();
-  //   e.preventDefault();
-  //   $('.signup_window').fadeIn();
-  // });
-  //
-  // $('.signup_form').on('click', function(e){
-  //   e.stopPropagation();
-  //   $('.signup_window').fadeOut();
-  // });
-  //
-  // $('.signup_form input').on('click', function(e){
-  //   e.stopPropagation();
-  // });
+
 
 });
