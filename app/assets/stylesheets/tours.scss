@@ -139,8 +139,8 @@ $light-mustard: #fcdc6a;
 .schedules-modal-responsive {
   display: block;
   overflow: auto;
-  max-width: 500px;
-  max-height: 500px;
+  max-width: 450px;
+  max-height: 425px;
   padding: 2em;
   background-color: white;
   position: absolute;
@@ -150,6 +150,27 @@ $light-mustard: #fcdc6a;
   left: 0;
   right: 0;
   z-index: 1000;
+}
+
+.booking-modal-form {
+  max-height: 200px;
+  max-width: 350px;
+  text-align: center;
+}
+
+.modal-tour-show-one-schedule {
+  border-bottom: 1px solid $mustard;
+  margin-top: 2%;
+}
+
+.modal-tour-show-date {
+  display: inline-block;
+}
+
+span.booking-button-responsive,
+span.booking-button {
+  display: inline-block;
+  float: right;
 }
 
 
