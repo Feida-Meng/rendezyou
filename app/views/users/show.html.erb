@@ -95,12 +95,12 @@
         <hr class="black">
 
         <% if current_user && @tours_created.empty? %>
-        <div class="sub_heading_guide_all">Tours created: You have no tours created...</div>
+        <div class="sub_heading_guide_all"><i class="fa fa-map-marker fa-2x icon-new-tour"></i> Tours created: You have no tours created...</div>
         <div class="sub_heading_guide_all user_show_click_here_to_create_one"><%= link_to "Click here to create a new tour", new_tour_url %></div>
 
         <% else %>
 
-        <div class="sub_heading_guide_all"><i class="fa fa-map-marker icon-new-tour">Here are your <span class="blue_names">Guided</span> Tours!</div>
+        <div class="sub_heading_guide_all"><i class="fa fa-map-marker fa-2x icon-new-tour"></i> Here are your <span class="blue_names">Guided</span> Tours!</div>
 
         <% end %>
 
@@ -126,10 +126,12 @@
             <div class="caption" id="tourindexcaption">
               <!-- <p class="tourp"><%= tour.description %></p> -->
               <p class="tourp">
+                <i class="fa fa-male blue_icons" aria-hidden="true" id="i"></i>
+                <span class="blue_names">Tour Capacity: </span><%= tour.capacity %><br>
                 <i class="fa fa-map-marker blue_icons" aria-hidden="true" id="i"></i>
                 <span class="blue_names">RendezVous Point: </span><br>
                 <%= tour.rendezvous_point %></p>
-                <%= link_to "ADD TOUR POINTS", new_tour_tourpoint_path(tour), :class=>"btn btn-success btn-xs", :id=>"tourpointbut" %>
+                <%= link_to "ADD TOUR POINTS", new_tour_tourpoint_path(tour), :class=>"btn btn-success btn", :id=>"tourpointbut" %>
                 <!-- <%= link_to "EDIT", tour_path(tour), :class=>"btn btn-success", :id=>"tourindexbut" %> -->
               </div><!--caption-->
             </div> <!--#thumbnail_tour_index-->
@@ -151,10 +153,10 @@
         <hr class="black">
 
           <% if @bookings.empty? %>
-            <div class="sub_heading_guide_all">Tours booked: You have no tours booked...</div>
+            <div class="sub_heading_guide_all"><i class="fa fa-map-marker fa-2x icon-new-tour"></i> Tours booked: You have no tours booked...</div>
             <div class="sub_heading_guide_all user_show_click_here_to_create_one"><%= link_to "Click here to book a tour", tours_url %></div>
           <% else %>
-            <div class="sub_heading_guide_all">Here are your <span class="blue_names">Booked</span> Tours!</div>
+            <div class="sub_heading_guide_all"><i class="fa fa-map-marker fa-2x icon-new-tour"></i> Here are your <span class="blue_names">Booked</span> Tours!</div>
 
         <% @tours_booked.reverse.each do |t| %>
         <% t.schedules.each do |s| %>
