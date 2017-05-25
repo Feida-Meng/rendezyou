@@ -1,10 +1,15 @@
 <div class="yield">
 </div>
 
+
 <p class="show_page_tour_image"><%= image_tag @tour.tourpic.url(:medium), :class=>"tour_pic_tourdetails" %></p>
-<h2>When do you want to guide your tour?</h2>
+<div class="schedules-new-page">
+<h2>When do you want to guide <%= @tour.name %>?</h2>
+
 
 <% unless @tour.schedules.empty? %>
+  <div class="currently-scheduled">
+
   <h3>You have currently scheduled:</h3>
   <ul>
     <% @tour.schedules.each do |s| %>
@@ -14,8 +19,14 @@
     <% end %>
   </ul>
 
+</div>
 <% end %>
 
 <div class='form_container'>
   <%= render 'form' %><br>
 </div>
+
+
+
+</div>
+

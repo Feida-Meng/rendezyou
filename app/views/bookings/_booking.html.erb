@@ -1,11 +1,12 @@
-<div class="yield">
-  <h3> <%="Tour: #{@tour.name}" %> </h3>
 
-  <p> <%="Tour description: #{@tour.description}" %> </p>
+  <h3 class="tour-booking-title">
+    currently booking:
+    <span class="to-capitalize"><%= @tour.name %></span> </h3>
 
-  <p> <%="Tour guide: #{User.find(@tour.user_id).name}" %> </p>
+  <p> <b>Your tour guide: </b><%= User.find(@tour.user_id).name %> </p>
 
-  Please select number of companions for this tour
+  <p> <b>About the tour: </b><%= @tour.description %> </p>
+
 
   <%= form_for ([@tour,@schedule,@booking]) do |f|%>
 
@@ -21,15 +22,19 @@
       </div>
     <% end %>
 
+    <div class="booking-schedule-details">
+
+    </div>
+
     <div class="booking_size">
-      <%= f.label :booking_size,"group size" %>
+      <%= f.label :booking_size,"Number of people in your group:" %>
       <%= f.number_field :booking_size, min: 1, max: @schedule.max_capacity, step:1 %>
 
     </div>
 
     <div class="submit">
-      <%= f.submit "Submit booking request" %>
+      <%= f.submit "Submit booking request", :class=>"btn btn-primary" %>
+      <%= link_to "Cancel", tour_path(@tour), :class=>"btn btn-primary" %>
     </div>
 
   <% end %>
-</div>

@@ -1,3 +1,27 @@
 // Place all the styles related to the Bookings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$mustard: #ffc800;
+$light-mustard: #fcdc6a;
+
+
+.booking {
+  width: 70%;
+  margin: 5% auto;
+  font-size: 1.2em;
+}
+
+.booking_size {
+  margin: 10px auto;
+  font-weight: normal;
+}
+
+.tour-booking-title {
+  padding-bottom: 15px;
+  border-bottom: 2px solid $mustard;
+  margin-bottom: 5%;
+}
+
+.to-capitalize {
+  text-transform: uppercase;
+}

@@ -19,7 +19,7 @@
               <p class="tour-details-meetup"><i class="fa fa-map-marker"></i> <%= @tour.rendezvous_point %></p>
           </div>
           <div class="col-md-4 tours-icon-div">
-            <p class="tour-details-category"> <%= @tour.category %></p>
+            <p id="tour-details-category"> <%= @tour.category %></p>
             <p><i class="fa fa-clock-o"></i> Duration: <%= "#{@tour.duration_in_ms / 3600000} hours"%></p>
           </div>
 
@@ -153,7 +153,7 @@
             </div>
           </div>
           <% unless (current_user && @tour.user_id == current_user.id) || schedule.tour_start_time < Time.now %>
-              <span class="booking-button-modal"><%= link_to 'Book now!', new_tour_schedule_booking_path(@tour,schedule), :class=>"btn" %></span>
+              <span class="booking-button-modal"><%= link_to 'Book now!', new_tour_schedule_booking_path(@tour,schedule), :class=>"btn btn-primary" %></span>
 
 
 
@@ -208,9 +208,6 @@
               <% end %>
           </div>
         </div>
-
-
-
       </div>
     </div>
   </div>

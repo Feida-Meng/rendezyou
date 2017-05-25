@@ -24,15 +24,15 @@ class ToursController < ApplicationController
     @average_rating = average_rating
     @recent_schedules = recent_schedules
     load_tour_guide
+    set_vary_header
 
     if request.xhr?
       respond_to do |format|
         format.json do
-
           render :json => @tour.to_json({:include => :tourpoints, :method => :country_name})
-
         end
         format.html do
+          set_vary_header
           render :show
         end
       end
