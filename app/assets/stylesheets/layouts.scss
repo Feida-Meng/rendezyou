@@ -68,12 +68,14 @@ li.nav_item_margin{
 }
 
 li.nav_item_margin.nav_four{
-position: absolute;
-right: 120px;}
+  position: absolute;
+  right: 120px;
+}
 
 li.nav_item_margin.nav_five{
-position: absolute;
-right: 15px;}
+  position: absolute;
+  right: 15px;
+}
 
 
 
@@ -163,7 +165,49 @@ div.yield{
 }
 
 
-@media screen and (min-width:0px) and (max-width:775px){
+.nav_six{
+  display: none;
+}
 
 
+@media screen and (min-width:0px) and (max-width:900px){
+
+
+li.dropdown.nav_item_margin.nav_six{
+    display: inherit;
+    position: absolute;
+    right: 0px;
+
+    & a.dropdown-toggle.nav_items{
+      padding-top: .2em;
+      color: lightyellow ;
+
+      &:hover{
+        text-decoration: none;
+        color: Aquamarine;
+        padding-bottom: 0em;
+        border-bottom: 0px solid transparent;
+      }
+    }
+  }
+
+#pro_pic_nav_six{
+  margin-top: .4em;
+  margin-right: .4em;
+}
+
+  .nav_one,
+  .nav_two,
+  .nav_three,
+  .nav_four,
+  .nav_five{
+    display: none;
+  }
+
+}
+
+@media screen and (min-width:0px) and (max-width:375px){
+  #pro_pic_nav_six{
+    display: none;
+  }
 }
