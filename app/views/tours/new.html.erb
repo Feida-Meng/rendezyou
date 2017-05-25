@@ -1,5 +1,3 @@
-<div class="layout_nav_bar">
-</div>
 <div class="yield">
 </div>
 
@@ -12,12 +10,11 @@
       <div class="col-md-1">
       </div>
 
-
       <div class="col-md-11">
 
-
-
         <%= render 'form' %>
+
+        <%= link_to "<< Back to tour", tour_path(@tour) || tours_path, :class=>"btn btn-default" %>
 
       </div>
 

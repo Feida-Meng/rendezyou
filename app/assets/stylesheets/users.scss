@@ -69,11 +69,7 @@ h3.user_click a:hover {
 
 }
 
-.map_img{
-  position: fixed;
-  width: 100%;
-  z-index: -500;
-}
+
 
 .book_img{
   position: absolute;
@@ -386,6 +382,10 @@ input#signupbutton{
 
   div.main_passport{
     margin-top: 30px;
+  }
+
+  input#signupbutton{
+    margin-top: 20px;
   }
 
 }

@@ -1,20 +1,23 @@
-<div class="layout_nav_bar">
-</div>
 <div class="yield">
 </div>
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="row">
-        <div class="col-md-1">
-        </div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="row">
 
-        <div class="col-md-11">
-          <%= render 'form' %>
-          <%= link_to "<< Back to tour", tour_path(@tour) %>
-        </div>
+      <h4 class="create_a_tour_now">Many adventures await at <span class="a_nav_logo small_logo">RendezYOU</span>  !</h4>
+
+      <div class="col-md-1">
       </div>
+
+      <div class="col-md-11">
+
+        <%= render 'form' %>
+
+        <%= link_to "<< Back to tour", tour_path(@tour), :class=>"btn btn-default" %>
+
+      </div>
+
     </div>
   </div>
 </div>

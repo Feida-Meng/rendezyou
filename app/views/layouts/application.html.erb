@@ -39,7 +39,7 @@
 
           <li class="dropdown nav_item_margin nav_four">
             <%=image_tag current_user.avatar.url(:thumb), :class=>"pro_pic_nav" %>
-            <a href="#" class="dropdown-toggle nav_items" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <a href="#" class="dropdown-toggle nav_items a" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               <%= current_user.name.capitalize %><span class="caret"></span></a>
             <ul class="dropdown-menu nav_item_margin">
               <li><%= link_to "My Profile Page", profile_path(anchor: "sub_heading_guide_all") %></li>
@@ -53,9 +53,6 @@
           <li class="dropdown nav_item_margin nav_six">
             <%=image_tag current_user.avatar.url(:thumb), :class=>"pro_pic_nav", :id=>"pro_pic_nav_six" %>
             <a href="#" class="dropdown-toggle nav_items" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bars fa-3x"></i></a>
-
-
-
             <ul class="dropdown-menu nav_item_margin">
               <li><%= link_to "Search Tours", tours_path %></li>
                 <li role="separator" class="divider"></li>
@@ -73,7 +70,17 @@
 
         <% else %>
 
-          <li><%=link_to "Log In", new_session_path, :class=>"a_login"%><span>or</span><%=link_to "Sign Up", new_user_path, :class=>"a_signup" %></li>
+          <li class="dropdown-toggle nav_item_margin nav_seven"><%=link_to "Log In", new_session_path, :class=>"a_login nav_items"%><span class="or_font" >or</span></li>
+          <li class="dropdown-toggle nav_item_margin nav_eight"><%=link_to "Sign Up", new_user_path, :class=>"a_signup nav_items" %></li>
+
+          <li class="dropdown nav_item_margin nav_nine">
+            <a href="#" class="dropdown-toggle nav_items" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bars fa-3x"></i></a>
+            <ul class="dropdown-menu nav_item_margin">
+              <li><%=link_to "Log In", new_session_path, :class=>"a_login"%></li>
+                <li role="separator" class="divider"></li>
+              <li><%=link_to "Sign Up", new_user_path, :class=>"a_signup" %></li>
+            </ul>
+          </li>
 
         <% end %>
 
