@@ -13,7 +13,7 @@
   <% end %>
 
   <div class="main_passport">
-      <%= form_for @user, url: users_path, html: { multipart: true, :class => "form-horizontal user_passport_container"} do |f| %>
+      <%= form_for @user, html: { multipart: true, :class => "form-horizontal user_passport_container"} do |f| %>
 
 
       <div class="col-sm-2">
@@ -78,7 +78,11 @@
           <%= f.file_field :avatar, :class=>"extra_avatar_to_hide_padding" %>
         </div>
 
-        <%= f.submit 'Sign Me Up!', :class=>"btn btn-danger btn-lg active", :id=>"signupbutton" %>
+      <% if new_user_path%>
+        <%= f.submit 'Sign me In', :class=>"btn btn-danger btn-lg active", :id=>"signupbutton" %>
+      <% elsif edit_user_path%>
+        <%= f.submit 'Save', :class=>"btn btn-danger btn-lg active", :id=>"signupbutton" %>
+      <% end %>
 
       </div>
 

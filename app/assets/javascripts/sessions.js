@@ -1,8 +1,8 @@
 $(document).ready(function(){
 
   //notice and alert
-  $('#notice').fadeIn(2000).animate({"margin-top":"4em"},'slow').delay(2500).fadeOut(2000);
-  $('#alert').fadeIn(2000).animate({"margin-top":"4em"},'slow').delay(2500).fadeOut(2000);
+  $('#notice').fadeIn(2000).animate({"margin-top":"3.5em"},'slow').delay(2500).fadeOut(2000);
+  $('#alert').fadeIn(2000).animate({"margin-top":"3.5em"},'slow').delay(2500).fadeOut(2000);
 
 })
 

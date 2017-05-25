@@ -69,11 +69,7 @@ h3.user_click a:hover {
 
 }
 
-.map_img{
-  position: fixed;
-  width: 100%;
-  z-index: -500;
-}
+
 
 .book_img{
   position: absolute;
@@ -265,13 +261,15 @@ input#signupbutton{
 }
 
 
+
+
 // responsive starts here  ------------>
 // responsive starts here  ------------>
 // responsive starts here  ------------>
 // responsive starts here  ------------>
 // responsive starts here  ------------>
 
-@media (min-width:770px){
+@media (min-width:775px){
 
   img.user_new_signin_avatar{
       width: 70%;
@@ -307,14 +305,19 @@ input#signupbutton{
 
 }
 
-@media screen and (min-width:770px) and (max-width:1070px){
+.reduce_user_show_width{
+  width: 95%;
+  zoom: 95%;
+}
+
+@media screen and (min-width:765px) and (max-width:1070px){
 
   .responsive_middle_none{
     display: inline-flex;
   }
 }
 
-@media screen and (min-width:0px) and (max-width:770px){
+@media screen and (min-width:0px) and (max-width:775px){
 
   img.user_new_signin_avatar{
     display: none;
@@ -379,6 +382,10 @@ input#signupbutton{
 
   div.main_passport{
     margin-top: 30px;
+  }
+
+  input#signupbutton{
+    margin-top: 20px;
   }
 
 }

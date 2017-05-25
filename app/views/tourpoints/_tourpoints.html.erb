@@ -1,51 +1,46 @@
+<div class="yield">
+</div>
 
+<h4 class="create_a_tour_now">Please click on map to drop a marker of the new <span class="a_nav_logo small_logo">RendezYOU</span> tour point.</h4>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<div class="container-fluid tour_point_form_scale">
+  <div class="row">
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<h2>Please click on map to drop a marker of the tour point</h2>
-<div id="tourpointmap"></div>
-
-<br>
-
-<div class="form">
-
-  <%= form_for [@tour,@tourpoint],html:{id:"tour_point_form"} do |f| %>
-
-    <div class="form-group">
-      <%= f.label :tour_point_name %>
-      <%= f.text_field :tour_point_name %>
+    <div class="col-md-6">
+      <div id="tourpointmap"></div>
     </div>
 
-    <div class="form-group">
-      <% f.label :tour_point_laglng %>
-      <%= f.hidden_field :tour_point_laglng %>
-    </div>
+    <div class="form col-md-6">
 
-    <div class="form-group">
-      <%= f.label :tour_point_description %>
-      <%= f.text_area :tour_point_description %>
-    </div>
+      <%= form_for [@tour,@tourpoint],html:{id:"tour_point_form"} do |f| %>
 
-    <div class="form-group">
-      <%= f.label :tour_point_img,"Tour point image" %>
-      <%= f.text_field :tour_point_img %>
-    </div>
+      <div class="form-group">
+        <%= f.label :tour_point_name %>
+        <%= f.text_field :tour_point_name, :placeholder=>"Tour point name", :class=>"form-control" %>
+      </div>
 
-    <div class="form-group">
-        <%= f.submit "Save this tour point" %>
-    </div>
-    <%= link_to 'Cancel', tour_path(@tour) %>
+      <div class="form-group">
+        <% f.label :tour_point_laglng %>
+        <%= f.hidden_field :tour_point_laglng, :class=>"form-control" %>
+      </div>
 
-  <% end %>
+      <div class="form-group">
+        <%= f.label :tour_point_description %>
+        <%= f.text_area :tour_point_description, :placeholder=>"Description", :class=>"form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :tour_point_img,"Tour point image" %>
+        <%= f.text_field :tour_point_img, :class=>"form-control", :placeholder=>"Image" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit "Save this tour point", :class=>"btn btn-primary" %>
+          <p class="tour-or"></p>
+        <%= link_to 'Cancel', tour_path(@tour), :class=>"btn btn-default" %>
+      </div>
+
+      <% end %>
+
+  </div>
 </div>

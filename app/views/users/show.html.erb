@@ -1,5 +1,3 @@
-<div class="layout_nav_bar"></div>
-
 <div class="yield"></div>
 
 <!-- Carousel -->
@@ -89,7 +87,7 @@
 </div>
 
 <!-- User's created tours -->
-<div class="container-fluid">
+<div class="container-fluid reduce_user_show_width">
   <div class="row user_created_tours">
     <div class="col-md-12 user_created_tours">
       <div class="row">
@@ -131,6 +129,7 @@
                 <i class="fa fa-map-marker blue_icons" aria-hidden="true" id="i"></i>
                 <span class="blue_names">RendezVous Point: </span><br>
                 <%= tour.rendezvous_point %></p>
+                <%= link_to "ADD TOUR POINTS", new_tour_tourpoint_path(tour), :class=>"btn btn-success btn-xs", :id=>"tourpointbut" %>
                 <!-- <%= link_to "EDIT", tour_path(tour), :class=>"btn btn-success", :id=>"tourindexbut" %> -->
               </div><!--caption-->
             </div> <!--#thumbnail_tour_index-->
@@ -144,7 +143,7 @@
   </div><!--.container-fluid-->
 
 <!-- User's Booked tours -->
-<div class="container-fluid">
+<div class="container-fluid reduce_user_show_width">
   <div class="row user_created_tours">
     <div class="col-md-12 user_created_tours">
       <div class="row">
