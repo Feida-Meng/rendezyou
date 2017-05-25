@@ -40,8 +40,18 @@ html{
 
   &:hover{
     text-decoration: none;
-    color: OrangeRed;
+    color: grey;
     opacity: .9;
+  }
+}
+
+#main_nav_logo{
+  &:hover{
+    color: #ffc800;
+    padding-bottom: -20px;
+    text-shadow: 0px 0px 2px white;
+
+    // border-bottom: 5px solid #ffc800;
   }
 }
 
@@ -49,7 +59,7 @@ html{
 .nav_items > a,
 .nav_items,
 .dropdown-toggle.nav_items{
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-family: arial;
   color: white;
   margin: 0px 10px 0px 10px;
@@ -59,7 +69,7 @@ html{
   &:hover{
     text-decoration: none;
     color: white;
-    padding-bottom: 1em;
+    padding-bottom: 1.15em;
     border-bottom: 11px solid #ffc800;
   }
 }
@@ -68,7 +78,7 @@ a.dropdown-toggle.nav_items.a{
   &:hover{
     text-decoration: none;
     color: white;
-    padding-bottom: 1.1em;
+    padding-bottom: 1.25em;
     border-bottom: 11px solid #ffc800;
   }
 }
@@ -156,7 +166,7 @@ div.yield{
 #alert {
   position: fixed;
   // top: 4em;
-  right: 4em;
+  right: 5em;
   text-align: center;
   color: tomato;
   background: rgba(255,255,255,.9);
