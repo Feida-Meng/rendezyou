@@ -118,7 +118,7 @@
               <div class="container_relative_no_break">
                 <p class="tour_index_name" ><%= link_to tour.name.slice(0,1).capitalize + tour.name.slice(1..-1), tour_path(tour.id)%></p>
                 <hr class="white">
-                <p class="tour_index_cat"><%= tour.category%></p>
+                <p class="tour_index_cat"> <%= tour.category%></p>
               </div>
               <% end %>
             </div><!--.index-container-relative-->
@@ -171,7 +171,7 @@
               <div class="container_relative_no_break">
                 <p class="tour_index_name" ><%= link_to t.name.slice(0,1).capitalize + t.name.slice(1..-1),tour_url(t) %></p>
                 <hr class="white">
-                <p class="tour_index_cat"><%= t.category%></p>
+                <p class="tour_index_cat"> <%= t.category%></p>
               </div><!--container_relative_no_break-->
             </div><!--.index-container-relative-->
             <div class="caption" id="tourindexcaption">

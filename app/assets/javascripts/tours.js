@@ -162,6 +162,7 @@ $(function(){
   var tourShowPageCat  = $('#tour-details-category');
   var tourIndexPageCat = $('.tour_index_cat');
 
+
   tourIcons(tourShowPageCat);
   tourIcons(tourIndexPageCat);
 
