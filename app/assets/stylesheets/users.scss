@@ -222,14 +222,14 @@ $button-transition-speed: 0.25s;
         width: $button-width;
         height: $button-height;
         position: absolute;
-        border: 5px solid black;
+        border: 5px solid #31323a;
         box-sizing: border-box;
         content: attr(title);
         display: (flex);
       }
 
       &::before {
-        background-color: #000;
+        background-color: #31323a;
         color: #fff;
         transform: (
           rotateY(0deg)
@@ -239,8 +239,8 @@ $button-transition-speed: 0.25s;
 
       &::after {
         background-color: #fff;
-        border-color: #000;
-        color: #000;
+        border-color: #31323a;
+        color: #31323a;
         transform: (
           rotateX(90deg)
           translateZ($button-height / 2)
