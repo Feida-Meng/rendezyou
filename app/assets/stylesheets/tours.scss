@@ -261,7 +261,7 @@ height: 25vw;
   padding-right: 18px;
   text-align: right;
   margin-bottom: 2%;
-  margin-top: 0%;
+  margin-top: 1%;
   font-size: 1.5em;
   vertical-align: middle;
 }
@@ -371,6 +371,14 @@ hr.black_within{
 
 div#tourindexcaption{
   position: relative;
+}
+
+a#tourpointbut{
+  position: absolute;
+  top: 15px;
+  right: 2px;
+  // background: #ff584c;
+  border: #ff584c;
 }
 
 a#tourindexbut{
@@ -566,6 +574,10 @@ p > a:link{
   color: white;
 }
 
+.tour_form_scale {
+  margin: auto;
+    zoom: 95%;
+}
 
 // Responsive - Tours # Show ----------------------------
 

@@ -3,11 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #tourpointmap {
   height:500px;
-  width:50%;
+  width:100%;
 }
 
 #edit-tourpoints-map {
   height:500px;
-  width:50%;
+  width:100%;
+}
 
+.tour_point_form_scale{
+    margin-top: 4em;
+    zoom: 90%;
+    width: 90%;
 }

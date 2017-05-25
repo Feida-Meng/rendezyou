@@ -77,7 +77,7 @@ class SchedulesController < ApplicationController
   def no_bookings
     unless @schedule.bookings.empty?
       flash[:alert] = "You cannot edit a schedule if people have booked it"
-      redirect_to tour_path(@tour)
+      redirect_to tour_path(@tour) and return
     end
   end
 
