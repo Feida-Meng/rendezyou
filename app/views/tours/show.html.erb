@@ -28,6 +28,11 @@
             <p id="see-schedules-responsive"><% unless @tour.schedules.empty? %>
             <%= link_to 'Book now!', tours_path, :class=>"btn btn-primary tour-show-responsive" %>
             <% end %></p>
+
+            <% if current_user && @tour.user_id == current_user.id %>
+            <%= link_to 'Add more dates', new_tour_schedule_path(@tour), :class=>"add-dates-responsive btn btn-primary" %>
+
+            <% end %>
           </div>
         </div>
 

@@ -71,6 +71,7 @@ $light-mustard: #fcdc6a;
 
 #tour-responsive-description,
 #see-schedules-responsive,
+.add-dates-responsive,
 .tour-description-title {
   display: none;
 }
@@ -628,7 +629,8 @@ p > a:link{
     margin-bottom: 1%;
   }
 
-  #see-schedules-responsive {
+  #see-schedules-responsive,
+  .add-dates-responsive {
     display: inline-block;
   }
 
