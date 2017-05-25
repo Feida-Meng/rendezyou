@@ -1,17 +1,19 @@
 class UsersController < ApplicationController
   def new
     @user = User.new
+    @button_text = "Sign me in!"
     #  render :layout=>"applicationb"
 
   end
 
   def edit
+    @button_text = "Save"
     @user = current_user
-    if @user.save
-      redirect_to(profile_path(anchor: "sub_heading_guide_all"), notice: "Your profile has been updated.")
-    else
-      render :new
-    end
+    # if @user.save
+    #   redirect_to(profile_path(anchor: "sub_heading_guide_all"), notice: "Your profile has been updated.")
+    # else
+    #   render :new
+    # end
   end
 
 

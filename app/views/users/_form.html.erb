@@ -26,7 +26,7 @@
           <%= f.label :name, class:"control-label col-sm-3"%>
           <div class="col-sm-9">
             <%= f.text_field :name, class:"form-control", id:"inputSuccess3"%>
-            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+            <!-- <span class="glyphicon glyphicon-ok form-controlfeedback" aria-hidden="true"></span> -->
             <span id="inputSuccess3Status" class="sr-only"></span>
           </div>
         </div>
@@ -35,7 +35,7 @@
           <%= f.label :username, class:"control-label col-sm-3"%>
           <div class="col-sm-9">
             <%= f.text_field :username, class:"form-control", id:"inputSuccess3"%>
-            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+            <!-- <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span> -->
             <span id="inputSuccess3Status" class="sr-only"></span>
           </div>
         </div>
@@ -44,7 +44,7 @@
           <%= f.label :email, class:"control-label col-sm-3"%>
           <div class="col-sm-9">
             <%= f.text_field :email, class: "form-control", id:"inputSuccess3"%>
-            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+            <!-- <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span> -->
             <span id="inputSuccess3Status" class="sr-only"></span>
           </div>
         </div>
@@ -53,7 +53,7 @@
           <%= f.label :phone, class:"control-label col-sm-3" %>
           <div class="col-sm-9">
             <%= f.telephone_field :phone, class:"form-control", id:"inputSuccess3"%>
-            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+            <!-- <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span> -->
             <span id="inputSuccess3Status" class="sr-only"></span>
           </div>
         </div>
@@ -78,11 +78,7 @@
           <%= f.file_field :avatar, :class=>"extra_avatar_to_hide_padding" %>
         </div>
 
-      <% if new_user_path%>
-        <%= f.submit 'Sign me In', :class=>"btn btn-danger btn-lg active", :id=>"signupbutton" %>
-      <% elsif edit_user_path%>
-        <%= f.submit 'Save', :class=>"btn btn-danger btn-lg active", :id=>"signupbutton" %>
-      <% end %>
+      <%= f.submit @button_text, :class=>"btn btn-danger btn-lg active", :id=>"signupbutton" %>
 
       </div>
 

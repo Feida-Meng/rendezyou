@@ -40,32 +40,6 @@
   // text-decoration: underline;
 }
 
-.tag_line{
-  position: relative;
-  font-size: 1.4em;
-  letter-spacing: .2em;
-  padding-top: 1.75em;
-  text-shadow: 3px 3px rgba(0, 0, 0, 1);
-}
-
-.set_up{
-  background: white;
-  width: 100%;
-  height: 100em;
-}
-
-.oneliner{
-  // font-family: 'Cabin Sketch', cursive;
-  // font-family: 'Oswald', sans-serif;
-  font-family: 'Yrsa', serif;
-  color: black;
-  font-size: 5em;
-  text-align: center;
-  padding-top: 1.5em;
-  padding-bottom: 1.5em;
-}
-
-
 .a_login{
 border: none;
 background: none;
@@ -77,4 +51,90 @@ background: none;
 
 input{
   align-items: right;
+}
+
+.one_two_three{
+  zoom: 80%;
+  width: 80%;
+  margin: auto;
+}
+
+.cabin_sketch{
+  font-size: 4em;
+  font-family: 'Cabin Sketch', cursive;
+}
+
+h2.cabin_sketch{
+  margin-top: .5em;
+  margin-bottom: .5em;
+}
+
+.red{
+  color: orangered;
+  font-size: 1.1em;
+}
+
+
+
+.main_footer{
+  background: gainsboro;
+  width: 100%;
+  height: 4em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+
+  & p{
+    color: white;
+    text-shadow: 0px 0px 3px rgba(0, 0, 0, 1);
+    margin-right: 3em;
+  }
+}
+
+.show_page_icon{
+    width: 60%;
+    text-align: center;
+}
+
+.tag_line{
+  position: relative;
+  font-size: 1.4em;
+  letter-spacing: .2em;
+  padding-top: 1.75em;
+  text-shadow: 3px 3px rgba(0, 0, 0, 1);
+}
+
+.set_up{
+  background: white;
+  width: 100%;
+}
+
+.oneliner{
+  // font-family: 'Cabin Sketch', cursive;
+  // font-family: 'Oswald', sans-serif;
+  font-family: 'Yrsa', serif;
+  color: black;
+  font-size: 5em;
+  text-align: center;
+  padding-top: 1.25em;
+  padding-bottom: 1em;
+  zoom: 90%;
+  font-weight: bold;
+  text-shadow: 4px 3px 0 white, 9px 8px 0 rgba(0,0,0,0.15);
+  // font-style: italic;
+
+
+}
+
+.container_one_two_three{
+  position: relative;
+  text-align: center;
+}
+
+.show_page_three_two_one{
+  margin-left: 15%;
+  margin-right: 15%;
+  text-align: justify;
+  margin-bottom: 3em;
 }

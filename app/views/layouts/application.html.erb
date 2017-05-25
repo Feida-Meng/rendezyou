@@ -20,7 +20,7 @@
 
     <div class="navigate">
       <div class="nav_bar">
-        <li><%= link_to "RendezYOU", root_path, :class=>"a_nav_logo", :id=>"main_nav_logo" %></li>
+        <li><%= link_to "RendezYOU", profile_path, :class=>"a_nav_logo", :id=>"main_nav_logo" %></li>
 
         <li class="dropdown nav_item_margin">
           <a href="#" class="dropdown-toggle nav_items nav_one" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tours <span class="caret"></span></a>
@@ -31,7 +31,7 @@
           </ul>
         </li>
 
-        <li class="dropdown-toggle nav_item_margin nav_two"><%= link_to "About Us", profile_path, :class=>"nav_items" %></li>
+        <li class="dropdown-toggle nav_item_margin nav_two"><%= link_to "About Us", root_path, :class=>"nav_items" %></li>
 
         <li class="nav_item_margin nav_three"><a href="#" class="dropdown-toggle nav_items" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contact</a></li>
 
@@ -42,7 +42,7 @@
             <a href="#" class="dropdown-toggle nav_items a" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               <%= current_user.name.capitalize %><span class="caret"></span></a>
             <ul class="dropdown-menu nav_item_margin">
-              <li><%= link_to "My Profile Page", profile_path(anchor: "sub_heading_guide_all") %></li>
+              <li><%= link_to "My User Page", profile_path(anchor: "sub_heading_guide_all") %></li>
               <li role="separator" class="divider"></li>
               <li><%= link_to "Edit Profile", edit_user_path(current_user.id) %></li>
             </ul>
