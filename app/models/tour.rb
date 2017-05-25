@@ -20,8 +20,20 @@ class Tour < ApplicationRecord
   end
 
   def self.search(search)
-    keywords = search.split.map { |key| "%#{key}%" }
-    where("name ILIKE any ( array[?] ) OR description ILIKE any ( array[?] ) OR category::text ILIKE any ( array[?] ) OR rendezvous_point ILIKE any ( array[?] ) OR country_id = ?", keywords, keywords, keywords, keywords ,Country.where("name ILIKE any ( array[?] )", keywords ).ids.first)
+    keywords_raw = search.split.map { |rkey| rkey }
+    keywords = keywords_raw.map { |key| "%#{key}%" }
+    cat_value = []
+
+    keywords_raw.each do |k|
+      Tour.categories.each do |cat, value|
+        if k.capitalize == cat
+          cat_value << value
+        end
+      end
+
+    end
+
+    where("name ILIKE any ( array[?] ) OR description ILIKE any ( array[?] ) OR rendezvous_point ILIKE any ( array[?] ) OR country_id IN (?) OR category IN (?)", keywords, keywords, keywords ,Country.where("name ILIKE any ( array[?] )", keywords ).ids, cat_value)
   end
 
 
