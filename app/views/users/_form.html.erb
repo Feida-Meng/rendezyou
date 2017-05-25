@@ -78,11 +78,7 @@
           <%= f.file_field :avatar, :class=>"extra_avatar_to_hide_padding" %>
         </div>
 
-      <% if new_user_path%>
-        <%= f.submit 'Sign me In', :class=>"btn btn-danger btn-lg active", :id=>"signupbutton" %>
-      <% elsif edit_user_path%>
-        <%= f.submit 'Save', :class=>"btn btn-danger btn-lg active", :id=>"signupbutton" %>
-      <% end %>
+      <%= f.submit @button_text, :class=>"btn btn-danger btn-lg active", :id=>"signupbutton" %>
 
       </div>
 

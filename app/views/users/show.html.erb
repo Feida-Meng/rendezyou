@@ -65,27 +65,38 @@
 
 <!-- Entice button section -->
 
-  <div class="entice_section" id="entice_section_web">
-
-    <div class="col-md-4">
-      <%=link_to new_tour_url, class: 'btn-default entice_section_btn' do %>
-      <!-- <h4>Click here to</h4> -->
-      <h3 class="usershow_hthree">BE A TOUR GUIDE!</h3>
-      <h4 class="usershow_hfour">Create a tour now !</h4>
-      <% end %>
+<div class="main_new">
+  <div class="button_row_new">
+    <div><%=link_to "", new_tour_url, title: "BE A TOUR GUIDE!"%></div>
+    <div><%=link_to "", tours_url, title: "BE A TOURIST!"%></div>
+    <!--
+      <div><a href="new_tour_url" title="BE A TOUR GUIDE!"></a></div>
+      <div><a href="tours_url" title="BE A TOURIST!"></a></div> -->
     </div>
-
-    <div class="col-sm-1"></div>
-
-    <div class="col-md-4">
-      <%=link_to tours_url, class: 'btn-default entice_section_btn' do %>
-      <!-- <h4>Click here to</h4> -->
-      <h3 class="usershow_hthree">BE A TOURIST!</h3>
-      <h4 class="usershow_hfour">Book a tour now !</h4>
-      <% end %>
-    </div>
-
   </div>
+</div>
+
+              <!-- <div class="entice_section" id="entice_section_web">
+
+                <div class="col-md-4">
+                  <%=link_to new_tour_url, class: 'btn-default entice_section_btn' do %>
+                  <h4>Click here to</h4>
+                  <h3 class="usershow_hthree">BE A TOUR GUIDE!</h3>
+                  <h4 class="usershow_hfour">Create a tour now !</h4>
+                  <% end %>
+                </div>
+
+                <div class="col-sm-1"></div>
+
+                <div class="col-md-4">
+                  <%=link_to tours_url, class: 'btn-default entice_section_btn' do %>
+                  <h4>Click here to</h4>
+                  <h3 class="usershow_hthree">BE A TOURIST!</h3>
+                  <h4 class="usershow_hfour">Book a tour now !</h4>
+                  <% end %>
+                </div>
+
+              </div> -->
 
 <!-- User's created tours -->
 <div class="container-fluid reduce_user_show_width">
