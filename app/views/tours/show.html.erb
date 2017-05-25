@@ -30,7 +30,7 @@
             <% end %></p>
 
             <% if current_user && @tour.user_id == current_user.id %>
-            <%= link_to 'Add more dates', new_tour_schedule_path(@tour), :class=>"add-dates-responsive btn btn-primary" %>
+            <%= link_to 'Add more dates', new_tour_schedule_path(@tour), :id=>"add-dates-responsive", :class=>"btn btn-primary" %>
 
             <% end %>
           </div>
