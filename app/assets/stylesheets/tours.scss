@@ -313,8 +313,8 @@ hr.black{
 hr.black_within{
   align: center;
   height: 1;
-  margin-left: 5px;
-  margin-right: 5px;
+  margin-left: 1px;
+  margin-right: 1px;
   background: black;
   margin-top: 3px;
   margin-bottom: 10px;
@@ -375,10 +375,14 @@ div#tourindexcaption{
 
 a#tourpointbut{
   position: absolute;
-  top: 15px;
-  right: 2px;
+  top: 10px;
+  right: .25em;
   // background: #ff584c;
   border: #ff584c;
+  // width: 5em;
+  // height: 3em;
+  font-size: .7em;
+  text-align: justify;
 }
 
 a#tourindexbut{
@@ -438,7 +442,7 @@ a#tourindexbutboth_bw:active{
 
 .tourp{
   margin: 0px;
-  margin-right: 30%;
+  margin-right: 5%;
   font-size: .9em;
   margin-left: -1%;
 

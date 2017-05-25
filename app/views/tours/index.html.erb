@@ -40,6 +40,7 @@
                 <% if current_user && current_user.id == tour.user_id %>
                   <p>
                     <%= link_to "EDIT", edit_tour_path(tour), :id=>"tourindexbutboth_bw" %>
+
                     <!-- <%= link_to "VIEW / EDIT", tour_path(tour), :class=>"btn btn-success", :id=>"tourindexbutboth" %> -->
                   </p>
                 <% else %>
@@ -63,7 +64,6 @@
               <i class="fa fa-map-marker blue_icons" aria-hidden="true" id="i"></i>
               <span class="blue_names">RendezVous Point: </span><br>
               <%= tour.rendezvous_point %></p>
-
             </div>
           </div>
         </div>

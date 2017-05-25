@@ -47,29 +47,6 @@ chalkboard_img{
 
 
 /* unvisited link */
-#userpage a:visited
-.userpage a:visited,
-.user_click a:visited,
-#userpage a:link,
-.userpage a:link,
-.user_click a:link,
-#userpage a:active,
-.userpage a:active,
-.user_click a:active{
-  text-decoration: none;
-  color: black;
-  padding: 0 15px;
-}
-
-h3.user_click a:hover {
-  position: relative;
-  text-decoration: none;
-  color: #ff584c;
-  padding: 0 15px;
-
-}
-
-
 
 .book_img{
   position: absolute;
@@ -235,10 +212,15 @@ img.carou_one{
   }
 
   h3{
-    font-size: 2.25em;
     margin: 0 0 5px 0;
     font-family: 'Nunito', sans-serif;
   }
+}
+
+.usershow_hthree{
+  font-size: 1.5em;
+  font-weight: bold;
+  padding-top: .6em;
 }
 
 .caption_booked_height{
@@ -259,9 +241,6 @@ form#new_user{
 input#signupbutton{
   margin-top: 0px;
 }
-
-
-
 
 // responsive starts here  ------------>
 // responsive starts here  ------------>
