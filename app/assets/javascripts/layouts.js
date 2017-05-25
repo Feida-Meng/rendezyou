@@ -18,6 +18,7 @@ $(document).ready(function(){
 
 
 
+
   //general modal function ----------------------------------------------------
 
   function modal(link, mask, form, input) {

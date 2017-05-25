@@ -119,7 +119,7 @@
               <div class="container_relative_no_break">
                 <p class="tour_index_name" ><%= link_to tour.name.slice(0,1).capitalize + tour.name.slice(1..-1), tour_path(tour.id)%></p>
                 <hr class="white">
-                <p class="tour_index_cat"><%= tour.category%></p>
+                <p class="tour_index_cat"> <%= tour.category%></p>
               </div>
               <% end %>
             </div><!--.index-container-relative-->
@@ -174,7 +174,7 @@
               <div class="container_relative_no_break">
                 <p class="tour_index_name" ><%= link_to t.name.slice(0,1).capitalize + t.name.slice(1..-1),tour_url(t) %></p>
                 <hr class="white">
-                <p class="tour_index_cat"><%= t.category%></p>
+                <p class="tour_index_cat"> <%= t.category%></p>
               </div><!--container_relative_no_break-->
             </div><!--.index-container-relative-->
             <div class="caption" id="tourindexcaption">
@@ -182,7 +182,7 @@
                 <p><span class="blue_names_normal">Current tour size: </span><span class="black_names_normal"><%= Schedule.find(b.schedule_id).current_capacity %></span></p>
                 <p><span class="blue_names_normal">Tour date and time: </span><br><span class="black_names_normal"><%= Schedule.find(b.schedule_id).tour_session %></span></p>
                 <!-- <p> Date I booked: <%= b.created_at.strftime("%Y %b %d") %></p> -->
-                <p><span class="blue_names_normal">Tour description: </span><span class="black_names_normal"><%= t.description %></span></p>
+                <p><span class="blue_names_normal">Tour description: </span><span class="black_names_normal"><%= truncate(t.description, length: 120) {link_to "See more", tour_path(t)} %></span></p>
                 <p><span class="blue_names_normal">Number I booked including myself: </span><span class="black_names_normal"><%= b.booking_size %></span></p>
               </div><!--caption_booked_height-->
                 <hr class="black_within">
