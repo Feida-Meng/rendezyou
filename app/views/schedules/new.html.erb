@@ -4,14 +4,14 @@
 
 <p class="show_page_tour_image"><%= image_tag @tour.tourpic.url(:medium), :class=>"tour_pic_tourdetails" %></p>
 <div class="schedules-new-page">
-<h2>When do you want to guide <%= @tour.name %>?</h2>
+<h2 class="schedule-new-title">When do you want to guide "<%= @tour.name %>" ?</h2>
 
 
 <% unless @tour.schedules.empty? %>
   <div class="currently-scheduled">
 
-  <h3>You have currently scheduled:</h3>
-  <ul>
+  <h4>You are also guiding this tour on:</h4>
+  <ul class="current-dates-scheduled">
     <% @tour.schedules.each do |s| %>
       <li>
           <%= "#{s.tour_session}" %>
@@ -29,4 +29,3 @@
 
 
 </div>
-

@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$mustard: #ffc800;
+$light-mustard: #fcdc6a;
+
+
 #error_red{
   color: #FF5500;
 }
@@ -10,8 +14,27 @@ li {
   color: black;
 }
 
+.current-dates-scheduled {
+  margin-left: 3%;
+  padding-bottom: 10px;
+}
+
+.schedules-field {
+  border-top: 1px solid $light-mustard;
+  padding-top: 15px;
+}
 
 .schedules-new-page {
   width: 70%;
   margin: 0 auto;
+}
+
+.new-schedule-buttons {
+  margin-top: 5%;
+}
+
+.schedule-new-title {
+  padding-bottom: 15px;
+  border-bottom: 2px solid $mustard;
+  margin-bottom: 5%;
 }

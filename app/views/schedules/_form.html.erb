@@ -16,16 +16,26 @@
 
 
 
-<div class="field">
-  <%= f.label :tour_start_time %>
-<%=   f.datetime_select :tour_start_time, ampm: true %>
+<div class="schedules-field">
+  <%= f.label :tour_start_time, "Select a date and time:" %>
+  <%= f.datetime_select :tour_start_time %>
+
+  <script type="text/javascript">
+    $(function () {
+        $('#datetimepicker12').datetimepicker({
+            inline: true,
+            sideBySide: true
+          });
+        });
+  </script>
+
 </div>
 
 
-  <div class="submit">
-   <%= f.submit "Save Schedule", name: "save_one" %>
-   or
-   <%= f.submit "Save and Add Another Date", name: "add_more" %>
+  <div class="new-schedule-buttons">
+   <%= f.submit "Save Schedule", name: "save_one", :class=>"btn btn-primary" %>
+   <%= f.submit "Save and Add Another Date", name: "add_more", :class=>"btn btn-primary" %>
+   <%= link_to "Cancel", tour_path(@tour), :class=>"btn btn-primary" %>
   </div>
 
 
