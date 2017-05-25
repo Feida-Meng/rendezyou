@@ -129,6 +129,7 @@
                 <i class="fa fa-map-marker blue_icons" aria-hidden="true" id="i"></i>
                 <span class="blue_names">RendezVous Point: </span><br>
                 <%= tour.rendezvous_point %></p>
+                <%= link_to "ADD TOUR POINTS", new_tour_tourpoint_path(tour), :class=>"btn btn-success btn-xs", :id=>"tourpointbut" %>
                 <!-- <%= link_to "EDIT", tour_path(tour), :class=>"btn btn-success", :id=>"tourindexbut" %> -->
               </div><!--caption-->
             </div> <!--#thumbnail_tour_index-->

@@ -12,12 +12,114 @@
 
       <div class="col-md-11">
 
-        <%= render 'form' %>
+        <div class="tour_form_scale">
 
-        <%= link_to "<< Back to tour", tour_path(@tour) || tours_path, :class=>"btn btn-default" %>
+          <%= form_for @tour, html: { multipart: true} do |f| %>
 
+          <% if @tour.errors.any? %>
+          <div id="error_explanation">
+            <h3><%= pluralize(@tour.errors.count, "error") %> prohibited this tour from being saved:</h3>
+
+            <ul>
+              <% @tour.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+          <% end %>
+
+          <form class="form-horizontal">
+            <div class="row">
+              <div class="col-sm-7">
+                <br>
+                <br>
+                <div class="form-group">
+                  <i class="fa fa-plane icon-new-tour" aria-hidden="true" id="i"></i>
+                  <%= f.label :category%><br>
+                  <%= f.select :category, options_for_select(Tour.categories.map {|cat,v| [cat,cat]}) %>
+                </div>
+
+                <div class="form-group">
+                  <i class="fa fa-user-circle-o icon-new-tour" aria-hidden="true" id="i">
+                  </i><%= f.label :name %>
+                  <%= f.text_field :name, :placeholder=>"Name", :class=>"form-control" %>
+                </div>
+
+
+
+                <div class="form-group">
+                  <i class="fa fa-list-alt icon-new-tour" aria-hidden="true" id="i"></i>
+                  <%= f.label :description %>
+                  <%= f.text_area :description, :placeholder=>"Description", :class=>"form-control" %>
+                </div>
+
+                <div class="form-inline">
+                  <div class="row">
+
+                    <div class="col-sm-4">
+                      <div class="field">
+                        <i class="fa fa-group icon-new-tour" aria-hidden="true" id="i"></i><%= f.label :capacity %>
+                        <%= f.number_field :capacity, :placeholder=>"Capacity", :class=>"form-control" %>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                      <div class="field">
+                        <i class="fa fa-clock-o icon-new-tour" aria-hidden="true" id="i"></i><%= f.label :duration_in_hr, "Duration (hrs)" %>
+                        <%= number_field_tag :duration_in_hr %>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                      <div class="field">
+                        <i class="fa fa-globe icon-new-tour" aria-hidden="true" id="i"></i><%= f.label :country_id %><br>
+                        <%= f.collection_select :country_id, @countries, :id, :name, include_blank: 'Please select a country'%>
+                      </div>
+                    </div>
+
+                  </div>
+                </div><!--form-inline-->
+
+                <br>
+
+                <div class="form-group">
+                  <i class="fa fa-map-marker icon-new-tour" aria-hidden="true" id="i"></i><%= f.label :rendezvous_point%>
+                  <%= f.text_field :rendezvous_point, :placeholder=>"Meeting point address", class:"form-control", id:"rendezvous-point-input" %>
+                  <br>
+                  <br>
+                  <%= f.submit "SAVE", :class=>"btn btn-primary" %>
+                  <!-- <%= f.submit "OK - Add dates NOW", name: "add_schedule", :class=>"btn btn-primary" %>
+                  <p class="tour-or"></p>
+                  <%= f.submit "Add dates LATER", name: "no_schedule", :class=>"btn btn-primary" %> -->
+                  <p class="tour-or"></p>
+                  <%= link_to "Cancel", tour_path(@tour) || tours_path, :class=>"btn btn-default" %>
+                  <p class="tour-or"></p>
+
+                </div>
+
+              </div><!--col-sm-7-->
+
+              <div class="col-sm-4">
+                <div class="tour_new_pic_img">
+                  <%= image_tag(@tour.tourpic.url, :class=>"missing_tours_new") %>
+                  <%= f.file_field :tourpic, :class=>"img_upload_tours_new" %>
+                  <br>
+                  <div id="rendezvous-map"> </div>
+
+                </div>
+              </div>
+              <% end %>
+            </div>
+          </form>
+        </div>
       </div>
 
+      <div id="reMap"> </div>
+
     </div>
+
   </div>
+
+</div>
+</div>
 </div>
