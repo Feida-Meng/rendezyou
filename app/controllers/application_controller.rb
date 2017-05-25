@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
 
     private
 
+    def set_vary_header
+      response.headers['Vary'] = 'Accept'
+    end
+
     def current_user
       @current_user ||= User.find(session[:user_id]) if session[:user_id]
     end
