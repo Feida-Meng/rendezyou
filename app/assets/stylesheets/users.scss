@@ -434,8 +434,9 @@ input#signupbutton{
   }
 
   .form-horizontal.user_passport_container{
-    margin-left: 23%;
-    margin-top: -65px;
+    zoom: 90%;
+    align-items: center;
+    justify-content: center;
   }
 
   #error_message{
@@ -469,6 +470,36 @@ input#signupbutton{
 
   input#signupbutton{
     margin-top: 20px;
+  }
+
+  div.col-sm-5{
+    padding-left: 0;
+    padding-right: 20px;
+  }
+
+  div#error_message{
+    width: 200px;
+    height: 350px;
+    padding-left: 5px;
+    text-align: right;
+  }
+
+}
+
+
+@media screen and (min-width:0px) and (max-width:380px){
+
+  #user-carousel-container-fluid{
+    width: 200%;
+   }
+
+  .main_new{
+    display: inherit;
+  }
+
+  .container-fluid.reduce_user_show_width{
+    width: 200%;
+    margin-left: 5%;
   }
 
 }

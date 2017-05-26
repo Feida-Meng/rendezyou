@@ -576,6 +576,11 @@ p > a:link{
     zoom: 95%;
 }
 
+
+div.mobile_only{
+  display: none;
+}
+
 // Responsive - Tours # Show ----------------------------
 
 @media (max-width:1280px){
@@ -665,6 +670,46 @@ p > a:link{
   .tour-details {
     font-size: .9em;
     padding: 20px 0;
+  }
+
+  h4.create_a_tour_now{
+    font-size: 1.75em;
+    width: 80%;
+    zoom: 90%;
+    margin: auto;
+    margin-top: 2em;
+  }
+
+
+  h4.join_a_tour_now{
+    padding-bottom: 2em;
+    font-size: 1.75em;
+    width: 80%;
+    zoom: 90%;
+    margin: auto;
+    margin-top: 2em;
+  }
+
+  .tour_form_scale{
+      width: 80%;
+      zoom: 80%;
+  }
+
+  h4.tours_show_entice{
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  select#tour_category,
+  select#tour_country_id{
+    background: gainsboro;
+  }
+  div.web_only{
+    display: none;
+  }
+
+  div.mobile_only{
+    display: run-in;
   }
 
 }

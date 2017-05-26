@@ -74,13 +74,15 @@
         <div class="form-group">
           <i class="fa fa-map-marker icon-new-tour" aria-hidden="true" id="i"></i><%= f.label :rendezvous_point%>
           <%= f.text_field :rendezvous_point, :placeholder=>"Meeting point address", class:"form-control", id:"rendezvous-point-input" %>
-          <br>
-          <br>
-          <%= f.submit "OK - Add dates NOW", name: "add_schedule", :class=>"btn btn-primary" %>
-          <p class="tour-or"></p>
-          <%= f.submit "Add dates LATER", name: "no_schedule", :class=>"btn btn-primary" %>
-          <p class="tour-or"></p>
-          <%= link_to 'Cancel', tours_path, :class=>"btn btn-default" %>
+          <div class="web_only">
+            <br>
+            <br>
+            <%= f.submit "OK - Add dates NOW", name: "add_schedule", :class=>"btn btn-primary" %>
+            <p class="tour-or"></p>
+            <%= f.submit "Add dates LATER", name: "no_schedule", :class=>"btn btn-primary" %>
+            <p class="tour-or"></p>
+            <%= link_to 'Cancel', tours_path, :class=>"btn btn-default" %>
+          </div>
         </div>
 
       </div><!--col-sm-7-->
@@ -92,8 +94,17 @@
           <br>
           <div id="rendezvous-map"> </div>
 
+          <div class="mobile_only">
+            <br>
+            <%= f.submit "OK - Add dates NOW", name: "add_schedule", :class=>"btn btn-primary" %>
+            <p class="tour-or"></p>
+            <%= f.submit "Add dates LATER", name: "no_schedule", :class=>"btn btn-primary" %>
+            <p class="tour-or"></p>
+            <%= link_to 'Cancel', tours_path, :class=>"btn btn-default" %>
+          <div>
         </div>
       </div>
+
       <% end %>
     </div>
   </form>
