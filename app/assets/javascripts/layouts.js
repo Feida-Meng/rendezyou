@@ -16,9 +16,6 @@ $(document).ready(function(){
   //     }
   // });
 
-
-
-
   //general modal function ----------------------------------------------------
 
   function modal(link, mask, form, input) {
@@ -27,10 +24,8 @@ $(document).ready(function(){
       e.stopPropagation();
       e.preventDefault();
       mask.fadeIn();
-      console.log(link + " " + bookingLink + " " + (link === bookingLink));
       if (link === bookingLink) {
       schedule_id = this.id.substring(1,this.id.length);
-      console.log($(".new_booking").attr('action'));
       $(".new_booking").attr('action','/tours/70/schedules/'+ schedule_id +'/bookings');
       }
     });
@@ -95,7 +90,5 @@ $(document).ready(function(){
         $('.schedules-modal-window-responsive').fadeOut();
       }
     });
-
-
 
 });
