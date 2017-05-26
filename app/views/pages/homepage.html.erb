@@ -6,7 +6,7 @@
 
 <div class="logo_container">
   <div class="container">
-    <i class="fa fa-map-marker fa-5x mobile_pin_map"></i>
+    <%=link_to "View all tours", tours_path, :id=>"mobile_view_tab" %><i class="fa fa-map-marker fa-5x mobile_pin_map"></i>
     <p class="logo"><span class="red_logo">Rendez</span>YOU</p>
     <p class="tag_line">CLICK • CONNECT • EXPLORE</p>
   </div>
@@ -14,7 +14,7 @@
 
 <!-- setup -->
 
-<div class="set_up">
+<div class="set_up" id="oneliner">
   <div class="oneliner">Setting up is as easy as one two three</div>
 <div>
 

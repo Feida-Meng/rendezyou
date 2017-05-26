@@ -3,7 +3,7 @@
 <head>
   <!DOCTYPE html>
   <title>Rendezyou</title>
-  <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Pacifico|Copse|Cabin|Bitter|Oswald|Grand+Hotel|Harmattan|Niconne|Open+Sans:700|Shanti|Yrsa|Raleway|Crimson+Text|Abel|Nunito" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Pacifico|Copse|Cabin|Bitter|Oswald|Grand+Hotel|Harmattan|Niconne|Open+Sans:700|Shanti|Yrsa|Raleway|Crimson+Text|Abel|Nunito|Cookie" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -20,7 +20,7 @@
 
     <div class="navigate">
       <div class="nav_bar">
-        <li><%= link_to "RendezYOU", profile_path, :class=>"a_nav_logo", :id=>"main_nav_logo" %></li>
+        <li><%= link_to "RendezYOU", tours_path, :class=>"a_nav_logo", :id=>"main_nav_logo" %></li>
 
         <li class="dropdown nav_item_margin">
           <a href="#" class="dropdown-toggle nav_items nav_one" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tours <span class="caret"></span></a>
@@ -31,7 +31,7 @@
           </ul>
         </li>
 
-        <li class="dropdown-toggle nav_item_margin nav_two"><%= link_to "About Us", root_path, :class=>"nav_items" %></li>
+        <li class="dropdown-toggle nav_item_margin nav_two"><%= link_to "About Us", root_path(anchor: "oneliner"), :class=>"nav_items" %></li>
 
         <li class="nav_item_margin nav_three"><a href="#" class="dropdown-toggle nav_items" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contact</a></li>
 
