@@ -20,13 +20,15 @@ $(document).ready(function(){
 
   function modal(link, mask, form, input) {
     var schedule_id;
+    var tour_id;
     link.on('click', function(e){
       e.stopPropagation();
       e.preventDefault();
       mask.fadeIn();
       if (link === bookingLink) {
       schedule_id = this.id.substring(1,this.id.length);
-      $(".new_booking").attr('action','/tours/70/schedules/'+ schedule_id +'/bookings');
+      console.log( $(this).attr("tour_id") );
+      $(".new_booking").attr('action','/tours/'+ $(this).attr("tour_id") +'/schedules/'+ schedule_id +'/bookings');
       }
     });
 

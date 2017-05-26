@@ -109,7 +109,7 @@
                         <%= "Booked!" %>
                       </span>
                     <% else %>
-                      <span class="booking-button" id="s<%= t_s.id %>">
+                       <span class="booking-button" id="s<%= t_s.id %>" tour_id="<%= @tour.id %>"> <!-- dont not remove the id -->
 
 
                         <%= link_to 'Book now!', new_tour_schedule_booking_path(@tour,t_s), :class=>"booking-button-schedueles btn", :id=>"s#{t_s.id}" %>
