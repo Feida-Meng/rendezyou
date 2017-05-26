@@ -82,6 +82,7 @@ class ToursController < ApplicationController
     if @tour.schedules.empty?
       @tour.schedules.destroy_all
       @tour.reviews.destroy_all
+      @tour.tourpoints.destroy_all
       @tour.destroy
       redirect_to tours_path
     else
