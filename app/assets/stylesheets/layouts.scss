@@ -167,16 +167,17 @@ div.yield{
 #alert {
   position: fixed;
   // top: 4em;
-  right: 5em;
+  right: 6em;
   text-align: center;
   color: tomato;
   background: rgba(255,255,255,.9);
   font-size: 1em;
-  min-height: 6.5em;
+  min-height: 7em;
   border-radius: 25px;
+  border: 1px solid grey;
   z-index: 2;
   padding-top: 3.5em;
-  box-shadow: 1px 1px 3px 2px gainsboro;
+  box-shadow: 1px 1px 3px 2px grey;
   margin: auto;
 }
 
