@@ -143,6 +143,10 @@ h2.cabin_sketch{
     display: none;
   }
 
+  #mobile_view_tab{
+    display: none;
+  }
+
 @media screen and (min-width:1300px){
   .oneliner{
     padding-top: 3em;
@@ -160,6 +164,9 @@ h2.cabin_sketch{
     padding-top: 90px;
   }
 
+  #mobile_view_tab{
+    display: none;
+  }
 
 
 }
