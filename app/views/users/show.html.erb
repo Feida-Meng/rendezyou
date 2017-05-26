@@ -177,9 +177,8 @@
         <div class="col-md-3">
           <div id="thumbnail_tour_index" class="thumbnail">
 
-
             <div class="index-container-relative userneedcenter">
-              <%= image_tag t.tourpic.url(:medium), :class=>"tour_pic_tourdetails" %>
+              <%= link_to image_tag(t.tourpic.url(:medium), :class=>"tour_pic_tourdetails"), tour_url(t) %>
               <%= image_tag("gradient-01.png", :class=>"grad2_img")%>
               <div class="container_relative_no_break">
                 <p class="tour_index_name" ><%= link_to t.name.slice(0,1).capitalize + t.name.slice(1..-1),tour_url(t) %></p>
