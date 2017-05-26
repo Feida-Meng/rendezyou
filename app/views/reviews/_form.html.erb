@@ -12,8 +12,8 @@
   </div>
 <% end %>
 
+<h3>How would you rate your tour overall:</h3>
 <div class="star-rating">
-  <p>How would you rate your tour overall:</p>
   <%= f.radio_button :rating, 5 %>
   <%= f.label :rating, value: 5 do  %>
   <i class="fa fa-star fa-3x"></i>
@@ -36,13 +36,13 @@
     <% end %>
 </div>
 
-<div class="field">
-  <%= f.label :comment, "Tell us more:" %>
+<div class="comment-field">
+  <h3><%= f.label :comment, "Tell us more:" %></h3>
   <%= f.text_area :comment %>
 </div>
 
-<div class="submit">
-  <%= f.submit %>
+<div class="review-submit">
+  <%=  f.submit "Submit", name: "add_review", :class=>"btn btn-primary" %>
 </div>
 
 <% end %>
