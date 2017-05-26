@@ -35,7 +35,7 @@ function geocodeAddress(geocoder, resultsMap, country, address, callback) {
       if (isFunction(callback)) {
       callback(rendezvousPointMarker);
       }
-      
+
     } else {
       // alert('Geocode was not successful for the following reason: ' + status);
     }
@@ -77,7 +77,7 @@ function createMap(tourMapDiv) {
   var map = new google.maps.Map(tourMapDiv, {
     zoom: 11,
     fullscreenControl: true,
-    center: {lat: -34.397, lng: 150.644}
+    center: {lat: 35.124402, lng: -124.771729}
   });
   return map;
 }
