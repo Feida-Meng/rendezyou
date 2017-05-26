@@ -2,6 +2,7 @@ $(function(){
   var showTourMapDiv = document.getElementById('show-tour-map');
   var tourPointMapDiv = document.getElementById('tourpointmap');
   var editPointMapDiv = document.getElementById('edit-tourpoints-map');
+  // var newTourMapDiv = document.getElementById('rendezvous-map');
   var tourMapDiv;
   var tourId;
   var mapPage;
@@ -120,14 +121,17 @@ $(function(){
     });
   }
 
-  $("#rendezvous-point-input").on("input",function(){
-    // var newTourMapDiv = document.getElementById('rendezvous-map');
-    var newTourMapDiv = $('#rendezvous-map')[0];
-    //  $('#rendezvous-map') has more than document.getElementById('rendezvous-map'), such as properties, attributes
-    var rendezvousPointInput = $("#rendezvous-point-input").val();
-    var tourCountry = $("#tour_country_id option:selected").text();
-    geocodeAddress(rendezvousGeocoder(), createMap(newTourMapDiv), tourCountry, rendezvousPointInput);
-  });
+  var newTourMapDiv = $('#rendezvous-map')[0];
+  // var newTourMapDiv = document.getElementById('rendezvous-map');
+  //  $('#rendezvous-map') has more than document.getElementById('rendezvous-map'), such as properties, attributes
+  if ($.contains(document,newTourMapDiv)) {
+    createMap(newTourMapDiv);
+    $("#rendezvous-point-input").on("input",function(){
+      var rendezvousPointInput = $("#rendezvous-point-input").val();
+      var tourCountry = $("#tour_country_id option:selected").text();
+      geocodeAddress(rendezvousGeocoder(), createMap(newTourMapDiv), tourCountry, rendezvousPointInput);
+    });
+  }
 
 // Show icon in front of category for index and show --------------------------
 
