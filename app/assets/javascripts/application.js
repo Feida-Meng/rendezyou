@@ -43,7 +43,6 @@ function geocodeAddress(geocoder, resultsMap, country, address, callback) {
 }
 
 var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
-
 function markerMaker(position,map,label,draggable) {
   var marker = new google.maps.Marker({
     position: position,
@@ -60,12 +59,13 @@ function markerMaker(position,map,label,draggable) {
 function populateInfoWindow(marker, tourpoint, infowindow, map) {
   var tourPointName = "<div>" + "<h3>" + tourpoint.tour_point_name + "</h3>" + "</div>";
   var tourPointDescription = "<div>" + tourpoint.tour_point_description + "</div>";
-  var tourPointImg = "<img src=" + tourpoint.tour_point_img + " alt='ttttppp' width='400px' height='400px' border=0>";
-  var tourPointImgDiv = "<div>" + "<a href =" + tourpoint.tour_point_img + ">" + tourPointImg + "</a>" + "</div>";
+  console.log(tourpoint);
+  var tourPointImg = "<img src=" + tourpoint.tour_point_img_url + " alt='' width='400px' height='400px' border=0>";
+  var tourPointImgDiv = "<div>" + tourPointImg +  "</div>";
   if (infowindow.marker != marker) {
     infowindow.marker = marker;
     infowindow.setOptions({maxWidth:500});
-    infowindow.setContent( tourPointName + tourPointDescription + tourPointImgDiv  );
+    infowindow.setContent( tourPointName + tourPointDescription + tourPointImgDiv);
     infowindow.open(map, marker);
     infowindow.addListener('closeclick',function(){
       infowindow.setMarker = null;

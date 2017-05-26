@@ -1,7 +1,7 @@
 class ToursController < ApplicationController
 
   before_action :ensure_logged_in, only: [:new, :create, :edit, :destroy]
-  before_action :load_countries, only: [:new, :edit]
+  before_action :load_countries, only: [:new, :edit, :update,:create]
 
   def index
     @tours = Tour.all
@@ -29,7 +29,7 @@ class ToursController < ApplicationController
     if request.xhr?
       respond_to do |format|
         format.json do
-          render :json => @tour.to_json({:include => :tourpoints, :method => :country_name})
+          render :json => @tour.to_json({:include => {:tourpoints => {:methods => :tour_point_img_url} }, :methods => :country_name})
         end
         format.html do
           set_vary_header
@@ -52,6 +52,7 @@ class ToursController < ApplicationController
         redirect_to tour_path(@tour)
       end
     else
+
       render :new
     end
   end
@@ -73,6 +74,7 @@ class ToursController < ApplicationController
         redirect_to tour_path(@tour)
       end
     else
+
       render :edit
     end
   end

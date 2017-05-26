@@ -2,24 +2,26 @@ $(function(){
   var showTourMapDiv = document.getElementById('show-tour-map');
   var tourPointMapDiv = document.getElementById('tourpointmap');
   var editPointMapDiv = document.getElementById('edit-tourpoints-map');
+  var editTourDiv = document.getElementById('edittour');
+  var newTourMapDiv = $('#rendezvous-map')[0];
   // var newTourMapDiv = document.getElementById('rendezvous-map');
   var tourMapDiv;
   var tourId;
-  var mapPage;
+  var mapPage = 1;
   var currentUrl = window.location.href;
 
   if ($.contains(document,showTourMapDiv)) {
     tourId = currentUrl.substring(currentUrl.lastIndexOf('/') + 1);
     tourMapDiv = showTourMapDiv;
-    mapPage = 1;
   } else if ( $.contains(document, tourPointMapDiv)) {
     tourId = currentUrl.substring(currentUrl.indexOf('/tours/') + 7,currentUrl.indexOf('/tourpoints/new') );
     tourMapDiv = tourPointMapDiv;
-    mapPage = 1;
   } else if ( $.contains(document,editPointMapDiv) ) {
     tourMapDiv = editPointMapDiv;
     tourId = currentUrl.substring(currentUrl.indexOf('/tours/') + 7,currentUrl.indexOf('/tourpoints/edit') );
-    mapPage = 1;
+  } else if ( $.contains(document,editTourDiv) ) {
+    tourMapDiv = newTourMapDiv;
+    tourId = currentUrl.substring(currentUrl.indexOf('/tours/') + 7,currentUrl.lastIndexOf('/'));
   } else {
     mapPage = 0;
   }
@@ -121,7 +123,7 @@ $(function(){
     });
   }
 
-  var newTourMapDiv = $('#rendezvous-map')[0];
+
   // var newTourMapDiv = document.getElementById('rendezvous-map');
   //  $('#rendezvous-map') has more than document.getElementById('rendezvous-map'), such as properties, attributes
   if ($.contains(document,newTourMapDiv)) {
