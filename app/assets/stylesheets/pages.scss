@@ -143,6 +143,30 @@ h2.cabin_sketch{
     display: none;
   }
 
+@media screen and (min-width:1300px){
+  .oneliner{
+    padding-top: 3em;
+  }
+
+  .one_two_three{
+    padding-bottom: 2em;
+  }
+
+  div.main_new{
+    height: 90px;
+  }
+
+  form#new_user{
+    padding-top: 90px;
+  }
+
+
+
+}
+
+
+
+
 @media screen and (min-width:0px) and (max-width:380px){
   .map_img{
     position: fixed;
