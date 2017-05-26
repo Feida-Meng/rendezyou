@@ -169,8 +169,16 @@
             </div>
           </div>
           <% unless (current_user && @tour.user_id == current_user.id) || schedule.tour_start_time < Time.now %>
-              <span class="booking-button-modal"><%= link_to 'Book now!', new_tour_schedule_booking_path(@tour,schedule), :class=>"btn btn-primary" %></span>
 
+              <% if current_user.booked_schedules_ids.include? schedule.id %>
+                <span class="booked-button-modal">
+                  <%= "Booked!" %>
+                </span>
+              <% else %>
+                <span class="booking-button-modal">
+                  <%= link_to 'Book now!', new_tour_schedule_booking_path(@tour,schedule), :class=>"btn btn-primary" %>
+                </span>
+              <% end %>
 
 
               <% else  %>
