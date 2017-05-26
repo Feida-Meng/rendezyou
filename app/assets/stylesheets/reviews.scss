@@ -2,13 +2,32 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 $mustard: #ffc800;
 $light-mustard: #fcdc6a;
 
+.new-review-form {
+  width: 70%;
+  margin: 5% auto;
+}
+
+.review-form-fields {
+  margin-left: 5%;
+}
+
+.comment-field {
+  display: block;
+  clear: both;
+  margin-bottom: 2% 0;
+}
+
+.new-review-form h2{
+  padding-bottom: 15px;
+  border-bottom: 2px solid $mustard;
+}
 
 .star-rating {
   float: left;
+  margin-bottom: 3%;
 }
 
 .star-rating:not(:checked) > label {
@@ -18,9 +37,7 @@ $light-mustard: #fcdc6a;
 }
 
 .star-rating:not(:checked) > input {
-  position:absolute;
-  top:-9999px;
-  clip:rect(0,0,0,0);
+  display: none;
 }
 
 .star-rating > input:checked ~ label {
@@ -38,4 +55,8 @@ $light-mustard: #fcdc6a;
 .rating > input:checked ~ label:hover ~ label,
 .rating > label:hover ~ input:checked ~ label {
     color: $light-mustard;
+}
+
+.review-submit {
+  margin-top: 2%;
 }

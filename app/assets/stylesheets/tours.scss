@@ -90,6 +90,8 @@ $light-mustard: #fcdc6a;
   float: right;
 }
 
+.booked-button,
+.booked-button-modal,
 .booking-button-modal,
 .booking-button-schedules span {
   color: #337ab7;
@@ -118,6 +120,20 @@ $light-mustard: #fcdc6a;
   overflow: auto;
 }
 
+
+.tour-show-all {
+  clear: both;
+  display: block;
+}
+
+a.btn.tour-show-all {
+    display: block;
+    text-align: left;
+  }
+
+.tour-show-all a:visited {
+  color: #337ab7;
+}
 
 
 // schedules and booking modal ------------
