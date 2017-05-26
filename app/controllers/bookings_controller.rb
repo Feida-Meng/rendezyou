@@ -75,6 +75,8 @@ class BookingsController < ApplicationController
 
 
 private
+
+
  def load_tour
    @tour = Tour.find(params[:tour_id])
  end

@@ -14,7 +14,7 @@ class User < ApplicationRecord
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   def booked_tours
-    tours=[]
+    tours = []
     bookings.each do |b|
       # byebug
       t = Tour.find( Schedule.find( (b.schedule_id) ).tour_id )
@@ -24,6 +24,12 @@ class User < ApplicationRecord
     end
     return tours
 
+  end
+
+  def booked_schedules_ids
+    schedules_ids = []
+    bookings.map { |b|  schedules_ids << b.schedule_id}
+    return schedules_ids
   end
 
 end
