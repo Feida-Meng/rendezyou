@@ -22,10 +22,17 @@ $(document).ready(function(){
   //general modal function ----------------------------------------------------
 
   function modal(link, mask, form, input) {
+    var schedule_id;
     link.on('click', function(e){
       e.stopPropagation();
       e.preventDefault();
       mask.fadeIn();
+      console.log(link + " " + bookingLink + " " + (link === bookingLink));
+      if (link === bookingLink) {
+      schedule_id = this.id.substring(1,this.id.length);
+      console.log($(".new_booking").attr('action'));
+      $(".new_booking").attr('action','/tours/70/schedules/'+ schedule_id +'/bookings');
+      }
     });
 
     mask.on('click', function(e){
@@ -35,6 +42,7 @@ $(document).ready(function(){
 
     form.on('click', function(e){
       e.stopPropagation();
+
     });
 
     input.on('click', function(e){
@@ -45,38 +53,33 @@ $(document).ready(function(){
 
   //login modal ---------------------------------------------------------------
 
-  var loginLink    = $('.a_login')
-  var loginMask    = $('.login_window')
-  var loginForm    = $('.login_form')
-  var loginInput   = $('.login_form input')
+  var loginLink    = $('.a_login');
+  var loginMask    = $('.login_window');
+  var loginForm    = $('.login_form');
+  var loginInput   = $('.login_form input');
 
   modal(loginLink, loginMask, loginForm, loginInput);
 
 //booking form modal ---------------------------------------------------------
 
-  var bookingLink  = $('.booking-button')
-  var bookingMask  = $('.booking-modal-window')
-  var bookingForm  = $('.booking-modal-form')
-  var bookingInput = $('.booking-modal-form input')
+  var bookingLink  = $('.booking-button');
+  var bookingMask  = $('.booking-modal-window');
+  var bookingForm  = $('.booking-modal-form');
+  var bookingInput = $('.booking-modal-form input');
 
   modal(bookingLink, bookingMask, bookingForm, bookingInput);
 
   //schedules modal (non-responsive) ------------------------------------------
 
-  var schedulesLink  = $('.tour-show-all')
-  var schedulesMask  = $('.schedules-modal-window')
-  var schedulesForm  = $('.schedules-modal')
-  var schedulesInput = $('.schedules-modal')
+  var schedulesLink  = $('.tour-show-all');
+  var schedulesMask  = $('.schedules-modal-window');
+  var schedulesForm  = $('.schedules-modal');
+  var schedulesInput = $('.schedules-modal');
 
   modal(schedulesLink, schedulesMask, schedulesForm, schedulesInput);
 
 
   //schedules modal (non-responsive) ------------------------------------------
-
-  var schedulesLink  = $('.tour-show-responsive')
-  var schedulesMask  = $('.schedules-modal-window-responsive')
-  var schedulesForm  = $('.schedules-modal-responsive')
-  var schedulesInput = $('.schedules-modal-responsive')
 
   modal(schedulesLink, schedulesMask, schedulesForm, schedulesInput);
 

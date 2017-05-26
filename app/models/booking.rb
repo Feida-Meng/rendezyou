@@ -15,12 +15,8 @@ class Booking < ApplicationRecord
   end
 
   def book_again?
-    User.find(user_id).bookings.each do |booking|
-      if booking.schedule_id == schedule_id
-        byebug
+    if User.find(user_id).booked_schedules_ids.include? schedule_id
         errors[:base] << "Tour already booked!"
-        break
-      end
     end
 
   end
