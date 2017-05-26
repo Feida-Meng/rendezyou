@@ -1,49 +1,49 @@
+
+
+
 <div class="yield">
 </div>
 
-<h4 class="create_a_tour_now">Please click one marker to edit.</h4>
+<h4 class="create_a_tour_now">Please click one marker to edit <span class="a_nav_logo small_logo">RendezYOU</span> tour point.</h4>
 
 <div class="container-fluid tour_point_form_scale">
   <div class="row">
+
     <div class="col-md-6">
       <div id="edit-tourpoints-map"></div>
     </div>
 
     <div class="form col-md-6">
 
-      <!-- <%= image_tag(@tour.tourpic.url, :class=>"missing_tours_new") %> -->
+      <%= form_for [@tour,@tourpoint], html:{multipart: true, id:"edit_tour_point_form", tour_id:@tour.id} do |f| %>
 
-      <form id="edit-tour-point-form" action="" accept-charset="UTF-8" method="post">
-        <input name="utf8" type="hidden" value="✓">
-        <input type="hidden" name="_method" value="patch">
+      <div class="form-group">
+        <%= f.label :tour_point_name %>
+        <%= f.text_field :tour_point_name, :class=>"form-control",:id =>"edit_tourpoint_tour_point_name" %>
+      </div>
 
-        <div class="form-group">
-          <label for="tourpoint_tour_point_name">Tour point name</label>
-          <input type="text" name="tourpoint[tour_point_name]" class="form-control" id="edit_tourpoint_tour_point_name">
-        </div>
+      <div class="form-group">
+        <% f.label :tour_point_laglng %>
+        <%= f.hidden_field :tour_point_laglng, :class=>"form-control",:id =>"edit_tourpoint_tour_point_laglng" %>
+      </div>
 
-        <div class="form-group">
-          <input type="hidden" name="tourpoint[tour_point_laglng]" id="edit_tourpoint_tour_point_laglng">
-        </div>
+      <div class="form-group">
+        <%= f.label :tour_point_description %>
+        <%= f.text_area :tour_point_description, :class=>"form-control",:id =>"edit_tourpoint_tour_point_description" %>
+      </div>
 
-        <div class="form-group">
-          <label for="tourpoint_tour_point_description">Tour point description</label>
-          <textarea name="tourpoint[tour_point_description]" class="form-control" id="edit_tourpoint_tour_point_description"></textarea>
-        </div>
+      <div class="form-group">
+        <%= f.label :tour_point_img,"Tour point image" %>
+        <%= f.file_field :avatar, :class=>"form-control" %>
+      </div>
 
-        <div class="form-group">
-          <label for="tourpoint_tour_point_img">Tour point image</label>
-          <input type="text" name="tourpoint[tour_point_img]" class="form-control" id="edit_tourpoint_tour_point_img">
-        </div>
+      <div class="form-group">
+        <%= f.submit "Save this tour point", :class=>"btn btn-primary" %>
+          <p class="tour-or"></p>
+        <%= link_to 'Cancel', tour_path(@tour), :class=>"btn btn-default" %>
+      </div>
 
-        <div class="form-group">
-            <input type="submit" name="commit" value="Save this tour point" class="btn btn-primary" >
-              <p class="tour-or"></p>
-            <%= link_to 'Cancel', tour_path(@tour), :class=>"btn btn-default" %>
-        </div>
-      </form>
-
-    </div>
+      <% end %>
 
   </div>
 </div>

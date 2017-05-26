@@ -38,7 +38,7 @@ class TourpointsController < ApplicationController
   end
 
   def groupedit
-
+    @tourpoint = Tourpoint.new
   end
 
   def update
@@ -62,7 +62,7 @@ class TourpointsController < ApplicationController
   end
 
   def tourpoint_params
-  params.require(:tourpoint).permit(:tour_point_name, :tour_point_laglng, :tour_point_img, :tour_point_description, :tour_id)
+  params.require(:tourpoint).permit(:tour_point_name, :tour_point_laglng, :tour_point_img, :tour_point_description, :tour_id,:avatar)
   end
 
 end

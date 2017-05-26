@@ -12,7 +12,7 @@
 
     <div class="form col-md-6">
 
-      <%= form_for [@tour,@tourpoint],html:{id:"tour_point_form"} do |f| %>
+      <%= form_for [@tour,@tourpoint], html:{multipart: true, id:"tour_point_form"} do |f| %>
 
       <div class="form-group">
         <%= f.label :tour_point_name %>
@@ -31,8 +31,11 @@
 
       <div class="form-group">
         <%= f.label :tour_point_img,"Tour point image" %>
-        <%= f.text_field :tour_point_img, :class=>"form-control", :placeholder=>"Image" %>
+        <%= f.file_field :avatar, :class=>"form-control", :placeholder=>"Image" %>
       </div>
+
+
+
 
       <div class="form-group">
         <%= f.submit "Save this tour point", :class=>"btn btn-primary" %>
