@@ -20,10 +20,10 @@
           <div class="item active">
             <%= image_tag("carou1-01.jpg", :class=>"")%>
             <div class="carousel-caption">
-              <h4 id="sub_heading_guide_all">
+              <h4 class="carou_texting" id="sub_heading_guide_all">
                 City Tours
               </h4>
-              <p>
+              <p class="carou_texting">
                 Browse through our library of fantastic City Tours
               </p>
             </div>
@@ -32,10 +32,10 @@
           <div class="item">
             <%= image_tag("carou2-01.jpg", :class=>"")%>
             <div class="carousel-caption">
-              <h4>
+              <h4 class="carou_texting">
                 FEATURING THIS MONTH
               </h4>
-              <p>
+              <p class="carou_texting">
                 There's always an event waiting for you.
               </p>
             </div>
@@ -44,10 +44,10 @@
           <div class="item">
             <%= image_tag("carou3-01.jpg", :class=>"")%>
             <div class="carousel-caption">
-              <h4>
+              <h4 class="carou_texting">
                 BOOK A NEW TOUR
               </h4>
-              <p>
+              <p class="carou_texting">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
             </div>
@@ -198,7 +198,7 @@
               </div><!--caption_booked_height-->
                 <hr class="black_within">
                   <%= link_to "Edit Booking", edit_tour_schedule_booking_path(t,Schedule.find(b.schedule_id),b), :class=>"btn btn-warning" %> <%= link_to "Cancel Booking", tour_schedule_booking_path(t,Schedule.find(b.schedule_id),b), :class=>"btn btn-warning", method: :delete, data: {confirm: "Are you sure you want to cancel this booking?"}%>
-                <%= link_to "Review this tour!", new_tour_review_url(t.id), :class=>"btn btn-primary", :id=>"tourindexbut" %>
+                <%= link_to "Review this tour!", new_tour_review_url(t.id), :class=>"btn btn-primary btn_cancel", :id=>"tourindexbut" %>
             </div><!--caption-->
           </div> <!--#thumbnail_tour_index-->
         </div><!--.col-md-3-->
