@@ -14,7 +14,7 @@
 //= require_tree .
 //= require bootstrap-sprockets
 
-function geocodeAddress(geocoder, resultsMap, country, address) {
+function geocodeAddress(geocoder, resultsMap, country, address, callback) {
 
   geocoder.geocode(
     { address: address,
@@ -25,11 +25,15 @@ function geocodeAddress(geocoder, resultsMap, country, address) {
       var rendezvousPointMarker = new google.maps.Marker({
         map: resultsMap,
         label:"R",
-        // Icon: "https://maxcdn.icons8.com/Share/icon/Network//router1600.png",
         position: results[0].geometry.location,
         title: "Rendezvous Point",
         animation: google.maps.Animation.DROP
       });
+
+      if (isFunction(callback)) {
+      callback(rendezvousPointMarker);
+      }
+      
     } else {
       // alert('Geocode was not successful for the following reason: ' + status);
     }
@@ -37,13 +41,14 @@ function geocodeAddress(geocoder, resultsMap, country, address) {
 }
 
 var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+
 function markerMaker(position,map,label,draggable) {
   var marker = new google.maps.Marker({
     position: position,
     map: map,
     label:label,
     icon:image,
-    title: 'TP',
+    title: '',
     draggable:draggable,
     animation: google.maps.Animation.DROP
   });
@@ -53,7 +58,7 @@ function markerMaker(position,map,label,draggable) {
 function populateInfoWindow(marker, tourpoint, infowindow, map) {
   var tourPointName = "<div>" + "<h3>" + tourpoint.tour_point_name + "</h3>" + "</div>";
   var tourPointDescription = "<div>" + tourpoint.tour_point_description + "</div>";
-  var tourPointImg = "<img src=" + tourpoint.tour_point_img + " alt='tour point image' width='400px' height='400px' border=0>";
+  var tourPointImg = "<img src=" + tourpoint.tour_point_img + " alt='ttttppp' width='400px' height='400px' border=0>";
   var tourPointImgDiv = "<div>" + "<a href =" + tourpoint.tour_point_img + ">" + tourPointImg + "</a>" + "</div>";
   if (infowindow.marker != marker) {
     infowindow.marker = marker;
@@ -78,4 +83,9 @@ function createMap(tourMapDiv) {
 function rendezvousGeocoder() {
   var geocoder = new google.maps.Geocoder();
   return geocoder;
+}
+
+function isFunction(functionToCheck) {
+ var getType = {};
+ return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]';
 }
