@@ -139,9 +139,9 @@ h2.cabin_sketch{
   margin-bottom: 3em;
 }
 
-.mobile_pin_map{
-  display: none;
-}
+  i.fa.fa-map-marker.fa-5x.mobile_pin_map{
+    display: none;
+  }
 
 @media screen and (min-width:0px) and (max-width:380px){
   .map_img{
@@ -164,7 +164,7 @@ h2.cabin_sketch{
     text-shadow: 0px 0px 10px black;
   }
 
-  .mobile_pin_map{
+  i.fa.fa-map-marker.fa-5x.mobile_pin_map{
     position: absolute;
     display: inherit;
     color: indianred;
@@ -176,6 +176,8 @@ h2.cabin_sketch{
     font-size: 3em;
     margin-left: 7%;
     margin-right: 7%;
+    text-shadow: 3px 2px 0 white, 6px 4px 0 rgba(0,0,0,0.15);
+
   }
   ul.dropdown-menu.nav_item_margin{
     left: -15;

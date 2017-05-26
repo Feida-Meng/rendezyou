@@ -53,16 +53,16 @@
           <li class="dropdown nav_item_margin nav_six">
             <%=image_tag current_user.avatar.url(:thumb), :class=>"pro_pic_nav", :id=>"pro_pic_nav_six" %>
             <a href="#" class="dropdown-toggle nav_items" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bars fa-3x"></i></a>
-            <ul class="dropdown-menu nav_item_margin">
+            <ul class="dropdown-menu nav_item_margin signedin">
               <li><%= link_to "Search Tours", tours_path %></li>
                 <li role="separator" class="divider"></li>
               <li><%= link_to "Create Tour", new_tour_path %></li>
                 <li role="separator" class="divider"></li>
-              <li><%= link_to "My Profile Page", profile_path(anchor: "sub_heading_guide_all") %></li>
+              <li><%= link_to "My User Page", profile_path(anchor: "sub_heading_guide_all") %></li>
                 <li role="separator" class="divider"></li>
               <li><%= link_to "Edit Profile", edit_user_path(current_user.id) %></li>
                 <li role="separator" class="divider"></li>
-              <li><%= link_to "About Us", profile_path%></li>
+              <li><%= link_to "About Us", root_path%></li>
                 <li role="separator" class="divider"></li>
               <li><%= link_to "Log Out", session_path("current"), :method => :delete %></li>
             </ul>

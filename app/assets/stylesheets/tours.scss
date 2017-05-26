@@ -576,7 +576,6 @@ p > a:link{
     zoom: 95%;
 }
 
-
 div.mobile_only{
   display: none;
 }
@@ -709,7 +708,11 @@ div.mobile_only{
   }
 
   div.mobile_only{
-    display: run-in;
+    display: inherit;
+    margin-bottom: 20px;
   }
 
+  ul.dropdown-menu.nav_item_margin.signedin{
+    left: -50px;
+  }
 }

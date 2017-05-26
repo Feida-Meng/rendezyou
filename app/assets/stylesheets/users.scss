@@ -487,19 +487,27 @@ input#signupbutton{
 }
 
 
-@media screen and (min-width:0px) and (max-width:380px){
+@media screen and (min-width:0px) and (max-width:440px){
+
+  body {
+    width: 400%;
+    zoom: 400%;
+  }
 
   #user-carousel-container-fluid{
-    width: 200%;
-   }
-
-  .main_new{
-    display: inherit;
+      display: none;
   }
 
-  .container-fluid.reduce_user_show_width{
-    width: 200%;
-    margin-left: 5%;
+  .button_row_new{
+    display: block;
+    margin-bottom: 20px;
   }
 
+  a.flip_button{
+    margin: 5px;
+  }
+   // .user_show_zoomed_scale{
+  //   zoom: 220%;
+  //   font-size: 2em;
+  // }
 }

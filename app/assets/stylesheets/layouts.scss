@@ -197,6 +197,14 @@ div.yield{
   display: none;
 }
 
+input#user_avatar{
+  background: rgba(255,255,255,0);
+  width: 240px;
+  height: 34px;
+  padding-top: 5px;
+  margin-right: 15px;
+}
+
 
 @media screen and (min-width:0px) and (max-width:900px){
 
@@ -236,18 +244,18 @@ li.dropdown.nav_item_margin.nav_six{
 
 }
 
-input#user_avatar{
-  background: rgba(255,255,255,.4);
-  border-radius: 10px;
-  width: 240px;
-  height: 34px;
-  padding-top: 5px;
-  margin-left: 15px;
-  margin-right: 15px;
-}
 
 @media screen and (min-width:0px) and (max-width:375px){
 
+  input#user_avatar{
+    background: rgba(255,255,255,.4);
+    border-radius: 10px;
+    width: 240px;
+    height: 34px;
+    padding-top: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
   #pro_pic_nav_six{
     display: none;
   }
