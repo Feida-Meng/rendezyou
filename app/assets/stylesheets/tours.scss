@@ -120,9 +120,17 @@ $light-mustard: #fcdc6a;
   overflow: auto;
 }
 
-.tour-show-all-container {
-  text-align: left;
+
+.tour-show-all {
+  clear: both;
+  display: block;
 }
+
+a.btn.tour-show-all {
+    display: block;
+    text-align: left;
+
+  }
 
 .tour-show-all a:visited {
   color: #337ab7;
