@@ -47,9 +47,9 @@ html{
 
 #main_nav_logo{
   &:hover{
-    color: #ffc800;
+    color: white;
     padding-bottom: -20px;
-    text-shadow: 0px 0px 2px white;
+    // text-shadow: 0px 0px 2px white;
 
     // border-bottom: 5px solid #ffc800;
   }
@@ -69,8 +69,9 @@ html{
   &:hover{
     text-decoration: none;
     color: white;
-    padding-bottom: 1.15em;
-    border-bottom: 11px solid #ffc800;
+    color: #ffc800;
+    // padding-bottom: 1.15em;
+    // border-bottom: 11px solid #ffc800;
   }
 }
 
@@ -197,6 +198,14 @@ div.yield{
   display: none;
 }
 
+input#user_avatar{
+  background: rgba(255,255,255,0);
+  width: 240px;
+  height: 34px;
+  padding-top: 5px;
+  margin-right: 15px;
+}
+
 
 @media screen and (min-width:0px) and (max-width:900px){
 
@@ -208,7 +217,7 @@ li.dropdown.nav_item_margin.nav_six{
 
     & a.dropdown-toggle.nav_items{
       padding-top: .2em;
-      color: lightyellow ;
+      color: white;
 
       &:hover{
         text-decoration: none;
@@ -236,18 +245,18 @@ li.dropdown.nav_item_margin.nav_six{
 
 }
 
-input#user_avatar{
-  background: rgba(255,255,255,.4);
-  border-radius: 10px;
-  width: 240px;
-  height: 34px;
-  padding-top: 5px;
-  margin-left: 15px;
-  margin-right: 15px;
-}
 
 @media screen and (min-width:0px) and (max-width:375px){
 
+  input#user_avatar{
+    background: rgba(255,255,255,.4);
+    border-radius: 10px;
+    width: 240px;
+    height: 34px;
+    padding-top: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
   #pro_pic_nav_six{
     display: none;
   }

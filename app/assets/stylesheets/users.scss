@@ -169,7 +169,7 @@ img.carou_one{
   z-index: 7000;
   background: rgba(0,0,0,.8);
   width: 450px;
-  height: 200px;
+  height: 300px;
   border-radius: 25px;
   padding-right: 20px;
   padding-top: .5%;
@@ -342,6 +342,10 @@ input#signupbutton{
   margin-top: 0px;
 }
 
+.carou_texting{
+  text-shadow: 0px 0px 2px 3px black;
+}
+
 // responsive starts here  ------------>
 // responsive starts here  ------------>
 // responsive starts here  ------------>
@@ -430,8 +434,9 @@ input#signupbutton{
   }
 
   .form-horizontal.user_passport_container{
-    margin-left: 23%;
-    margin-top: -65px;
+    zoom: 90%;
+    align-items: center;
+    justify-content: center;
   }
 
   #error_message{
@@ -467,4 +472,42 @@ input#signupbutton{
     margin-top: 20px;
   }
 
+  div.col-sm-5{
+    padding-left: 0;
+    padding-right: 20px;
+  }
+
+  div#error_message{
+    width: 200px;
+    height: 350px;
+    padding-left: 5px;
+    text-align: right;
+  }
+
+}
+
+
+@media screen and (min-width:0px) and (max-width:440px){
+
+  body {
+    width: 400%;
+    zoom: 400%;
+  }
+
+  #user-carousel-container-fluid{
+      display: none;
+  }
+
+  .button_row_new{
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  a.flip_button{
+    margin: 5px;
+  }
+   // .user_show_zoomed_scale{
+  //   zoom: 220%;
+  //   font-size: 2em;
+  // }
 }

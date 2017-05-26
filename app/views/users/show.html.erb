@@ -1,12 +1,12 @@
 <div class="yield"></div>
-
+<div class="user_show_zoomed_scale">
 <!-- Carousel -->
 <div class="container-fluid" id="user-carousel-container-fluid">
   <div class="row">
     <div class="col-md-12" id="removing-right-padding">
       <div class="carousel slide" id="carousel-334026">
 
-        <ol class="carousel-indicators">
+        <ol class="carousel-indicators" id="sub_heading_guide_all">
           <li class="active" data-slide-to="0" data-target="#carousel-334026">
           </li>
           <li data-slide-to="1" data-target="#carousel-334026">
@@ -20,10 +20,10 @@
           <div class="item active">
             <%= image_tag("carou1-01.jpg", :class=>"")%>
             <div class="carousel-caption">
-              <h4 id="sub_heading_guide_all">
+              <h4 class="carou_texting">
                 City Tours
               </h4>
-              <p>
+              <p class="carou_texting">
                 Browse through our library of fantastic City Tours
               </p>
             </div>
@@ -32,10 +32,10 @@
           <div class="item">
             <%= image_tag("carou2-01.jpg", :class=>"")%>
             <div class="carousel-caption">
-              <h4>
+              <h4 class="carou_texting">
                 FEATURING THIS MONTH
               </h4>
-              <p>
+              <p class="carou_texting">
                 There's always an event waiting for you.
               </p>
             </div>
@@ -44,10 +44,10 @@
           <div class="item">
             <%= image_tag("carou3-01.jpg", :class=>"")%>
             <div class="carousel-caption">
-              <h4>
+              <h4 class="carou_texting">
                 BOOK A NEW TOUR
               </h4>
-              <p>
+              <p class="carou_texting">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
             </div>
@@ -67,14 +67,13 @@
 
 <div class="main_new">
   <div class="button_row_new">
-    <div><%=link_to "", new_tour_url, title: "BE A TOUR GUIDE!"%></div>
-    <div><%=link_to "", tours_url, title: "BE A TOURIST!"%></div>
+    <div><%=link_to "", new_tour_url, title: "BE A TOUR GUIDE!", class:"flip_button"%></div>
+    <div><%=link_to "", tours_url, title: "BE A TOURIST!", class:"flip_button"%></div>
     <!--
       <div><a href="new_tour_url" title="BE A TOUR GUIDE!"></a></div>
       <div><a href="tours_url" title="BE A TOURIST!"></a></div> -->
     </div>
   </div>
-</div>
 
               <!-- <div class="entice_section" id="entice_section_web">
 
@@ -178,9 +177,8 @@
         <div class="col-md-3">
           <div id="thumbnail_tour_index" class="thumbnail">
 
-
             <div class="index-container-relative userneedcenter">
-              <%= image_tag t.tourpic.url(:medium), :class=>"tour_pic_tourdetails" %>
+              <%= link_to image_tag(t.tourpic.url(:medium), :class=>"tour_pic_tourdetails"), tour_url(t) %>
               <%= image_tag("gradient-01.png", :class=>"grad2_img")%>
               <div class="container_relative_no_break">
                 <p class="tour_index_name" ><%= link_to t.name.slice(0,1).capitalize + t.name.slice(1..-1),tour_url(t) %></p>
@@ -198,7 +196,7 @@
               </div><!--caption_booked_height-->
                 <hr class="black_within">
                   <%= link_to "Edit Booking", edit_tour_schedule_booking_path(t,Schedule.find(b.schedule_id),b), :class=>"btn btn-warning" %> <%= link_to "Cancel Booking", tour_schedule_booking_path(t,Schedule.find(b.schedule_id),b), :class=>"btn btn-warning", method: :delete, data: {confirm: "Are you sure you want to cancel this booking?"}%>
-                <%= link_to "Review this tour!", new_tour_review_url(t.id), :class=>"btn btn-primary", :id=>"tourindexbut" %>
+                <%= link_to "Review this tour!", new_tour_review_url(t.id), :class=>"btn btn-primary btn_cancel", :id=>"tourindexbut" %>
             </div><!--caption-->
           </div> <!--#thumbnail_tour_index-->
         </div><!--.col-md-3-->
@@ -213,3 +211,4 @@
     </div><!--.col-md-12 user_created_tours-->
   </div><!--.row user_created_tours-->
 </div><!--.container-fluid-->
+</div>
