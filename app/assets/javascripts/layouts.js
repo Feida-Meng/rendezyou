@@ -59,7 +59,7 @@ $(document).ready(function(){
 
 //booking form modal ---------------------------------------------------------
 
-  var bookingLink  = $('.booking-button');
+  var bookingLink  = $('.booking-button-schedules');
   var bookingMask  = $('.booking-modal-window');
   var bookingForm  = $('.booking-modal-form');
   var bookingInput = $('.booking-modal-form input');
