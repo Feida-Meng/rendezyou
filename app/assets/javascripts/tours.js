@@ -72,12 +72,14 @@ $(function(){
             marker.addListener('click', function(event) {
               if ( tourMapDiv === editPointMapDiv && markerEdited === false ) {
                 var editTourpointData;
+                var form = document.getElementById('edit-tour-point-form');
 
                   editTourpointData = markers[this.label];
                   // console.log(tourpoint.tour_point_name);
                   $("#edit_tourpoint_tour_point_name").val(editTourpointData.tour_point_name);
                   $("#edit_tourpoint_tour_point_description").val(editTourpointData.tour_point_description);
                   $("#edit_tourpoint_tour_point_img").val(editTourpointData.tour_point_img);
+                  $(form).attr("action", "/tours/" + tourId + "/tourpoints/" + markers[this.label].id );
 
                 this.draggable = true;
                 markerEdited = true;
@@ -89,8 +91,6 @@ $(function(){
                   $("#edit_tourpoint_tour_point_laglng").val(event.latLng.toString());
                 });
 
-                var form = document.getElementById('edit-tour-point-form');
-                $(form).attr("action", "/tours/" + tourId+"/tourpoints/" + markers[this.label].id );
 
               } else {
                 populateInfoWindow(this,markers[this.label],tourPointInfoWindow,tourMap);

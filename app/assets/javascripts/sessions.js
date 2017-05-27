@@ -4,7 +4,7 @@ $(document).ready(function(){
   $('#notice').fadeIn('slowmotion').animate({"margin-top":"3.5em"},'slow').delay(1500).fadeOut(2000);
   $('#alert').fadeIn('slowmotion').animate({"margin-top":"3.5em"},'slow').delay(1500).fadeOut(2000);
 
-})
+});
 
 
 

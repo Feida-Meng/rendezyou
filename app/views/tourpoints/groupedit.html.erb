@@ -15,7 +15,7 @@
 
     <div class="form col-md-6">
 
-      <%= form_for [@tour,@tourpoint], html:{multipart: true, id:"edit_tour_point_form", tour_id:@tour.id} do |f| %>
+      <%= form_for [@tour,@tourpoint],method:"PATCH", html:{multipart: true, id:"edit-tour-point-form", tour_id:@tour.id} do |f| %>
 
       <div class="form-group">
         <%= f.label :tour_point_name %>

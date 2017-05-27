@@ -33,10 +33,6 @@ class TourpointsController < ApplicationController
 
   end
 
-  def edit
-
-  end
-
   def groupedit
     @tourpoint = Tourpoint.new
   end

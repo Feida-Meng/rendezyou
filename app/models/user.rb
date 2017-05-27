@@ -28,7 +28,7 @@ class User < ApplicationRecord
 
   def booked_schedules_ids
     schedules_ids = []
-    bookings.map { |b|  schedules_ids << b.schedule_id}
+    bookings.map { |b|  schedules_ids << b.schedule_id }
     return schedules_ids
   end
 
