@@ -31,12 +31,9 @@ class Tour < ApplicationRecord
           cat_value << value
         end
       end
-
     end
-
     where("name ILIKE any ( array[?] ) OR description ILIKE any ( array[?] ) OR rendezvous_point ILIKE any ( array[?] ) OR country_id IN (?) OR category IN (?)", keywords, keywords, keywords ,Country.where("name ILIKE any ( array[?] )", keywords ).ids, cat_value)
   end
-
 
   def duration_in_hr(duration_in_ms=0)
     duration_in_ms / 3600000
