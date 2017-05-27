@@ -47,7 +47,7 @@ function markerMaker(position,map,label,draggable) {
   var marker = new google.maps.Marker({
     position: position,
     map: map,
-    label:"",
+    label:label,
     icon:image,
     title: '',
     draggable:draggable,
