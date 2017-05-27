@@ -613,15 +613,11 @@ div.mobile_only{
 
 }
 
-@media (max-width:1045px){
+@media (max-width: 1045px){
 
   .booking-button {
     display: none;
   }
-
-}
-
-@media (max-width: 990px){
 
   .col-md-4.tours-icon-div {
       display: inline-block;
@@ -681,7 +677,7 @@ div.mobile_only{
 
 }
 
-@media (max-width:415px){
+@media (max-width:667px){
 
   .main-title,
   .tour-description-title,

@@ -352,7 +352,7 @@ input#signupbutton{
 // responsive starts here  ------------>
 // responsive starts here  ------------>
 
-@media (min-width:1500px){
+@media (min-width:1281px){
 
   .user_passport_container{
 
@@ -401,7 +401,7 @@ input#signupbutton{
   zoom: 95%;
 }
 
-@media screen and (min-width:765px) and (max-width:1070px){
+@media (max-width:1045px){
 
   .responsive_middle_none{
     display: inline-flex;
@@ -414,7 +414,7 @@ input#signupbutton{
 
 }
 
-@media screen and (min-width:0px) and (max-width:775px){
+@media (max-width:764px){
 
   img.user_new_signin_avatar{
     display: none;
@@ -501,12 +501,12 @@ input#signupbutton{
 }
 
 
-@media screen and (min-width:0px) and (max-width:440px){
+@media (max-width:667px){
 
-  body {
-    width: 400%;
-    zoom: 400%;
-  }
+  // body {
+  //   width: 400%;
+  //   zoom: 400%;
+  // }
 
   #user-carousel-container-fluid{
       display: none;

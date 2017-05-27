@@ -147,7 +147,7 @@ h2.cabin_sketch{
     display: none;
   }
 
-@media screen and (min-width:1300px){
+@media (min-width:1280px){
   .oneliner{
     padding-top: 3em;
   }
@@ -174,10 +174,10 @@ h2.cabin_sketch{
 
 
 
-@media screen and (min-width:0px) and (max-width:380px){
+@media (max-width:667px){
   .map_img{
     position: fixed;
-    width: 375px;
+    width: 70vw;
     z-index: -500;
   }
 
@@ -187,7 +187,7 @@ h2.cabin_sketch{
 
   .tag_line{
     font-size: 1em;
-    padding-top: 375px;
+    padding-top: 300px;
     padding-left: 30px;
     width: 100%;
     font-weight: bolder;
@@ -228,6 +228,7 @@ h2.cabin_sketch{
   #mobile_view_tab{
     position: absolute;
     // font-family: 'Cookie', cursive;
+    position: static;
     font-family: arial;
     font-size: 1em;
     color: steelblue;
