@@ -38,6 +38,7 @@ $(function(){
       dataType:'json'
     }).done(function(reponseData){
       tour = reponseData;
+      tour.tourpoints = tour.tourpoints.sort(function (a, b) {return a.id - b.id;});
       var tourMap = createMap(tourMapDiv);
       var rendezvousPoint = tour.rendezvous_point;
       var country = tour.country;
@@ -75,7 +76,7 @@ $(function(){
                 var form = document.getElementById('edit-tour-point-form');
 
                   editTourpointData = markers[this.label];
-                  // console.log(tourpoint.tour_point_name);
+
                   $("#edit_tourpoint_tour_point_name").val(editTourpointData.tour_point_name);
                   $("#edit_tourpoint_tour_point_description").val(editTourpointData.tour_point_description);
                   $("#edit_tourpoint_tour_point_img").val(editTourpointData.tour_point_img);
@@ -90,7 +91,6 @@ $(function(){
                 google.maps.event.addListener(this, 'dragend', function (event) {
                   $("#edit_tourpoint_tour_point_laglng").val(event.latLng.toString());
                 });
-
 
               } else {
                 populateInfoWindow(this,markers[this.label],tourPointInfoWindow,tourMap);
@@ -141,27 +141,21 @@ $(function(){
     catName.each(function(){
       var tourCategory = $(this).html();
       if (tourCategory === ' Nature') {
-        console.log('nature');
         var leaf = ("<span class='fa fa-leaf'>");
         $(this).prepend(leaf);
       } else if (tourCategory === ' Social') {
-        console.log('social');
         var users = ("<span class='fa fa-users'>");
         $(this).prepend(users);
       } else if (tourCategory === ' City tour') {
-        console.log('city');
         var building = ("<span class='fa fa-building-o'>");
         $(this).prepend(building);
       } else if (tourCategory === ' Recreation') {
-        console.log('recreation');
         var puzzle = ("<span class='fa fa-puzzle-piece'>");
         $(this).prepend(puzzle);
       } else if (tourCategory === ' Other') {
-        console.log('other');
         var mapIcon = ("<span class='fa fa-map'>");
         $(this).prepend(mapIcon);
       } else if (tourCategory === ' Food &amp; drinks') {
-        console.log(' ood &amp; drinks');
         var cutlery = ("<span class='fa fa-cutlery'>");
         $(this).prepend(cutlery);
       }
