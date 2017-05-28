@@ -10,7 +10,7 @@
       <div id="tourpointmap"></div>
     </div>
 
-    <div class="form col-md-6">
+    <div class="form col-md-6" id="new_tour_form" tour_id="<%= @tour.id %>" >
 
       <%= form_for [@tour,@tourpoint], html:{multipart: true, id:"tour_point_form"} do |f| %>
 

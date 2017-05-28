@@ -14,7 +14,7 @@ $(function(){
     tourId = currentUrl.substring(currentUrl.lastIndexOf('/') + 1);
     tourMapDiv = showTourMapDiv;
   } else if ( $.contains(document, tourPointMapDiv)) {
-    tourId = currentUrl.substring(currentUrl.indexOf('/tours/') + 7,currentUrl.indexOf('/tourpoints/new') );
+    tourId = $("#new_tour_form").attr("tour_id");
     tourMapDiv = tourPointMapDiv;
   } else if ( $.contains(document,editPointMapDiv) ) {
     tourMapDiv = editPointMapDiv;
@@ -27,7 +27,7 @@ $(function(){
   }
 
   if (mapPage === 1) {
-
+    console.log("!!!!!!!!!!!!!!");
     var tourPageUrl = "/tours/"+tourId;
     var tour;
     var tourpoints = [];
@@ -120,6 +120,8 @@ $(function(){
         }
       }
 
+    }).fail(function(a,b,c){
+      console.log(a +" "+b+" "+c);
     });
   }
 
