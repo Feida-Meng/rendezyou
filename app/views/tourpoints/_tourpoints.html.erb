@@ -2,7 +2,7 @@
 </div>
 
 <h4 class="create_a_tour_now">Please click on map to drop a marker of the new <span class="a_nav_logo small_logo">RendezYOU</span> tour point.</h4>
-
+<h5 class="create_a_tour_now"> Then you can drag the marker on the map to adjust the location.</h5>
 <div class="container-fluid tour_point_form_scale">
   <div class="row">
 
@@ -10,9 +10,21 @@
       <div id="tourpointmap"></div>
     </div>
 
-    <div class="form col-md-6">
+    <div class="form col-md-6" id="new_tour_form" tour_id="<%= @tour.id %>" >
 
       <%= form_for [@tour,@tourpoint], html:{multipart: true, id:"tour_point_form"} do |f| %>
+
+      <% if @tourpoint.errors.any? %>
+      <div class="error_explanation">
+        <h3><%= pluralize(@tourpoint.errors.count, "error") %> prohibited this tour from being saved:</h3>
+
+        <ul>
+          <% @tourpoint.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
 
       <div class="form-group">
         <%= f.label :tour_point_name %>

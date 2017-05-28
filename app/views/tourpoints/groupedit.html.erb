@@ -13,9 +13,21 @@
       <div id="edit-tourpoints-map"></div>
     </div>
 
-    <div class="form col-md-6">
+    <div class="form col-md-6" id="tourpoint_edit" tour_id="<%= @tour.id %>" >
 
       <%= form_for [@tour,@tourpoint],method:"PATCH", html:{multipart: true, id:"edit-tour-point-form", tour_id:@tour.id} do |f| %>
+
+      <% if @tourpoint.errors.any? %>
+      <div class="error_explanation">
+        <h3><%= pluralize(@tourpoint.errors.count, "error") %> prohibited this tour from being saved:</h3>
+
+        <ul>
+          <% @tourpoint.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
 
       <div class="form-group">
         <%= f.label :tour_point_name %>
@@ -38,7 +50,7 @@
       </div>
 
       <div class="form-group">
-        <%= f.submit "Save this tour point", :class=>"btn btn-primary" %>
+        <%= f.submit "Save this tour point", :class=>"btn btn-primary", :id=>"edit-button",:clicked => false %>
           <p class="tour-or"></p>
         <%= link_to 'Cancel', tour_path(@tour), :class=>"btn btn-default" %>
       </div>
