@@ -115,7 +115,7 @@ h2.cabin_sketch{
   // font-family: 'Oswald', sans-serif;
   font-family: 'Yrsa', serif;
   color: black;
-  font-size: 5em;
+  font-size: 4.5em;
   text-align: center;
   padding-top: 1.75em;
   padding-bottom: 1em;
@@ -147,37 +147,209 @@ h2.cabin_sketch{
     display: none;
   }
 
-@media screen and (min-width:1300px){
+  a.btn.btn-warning{
+    font-size: .75em;
+  }
+
+
+@media (min-width:1280px){
   .oneliner{
-    padding-top: 3em;
+    padding-top: 1.5em;
+    padding-bottom: 1em;
+    font-size: 7em;
   }
 
   .one_two_three{
-    padding-bottom: 2em;
+    padding-bottom: 6em;
   }
 
   div.main_new{
     height: 90px;
+    zoom: 140%;
   }
 
   form#new_user{
-    padding-top: 90px;
+    padding-top: 120px;
   }
 
   #mobile_view_tab{
     display: none;
   }
 
+  h4.create_a_tour_now,
+  h4.join_a_tour_now{
+    font-size: 3em;
+    margin-top: 2em;
+    margin-bottom: 1.5em;
+  }
+
+  .logo{
+    font-size: 10.5em;
+  }
+
+  // i.fa.fa-map-marker.fa-5x.mobile_pin_map{
+  //   position: absolute;
+  //   display: inherit;
+  //   color: indianred;
+  //   text-shadow: 0px 7px 3px black;
+  //   left: 265px;
+  //   top: -70px;
+  //   margin-top: 50px;
+  //   z-index: 2;
+  // }
+  //
+  // #mobile_view_tab{
+  //   position: absolute;
+  //   // font-family: 'Cookie', cursive;
+  //   display: inline;
+  //   font-family: arial;
+  //   font-size: 1em;
+  //   color: steelblue;
+  //   background: khaki;
+  //   box-shadow: 0px 0px 10px black;
+  //   padding: .5em;
+  //   transform: rotate(-45deg);
+  //   width: 150px;
+  //   top: 5.5em;
+  //   left: 12em;
+  //   text-align: center;
+  //   z-index: 1;
+  // }
+
+}
+
+@media (max-width:1045px){
+  p.logo{
+    text-align: right;
+    font-size: 7.5em;
+    padding-right: 20px;
+ }
+
+ i.fa.fa-map-marker.fa-5x.mobile_pin_map{
+   position: absolute;
+   display: inherit;
+   color: indianred;
+   text-shadow: 0px 7px 3px black;
+   left: 265px;
+   top: -70px;
+   margin-top: 50px;
+   z-index: 2;
+ }
+
+ #mobile_view_tab{
+   position: absolute;
+   // font-family: 'Cookie', cursive;
+   display: inline;
+   font-family: arial;
+   font-size: 1em;
+   color: steelblue;
+   background: khaki;
+   box-shadow: 0px 0px 10px black;
+   padding: .5em;
+   transform: rotate(-45deg);
+   width: 150px;
+   top: 5.5em;
+   left: 12em;
+   text-align: center;
+   z-index: 1;
+ }
+
+ p.tag_line{
+   font-size: .9em;
+   margin-right: 10px;
+ }
+
+ .oneliner{
+   font-size: 3.5em;
+   text-shadow: 3px 2px 0 white, 6px 4px 0 rgba(0,0,0,0.15);
+   padding-top: 3.25em;
+   padding-bottom: 2.25em;
+
+ }
+
+ h2.cabin_sketch {
+   font-size: 2.5em
+ }
+
+ ul.dropdown-menu.nav_item_margin{
+   left: -15;
+   min-width: 80px;
+   z-index: 9999;
+   // margin-right: 100px;
+ }
+
+ form.login_form{
+   width: 40%;
+ }
+
+ p.tourp.page_ipad{
+   margin-top: 40px;
+   margin-right: 0px;
+ }
+ p.tourp{
+   height: 5em;
+ }
+
+
+ div#thumbnail_tour_index{
+   border: 1px solid grey;
+  //  height: 420px;
+  margin-bottom: 40px;
+ }
+
+ a.btn.btn-warning{
+   margin: 2%;
+ }
 
 }
 
 
+@media (max-width:880px){
 
+  i.fa.fa-map-marker.fa-5x.mobile_pin_map{
+    position: absolute;
+    display: inherit;
+    color: indianred;
+    text-shadow: 0px 7px 3px black;
+    left: 265px;
+    top: -3.1em;
+    margin-top: 50px;
+    z-index: 2;
+  }
 
-@media screen and (min-width:0px) and (max-width:380px){
+  #mobile_view_tab{
+    position: absolute;
+    // font-family: 'Cookie', cursive;
+    display: inline;
+    font-family: arial;
+    font-size: 1em;
+    color: steelblue;
+    background: khaki;
+    box-shadow: 0px 0px 10px black;
+    padding: .5em;
+    transform: rotate(-45deg);
+    width: 150px;
+    top:-5em;
+    left: 12em;
+    text-align: center;
+    z-index: 1;
+  }
+
+  p.logo{
+    font-size: 6em;
+  }
+
+  // .tag_line{
+  //   padding-top: 175px;
+  //   padding-right: 250px;
+  // }
+
+}
+
+@media (max-width:667px){
   .map_img{
     position: fixed;
-    width: 375px;
+    width: 70vw;
     z-index: -500;
   }
 
@@ -185,9 +357,9 @@ h2.cabin_sketch{
     display: none;
   }
 
-  .tag_line{
+  p.tag_line{
     font-size: 1em;
-    padding-top: 375px;
+    padding-top: 300px;
     padding-left: 30px;
     width: 100%;
     font-weight: bolder;
@@ -200,24 +372,28 @@ h2.cabin_sketch{
     display: inherit;
     color: indianred;
     text-shadow: 0px 7px 3px black;
-    right: 130px;
+    top: -10px;
+    left: 170px;
     margin-top: 50px;
-    z-index: 500;
+    z-index: 2;
   }
   .oneliner{
-    font-size: 3em;
-    margin-left: 7%;
-    margin-right: 7%;
+    font-size: 2em;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 10%;
     text-shadow: 3px 2px 0 white, 6px 4px 0 rgba(0,0,0,0.15);
   }
 
   #oneliner{
     padding-top: 4em;
+    // font-size: 2em;
   }
 
   ul.dropdown-menu.nav_item_margin{
     left: -15;
     min-width: 80px;
+    z-index: 9999;
     // margin-right: 100px;
   }
 
@@ -228,6 +404,7 @@ h2.cabin_sketch{
   #mobile_view_tab{
     position: absolute;
     // font-family: 'Cookie', cursive;
+    display: inline;
     font-family: arial;
     font-size: 1em;
     color: steelblue;
@@ -237,10 +414,18 @@ h2.cabin_sketch{
     transform: rotate(-45deg);
     width: 150px;
     top: 10em;
-    right: 8em;
+    left: 5em;
     text-align: center;
-    z-index: 400;
+    z-index: 1;
+  }
 
+  h2.cabin_sketch {
+    font-size: 3.25em
+  }
+
+  #notice,
+  #alert{
+    right: 3em;
   }
 
 }

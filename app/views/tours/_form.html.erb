@@ -69,8 +69,6 @@
 
         </div><!--form-inline-->
 
-        <br>
-
         <div class="form-group">
           <i class="fa fa-map-marker icon-new-tour" aria-hidden="true" id="i"></i><%= f.label :rendezvous_point%>
 
@@ -103,7 +101,7 @@
         <p class="tour-or"></p>
         <%= f.submit "Add dates LATER", name: "no_schedule", :class=>"btn btn-primary" %>
         <p class="tour-or"></p>
-        <%= link_to 'Cancel', tours_path, :class=>"btn btn-default" %>
+        <%= link_to 'Cancel', tours_path, :class=>"btn btn-default canceltour" %>
       </div>
 
       <% end %>

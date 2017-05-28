@@ -16,7 +16,7 @@ html{
 // Our code starts here
 .navigate {
    position: relative;
-   min-width: 100%;
+   max-width: 100%;
    z-index: 100;
  }
 
@@ -163,6 +163,7 @@ div.yield{
     z-index: 1000;
 }
 
+#error_explanation,
 #notice,
 #alert {
   position: fixed;
@@ -179,6 +180,8 @@ div.yield{
   padding-top: 3.5em;
   box-shadow: 1px 1px 3px 2px grey;
   margin: auto;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 #notice{
@@ -208,7 +211,7 @@ input#user_avatar{
 }
 
 
-@media screen and (min-width:0px) and (max-width:900px){
+@media (max-width:1045px){
 
 li.dropdown.nav_item_margin.nav_nine,
 li.dropdown.nav_item_margin.nav_six{
@@ -244,20 +247,21 @@ li.dropdown.nav_item_margin.nav_six{
     display: none;
   }
 
+  .nav_nine,
+  .nav_six{
+    padding-top: .75em;
+  }
+
 }
 
 
-@media screen and (min-width:0px) and (max-width:375px){
+@media (max-width:667px){
 
   input#user_avatar{
-    background: rgba(255,255,255,.4);
-    border-radius: 10px;
-    width: 240px;
-    height: 34px;
-    padding-top: 5px;
-    margin-left: 15px;
-    margin-right: 15px;
+    color: white;
   }
+
+
   #pro_pic_nav_six{
     display: none;
   }

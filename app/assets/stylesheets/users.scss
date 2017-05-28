@@ -152,7 +152,7 @@ img.carou_one{
 
 .main_passport{
   margin-left: auto;
-  margin-top: 8em;
+  margin-top: 7.5em;
 }
 
 .responsive_middle_none{
@@ -181,6 +181,11 @@ img.carou_one{
 
 .extra_avatar_to_hide{
     display: none;
+}
+
+.reduce_user_show_width{
+  width: 95%;
+  zoom: 95%;
 }
 
 // FLIP BUTTON -------------->
@@ -346,19 +351,38 @@ input#signupbutton{
   text-shadow: 0px 0px 2px 3px black;
 }
 
+#error_explanation{
+  padding-top: 30px;
+  padding-bottom: 10px;
+  transform: translateY(-80%);
+  zoom: 85%;
+}
+
 // responsive starts here  ------------>
 // responsive starts here  ------------>
 // responsive starts here  ------------>
 // responsive starts here  ------------>
 // responsive starts here  ------------>
 
-@media (min-width:1500px){
+@media (min-width:1281px){
+
+  #error_explanation{
+    padding-top: 30px;
+    padding-bottom: 10px;
+    transform: translateY(-140%);
+    zoom: 85%;
+  }
 
   .user_passport_container{
 
     margin-top: 3em;
   }
 }
+
+// div#error_explanation{
+//   padding-bottom: 10px;
+//   transform: translateY(-140%);
+// }
 
 @media (min-width:775px){
 
@@ -396,12 +420,8 @@ input#signupbutton{
 
 }
 
-.reduce_user_show_width{
-  width: 95%;
-  zoom: 95%;
-}
 
-@media screen and (min-width:765px) and (max-width:1070px){
+@media (max-width:1045px){
 
   .responsive_middle_none{
     display: inline-flex;
@@ -412,9 +432,13 @@ input#signupbutton{
     margin-top: .5em;
   }
 
+  .caption_booked_height{
+    height: 100px;
+  }
+
 }
 
-@media screen and (min-width:0px) and (max-width:775px){
+@media (max-width:770px){
 
   img.user_new_signin_avatar{
     display: none;
@@ -431,8 +455,8 @@ input#signupbutton{
 
   img.passport_wood_img{
     position: fixed;
-    min-width: 800px;
-    height: 100%;
+    min-width: 1200px;
+    height: 100vh;
   }
 
   .responsive_none{
@@ -448,7 +472,7 @@ input#signupbutton{
   }
 
   .form-horizontal.user_passport_container{
-    zoom: 90%;
+    zoom: 80%;
     align-items: center;
     justify-content: center;
   }
@@ -457,7 +481,7 @@ input#signupbutton{
    position: absolute;
    margin: auto;
    top: 8em;
-   right: -20px;
+   right: 0;
    text-align: center;
    color: #FF5500;
    z-index: 7000;
@@ -498,28 +522,28 @@ input#signupbutton{
     text-align: right;
   }
 
+  .button_row_new{
+    display: block;
+  }
+
+  div.flip_button_div{
+    margin-bottom: 10px;
+  }
+
 }
 
 
-@media screen and (min-width:0px) and (max-width:440px){
+@media (max-width:667px){
 
-  body {
-    width: 400%;
-    zoom: 400%;
-  }
+  // body {
+  //   width: 400%;
+  //   zoom: 400%;
+  // }
 
   #user-carousel-container-fluid{
       display: none;
   }
 
-  .button_row_new{
-    display: block;
-    margin-bottom: 20px;
-  }
-
-  a.flip_button{
-    margin: 5px;
-  }
    // .user_show_zoomed_scale{
   //   zoom: 220%;
   //   font-size: 2em;
