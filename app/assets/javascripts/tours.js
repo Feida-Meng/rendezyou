@@ -18,7 +18,7 @@ $(function(){
     tourMapDiv = tourPointMapDiv;
   } else if ( $.contains(document,editPointMapDiv) ) {
     tourMapDiv = editPointMapDiv;
-    tourId = currentUrl.substring(currentUrl.indexOf('/tours/') + 7,currentUrl.indexOf('/tourpoints/edit') );
+    tourId = $("#tourpoint_edit").attr("tour_id");
   } else if ( $.contains(document,editTourDiv) ) {
     tourMapDiv = newTourMapDiv;
     tourId = currentUrl.substring(currentUrl.indexOf('/tours/') + 7,currentUrl.lastIndexOf('/'));
@@ -70,17 +70,28 @@ $(function(){
             markers[marker.label] = tour.tourpoints[i];
             bounds.extend(marker.position);
 
+            // if ($("#edit-button").attr("clicked")===true) {
+            //   $("#edit-tour-point-form").show();
+            // }
+
             marker.addListener('click', function(event) {
               if ( tourMapDiv === editPointMapDiv && markerEdited === false ) {
                 var editTourpointData;
                 var form = document.getElementById('edit-tour-point-form');
 
-                  editTourpointData = markers[this.label];
+                $("#edit-tour-point-form").show();
 
-                  $("#edit_tourpoint_tour_point_name").val(editTourpointData.tour_point_name);
-                  $("#edit_tourpoint_tour_point_description").val(editTourpointData.tour_point_description);
-                  $("#edit_tourpoint_tour_point_img").val(editTourpointData.tour_point_img);
-                  $(form).attr("action", "/tours/" + tourId + "/tourpoints/" + markers[this.label].id );
+                editTourpointData = markers[this.label];
+
+                $("#edit_tourpoint_tour_point_name").val(editTourpointData.tour_point_name);
+                $("#edit_tourpoint_tour_point_description").val(editTourpointData.tour_point_description);
+                $("#edit_tourpoint_tour_point_laglng").val(editTourpointData.tour_point_laglng);
+                $("#edit_tourpoint_tour_point_img").val(editTourpointData.tour_point_img);
+                $(form).attr("action", "/tours/" + tourId + "/tourpoints/" + markers[this.label].id );
+
+                // editSubmit.click(function(){
+                //   $("#edit-button").attr("clicked",true);
+                // });
 
                 this.draggable = true;
                 markerEdited = true;
