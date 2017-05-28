@@ -163,6 +163,7 @@ div.yield{
     z-index: 1000;
 }
 
+#error_explanation,
 #notice,
 #alert {
   position: fixed;
@@ -179,6 +180,8 @@ div.yield{
   padding-top: 3.5em;
   box-shadow: 1px 1px 3px 2px grey;
   margin: auto;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 #notice{

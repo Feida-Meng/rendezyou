@@ -351,6 +351,13 @@ input#signupbutton{
   text-shadow: 0px 0px 2px 3px black;
 }
 
+#error_explanation{
+  padding-top: 30px;
+  padding-bottom: 10px;
+  transform: translateY(-80%);
+  zoom: 85%;
+}
+
 // responsive starts here  ------------>
 // responsive starts here  ------------>
 // responsive starts here  ------------>
@@ -359,11 +366,23 @@ input#signupbutton{
 
 @media (min-width:1281px){
 
+  #error_explanation{
+    padding-top: 30px;
+    padding-bottom: 10px;
+    transform: translateY(-140%);
+    zoom: 85%;
+  }
+
   .user_passport_container{
 
     margin-top: 3em;
   }
 }
+
+// div#error_explanation{
+//   padding-bottom: 10px;
+//   transform: translateY(-140%);
+// }
 
 @media (min-width:775px){
 

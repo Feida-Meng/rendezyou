@@ -151,25 +151,35 @@ h2.cabin_sketch{
     font-size: .75em;
   }
 
+
 @media (min-width:1280px){
   .oneliner{
     padding-top: 3em;
+    padding-bottom: 2em;
   }
 
   .one_two_three{
-    padding-bottom: 2em;
+    padding-bottom: 6em;
   }
 
   div.main_new{
     height: 90px;
+    zoom: 140%;
   }
 
   form#new_user{
-    padding-top: 90px;
+    padding-top: 120px;
   }
 
   #mobile_view_tab{
     display: none;
+  }
+
+  h4.create_a_tour_now,
+  h4.join_a_tour_now{
+    font-size: 3em;
+    margin-top: 2em;
+    margin-bottom: 1.5em;
   }
 
 }
