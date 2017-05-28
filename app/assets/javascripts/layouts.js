@@ -79,9 +79,9 @@ $(document).ready(function(){
   //schedules modal (responsive) ------------------------------------------
 
   var responsiveLink  = $('.tour-show-responsive');
-  var responsiveMask  = $('.schedules-modal-window-responsive')
-  var responsiveForm  = $('.schedules-modal-responsive')
-  var responsiveInput = $('.schedules-modal-responsive')
+  var responsiveMask  = $('.schedules-modal-window-responsive');
+  var responsiveForm  = $('.schedules-modal-responsive');
+  var responsiveInput = $('.schedules-modal-responsive');
 
   modal(responsiveLink, responsiveMask, responsiveForm, responsiveInput);
 
