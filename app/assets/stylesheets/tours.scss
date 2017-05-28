@@ -675,6 +675,14 @@ div.mobile_only{
     text-transform: uppercase;
   }
 
+  p.ipad_show_hide{
+    display: none;
+  }
+
+  .ipad_show_des{
+    margin-top: 40px;
+  }
+
 }
 
 @media (max-width:667px){
@@ -733,5 +741,22 @@ div.mobile_only{
 
   ul.dropdown-menu.nav_item_margin.signedin{
     left: -50px;
+    z-index: 9999;
+
   }
+
+  .sub_heading_guide_all{
+      font-size: 1.4em;
+      margin-bottom: 8%;
+      margin-top: 10%;
+  }
+
+  div#thumbnail_tour_index{
+    border: 1px solid grey;
+  }
+
+  a.btn.btn-default.canceltour{
+    margin-top: 20px;
+  }
+
 }

@@ -167,7 +167,67 @@ h2.cabin_sketch{
   #mobile_view_tab{
     display: none;
   }
+}
 
+@media (max-width:1045px){
+  p.logo{
+    text-align: right;
+    font-size: 7.5em;
+    padding-right: 20px;
+ }
+
+ i.fa.fa-map-marker.fa-5x.mobile_pin_map{
+   position: absolute;
+   display: inherit;
+   color: indianred;
+   text-shadow: 0px 7px 3px black;
+   left: 265px;
+   top: -70px;
+   margin-top: 50px;
+   // z-index: 100;
+ }
+
+ p.tag_line{
+   font-size: .9em;
+   margin-right: 10px;
+ }
+
+ .oneliner{
+   font-size: 3.5em;
+   text-shadow: 3px 2px 0 white, 6px 4px 0 rgba(0,0,0,0.15);
+   padding-top: 3.25em;
+   padding-bottom: 2.25em;
+
+ }
+
+ h2.cabin_sketch {
+   font-size: 2.5em
+ }
+
+ ul.dropdown-menu.nav_item_margin{
+   left: -15;
+   min-width: 80px;
+   z-index: 9999;
+   // margin-right: 100px;
+ }
+
+ form.login_form{
+   width: 40%;
+ }
+
+ p.tourp{
+   margin-top: 40px;
+   margin-right: 0px;
+ }
+
+ div#thumbnail_tour_index{
+   border: 1px solid grey;
+  //  height: 420px;
+ }
+
+ a.btn.btn-warning{
+   margin: 2%;
+ }
 
 }
 
@@ -202,22 +262,25 @@ h2.cabin_sketch{
     text-shadow: 0px 7px 3px black;
     right: 130px;
     margin-top: 50px;
-    z-index: 500;
+    // z-index: 100;
   }
   .oneliner{
-    font-size: 3em;
-    margin-left: 7%;
-    margin-right: 7%;
+    font-size: 2em;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 10%;
     text-shadow: 3px 2px 0 white, 6px 4px 0 rgba(0,0,0,0.15);
   }
 
   #oneliner{
     padding-top: 4em;
+    // font-size: 2em;
   }
 
   ul.dropdown-menu.nav_item_margin{
     left: -15;
     min-width: 80px;
+    z-index: 9999;
     // margin-right: 100px;
   }
 
@@ -240,8 +303,16 @@ h2.cabin_sketch{
     top: 10em;
     right: 8em;
     text-align: center;
-    z-index: 400;
+    z-index: 200;
+  }
 
+  h2.cabin_sketch {
+    font-size: 3.25em
+  }
+
+  #notice,
+  #alert{
+    right: 3em;
   }
 
 }

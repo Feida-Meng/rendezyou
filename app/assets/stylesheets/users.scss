@@ -412,9 +412,13 @@ input#signupbutton{
     margin-top: .5em;
   }
 
+  .caption_booked_height{
+    height: 100px;
+  }
+
 }
 
-@media (max-width:764px){
+@media (max-width:770px){
 
   img.user_new_signin_avatar{
     display: none;
@@ -431,8 +435,8 @@ input#signupbutton{
 
   img.passport_wood_img{
     position: fixed;
-    min-width: 800px;
-    height: 100%;
+    min-width: 1200px;
+    height: 100vh;
   }
 
   .responsive_none{
@@ -448,7 +452,7 @@ input#signupbutton{
   }
 
   .form-horizontal.user_passport_container{
-    zoom: 90%;
+    zoom: 80%;
     align-items: center;
     justify-content: center;
   }
@@ -457,7 +461,7 @@ input#signupbutton{
    position: absolute;
    margin: auto;
    top: 8em;
-   right: -20px;
+   right: 0;
    text-align: center;
    color: #FF5500;
    z-index: 7000;
@@ -498,6 +502,14 @@ input#signupbutton{
     text-align: right;
   }
 
+  .button_row_new{
+    display: block;
+  }
+
+  div.flip_button_div{
+    margin-bottom: 10px;
+  }
+
 }
 
 
@@ -512,14 +524,6 @@ input#signupbutton{
       display: none;
   }
 
-  .button_row_new{
-    display: block;
-    margin-bottom: 20px;
-  }
-
-  a.flip_button{
-    margin: 5px;
-  }
    // .user_show_zoomed_scale{
   //   zoom: 220%;
   //   font-size: 2em;
