@@ -147,6 +147,10 @@ h2.cabin_sketch{
     display: none;
   }
 
+  a.btn.btn-warning{
+    font-size: .75em;
+  }
+
 @media (min-width:1280px){
   .oneliner{
     padding-top: 3em;
@@ -167,6 +171,7 @@ h2.cabin_sketch{
   #mobile_view_tab{
     display: none;
   }
+
 }
 
 @media (max-width:1045px){
@@ -215,14 +220,19 @@ h2.cabin_sketch{
    width: 40%;
  }
 
- p.tourp{
+ p.tourp.page_ipad{
    margin-top: 40px;
    margin-right: 0px;
  }
+ p.tourp{
+   height: 5em;
+ }
+
 
  div#thumbnail_tour_index{
    border: 1px solid grey;
   //  height: 420px;
+  margin-bottom: 40px;
  }
 
  a.btn.btn-warning{
@@ -260,9 +270,10 @@ h2.cabin_sketch{
     display: inherit;
     color: indianred;
     text-shadow: 0px 7px 3px black;
-    right: 130px;
+    top: -10px;
+    left: 170px;
     margin-top: 50px;
-    // z-index: 100;
+    z-index: 2;
   }
   .oneliner{
     font-size: 2em;
@@ -291,7 +302,7 @@ h2.cabin_sketch{
   #mobile_view_tab{
     position: absolute;
     // font-family: 'Cookie', cursive;
-    position: static;
+    display: inline;
     font-family: arial;
     font-size: 1em;
     color: steelblue;
@@ -303,7 +314,7 @@ h2.cabin_sketch{
     top: 10em;
     right: 8em;
     text-align: center;
-    z-index: 200;
+    z-index: 1;
   }
 
   h2.cabin_sketch {

@@ -405,7 +405,8 @@ a#tourpointbut{
   border: #ff584c;
   // width: 5em;
   // height: 3em;
-  font-size: .7em;
+  font-size: .75em;
+  padding: 2%;
   text-align: justify;
 }
 
@@ -413,6 +414,8 @@ a#tourindexbut{
   position: absolute;
   top: 15px;
   right: 2px;
+  font-size: .9em;
+  padding: 2%;
   // background: #ff584c;
   border: #ff584c;
 }
@@ -682,6 +685,20 @@ div.mobile_only{
   .ipad_show_des{
     margin-top: 40px;
   }
+
+  .col-md-3.push-img-to-float{
+    margin-bottom: 20px;
+    }
+
+  a#tourpointbut{
+    font-size: .9em;
+  }
+
+  a#tourindexbut{
+    font-size: .9em;
+  }
+
+
 
 }
 

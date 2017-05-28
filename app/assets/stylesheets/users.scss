@@ -152,7 +152,7 @@ img.carou_one{
 
 .main_passport{
   margin-left: auto;
-  margin-top: 8em;
+  margin-top: 7.5em;
 }
 
 .responsive_middle_none{
@@ -181,6 +181,11 @@ img.carou_one{
 
 .extra_avatar_to_hide{
     display: none;
+}
+
+.reduce_user_show_width{
+  width: 95%;
+  zoom: 95%;
 }
 
 // FLIP BUTTON -------------->
@@ -396,10 +401,6 @@ input#signupbutton{
 
 }
 
-.reduce_user_show_width{
-  width: 95%;
-  zoom: 95%;
-}
 
 @media (max-width:1045px){
 
