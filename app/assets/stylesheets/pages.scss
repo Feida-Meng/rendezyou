@@ -189,7 +189,25 @@ h2.cabin_sketch{
    left: 265px;
    top: -70px;
    margin-top: 50px;
-   // z-index: 100;
+   z-index: 2;
+ }
+
+ #mobile_view_tab{
+   position: absolute;
+   // font-family: 'Cookie', cursive;
+   display: inline;
+   font-family: arial;
+   font-size: 1em;
+   color: steelblue;
+   background: khaki;
+   box-shadow: 0px 0px 10px black;
+   padding: .5em;
+   transform: rotate(-45deg);
+   width: 150px;
+   top: 5.5em;
+   left: 12em;
+   text-align: center;
+   z-index: 1;
  }
 
  p.tag_line{
@@ -242,7 +260,47 @@ h2.cabin_sketch{
 }
 
 
+@media (max-width:880px){
 
+  i.fa.fa-map-marker.fa-5x.mobile_pin_map{
+    position: absolute;
+    display: inherit;
+    color: indianred;
+    text-shadow: 0px 7px 3px black;
+    left: 265px;
+    top: -3.1em;
+    margin-top: 50px;
+    z-index: 2;
+  }
+
+  #mobile_view_tab{
+    position: absolute;
+    // font-family: 'Cookie', cursive;
+    display: inline;
+    font-family: arial;
+    font-size: 1em;
+    color: steelblue;
+    background: khaki;
+    box-shadow: 0px 0px 10px black;
+    padding: .5em;
+    transform: rotate(-45deg);
+    width: 150px;
+    top:-5em;
+    left: 12em;
+    text-align: center;
+    z-index: 1;
+  }
+
+  p.logo{
+    font-size: 6em;
+  }
+
+  // .tag_line{
+  //   padding-top: 175px;
+  //   padding-right: 250px;
+  // }
+
+}
 
 @media (max-width:667px){
   .map_img{
@@ -255,7 +313,7 @@ h2.cabin_sketch{
     display: none;
   }
 
-  .tag_line{
+  p.tag_line{
     font-size: 1em;
     padding-top: 300px;
     padding-left: 30px;
@@ -312,7 +370,7 @@ h2.cabin_sketch{
     transform: rotate(-45deg);
     width: 150px;
     top: 10em;
-    right: 8em;
+    left: 5em;
     text-align: center;
     z-index: 1;
   }
