@@ -59,7 +59,6 @@ function markerMaker(position,map,label,draggable) {
 function populateInfoWindow(marker, tourpoint, infowindow, map) {
   var tourPointName = "<div>" + "<h3>" + tourpoint.tour_point_name + "</h3>" + "</div>";
   var tourPointDescription = "<div>" + tourpoint.tour_point_description + "</div>";
-  console.log(tourpoint);
   var tourPointImg = "<img src=" + tourpoint.tour_point_img_url + " alt='' width='400px' height='400px' border=0>";
   var tourPointImgDiv = "<div>" + tourPointImg +  "</div>";
   if (infowindow.marker != marker) {
@@ -77,7 +76,8 @@ function createMap(tourMapDiv) {
   var map = new google.maps.Map(tourMapDiv, {
     zoom: 11,
     fullscreenControl: true,
-    center: {lat: 35.124402, lng: -124.771729}
+    center: {lat: 35.124402, lng: -124.771729},
+    mapTypeId: 'satellite'
   });
   return map;
 }
