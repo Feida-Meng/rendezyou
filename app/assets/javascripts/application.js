@@ -77,7 +77,7 @@ function createMap(tourMapDiv) {
     zoom: 11,
     fullscreenControl: true,
     center: {lat: 35.124402, lng: -124.771729},
-    mapTypeId: 'satellite'
+    mapTypeId: 'hybrid'
   });
   return map;
 }
