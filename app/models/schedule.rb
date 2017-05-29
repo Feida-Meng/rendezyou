@@ -4,7 +4,7 @@ class Schedule < ApplicationRecord
 
   # validates :max_capacity, presence: true
   validate :date_in_past
-  validate :no_duplicates
+  # validate :no_duplicates
 
   def tour_session
     "#{tour_start_time.strftime("%b %d, %Y at %I:%M%P")}"
@@ -16,11 +16,11 @@ class Schedule < ApplicationRecord
    end
   end
 
-  def no_duplicates
-    if current_capacity == 0 && Schedule.where(tour_id: tour_id, tour_start_time: tour_start_time, created_at: Time.now).exists?
-      errors.add(:tour_start_time, "already exists")
-    end
-  end
+  # def no_duplicates
+  #   if Schedule.where("tour_id = ? and tour_start_time = ?", tour_id, tour_start_time).exists?
+  #     errors.add(:tour_start_time, "already exists")
+  #   end
+  # end
 
 
   #
