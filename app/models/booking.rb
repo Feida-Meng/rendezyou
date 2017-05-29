@@ -27,7 +27,7 @@ class Booking < ApplicationRecord
 
   def booking
 
-    return tourtime.update(current_capacity:tourtime.current_capacity + booking_size ) && save 
+    return tourtime.update(current_capacity:tourtime.current_capacity + booking_size ) && save
   end
 
   def edit_booking(new_booking)
@@ -39,9 +39,8 @@ class Booking < ApplicationRecord
     #   return tourtime.update(current_capacity:tourtime.current_capacity + booking_size)
     # else
 
-      if  tourtime.update(current_capacity: ( tourtime.current_capacity + new_booking.booking_size - booking_size) )
-        # byebug
-        return update(booking_size: new_booking.booking_size )
+      if  update(booking_size: new_booking.booking_size )
+        return tourtime.update(current_capacity: ( tourtime.current_capacity + new_booking.booking_size - booking_size) )
       else
         return false
       end
