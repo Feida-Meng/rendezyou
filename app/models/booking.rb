@@ -3,7 +3,7 @@ class Booking < ApplicationRecord
   belongs_to :user
   validates :booking_size, presence: true
   validate :capacity_check
-  validate :book_again?
+  # validate :book_again?
  # after_save :update_capacitiy
 
   def capacity_check
@@ -14,12 +14,12 @@ class Booking < ApplicationRecord
     end
   end
 
-  def book_again?
-    if User.find(user_id).booked_schedules_ids.include? schedule_id
-        errors[:base] << "Tour already booked!"
-    end
-
-  end
+  # def book_again?
+  #   if User.find(user_id).booked_schedules_ids.include? schedule_id
+  #       errors[:base] << "Tour already booked!"
+  #   end
+  #
+  # end
 
   def tourtime
     Schedule.find(schedule_id)
@@ -52,6 +52,7 @@ class Booking < ApplicationRecord
 
   def cancel_booking
     tourtime.update(current_capacity: (tourtime.current_capacity - booking_size))
+    byebug
     destroy
   end
 
