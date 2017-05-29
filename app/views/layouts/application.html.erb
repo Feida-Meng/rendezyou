@@ -30,9 +30,11 @@
           </ul>
         </li>
 
+        <li class="nav_item_margin nav_three"><%= link_to "Adventure Awaits", profile_path, :class=>"nav_items" %></li>
+
+
         <li class="dropdown-toggle nav_item_margin nav_two"><%= link_to "About Us", root_path(anchor:"oneliner"), :class=>"nav_items" %></li>
 
-        <li class="nav_item_margin nav_three"><a href="#" class="dropdown-toggle nav_items" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contact</a></li>
 
         <% if current_user %>
 
@@ -47,7 +49,7 @@
             </ul>
           </li>
 
-          <li class="dropdown-toggle nav_item_margin nav_five"><%= link_to "Log Out", session_path("current"), :method => :delete, :class=>"nav_items" %></li>
+          <li class="dropdown-toggle nav_item_margin nav_five"><%= link_to "Log Out", session_path("current"), :method => :delete, :class=>"nav_items logout" %></li>
 
           <li class="dropdown nav_item_margin nav_six">
             <%=image_tag current_user.avatar.url(:thumb), :class=>"pro_pic_nav", :id=>"pro_pic_nav_six" %>
