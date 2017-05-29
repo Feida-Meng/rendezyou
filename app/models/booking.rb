@@ -39,8 +39,7 @@ class Booking < ApplicationRecord
     #   return tourtime.update(current_capacity:tourtime.current_capacity + booking_size)
     # else
 
-      if  update(booking_size: new_booking.booking_size )
-        return tourtime.update(current_capacity: ( tourtime.current_capacity + new_booking.booking_size - booking_size) )
+      if  update(booking_size: new_booking.booking_size ) && tourtime.update(current_capacity: ( tourtime.current_capacity + new_booking.booking_size - booking_size) )
       else
         return false
       end
