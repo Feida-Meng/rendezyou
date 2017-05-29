@@ -188,6 +188,11 @@ img.carou_one{
   zoom: 95%;
 }
 
+li.nav_item_margin.nav_eight, li.nav_item_margin.nav_five{
+  top: 1.75em;
+}
+
+
 // FLIP BUTTON -------------->
 // FLIP BUTTON -------------->
 // FLIP BUTTON -------------->
@@ -340,7 +345,7 @@ div#thumbnail_tour_index:hover{
 }
 
 form#new_user{
-  margin-top: 10px;
+  margin-top: -5px;
 }
 
 input#signupbutton{
@@ -364,6 +369,27 @@ input#signupbutton{
 // responsive starts here  ------------>
 // responsive starts here  ------------>
 
+@media (min-width:2000px){
+
+  body {
+    zoom: 130%;
+  }
+
+  img.passport_img{
+    zoom: 80%;
+  }
+
+  form#edit_user{
+    margin-top: 5%;
+  }
+
+  .main_passport{
+    margin-top: 14em;
+  }
+
+}
+
+
 @media (min-width:1281px){
 
   #error_explanation{
@@ -374,9 +400,9 @@ input#signupbutton{
   }
 
   .user_passport_container{
-
     margin-top: 3em;
   }
+
 }
 
 // div#error_explanation{
