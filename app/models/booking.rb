@@ -52,7 +52,7 @@ class Booking < ApplicationRecord
 
   def cancel_booking
     tourtime.update(current_capacity: (tourtime.current_capacity - booking_size))
-    byebug
+  
     destroy
   end
 
