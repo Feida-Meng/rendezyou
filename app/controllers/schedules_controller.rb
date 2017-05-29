@@ -1,6 +1,7 @@
 class SchedulesController < ApplicationController
   before_action :ensure_logged_in, only: [:new, :create, :edit, :destroy]
   before_action :load_tour
+  before_action :load_tourists, only: [:destroy]
 
 
   def index
@@ -14,7 +15,6 @@ class SchedulesController < ApplicationController
 
   def create
     ensure_owner(@tour)
-    @schedule = Schedule.new
     @schedule = @tour.schedules.build(schedule_params)
     @schedule.max_capacity = @tour.capacity
     if @schedule.save
@@ -36,7 +36,6 @@ class SchedulesController < ApplicationController
 
   def update
     @schedule = Schedule.find(params[:id])
-    # @schedule.update_attributes(schedule_params)
     if @schedule.update_attributes(schedule_params)
       redirect_to profile_path
     else
@@ -83,6 +82,7 @@ class SchedulesController < ApplicationController
 
 
   def load_tourists
+    @schedule = Schedule.find(params[:id])
     @bookings = @schedule.bookings
     tourist_ids = []
     @bookings.each do |booking|
