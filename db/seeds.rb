@@ -85,7 +85,7 @@ countries = %w(
               Tunisia
               Turkey
               UK
-              username
+              USA
               Vanuatu
               Venezuela
               Vietnam
