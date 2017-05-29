@@ -334,7 +334,7 @@ $button-transition-speed: 0.25s;
 }
 
 .caption_booked_height{
- height: 170px;
+ height: 190px;
 }
 
 div#thumbnail_tour_index:hover{
@@ -386,6 +386,11 @@ input#signupbutton{
   .main_passport{
     margin-top: 14em;
   }
+
+  div.main_new{
+  height: 90px;
+  zoom: 140%;
+}
 
 }
 
