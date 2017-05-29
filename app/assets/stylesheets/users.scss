@@ -388,9 +388,21 @@ input#signupbutton{
   }
 
   div.main_new{
-  height: 90px;
-  zoom: 140%;
-}
+    height: 90px;
+    zoom: 140%;
+  }
+
+  .oneliner{
+    font-size: 7em;
+  }
+
+  h4.create_a_tour_now,
+  h4.join_a_tour_now{
+    font-size: 3em;
+    margin-top: 2em;
+    margin-bottom: 1.5em;
+  }
+
 
 }
 
@@ -465,6 +477,15 @@ input#signupbutton{
 
   .caption_booked_height{
     height: 100px;
+  }
+
+  .main_passport{
+    margin-top: 10em;
+  }
+
+  .oneliner{
+    margin-top: 0em;
+    margin-bottom: 0em;
   }
 
 }
