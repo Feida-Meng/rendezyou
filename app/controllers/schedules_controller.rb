@@ -19,7 +19,7 @@ class SchedulesController < ApplicationController
     @schedule = @tour.schedules.build(schedule_params)
 
     @schedule.max_capacity = @tour.capacity
-    if @schedule.save 
+    if @schedule.save
       if params[:save_one]
         redirect_to tour_path(@tour)
       elsif params[:add_more]
