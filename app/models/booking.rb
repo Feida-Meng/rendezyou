@@ -9,15 +9,15 @@ class Booking < ApplicationRecord
   def capacity_check
     if booking_size.present?
 
-      byebug
+
       if created_at.nil?
-        byebug
+
         update_size = booking_size
       else
-        byebug
+
         update_size = @update_size
       end
-      byebug
+
       if tourtime.max_capacity < (tourtime.current_capacity + update_size)
         errors[:base] << "Not enough capacity"
       end
@@ -44,7 +44,6 @@ class Booking < ApplicationRecord
     booking_size_diff = params[:booking_size].to_i - booking_size
 
     @update_size = booking_size_diff
-    byebug
     if update_attributes(params) && tourtime.update(current_capacity: ( tourtime.current_capacity + booking_size_diff ) )
       return true
     else

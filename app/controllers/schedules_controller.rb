@@ -54,7 +54,6 @@ class SchedulesController < ApplicationController
     unless @schedule.bookings.empty?
       load_tourists
       UserMailer.cancel_schedule_email(@tourists, @schedule, @tour).deliver
-      # byebug
       @schedule.destroy
       @bookings.destroy_all
       redirect_to tour_path(@tour)

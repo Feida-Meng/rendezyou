@@ -44,7 +44,6 @@ class ToursController < ApplicationController
     @tour = Tour.new(tour_params)
     @tour.user_id = current_user.id
     @tour.duration_in_ms = (params[:duration_in_hr].to_i) * 3600000
-    # byebug
     if @tour.save
       if params[:add_schedule]
         redirect_to new_tour_schedule_path(@tour)
@@ -101,9 +100,6 @@ class ToursController < ApplicationController
 
 
   def tour_params
-
-    # params[:tour][:schedules_attributes]["0"][:current_capacity] = 0
-    # byebug
 
     params.require(:tour).permit(:name, :description, :country_id, :rendezvous_point, :category, :capacity, :duration_in_hr, :tourpic)
 

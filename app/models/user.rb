@@ -16,7 +16,6 @@ class User < ApplicationRecord
   def booked_tours
     tours = []
     bookings.each do |b|
-      # byebug
       t = Tour.find( Schedule.find( (b.schedule_id) ).tour_id )
       if !tours.include?(t)
         tours << Tour.find( Schedule.find( (b.schedule_id) ).tour_id )

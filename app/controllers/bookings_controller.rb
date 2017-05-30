@@ -16,7 +16,6 @@ class BookingsController < ApplicationController
     @booking.user_id = current_user.id
 
     if @booking.booking
-      # byebug
       @user = current_user
       UserMailer.booking_confirmation_email(@user,
                                             @tour,
@@ -63,7 +62,6 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.cancel_booking
-    # byebug
     UserMailer.guide_cancel_booking_email(@tour_guide,
                                           @booking,
                                           @tour,
