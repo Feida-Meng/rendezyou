@@ -7,10 +7,21 @@ class Booking < ApplicationRecord
  # after_save :update_capacitiy
 
   def capacity_check
-     if booking_size.present?
-       unless tourtime.max_capacity >= (tourtime.current_capacity + booking_size)
-       errors[:base] << "Not enough capacity"
+    if booking_size.present?
+
+      byebug
+      if created_at.nil?
+        byebug
+        update_size = booking_size
+      else
+        byebug
+        update_size = @update_size
       end
+      byebug
+      if tourtime.max_capacity < (tourtime.current_capacity + update_size)
+        errors[:base] << "Not enough capacity"
+      end
+
     end
   end
 
@@ -26,25 +37,19 @@ class Booking < ApplicationRecord
   end
 
   def booking
-
-    return tourtime.update(current_capacity:tourtime.current_capacity + booking_size ) && save
+    return save && tourtime.update(current_capacity:tourtime.current_capacity + booking_size )
   end
 
-  def edit_booking(new_booking)
+  def edit_booking(params)
+    booking_size_diff = params[:booking_size].to_i - booking_size
 
-    # if new_booking.schedule_id != schedule_id #check if new booking has the same tour session as the old one
-    #   byebug
-    #   tourtime.update(current_capacity: tourtime.current_capacity - booking_size)
-    #   update(schedule_id:new_booking.schedule_id,booking_size:new_booking.booking_size)
-    #   return tourtime.update(current_capacity:tourtime.current_capacity + booking_size)
-    # else
-
-      if  update(booking_size: new_booking.booking_size ) && tourtime.update(current_capacity: ( tourtime.current_capacity + new_booking.booking_size - booking_size) )
-      else
-        return false
-      end
-
-    # end
+    @update_size = booking_size_diff
+    byebug
+    if update_attributes(params) && tourtime.update(current_capacity: ( tourtime.current_capacity + booking_size_diff ) )
+      return true
+    else
+      return false
+    end
 
   end
 

@@ -60,7 +60,6 @@ class ToursController < ApplicationController
   def edit
     @tour = Tour.find(params[:id])
     ensure_owner(@tour) || tour_booked
-    # @tour = current_user.tours.find(params[:id])
   end
 
   def update

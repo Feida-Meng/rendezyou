@@ -40,10 +40,9 @@ class BookingsController < ApplicationController
   end
 
   def update
-    @oldbooking = Booking.find(params[:id])
-    @booking = Booking.new(booking_params)
-    ensure_owner(@oldbooking)
-    if @oldbooking.edit_booking(@booking)
+    @booking = Booking.find(params[:id])
+    ensure_owner(@booking)
+    if @booking.edit_booking(booking_params)
       @user = current_user
       UserMailer.booking_edit_email(@user,
                                     @tour,
@@ -86,7 +85,7 @@ private
  end
 
   def booking_params
-  params.require(:booking).permit(:schedule_id, :booking_size)
+    params.require(:booking).permit(:schedule_id, :booking_size)
   end
 
   def load_tour_guide
