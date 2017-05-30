@@ -79,18 +79,20 @@ class ToursController < ApplicationController
 
   def destroy
     @tour = Tour.find(params[:id])
-    if @tour.schedules.empty?
+    # if @tour.schedules.empty?
       @tour.schedules.destroy_all
       @tour.reviews.destroy_all
       @tour.tourpoints.destroy_all
       @tour.destroy
-      redirect_to tours_path
-    else
-      tour_booked
-      @tour.schedules.destroy_all
-      @tour.reviews.destroy_all
-      @tour.destroy
-    end
+    # else
+    #   tour_booked
+    #   @tour.schedules.destroy_all
+    #   @tour.reviews.destroy_all
+    #   @tour.tourpoints.destroy_all
+    #   @tour.destroy
+    #   redirect_to tours_path
+    # end
+    redirect_to tours_path
   end
 
   private
