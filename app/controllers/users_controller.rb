@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def new
     @user = User.new
-    @button_text = "Sign me in!"
+    @button_text = "Sign me in !"
     #  render :layout=>"applicationb"
 
   end

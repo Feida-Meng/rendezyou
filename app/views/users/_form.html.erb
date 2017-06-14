@@ -78,7 +78,11 @@
           <%= f.file_field :avatar, :class=>"extra_avatar_to_hide_padding" %>
         </div>
 
-      <%= f.submit @button_text, :class=>"btn btn-danger btn-lg active", :id=>"signupbutton" %>
+        <div class="col-sm-12">
+          <%= f.submit @button_text, :class=>"btn btn-danger btn-md active col-sm-4", :id=>"signupbutton" %>
+          <%= link_to 'Cancel', tours_path, :class=>"btn btn-danger btn-md active col-sm-3 cancel_button_margin_user", :id=>"cancelbuttonuser"%>
+
+        </div>
 
       </div>
 

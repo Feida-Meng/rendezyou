@@ -192,6 +192,13 @@ li.nav_item_margin.nav_eight, li.nav_item_margin.nav_five{
   top: 1.75em;
 }
 
+.cancel_button_margin_user{
+  margin-left: 4%;
+}
+
+#cancelbuttonuser{
+  box-shadow: 1px 1px 3px black;
+}
 
 // FLIP BUTTON -------------->
 // FLIP BUTTON -------------->
@@ -369,7 +376,7 @@ input#signupbutton{
 // responsive starts here  ------------>
 // responsive starts here  ------------>
 
-@media (min-width:2000px){
+@media (min-width:1900px){
 
   body {
     zoom: 130%;
