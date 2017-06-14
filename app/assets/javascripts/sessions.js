@@ -1,9 +1,9 @@
 $(document).ready(function(){
 
   //notice and alert
-  $('#notice').fadeIn('slowmotion').animate({"margin-top":"3.5em"},'slow').delay(1500).fadeOut(2000);
-  $('#alert').fadeIn('slowmotion').animate({"margin-top":"3.5em"},'slow').delay(1500).fadeOut(2000);
-  $('#error_explanation').fadeIn('slowmotion').animate({"margin-top":"3.5em"},'slow').delay(1500).fadeOut(2000);
+  $('#notice').fadeIn('slowmotion').animate({"margin-top":"3.5em"},'slow').delay(1500).fadeOut(1900);
+  $('#alert').fadeIn('slowmotion').animate({"margin-top":"3.5em"},'slow').delay(1500).fadeOut(1900);
+  $('#error_explanation').fadeIn('slowmotion').animate({"margin-top":"3.5em"},'slow').delay(1500).fadeOut(1900);
 });
 
 
