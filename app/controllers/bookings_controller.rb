@@ -26,7 +26,7 @@ class BookingsController < ApplicationController
                                                   @booking,
                                                   @tour,
                                                   @schedule).deliver
-      redirect_to user_path(current_user)
+      redirect_to profile_path(anchor: "sub_heading_booked")
     else
       render :new
     end
@@ -52,7 +52,7 @@ class BookingsController < ApplicationController
                                           @booking,
                                           @tour,
                                           @schedule).deliver
-      redirect_to user_path(current_user)
+      redirect_to profile_path(anchor: "sub_heading_booked")
     else
       render :edit
     end
