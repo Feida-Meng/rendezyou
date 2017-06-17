@@ -64,7 +64,7 @@ function populateInfoWindow(marker, tourpoint, infowindow, map) {
   if (infowindow.marker != marker) {
     infowindow.marker = marker;
     infowindow.setOptions({maxWidth:500});
-    infowindow.setContent( tourPointName + tourPointDescription + tourPointImgDiv);
+    infowindow.setContent( tourPointName +tourPointDescription + "<br>" + tourPointImgDiv);
     infowindow.open(map, marker);
     infowindow.addListener('closeclick',function(){
       infowindow.setMarker = null;

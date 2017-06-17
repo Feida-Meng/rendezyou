@@ -97,6 +97,7 @@ $(function(){
                 markerEdited = true;
                 this.setMap(null);
                 this.setMap(tourMap);
+                // this.setAnimation(google.maps.Animation.BOUNCE);
                 // editMarker = markerMaker(event.latLng, tourMap, this.label,true);
 
                 google.maps.event.addListener(this, 'dragend', function (event) {
@@ -121,6 +122,7 @@ $(function(){
             if (markerPlaced === false) {
               $("#tourpoint_tour_point_laglng").val(event.latLng.toString());
               newMarker = markerMaker(event.latLng, tourMap, (i+1).toString(),true);
+              // newMarker.setAnimation(google.maps.Animation.BOUNCE);
               google.maps.event.addListener(newMarker, 'dragend', function (event) {
                 $("#tourpoint_tour_point_laglng").val(event.latLng.toString());
               });
