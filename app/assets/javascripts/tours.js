@@ -41,7 +41,7 @@ $(function(){
       tour.tourpoints = tour.tourpoints.sort(function (a, b) {return a.id - b.id;});
       var tourMap = createMap(tourMapDiv);
       var rendezvousPoint = tour.rendezvous_point;
-      var country = tour.country;
+      var country = tour.country_name;
       var latlng;
       var latP;
       var lagP;
